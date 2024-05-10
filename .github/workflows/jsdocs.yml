@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-name: GitHub pages
-=======
 name: JSDocs Generation
->>>>>>> 7638b56b269dc2285525c19864500d966184278b
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
