@@ -3,7 +3,7 @@ name: JSDocs Generation
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -17,6 +17,11 @@ jobs:
         with:
           source_dir: ./
           output_dir: ./out
-          config_file: conf.json
           template: minami
           front_page: README.md
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./out
