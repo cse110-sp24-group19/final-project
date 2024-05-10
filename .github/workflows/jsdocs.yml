@@ -1,27 +1,25 @@
-name: JSDocs Generation
+name: Generate JSDocs
 
 on:
   push:
     branches:
-      - main
+      - main  # Adjust the branch as needed
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Build
-        uses: andstor/jsdoc-action@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          source_dir: ./src
-          output_dir: ./out
-          template: minami
-          front_page: README.md
+          node-version: '20'  # Adjust the Node.js version as needed
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./out
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate JSDocs
+        run: npx jsdoc -r . -d docs
