@@ -1,8 +1,15 @@
 {
   "devDependencies": {
+    "jest": "^29.7.0",
     "jsdoc": "^4.0.3"
   },
   "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "generate-docs": "jsdoc -r src -d docs"
+  },
+  "type": "module",
+  "jest": {
+    "transform": {},
+    "verbose": true
   }
 }
