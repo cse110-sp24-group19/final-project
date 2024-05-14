@@ -1,23 +1,23 @@
-# Coding Monkeys presents... The Cool Gen Z Work Journal
+# Coding Monkeys presents...The Cool Gen Z Work Journal
 
 ## Features
-* Home page
-  * Links to each page
+### Home page
+* Links to each page
     
-* Work Journal
-  * Calendar View integrated with work journal view
-  * Search feature
-  * Label creation + tagging
+### Work Journal
+* Calendar View integrated with work journal view
+* Search feature
+* Label creation + tagging
  
-* Goal-Setting
-  * Notification system
+### Goal-Setting
+* Notification system
     
-* Character Level-Up
-  * 3 max
-  * Level up the more that you log on and complete tasks
+### Character Level-Up
+* 3 max
+* Level up the more that you log on and complete tasks
     
-* Creative Play
-  * Built w/ p5.js
+### Creative Play
+* Built w/ p5.js
 
 ## Future Features
-* Possible Github integration
+* Possible GitHub integration
