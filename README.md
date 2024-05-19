@@ -5,14 +5,14 @@
 ### Home Page
 
 - Links to each of the three modes: journal, goal setting, creative play
-- User's character appears on home page 
+- User's character appears on home page
 
 ### Journal
 
 - Calendar View integrated with work journal view
 - Two views: Journal Entry View and Calendar/Work Journal View
 - Search feature
-  - search between entrys in work journal view
+  - search between entries in work journal view
 - Label creation + tagging
   - labels: personal, work, free-write
 
