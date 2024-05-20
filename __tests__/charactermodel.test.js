@@ -11,15 +11,15 @@ describe('Basic character model tests for Character.js', () => {
       }
 
       getItem(key) {
-        return this.store[key] || null;
+        return this.store['key'] || null;
       }
 
       setItem(key, value) {
-        this.store[key] = String(value);
+        this.store['key'] = String(value);
       }
 
       removeItem(key) {
-        delete this.store[key];
+        delete this.store['key'];
       }
     }
 
