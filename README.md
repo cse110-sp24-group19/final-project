@@ -27,7 +27,10 @@
 - 3 possible characters max
   - Monkey, dragon
 - Possible progression: egg -> cracked egg -> baby -> teenager -> adult
-- Level up the more that user 1) logs on and 2) completes tasks
+- User earns 1 point for each day they log on, and for each task they complete
+  - Points for goal completion TBD
+- First character level-up occurs when 10 pts have been accumulated, each successive level-up increments cost by 5 pts
+  - Progressions happen automatically when enough points have been accumulated
 
 ### Creative Play
 
