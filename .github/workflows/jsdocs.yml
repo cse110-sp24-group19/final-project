@@ -22,4 +22,4 @@ jobs:
         run: npm install
 
       - name: Generate JSDocs
-        run: npx jsdoc -r script.js -d docs
+        run: npx jsdoc -r ./src/ -d docs
