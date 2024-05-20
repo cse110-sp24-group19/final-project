@@ -19,7 +19,7 @@ describe('Basic character model tests for Character.js', () => {
       }
 
       removeItem(key) {
-        delete this.store[`${key}`];
+        this.store[`${key}`] = undefined;
       }
     }
 
