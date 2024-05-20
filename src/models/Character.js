@@ -75,9 +75,9 @@ class Character {
    * console.log(dragon.getProgressionStage()); // Returns 'Baby', 'Child', or 'Adult' based on points
    */
   getProgressionStage () {
-    if (this.progressionPoints <= 100) {
+    if (this.progressionPoints <= 10) {
       return 'Baby'
-    } else if (this.progressionPoints <= 200) {
+    } else if (this.progressionPoints <= 25) {
       return 'Child'
     } else {
       return 'Adult'
