@@ -2,43 +2,43 @@
 
 ## Character Reward System
 *User Story: As a young adult, I want to level up with characters in order to feel rewarded and motivated to work on my goals.*
-### Tasks:
 
+### Tasks:
 - [ ] Create an interactive and playful home page.
-- [ ] The more tasks that are completed and the more times you log on, the more you can level up your application character.
-- [ ] Create at least three character types.
+- [ ] Allow characters to level up based on task completion and login frequency.
+- [ ] Develop at least three character types.
 
 ## Brainstorm/Freewrite/Creative Play Functionality
-*User Story: As a young adult , I want to be able to brainstorm and doodle ideas for what I can work on in order to visualize my thoughts and tap into my creativity.*
-### Tasks:
+*User Story: As a young adult, I want to brainstorm and doodle ideas to visualize my thoughts and tap into my creativity.*
 
+### Tasks:
 - [ ] Create an integrated whiteboard page.
-- [ ] Set up buttons and controls for the whiteboard to change colors, pen size, erase, and clear.
+- [ ] Implement buttons and controls for changing colors, pen size, erasing, and clearing the whiteboard.
 
 ## Journaling
-*User Story: As a young adult, I want to journal my thoughts, achievements, and goals in order to reflect on my progress, write down my ideas for creative work, and develop my character.*
-### Tasks:
+*User Story: As a young adult, I want to journal my thoughts, achievements, and goals to reflect on my progress and develop my character.*
 
-- [ ] Create a journaling system where you can add journal entries to a date.
-- [ ] Create a calendar view to navigate the journal entries.
-- [ ] Add search feature to show and filter through the calendar view.
-- [ ] Create a labeling system to categorize journal entries by type: freewrite, career, personal.
-- [ ] Set up a system where the user can add, edit, and delete labels.
-- [ ] Create an edit form to modify journal entries. There should be a way to add a date, title, and text.
+### Tasks:
+- [ ] Develop a journaling system for adding entries by date.
+- [ ] Create a calendar view to navigate journal entries.
+- [ ] Add a search feature to filter entries in the calendar view.
+- [ ] Implement a labeling system to categorize journal entries (e.g., freewrite, career, personal).
+- [ ] Set up functionality for adding, editing, and deleting labels.
+- [ ] Create an edit form for modifying journal entries, including date, title, and text fields.
 
 ## Goal-Setting
-*User Story: As a young adult, I want to set goals in order to achieve my biggest dreams in life.* 
-### Tasks:
+*User Story: As a young adult, I want to set goals to achieve my biggest dreams in life.*
 
-- [ ] Create a goal-setting page where the user can set goals for today, this week, and long-term.
-- [ ] Set up a system to create, edit, and delete goals.
-- [ ] Set up a notification system where the user gets alert notifications regarding which tasks they need to complete.
+### Tasks:
+- [ ] Develop a goal-setting page for daily, weekly, and long-term goals.
+- [ ] Implement functionality for creating, editing, and deleting goals.
+- [ ] Set up a notification system to alert users about task deadlines.
 
 ## Accessible and Intuitive Navigation
-*User Story: As a young adult, I want to navigate the interface intuitively in order to maximize my productivity.*
-### Tasks:
+*User Story: As a young adult, I want to navigate the interface intuitively to maximize my productivity.*
 
-- [ ] Set up a home page.
-- [ ] Make sure there is a navigation bar/menu on every page.
-- [ ] Be able to navigate to the journal/calendar view, home page, and goal-setting page.
-- [ ] Make the home page intuitive and clear what each button does.
+### Tasks:
+- [ ] Develop a home page.
+- [ ] Ensure a navigation bar/menu is present on every page.
+- [ ] Enable navigation to the journal/calendar view, home page, and goal-setting page.
+- [ ] Design the home page to clearly indicate the function of each button.
