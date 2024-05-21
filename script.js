@@ -26,28 +26,28 @@ const forestBg = document.getElementById('forest-background')
 const stars = document.querySelectorAll('.stars') // Select all elements with the class 'stars'
 
 if (!sunMoon.style.backgroundImage) {
-  sunMoon.style.backgroundImage = "url('/assets/Moon.gif')"
+  sunMoon.style.backgroundImage = "url('assets/Moon.gif')"
 }
 
 // Add a click event listener to the 'sun-moon' element
-sunMoon.addEventListener('click', function (e) {
+sunMoon.addEventListener('click', function () {
   const currentSunMoon = sunMoon.style.backgroundImage
 
   // Change night to day
   if (currentSunMoon.includes('Moon.gif')) {
-    sunMoon.style.backgroundImage = "url('/assets/Sun-bright.gif')"
-    forestBg.style.background = "linear-gradient(315deg, #ffffff 0%, #abd8ff 74%), url('/assets/forest.svg')"
+    sunMoon.style.backgroundImage = "url('assets/Sun-bright.gif')"
+    forestBg.style.background = "linear-gradient(315deg, #ffffff 0%, #abd8ff 74%), url('assets/forest.svg')"
     stars.forEach(star => {
       star.style.display = 'none'
     })
   // Change day to sunset
   } else if (currentSunMoon.includes('Sun-bright.gif')) {
-    sunMoon.style.backgroundImage = "url('/assets/Sun-dim.gif')"
-    forestBg.style.background = "linear-gradient(to bottom, #ff7e5f, #feb47b), url('/assets/forest.svg')"
+    sunMoon.style.backgroundImage = "url('assets/Sun-dim.gif')"
+    forestBg.style.background = "linear-gradient(to bottom, #ff7e5f, #feb47b), url('assets/forest.svg')"
   // Change sunset to night
   } else {
-    sunMoon.style.backgroundImage = "url('/assets/Moon.gif')"
-    forestBg.style.background = "linear-gradient(to bottom, blue, #feb47b), url('/assets/forest.svg')"
+    sunMoon.style.backgroundImage = "url('assets/Moon.gif')"
+    forestBg.style.background = "linear-gradient(to bottom, blue, #feb47b), url('assets/forest.svg')"
     stars.forEach(star => {
       star.style.display = 'block'
     })
