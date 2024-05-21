@@ -13,7 +13,7 @@ name: Task
 about: Template for planning and tracking sprint tasks
 title: "Sprint [] --- [Task] "
 labels: task, needs estimation
-assignees: 
+assignees:
 
 ---
 
