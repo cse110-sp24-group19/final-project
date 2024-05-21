@@ -1,0 +1,268 @@
+@import url("/css/animation.css");
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+========================================================================================
+=====================================  Main Page  ======================================
+========================================================================================
+*/
+
+#main-page {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  cursor: url("assets/firefly.png"), auto;
+}
+
+/* Star trace effect for the mouse cursor */
+.star {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: yellow;
+  clip-path:
+    polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+  opacity: 1;
+  pointer-events: none; /* Ensure stars don't block interactions */
+  animation: fade-out 1s forwards;
+}
+
+/* Setting the background */
+#forest-background {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background:
+    linear-gradient(to bottom, blue, #feb47b),
+    url("assets/forest.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  z-index: -1; /* Place it behind other content */
+}
+
+/* Question mark icon styling */
+#question-mark {
+  position: absolute;
+  top: 5vh;
+  right: 5vw;
+  width: 150px;
+  height: 150px;
+  background: url("assets/question-mark.png");
+  background-size: cover;
+  z-index: 12;
+}
+
+/* Hover effect for the question mark icon */
+#question-mark:hover {
+  transform: scale(1.2);
+}
+
+/* Main categories description box styling */
+#main-categories-description {
+  position: absolute;
+  top: 20vh;
+  right: 20vw;
+  width: 400px;
+  height: 400px;
+  background: url("assets/main-categories.jpg");
+  background-size: cover;
+  border-radius: 30px;
+  z-index: 12;
+  display: none;
+}
+
+/* Display the main categories description box when hovering over the question mark */
+#question-mark:hover + #main-categories-description {
+  display: block;
+}
+
+/* Sun and moon icon styling */
+#sun-moon {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+  width: 200px;
+  height: 200px;
+  background: url("assets/Moon.gif");
+  background-size: cover;
+}
+
+#sun-moon:hover {
+  transform: scale(1.2);
+}
+
+#sun-moon:active {
+  transform: scale(1);
+}
+
+/* Cloud animation */
+#cloud {
+  position: absolute;
+  top: 5vh;
+  right: 100vw;
+  width: 250px;
+  height: 250px;
+  background: url("assets/Cloud.gif");
+  background-size: cover;
+  animation: move-right 25s linear infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Bird animations */
+#bird1 {
+  position: absolute;
+  top: 15vh;
+  right: 100vw;
+  width: 100px;
+  height: 100px;
+  background: url("assets/Bird-purple.gif");
+  background-size: cover;
+  animation: move-left 18s linear infinite;
+  z-index: 11;
+}
+
+#bird2 {
+  position: absolute;
+  top: 20vh;
+  right: 100vw;
+  width: 100px;
+  height: 100px;
+  background: url("assets/Bird-red.gif");
+  background-size: cover;
+  animation: move-right 18s linear infinite;
+  z-index: 11;
+}
+
+#bird3 {
+  position: absolute;
+  top: 30vh;
+  right: 100vw;
+  width: 100px;
+  height: 100px;
+  background: url("assets/Bird-yellow.gif");
+  background-size: cover;
+  animation: move-left 15s linear infinite;
+  z-index: 11;
+}
+
+/* Star animations */
+.stars {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 250px;
+  background: url("assets/Stars.gif");
+  background-size: cover;
+}
+
+#stars1 {
+  left: 15vw;
+}
+
+#stars2 {
+  right: 15vw;
+}
+
+/* Rabbit animation */
+#rabbit {
+  position: absolute;
+  bottom: 5vh;
+  right: 100vw;
+  width: 300px;
+  height: 300px;
+  background: url("assets/Rabbit.gif");
+  background-size: cover;
+  animation: move-left 25s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Calendar icon styling */
+#calendar {
+  position: absolute;
+  bottom: 3vh;
+  right: 8vw;
+  width: 300px;
+  height: 300px;
+  background: url("assets/calendar.png");
+  background-size: cover;
+  z-index: 1;
+}
+
+#calendar:hover {
+  background: url("assets/calendar-removing-page.png");
+  background-size: cover;
+}
+
+#calendar:active {
+  transform: scale(0.9);
+}
+
+/* Whiteboard icon styling */
+#white-board {
+  position: absolute;
+  bottom: 5vh;
+  left: 10vw;
+  width: 300px;
+  height: 300px;
+  background: url("assets/white-board.png");
+  background-size: cover;
+  transform: rotate(-15deg);
+  z-index: 3;
+}
+
+#white-board:hover {
+  background: url("assets/white-board-with-letters.png");
+  background-size: cover;
+  transform: rotate(-15deg);
+}
+
+#white-board:active {
+  transform: rotate(-15deg) scale(0.9);
+}
+
+/* Goal icon styling */
+#goal {
+  position: absolute;
+  bottom: 3vh;
+  right: 25vw;
+  width: 300px;
+  height: 300px;
+  background: url("assets/goal.png");
+  background-size: cover;
+  transform: rotate(8deg);
+  z-index: 3;
+}
+
+#goal:hover {
+  background: url("assets/goal-with-arrow.png");
+  background-size: cover;
+  transform: rotate(8deg);
+}
+
+#goal:active {
+  transform: rotate(8deg) scale(0.9);
+}
