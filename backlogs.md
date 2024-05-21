@@ -3,8 +3,6 @@
 ## Character Reward System
 *User Story: As a young adult, I want to level up with characters in order to feel rewarded and motivated to work on my goals.*
 
-### Tasks
-
 - [ ] Create an interactive and playful home page.
 - [ ] Allow characters to level up based on task completion and login frequency.
 - [ ] Develop at least three character types.
@@ -12,14 +10,11 @@
 ## Brainstorm/Freewrite/Creative Play Functionality
 *User Story: As a young adult, I want to brainstorm and doodle ideas to visualize my thoughts and tap into my creativity.*
 
-### Tasks
 - [ ] Create an integrated whiteboard page.
 - [ ] Implement buttons and controls for changing colors, pen size, erasing, and clearing the whiteboard.
 
 ## Journaling
 *User Story: As a young adult, I want to journal my thoughts, achievements, and goals to reflect on my progress and develop my character.*
-
-### Tasks
 
 - [ ] Develop a journaling system for adding entries by date.
 - [ ] Create a calendar view to navigate journal entries.
@@ -31,16 +26,12 @@
 ## Goal-Setting
 *User Story: As a young adult, I want to set goals to achieve my biggest dreams in life.*
 
-### Tasks
-
 - [ ] Develop a goal-setting page for daily, weekly, and long-term goals.
 - [ ] Implement functionality for creating, editing, and deleting goals.
 - [ ] Set up a notification system to alert users about task deadlines.
 
 ## Accessible and Intuitive Navigation
 *User Story: As a young adult, I want to navigate the interface intuitively to maximize my productivity.*
-
-### Tasks
 
 - [ ] Develop a home page.
 - [ ] Ensure a navigation bar/menu is present on every page.
