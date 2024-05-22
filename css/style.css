@@ -10,6 +10,10 @@ body {
   align-items: center;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /*
 ========================================================================================
 =====================================  Main Page  ======================================
@@ -206,7 +210,7 @@ body {
 }
 
 /* Calendar icon styling */
-#calendar {
+#calendar-journal {
   position: absolute;
   bottom: 3vh;
   right: 8vw;
@@ -217,17 +221,17 @@ body {
   z-index: 1;
 }
 
-#calendar:hover {
+#calendar-journal:hover {
   background: url("../assets/calendar-removing-page.png");
   background-size: cover;
 }
 
-#calendar:active {
+#calendar-journal:active {
   transform: scale(0.9);
 }
 
 /* Whiteboard icon styling */
-#white-board {
+#creative-play {
   position: absolute;
   bottom: 5vh;
   left: 10vw;
@@ -239,18 +243,18 @@ body {
   z-index: 3;
 }
 
-#white-board:hover {
+#creative-play:hover {
   background: url("../assets/white-board-with-letters.png");
   background-size: cover;
   transform: rotate(-15deg);
 }
 
-#white-board:active {
+#creative-play:active {
   transform: rotate(-15deg) scale(0.9);
 }
 
 /* Goal icon styling */
-#goal {
+#goal-setting {
   position: absolute;
   bottom: 3vh;
   right: 25vw;
@@ -262,13 +266,13 @@ body {
   z-index: 3;
 }
 
-#goal:hover {
+#goal-setting:hover {
   background: url("../assets/goal-with-arrow.png");
   background-size: cover;
   transform: rotate(8deg);
 }
 
-#goal:active {
+#goal-setting:active {
   transform: rotate(8deg) scale(0.9);
 }
 
