@@ -30,8 +30,14 @@
   <!-- End of the Main Page-->
   <!-- Calendar/Journal Page -->
   <div id="calendar-journal-page" class="page hidden">
-    <nav-bar></nav-bar>
+    <nav-bar id="calendar-journal-nav-bar"></nav-bar>
     <p>This is calendar/journal page</p>
+    <div class="search-bar-container">
+      <form id="search-bar" action="search_results_page" method="GET">
+        <input type="text" name="query" placeholder="Search...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
   </div>
   <!-- End of the Calendar/Journal Page -->
   <!-- Creative Play Page -->
