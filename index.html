@@ -11,7 +11,7 @@
 </head>
 <body>
   <!-- Main Page -->
-  <div id="main-page">
+  <div id="main-page" style="display: none;">
     <div id="forest-background"></div>
     <div id="question-mark"></div>
     <div id="main-categories-description"></div>
@@ -29,8 +29,14 @@
   </div>
   <!-- End of the Main Page-->
   <!-- Calendar/Journal Page -->
-  <div id="calendar-journal-page" style="display: none;">
+  <div id="calendar-journal-page" style="display: block;">
     <nav-bar id="calendar-journal-nav-bar"></nav-bar>
+    <div class="search-bar-container">
+      <form id="search-bar" action="search_results_page" method="GET">
+        <input type="text" name="query" placeholder="Search...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
   </div>
   <!-- End of the Calendar/Journal Page -->
   <!-- Creative Play Page -->
