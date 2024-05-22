@@ -9,16 +9,17 @@ class NavBar extends HTMLElement {
 
     // Define the nav items
     const navItems = [
-      { iconSrc: 'assets/monkey.png', text: 'Main Page' },
-      { iconSrc: 'assets/calendar-nav.png', text: 'Calendar/Journal' },
-      { iconSrc: 'assets/white-board-with-letters.png', text: 'Creative Play' },
-      { iconSrc: 'assets/goal-nav.png', text: 'Goal-Setting' }
+      { id: 'main-page-nav', iconSrc: 'assets/monkey.png', text: 'Main Page' },
+      { id: 'calendar-journal-nav', iconSrc: 'assets/calendar-nav.png', text: 'Calendar/Journal' },
+      { id: 'creative-play-nav', iconSrc: 'assets/white-board-with-letters.png', text: 'Creative Play' },
+      { id: 'goal-setting-nav', iconSrc: 'assets/goal-nav.png', text: 'Goal-Setting' }
     ]
 
     // Create and append nav items to the nav bar
     navItems.forEach(item => {
       const iconTextContainer = document.createElement('div')
       iconTextContainer.classList.add('icon-text-container')
+      iconTextContainer.id = item.id // Set the id attribute
       const icon = document.createElement('img')
       icon.src = item.iconSrc
       icon.alt = item.text
