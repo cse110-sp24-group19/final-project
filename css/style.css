@@ -281,6 +281,55 @@ body {
 ===============================  Calendar/Journal Page  ================================
 ========================================================================================
 */
+#calendar-journal-page {
+  display: flex;
+  flex-direction: column;
+
+  /* Needs to be fixed to accommodate for the nav functionality */
+  height: 50%;
+  width: 100%;
+}
+
+.search-bar-container {
+  margin-top: 1px; /* Adjust as needed */
+}
+
+#search-bar {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  border-radius: 4px;
+  margin-right: 40px; /* Adjust margin-right to move the search bar to the left */
+}
+
+#search-bar input[type="text"] {
+  padding: 8px;
+  width: 200px;
+  border: 3px solid #3ddf0c;
+  border-radius: 4px;
+  font-family: "Comic Sans MS", cursive; /* Change the font */
+}
+
+#search-bar button {
+  padding: 8px 16px;
+  margin-left: 10px;
+  background-color: #3ddf0c; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Comic Sans MS", cursive; /* Change the font */
+}
+
+#search-bar input[type="text"]:focus {
+  border-radius: 4px;
+  border-color: #0056b3; /* Change border color on focus */
+  outline: none;
+}
+
+#search-bar button:hover {
+  background-color: #0056b3; /* Darker shade of primary color */
+}
 
 /*
 ========================================================================================
