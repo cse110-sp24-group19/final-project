@@ -282,7 +282,7 @@ body {
 ========================================================================================
 */
 #calendar-journal-page {
-  display: block;
+  display: flex;
   flex-direction: column;
 
   /*needs to be fixed to accomodate for the nav functionallity*/
