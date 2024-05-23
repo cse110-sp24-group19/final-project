@@ -107,7 +107,6 @@ body {
   cursor: pointer;
   width: 100%;
   padding-top: 100%;
-  /* This ensures the element is square */
   position: relative;
   background-color: #ffe8a3;
   color: #000;
