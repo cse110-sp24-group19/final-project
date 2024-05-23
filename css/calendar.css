@@ -196,7 +196,18 @@ header .calendar-current-date {
   ||                                          HEADER                                                   ||
   ======================================================================================================
 */
-
+.calendar-navigation span {
+  cursor: pointer;
+  margin: 0 10px;
+}
+.calendar-current-date {
+  font-weight: 500;
+  font-size: 2vw;
+  /* Make the font size responsive */
+  margin: 0;
+  font-family: raleway, Tahoma, sans-serif;
+  text-align: center;
+}
 .calendar-header {
   display: flex;
   justify-content: end;
@@ -212,20 +223,6 @@ header .calendar-current-date {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-}
-
-.calendar-navigation span {
-  cursor: pointer;
-  margin: 0 10px;
-}
-
-.calendar-current-date {
-  font-weight: 500;
-  font-size: 2vw;
-  /* Make the font size responsive */
-  margin: 0;
-  font-family: raleway, Tahoma, sans-serif;
-  text-align: center;
 }
 
 .search-bar {
