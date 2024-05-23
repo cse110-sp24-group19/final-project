@@ -1,0 +1,240 @@
+@font-face {
+  font-family: comfortaa;
+  src: url("assets/Comfortaa-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: comfortaa, Tahoma, sans-serif;
+  color: #15171a;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  ======================================================================================================
+  ||                                          MONTH-VIEW                                               ||
+  ======================================================================================================
+*/
+
+.calendar-body {
+  padding: 50px;
+}
+
+.calendar-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.calendar-body .calendar-weekdays,
+.calendar-body .calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 200px);
+  column-gap: 100px;
+  row-gap: 50px;
+}
+
+.calendar-container {
+  background: #fff;
+  width: 2000px;
+  height: 1000px;
+  min-width: 600px;
+  border-radius: 30px;
+}
+
+.calendar-body .calendar-dates {
+  margin-bottom: 20px;
+}
+
+/* Use this to change the font of the week days (Monday, Tuesday, Wednesday,.., etc) */
+.calendar-body .calendar-weekdays li {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.calendar-body .calendar-weekdays .weekends,
+.calendar-dates li.weekend {
+  color: #d44e60;
+}
+
+/* Use this to change the rows in the calendar */
+.calendar-body .calendar-dates li {
+  margin-top: 15px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Use this to change the color of dates that are in the past month or in the next month */
+.calendar-dates li.inactive {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Use this to change the background color of the current date */
+.sticky-note .date.active {
+  color: #d44e60;
+}
+
+.calendar-body .calendar-weekdays {
+  margin-bottom: 20px;
+}
+
+/* Use this to change the color of dates that are in the past month or in the next month when hovering over them */
+.calendar-dates li.inactive:hover::before {
+  background: none;
+}
+
+/*
+  ======================================================================================================
+  ||                                          DAY-VIEW                                                 ||
+  ======================================================================================================
+*/
+
+/*
+  ======================================================================================================
+  ||                                         STICKY NOTE                                               ||
+  ======================================================================================================
+*/
+
+.sticky-note {
+  cursor: pointer;
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  background-color: #ffe8a3;
+  color: #000;
+  box-shadow: 0 10px 13px -7px #000, 1px 5px 3px 0 rgba(0 0 0 / 10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.sticky-note .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sticky-note .date {
+  font-size: 1vw;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.sticky-note .title {
+  font-size: 0.8vw;
+  margin: 5px 0;
+}
+
+.sticky-note .more-tasks {
+  font-size: 0.5vw;
+  margin: 5px 0;
+}
+
+/*
+  ======================================================================================================
+  ||                                          END OF STICKY NOTE                                       ||
+  ======================================================================================================
+*/
+
+/*
+  ======================================================================================================
+  ||                                          HEADER                                                   ||
+  ======================================================================================================
+*/
+
+/* Use this to change the style of the current date header i.e April, 2024 */
+.calendar-navigation span {
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+/* Use this to change the style of the current date header i.e April, 2024 */
+.calendar-current-date {
+  font-weight: 500;
+  font-size: 2vw; /* Make the font size responsive */
+  margin: 0;
+  font-family: raleway, Tahoma, sans-serif;
+  text-align: center;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.calendar-navigation {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Use this to control the navigation buttons < > */
+header .calendar-navigation span {
+  margin: 0 1px;
+  cursor: pointer;
+  color: rgb(61 223 12);
+  font-size: 35px;
+}
+
+/* More specific styles */
+.calendar-navigation span:last-child {
+  margin-right: -10px;
+}
+
+header .calendar-navigation span:hover {
+  background: #f2f2f2;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  border: 2px solid #cf0;
+  border-radius: 2px;
+  outline: none;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  color: #151515;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #cf0;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-bar button:hover {
+  background-color: #9c0;
+}
