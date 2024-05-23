@@ -20,14 +20,6 @@ body {
   ||                                          MONTH-VIEW                                               ||
   ======================================================================================================
 */
-/* Use this to edit the calendar container as a whole */
-
-/* Use this to change the style of the current date header i.e April, 2024 */
-header .calendar-current-date {
-  font-weight: 500;
-  font-size: 42px;
-  font-family: raleway, Tahoma, sans-serif;
-}
 
 .calendar-body {
   padding: 50px;
@@ -44,11 +36,8 @@ header .calendar-current-date {
 .calendar-body .calendar-dates {
   display: grid;
   grid-template-columns: repeat(7, 200px);
-  /* Set each column to 140px */
   column-gap: 100px;
-  /* Set gap between columns */
   row-gap: 50px;
-  /* Set gap between rows */
 }
 
 .calendar-container {
@@ -59,35 +48,9 @@ header .calendar-current-date {
   border-radius: 30px;
 }
 
-/* Use this to control the navigation buttons < > */
-header .calendar-navigation span {
-  margin: 0 1px;
-  cursor: pointer;
-  color: rgb(61, 223, 12);
-  font-size: 35px;
-}
-
-.calendar-navigation span:last-child {
-  margin-right: -10px;
-}
-
-header .calendar-navigation span:hover {
-  background: #f2f2f2;
-}
-
-/* Use this to change the style of the current date header i.e April, 2024 */
-header .calendar-current-date {
-  font-weight: 500;
-  font-size: 42px;
-  margin: 10px;
-  font-family: raleway, Tahoma, sans-serif;
-}
-
 .calendar-body .calendar-dates {
   margin-bottom: 20px;
 }
-
-/* Use this to edit the individual dates in the calendar as a whole */
 
 /* Use this to change the font of the week days (Monday, Tuesday, Wednesday,.., etc) */
 .calendar-body .calendar-weekdays li {
@@ -196,18 +159,22 @@ header .calendar-current-date {
   ||                                          HEADER                                                   ||
   ======================================================================================================
 */
+/* Use this to change the style of the current date header i.e April, 2024 */
+/* General styles */
 .calendar-navigation span {
   cursor: pointer;
   margin: 0 10px;
 }
+
+/* Use this to change the style of the current date header i.e April, 2024 */
 .calendar-current-date {
   font-weight: 500;
-  font-size: 2vw;
-  /* Make the font size responsive */
+  font-size: 2vw; /* Make the font size responsive */
   margin: 0;
   font-family: raleway, Tahoma, sans-serif;
   text-align: center;
 }
+
 .calendar-header {
   display: flex;
   justify-content: end;
@@ -223,6 +190,23 @@ header .calendar-current-date {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+/* More specific styles */
+.calendar-navigation span:last-child {
+  margin-right: -10px;
+}
+
+/* Use this to control the navigation buttons < > */
+header .calendar-navigation span {
+  margin: 0 1px;
+  cursor: pointer;
+  color: rgb(61, 223, 12);
+  font-size: 35px;
+}
+
+header .calendar-navigation span:hover {
+  background: #f2f2f2;
 }
 
 .search-bar {
