@@ -37,11 +37,6 @@
   <!-- Calendar/Journal Page -->
   <div id="calendar-journal-page" class="page hidden">
     <nav-bar id="calendar-journal-nav-bar"></nav-bar>
-    <div class="search-bar-container">
-      <form id="search-bar" action="search_results_page" method="GET">
-        <input type="text" name="query" placeholder="Search...">
-        <button type="submit">Search</button>
-      </form>
       <div class="calendar-container"> 
         <header class="calendar-header">
           <div class="calendar-navigation">
@@ -49,7 +44,12 @@
               <p class="calendar-current-date"></p>
               <span id="calendar-next" class="material-symbols-rounded">chevron_right</span>
           </div>
-         
+          <div class="search-bar-container">
+            <form id="search-bar" action="search_results_page" method="GET">
+              <input type="text" name="query" placeholder="Search...">
+              <button type="submit">Search</button>
+            </form>
+          </div>
         </header>
   
         <!-- Calendar Body for displaying the dates-->
@@ -69,7 +69,6 @@
     </div>
      <!-- CALENDAR HTML END-->
     </div>
-  </div>
 
 
   <!-- End of the Calendar/Journal Page -->
