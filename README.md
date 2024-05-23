@@ -1,5 +1,7 @@
 # Coding Monkeys presents... The Cool Gen Z Work Journal
 
+[View our project here](https://cse110-sp24-group19.github.io/final-project/)
+
 ## Features
 
 ### Home Page
