@@ -35,12 +35,13 @@ body {
 .calendar-body .calendar-weekdays,
 .calendar-body .calendar-dates {
   display: grid;
-  grid-template-columns: repeat(7, 150px);
+  grid-template-columns: repeat(7, 140px);
   column-gap: 50px;
   row-gap: 10px;
 }
 
 .calendar-container {
+  margin-top: 14px;
   background: #fff;
   width: 60vw;
   min-width: 600px;
@@ -53,9 +54,10 @@ body {
 
 /* Use this to change the font of the week days (Monday, Tuesday, Wednesday,.., etc) */
 .calendar-body .calendar-weekdays li {
-  font-size: 28px;
+  font-size: 1.3em;
   font-weight: bold;
-  padding: 10px 0;
+  padding: 0;
+  margin: 0;
 }
 
 .calendar-body .calendar-weekdays .weekends,
@@ -83,7 +85,7 @@ body {
 }
 
 .calendar-body .calendar-weekdays {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 /* Use this to change the color of dates that are in the past month or in the next month when hovering over them */
@@ -177,7 +179,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
-  padding: 10px;
+  padding: 0;
   position: relative;
   width: 100%;
 }

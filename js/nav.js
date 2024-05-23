@@ -47,8 +47,7 @@ class NavBar extends HTMLElement {
         top: 0px;
         left: 0px;
         width: 100vw;
-        height: 50px;
-        padding: 40px 0;
+        padding: 15px 0;
         font-family: comfortaa, sans-serif;
         font-size: 18px;
         background-color: white;
