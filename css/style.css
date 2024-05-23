@@ -281,17 +281,10 @@ body {
 ===============================  Calendar/Journal Page  ================================
 ========================================================================================
 */
-#calendar-journal-page {
-  display: flex;
-  flex-direction: column;
 
-  /* Needs to be fixed to accommodate for the nav functionality */
-  height: 100%;
-  width: 100%;
-}
 
 .search-bar-container {
-  margin-top: 80px; /* Adjust as needed */
+  margin-top: 10px; /* Adjust as needed */
 }
 
 #search-bar {
