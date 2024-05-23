@@ -286,12 +286,12 @@ body {
   flex-direction: column;
 
   /* Needs to be fixed to accommodate for the nav functionality */
-  height: 50%;
+  height: 100%;
   width: 100%;
 }
 
 .search-bar-container {
-  margin-top: 1px; /* Adjust as needed */
+  margin-top: 80px; /* Adjust as needed */
 }
 
 #search-bar {
