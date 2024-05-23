@@ -35,15 +35,14 @@ body {
 .calendar-body .calendar-weekdays,
 .calendar-body .calendar-dates {
   display: grid;
-  grid-template-columns: repeat(7, 200px);
-  column-gap: 100px;
-  row-gap: 50px;
+  grid-template-columns: repeat(7, 150px);
+  column-gap: 50px;
+  row-gap: 10px;
 }
 
 .calendar-container {
   background: #fff;
-  width: 2000px;
-  height: 1000px;
+  width: 60vw;
   min-width: 600px;
   border-radius: 30px;
 }
@@ -168,8 +167,7 @@ body {
 
 /* Use this to change the style of the current date header i.e April, 2024 */
 .calendar-current-date {
-  font-weight: 500;
-  font-size: 2vw; /* Make the font size responsive */
+  font-size: 1vw; /* Make the font size responsive */
   margin: 0;
   font-family: raleway, Tahoma, sans-serif;
   text-align: center;
