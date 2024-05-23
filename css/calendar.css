@@ -1,16 +1,6 @@
 @font-face {
-  font-family: "raleway";
-  src: url("assets/Raleway-Italic.ttf");
-}
-
-@font-face {
   font-family: "comfortaa";
   src: url("assets/Comfortaa-Regular.ttf");
-}
-
-@font-face {
-  font-family: "josefinsans";
-  src: url("assets/JosefinSans-Regular.ttf");
 }
 
 * {
@@ -19,7 +9,6 @@
   font-family: comfortaa, Tahoma, sans-serif;
   color: #15171a;
 }
-
 
 body {
   margin: 0;
@@ -40,7 +29,7 @@ header .calendar-current-date {
 }
 
 .calendar-body {
-  padding:50px;
+  padding: 50px;
 }
 
 .calendar-body ul {
@@ -66,7 +55,6 @@ header .calendar-current-date {
   border-radius: 30px;
 }
 
-
 /* Use this to control the navigation buttons < > */
 header .calendar-navigation span {
   margin: 0 1px;
@@ -83,12 +71,11 @@ header .calendar-navigation span:hover {
   background: #f2f2f2;
 }
 
-
 /* Use this to change the style of the current date header i.e April, 2024 */
 header .calendar-current-date {
   font-weight: 500;
   font-size: 42px;
-  margin:10px;
+  margin: 10px;
   font-family: raleway, Tahoma, sans-serif;
 }
 
@@ -96,9 +83,7 @@ header .calendar-current-date {
   margin-bottom: 20px;
 }
 
-
 /* Use this to edit the individual dates in the calendar as a whole */
-
 
 /* Use this to change the font of the week days (Monday, Tuesday, Wednesday,.., etc) */
 .calendar-body .calendar-weekdays li {
@@ -107,7 +92,8 @@ header .calendar-current-date {
   padding: 10px 0;
 }
 
-.calendar-body .calendar-weekdays .weekends, .calendar-dates li.weekend {
+.calendar-body .calendar-weekdays .weekends,
+.calendar-dates li.weekend {
   color: #d44e60;
 }
 
@@ -125,14 +111,10 @@ header .calendar-current-date {
   cursor: default;
 }
 
-
-
-
 /* Use this to change the background color of the current date */
 .sticky-note .date.active {
   color: #d44e60;
 }
-
 
 .calendar-body .calendar-weekdays {
   margin-bottom: 20px;
@@ -149,84 +131,6 @@ header .calendar-current-date {
   ======================================================================================================
 */
 
-/* Use this to change the day-view container as a whole */ 
-.day-view {
-  background: #fff;
-  margin: 100px 60px 40px 60px;
-  width: 1000px;
-  height: 750px;
-  min-width: 600px;
-  border-radius: 30px;
-  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-/* Use this to change the style of the current date header i.e 4/26/2024 */
-.day-view-date {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 42px;
-}
-
-/* Use this to edit the journal entries container, this includes: heading and lists */ 
-.journal-entries {
-  width: 750px;
-  height: 400px;
-  margin: 60px auto;
-  text-align: left;
-}
-
-.journal-entries h3 {
-  font-family: josefinsans, Tahoma, sans-serif;
-  font-size: 20px;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-}
-
-/* Use this to edit the list container */ 
-.journal-entries ul {
-  list-style: none;
-}
-
-/* Use this to edit the journal entries */ 
-.journal-entries li {
-  margin-top: 15px;
-  font-size: 16px;
-  text-transform: uppercase;
-}
-
-.journal-entries li:hover {
-  cursor: pointer;
-  text-decoration: underline;
-  color: palevioletred;
-  font-weight: bold;
-}
-
-.journal-entries li:active {
-  color: plum;
-}
-
-/* Use this to edit the back button */
-.back-button {
-  padding: 13px 23px;
-  font-size: 15px;
-  font-weight: bold;
-  border: none;
-  border-radius: 100px;
-  background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
-  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.back-button:hover {
-  color: white;
-}
-
-.back-button:active {
-  box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.2);
-  background-image: linear-gradient(to right bottom, palevioletred, lightsteelblue);
-}
-
 /* 
   ======================================================================================================
   ||                                         STICKY NOTE                                               ||
@@ -237,9 +141,9 @@ header .calendar-current-date {
   width: 100%;
   padding-top: 100%; /* This ensures the element is square */
   position: relative;
-  background-color:#FFE8A3;
+  background-color: #ffe8a3;
   color: #000;
-  box-shadow: 0px 10px 13px -7px #000000, 1px 5px 3px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 13px -7px #000000, 1px 5px 3px 0px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -281,14 +185,11 @@ header .calendar-current-date {
   ======================================================================================================
 */
 
-
-
 /* 
   ======================================================================================================
   ||                                          HEADER                                                   ||
   ======================================================================================================
 */
-
 
 .calendar-header {
   display: flex;
@@ -349,4 +250,3 @@ header .calendar-current-date {
 .search-bar button:hover {
   background-color: #99cc00; /* Darker background color on hover */
 }
-
