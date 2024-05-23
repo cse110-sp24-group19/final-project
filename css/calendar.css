@@ -15,7 +15,7 @@ body {
   padding: 0;
 }
 
-/* 
+/*
   ======================================================================================================
   ||                                          MONTH-VIEW                                               ||
   ======================================================================================================
@@ -92,7 +92,7 @@ body {
   background: none;
 }
 
-/* 
+/*
   ======================================================================================================
   ||                                          DAY-VIEW                                                 ||
   ======================================================================================================
@@ -192,17 +192,17 @@ body {
   transform: translateX(-50%);
 }
 
-/* More specific styles */
-.calendar-navigation span:last-child {
-  margin-right: -10px;
-}
-
 /* Use this to control the navigation buttons < > */
 header .calendar-navigation span {
   margin: 0 1px;
   cursor: pointer;
   color: rgb(61, 223, 12);
   font-size: 35px;
+}
+
+/* More specific styles */
+.calendar-navigation span:last-child {
+  margin-right: -10px;
 }
 
 header .calendar-navigation span:hover {
@@ -216,20 +216,18 @@ header .calendar-navigation span:hover {
 
 .search-bar input[type="text"] {
   padding: 10px;
-  border: 2px solid #ccff00;
-  /* Border color */
+  border: 2px solid #cf0;
   border-radius: 2px;
   outline: none;
   font-size: 16px;
   background-color: #f0f0f0;
-  /* Background color */
   color: #151515;
   margin-right: 10px;
 }
 
 .search-bar button {
   padding: 10px 20px;
-  background-color: #ccff00;
+  background-color: #cf0;
   color: #fff;
   border: none;
   border-radius: 2px;
@@ -238,5 +236,5 @@ header .calendar-navigation span:hover {
 }
 
 .search-bar button:hover {
-  background-color: #99cc00;
+  background-color: #9c0;
 }
