@@ -100,7 +100,7 @@ const manipulate = () => {
 
   // Loop to add the first dates of the next month
   for (let i = dayend; i < 6; i++) {
-    calendarHtml += ''`
+    calendarHtml += `
             <li class="sticky-note inactive">
               <div class="content"> 
                 <div class="date">${i - dayend + 1}</div>
