@@ -46,12 +46,12 @@ body {
 
 .calendar-container {
   margin-top: 1vw;
-  background: #fff;
+  background: #ffffff;
   width: 90vw;
   max-width: 1200px;
   min-width: 300px;
   border-radius: 2vw;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 10%);
   overflow: hidden;
 }
 
@@ -254,7 +254,7 @@ header .calendar-navigation span:hover {
 
 /* for smaller screens */
 
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px){
   .calendar-body {
     padding: 1vw;
   }
@@ -296,7 +296,9 @@ header .calendar-navigation span:hover {
   }
 }
 
-@media (max-width: 480px) {
+/* for even smaller screens */
+
+@media (min-width: 0px) and (max-width: 480px){
   .calendar-body {
     padding: 0.5vw;
   }
