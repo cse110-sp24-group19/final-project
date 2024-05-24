@@ -15,7 +15,7 @@ document.querySelectorAll('.delete-button').forEach(button => {
 })
 
 function hasOverflow () {
-  const dayViewContainer = document.querySelector('.day-view')
+  const dayViewContainer = document.querySelector('.day-view-hidden')
   // Check if there is overflow in the day-view container
   const hasOverflow = dayViewContainer.scrollHeight > dayViewContainer.clientHeight
 
