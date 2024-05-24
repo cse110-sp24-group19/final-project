@@ -1,14 +1,16 @@
+---
 name: Generate JSDocs
 
 on:
   push:
-    branches:
-      - main  # Adjust the branch as needed
+    branches-ignore:
+      - main  # This ensures it does not run on the main branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -23,3 +25,11 @@ jobs:
 
       - name: Generate JSDocs
         run: npx jsdoc -r ./src/ -d docs
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add docs/
+          git commit -m "Update JSDocs" || echo "No changes to commit"
+          git push https://${{ secrets.MY_GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
