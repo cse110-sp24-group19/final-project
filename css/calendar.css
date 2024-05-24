@@ -102,9 +102,6 @@ body {
   ||                                          DAY-VIEW                                                 ||
   ======================================================================================================
 */
-body {
-  background-color: #f0f0f0; /* Light gray background color */
-}
 
 /* If you have a container that wraps around the .day-view element */
 .wrapper {
@@ -127,9 +124,11 @@ body {
 }
 
 @keyframes rainbow {
-  0%, 100% {
+  0%, 
+  100% {
     background-position: 0% 50%;
   }
+  
   50% {
     background-position: 100% 50%;
   }
@@ -222,7 +221,7 @@ body {
 
 .delete-button {
   float: right;
-  background-color: #cc0000;
+  background-color: #c00;
   color: #fff;
   border: none;
   border-radius: 5px;
