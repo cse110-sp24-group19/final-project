@@ -59,7 +59,7 @@ body {
 
 /* Use this to change the font of the week days (Monday, Tuesday, Wednesday,.., etc) */
 .calendar-body .calendar-weekdays li {
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-weight: bold;
   padding: 0.5vw 0;
 }
@@ -85,7 +85,10 @@ body {
 
 /* Use this to change the background color of the current date */
 .sticky-note .date.active {
-  color: #d44e60;
+  border-radius: 10px;
+  border-radius: 10em;
+  padding: 5px;
+  background-color: #f0f0f0;
 }
 
 .calendar-body .calendar-weekdays {
@@ -105,7 +108,7 @@ body {
 
 /* If you have a container that wraps around the .day-view element */
 .wrapper {
-  background-color: #f0f0f0; /* Light gray background color */
+  background-color: #f0f0f0;
 }
 
 #day-view {
@@ -118,7 +121,7 @@ body {
   animation: rainbow 20s ease infinite;
   border-radius: 8px;
   position: relative;
-  overflow: auto; /* Ensure the day-view container does not overflow */
+  overflow: auto;
   border: 4px solid #8a2be2;
 }
 
@@ -246,6 +249,11 @@ body {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+}
+
+.sticky-note:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px -10px rgba(0 0 0 / 40%), 1px 10px 6px 0 rgba(0 0 0 / 10%);
 }
 
 .sticky-note .content {
