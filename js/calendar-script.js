@@ -1,6 +1,6 @@
 // dummy data for journal entries
 const journalEntries = [
-
+  
 ]
 
 // function to retrieve journal entry titles from the array of journal entries
@@ -121,6 +121,7 @@ const manipulate = () => {
   // Attach event listeners to each date for opening day view
   document.querySelectorAll('.sticky-note').forEach((item) => {
     item.addEventListener('click', function () {
+      console.log(`opening day view for this date : ${this.getAttribute('data-date')}`)
       openDayView(this.getAttribute('data-date'))
     })
   })
