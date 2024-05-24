@@ -6,7 +6,8 @@
   },
   "scripts": {
     "generate-docs": "jsdoc -r src -d docs",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "lint": "standard --fix"
   },
   "type": "module",
   "jest": {
