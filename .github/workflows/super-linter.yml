@@ -26,5 +26,5 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
           FILTER_REGEX_EXCLUDE: .*/docs/.*  # This regex excludes any files in the 'docs' directory
