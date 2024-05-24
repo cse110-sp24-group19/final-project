@@ -254,7 +254,7 @@ header .calendar-navigation span:hover {
 
 /* for smaller screens */
 
-@media (min-width: 480px) and (max-width: 768px){
+@media (width >= 768px) and (max-width: 768px){
   .calendar-body {
     padding: 1vw;
   }
