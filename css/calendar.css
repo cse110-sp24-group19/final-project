@@ -51,8 +51,6 @@ body {
   max-width: 1200px;
   min-width: 300px;
   border-radius: 2vw;
-  box-shadow: 0 4px 8px rgb(0, 0, 0);
-  overflow: hidden;
 }
 
 .calendar-body .calendar-dates {
@@ -254,7 +252,7 @@ header .calendar-navigation span:hover {
 
 /* for smaller screens */
 
-@media (min-width: 768px){
+@media (width >= 768px){
   .calendar-body {
     padding: 1vw;
   }
