@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function showPage (pageToShow) {
     [mainPage, calendarJournalPage, creativePlayPage, goalSettingPage].forEach(page => {
       if (page === pageToShow) {
+        page.classList.add('activeTab');
         page.classList.remove('hidden')
       } else {
         page.classList.add('hidden')
