@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="assets/monkey.png">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-  <link rel="stylesheet" href="css/calendar.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
+  <script src="js/sketch.js"></script>
   <script src="js/script.js" type="module"></script>
   <script src="js/nav.js" type="module"></script>
-  <script src="js/sound.js" type="module"></script>
-  <script src="js/sound.js" type="module"></script>
-  <script src="js/calendar-script.js" type="module"></script>
   <title>Coding Monkeys</title>
 </head>
 <body>
@@ -33,53 +32,22 @@
     <div id="goal-setting"></div> <!-- When clicked, nevigate users to the Goal-Setting page -->
   </div>
   <!-- End of the Main Page-->
-
   <!-- Calendar/Journal Page -->
   <div id="calendar-journal-page" class="page hidden">
-    <nav-bar id="calendar-journal-nav-bar"></nav-bar>
-      <div class="calendar-container"> 
-        <header class="calendar-header">
-          <div class="calendar-navigation">
-              <span id="calendar-prev" class="material-symbols-rounded">chevron_left</span>
-              <p class="calendar-current-date"></p>
-              <span id="calendar-next" class="material-symbols-rounded">chevron_right</span>
-          </div>
-          <div class="search-bar-container">
-            <form id="search-bar" action="search_results_page" method="GET">
-              <input type="text" name="query" placeholder="Search...">
-              <button type="submit">Search</button>
-            </form>
-          </div>
-        </header>
-  
-        <!-- Calendar Body for displaying the dates-->
-        <div class="calendar-body">
-          <!--Static Weekdays Header-->
-          <ul class="calendar-weekdays">
-            <li class="weekends">Sun</li>
-            <li>Mon</li>
-            <li>Tue</li>
-            <li>Wed</li>
-            <li>Thu</li>
-            <li>Fri</li>
-            <li class="weekends">Sat</li>
-          </ul>
-          <ul class="calendar-dates"></ul>
-        </div>
-    </div>
-     <!-- CALENDAR HTML END-->
-    </div>
-
-
+    <nav-bar></nav-bar>
+    <p>This is calendar/journal page</p>
+  </div>
   <!-- End of the Calendar/Journal Page -->
   <!-- Creative Play Page -->
   <div id="creative-play-page" class="page hidden">
     <nav-bar></nav-bar>
+    <div class="p5-canvas-container"></div>
   </div>
   <!-- End of the Creative Play Page -->
   <!-- Goal-Setting Page -->
   <div id="goal-setting-page" class="page hidden">
     <nav-bar></nav-bar>
+    <p>this is goal-setting page</p>
   </div>
   <!-- End of the Goal-Setting Page -->
 </body>
