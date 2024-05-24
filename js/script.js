@@ -7,7 +7,7 @@ document.addEventListener('mousemove', function (e) {
 * Creates a star at the specified (x, y) position
 * This function is used to create a star trace effect as the mouse moves
 */
-function createStar(x, y) {
+function createStar (x, y) {
   const star = document.createElement('div')
   star.classList.add('star')
   star.style.left = `${x}px`
