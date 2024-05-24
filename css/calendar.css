@@ -117,17 +117,7 @@ body {
   height: 70vh;
   margin: 20px auto;
   padding: 20px;
-  background: linear-gradient(
-    45deg,
-    #ffb3ba,
-    #ffdfba,
-    #baffc9,
-    #bae1ff,
-    #babaff,
-    #ffbaff,
-    #ffb3ba
-  );
-
+  background: linear-gradient(45deg, #ffb3ba, #ffdfba, #baffc9, #bae1ff, #babaff, #ffbaff, #ffb3ba);
   background-size: 600% 600%;
   animation: rainbow 20s ease infinite;
   border-radius: 8px;
@@ -138,12 +128,8 @@ body {
 
 @keyframes rainbow {
   0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* Styling for the date header */
@@ -268,8 +254,7 @@ body {
 
 .sticky-note:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 30px -10px rgba(0 0 0 / 40%),
-    1px 10px 6px 0 rgba(0 0 0 / 10%);
+  box-shadow: 0 20px 30px -10px rgba(0 0 0 / 40%), 1px 10px 6px 0 rgba(0 0 0 / 10%);
 }
 
 .sticky-note .content {
