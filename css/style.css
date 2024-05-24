@@ -336,17 +336,18 @@ body {
 */
 
 #goals-container {
-  max-width: 600vw;
+  max-width: fit-content;
   max-height: 600vh;
   margin: auto;
   display: flex;
-  flex: 1;
+ 
   gap: 5vw;
   align-items: center;  
   padding: 50px;
 }
 
 #goals-container h1 {
+  margin: auto;
   padding: 5px;
   text-align: center;
 }
@@ -355,16 +356,23 @@ body {
   display: flex;
   padding: 5em;
   flex: 1;
+  flex-shrink: 1;
   border-style: solid;
   border-width: 2px;
   border-color: rgb(67, 205, 205);
   border-radius: 25px;
   width: 200px;
   height: 350px;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 #goals-container section:hover {
   border-width: 6px;
+}
+
+#goals-container > div {
+  margin-top: auto;
 }
 
 
