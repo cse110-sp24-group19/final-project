@@ -5,7 +5,7 @@ function initializeP5Sketch () {
 
   if (canvasContainer && !canvasContainer.firstChild) {
     // Initialize the p5 sketch
-    const sketchInstance = new p5((sketch) => {
+    new p5((sketch) => {
       // keep track of user's settings
       const settings = {
         pensize: 10,
