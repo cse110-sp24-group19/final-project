@@ -27,7 +27,7 @@ const prenexIcons = document.querySelectorAll('.calendar-navigation span')
 
 const calendarView = document.querySelector('.calendar-container')
 
-const dayView = document.querySelector('.day-view')
+const dayView = document.querySelector('.day-view-hidden')
 
 const returnCalendarButton = document.getElementById('return-calendar')
 
