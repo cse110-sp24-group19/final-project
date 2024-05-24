@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" type="module"></script>
   <script src="js/nav.js" type="module"></script>
+
+  <script src="js/sound.js" type="module"></script>
+  <script src="js/sound.js" type="module"></script>
+  <script src="js/calendar-script.js" type="module"></script>
+  <script src="js/day-view.js" type="module"></script>
   <title>Coding Monkeys</title>
 </head>
 <body>
@@ -37,6 +42,159 @@
     <nav-bar></nav-bar>
     <p>This is calendar/journal page</p>
   </div>
+    <nav-bar id="calendar-journal-nav-bar"></nav-bar>
+      <div class="calendar-container"> 
+        <header class="calendar-header">
+          <div class="calendar-navigation">
+              <span id="calendar-prev" class="material-symbols-rounded">chevron_left</span>
+              <p class="calendar-current-date"></p>
+              <span id="calendar-next" class="material-symbols-rounded">chevron_right</span>
+          </div>
+          <div class="search-bar-container">
+            <form id="search-bar" action="search_results_page" method="GET">
+              <input type="text" name="query" placeholder="Search...">
+              <button type="submit">Search</button>
+            </form>
+          </div>
+        </header>
+  
+        <!-- Calendar Body for displaying the dates-->
+        <div class="calendar-body">
+          <!--Static Weekdays Header-->
+          <ul class="calendar-weekdays">
+            <li class="weekends">Sun</li>
+            <li>Mon</li>
+            <li>Tue</li>
+            <li>Wed</li>
+            <li>Thu</li>
+            <li>Fri</li>
+            <li class="weekends">Sat</li>
+          </ul>
+          <ul class="calendar-dates"></ul>
+        </div>
+     </div>
+  </div>
+  <!-- CALENDAR HTML END-->
+    
+  <!-- Day View Starts Here -->
+  <div class="day-view-hidden">
+      <!-- Date Header (E.g. Friday, April 26 2024) -->
+    <header class="day-view-date">5/9/2024</header>
+
+      <!-- Set of journals as containers -->
+    <div class="journal-entries">
+        <!-- Header for Journal Entries -->
+      <h3>Journal Entries:</h3>
+      <ul id="journal-list">
+            <li>
+                Meeting with client
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Reviewed project progress
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Brainstormed ideas
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Team huddle
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Worked on presentation
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Code review
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Research for new feature
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Meeting minutes
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Updated project timeline
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Fixed bug in code
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Implemented new design
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Testing new feature
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Prepared for demo
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Documented project changes
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Refactored code
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Received feedback
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Team building activity
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Debugged issue
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Deployed new release
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+            <li>
+                Created user manual
+                <button class="add-button" onclick="">Add</button>
+                <button class="delete-button" onclick="">Delete</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- button to return back to original position
+    After pressing it should set day-view display to none
+    and display the calendar-container -->
+    <button class="back-button" onclick="">Go Back</button>
+  </div>
+  <!-- Day View Ends Here -->
   <!-- End of the Calendar/Journal Page -->
   <!-- Creative Play Page -->
   <div id="creative-play-page" class="page hidden">

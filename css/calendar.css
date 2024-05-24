@@ -59,7 +59,7 @@ body {
 
 /* Use this to change the font of the week days (Monday, Tuesday, Wednesday,.., etc) */
 .calendar-body .calendar-weekdays li {
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-weight: bold;
   padding: 0.5vw 0;
 }
@@ -85,7 +85,10 @@ body {
 
 /* Use this to change the background color of the current date */
 .sticky-note .date.active {
-  color: #d44e60;
+  border-radius: 10px;
+  border-radius: 10em;
+  padding: 5px;
+  background-color: #f0f0f0;
 }
 
 .calendar-body .calendar-weekdays {
@@ -102,6 +105,132 @@ body {
   ||                                          DAY-VIEW                                                 ||
   ======================================================================================================
 */
+
+/* If you have a container that wraps around the .day-view element */
+.wrapper {
+  background-color: #f0f0f0;
+}
+
+.day-view-hidden {
+  display: none;
+  width: 80%;
+  height: 70vh;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(45deg, #ffb3ba, #ffdfba, #baffc9, #bae1ff, #babaff, #ffbaff, #ffb3ba);
+  background-size: 600% 600%;
+  animation: rainbow 20s ease infinite;
+  border-radius: 8px;
+  position: relative;
+  overflow: auto;
+  border: 4px solid #8a2be2;
+}
+
+@keyframes rainbow {
+  0%,
+  100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Styling for the date header */
+.day-view-date {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+/* Styling for the journal entries section */
+.journal-entries {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding-right: 10px; /* Add some padding to avoid hiding content behind the scrollbar */
+  position: relative;
+}
+
+.journal-entries h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase; /* Uppercase letters */
+  letter-spacing: 2px; /* Increase letter spacing */
+  border-bottom: 1px solid #ccc; /* Add a bottom border */
+  padding-bottom: 5px; /* Add some space below the border */
+}
+
+#journal-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#journal-list li {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); lint issue */
+  border-radius: 8px;
+}
+
+/* Styling for the back button */
+.back-button {
+  width: 100px;
+  padding: 10px;
+  background-color: #3ddf0c;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.add-button {
+  margin-right: 10px;
+  background-color: #3ddf0c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  float: right;
+  background-color: #c00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #8a2be2;
+}
 
 /*
   ======================================================================================================
@@ -123,13 +252,17 @@ body {
   box-sizing: border-box;
 }
 
+.sticky-note:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px -10px rgba(0 0 0 / 40%), 1px 10px 6px 0 rgba(0 0 0 / 10%);
+}
+
 .sticky-note .content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 5%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -138,18 +271,18 @@ body {
 }
 
 .sticky-note .date {
-  font-size: 1.5vw;
+  font-size: 1em;
   font-weight: bold;
   margin: 0.5vw 0;
 }
 
 .sticky-note .title {
-  font-size: 0.8vw;
+  font-size: 0.7em;
   margin: 0.5vw 0;
 }
 
 .sticky-note .more-tasks {
-  font-size: 0.5vw;
+  font-size: 0.5em;
   margin: 0.5vw 0;
 }
 
@@ -211,34 +344,4 @@ header .calendar-navigation span {
 
 header .calendar-navigation span:hover {
   background: #f2f2f2;
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-}
-
-.search-bar input[type="text"] {
-  padding: 10px;
-  border: 2px solid #cf0;
-  border-radius: 2px;
-  outline: none;
-  font-size: 16px;
-  background-color: #f0f0f0;
-  color: #151515;
-  margin-right: 10px;
-}
-
-.search-bar button {
-  padding: 10px 20px;
-  background-color: #cf0;
-  color: #fff;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.search-bar button:hover {
-  background-color: #9c0;
 }
