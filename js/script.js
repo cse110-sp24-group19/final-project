@@ -7,7 +7,7 @@ document.addEventListener('mousemove', function (e) {
 * Creates a star at the specified (x, y) position
 * This function is used to create a star trace effect as the mouse moves
 */
-function createStar (x, y) {
+function createStar(x, y) {
   const star = document.createElement('div')
   star.classList.add('star')
   star.style.left = `${x}px`
@@ -40,11 +40,11 @@ sunMoon.addEventListener('click', function () {
     stars.forEach(star => {
       star.style.display = 'none'
     })
-  // Change day to sunset
+    // Change day to sunset
   } else if (currentSunMoon.includes('Sun-bright.gif')) {
     sunMoon.style.backgroundImage = "url('assets/Sun-dim.gif')"
     forestBg.style.background = "linear-gradient(to bottom, #ff7e5f, #feb47b), url('assets/forest.svg')"
-  // Change sunset to night
+    // Change sunset to night
   } else {
     sunMoon.style.backgroundImage = "url('assets/Moon.gif')"
     forestBg.style.background = "linear-gradient(to bottom, blue, #feb47b), url('assets/forest.svg')"
