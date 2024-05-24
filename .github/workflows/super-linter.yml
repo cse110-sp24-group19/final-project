@@ -18,6 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.MY_GITHUB_TOKEN }}
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
