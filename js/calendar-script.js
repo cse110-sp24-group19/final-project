@@ -1,6 +1,6 @@
 // dummy data for journal entries
 const journalEntries = [
-  
+
 ]
 
 // function to retrieve journal entry titles from the array of journal entries
