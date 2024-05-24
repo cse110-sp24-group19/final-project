@@ -26,13 +26,17 @@ jobs:
 
       - name: Generate JSDocs
         run: npx jsdoc -r ./src/ -d docs
-      
+  
       - name: Commit Documentation
         run: |
           git config --local user.email "nikojb@gmail.com"
           git config --local user.name "GitHub Action"
           git add docs/
-          git commit -m "Update documentation" -a || echo "No changes to commit"
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update documentation"
+          fi
 
       - name: Create Pull Request
         id: cpr
