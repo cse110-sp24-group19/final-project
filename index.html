@@ -12,6 +12,7 @@
   <script src="js/sound.js" type="module"></script>
   <script src="js/sound.js" type="module"></script>
   <script src="js/calendar-script.js" type="module"></script>
+  <script src="js/day-view.js" type="module"></script>
   <title>Coding Monkeys</title>
 </head>
 <body>
@@ -69,7 +70,48 @@
     </div>
      <!-- CALENDAR HTML END-->
     </div>
+  <!-- Day View Starts Here -->
+  <div class="day-view" style="display: block;">
+      <!-- Date Header (E.g. Friday, April 26 2024) -->
+    <header class="day-view-date">5/9/2024</header>
 
+      <!-- Set of journals as containers -->
+    <div class="journal-entries">
+        <!-- Header for Journal Entries -->
+      <h3>Journal Entries:</h3>
+      <ul id="journal-list">
+          <!-- JavaScript/JSON will decide how many lists we need for our journal -->
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+          <li>DATA HERE FOR JOURNAL</li>
+          <li>MORE DATA HERE</li>
+      </ul>
+    </div>
+
+    <!-- button to return back to original position
+    After pressing it should set day-view display to none
+    and display the calendar-container -->
+    <button class="back-button" onclick="">Go Back</button>
+  </div>
+  <!-- Day View Ends Here -->
 
   <!-- End of the Calendar/Journal Page -->
   <!-- Creative Play Page -->
