@@ -334,3 +334,37 @@ body {
 =================================  Goal-Setting Page  ==================================
 ========================================================================================
 */
+
+#goals-container {
+  max-width: 600vw;
+  max-height: 600vh;
+  margin: auto;
+  display: flex;
+  flex: 1;
+  gap: 5vw;
+  align-items: center;  
+  padding: 50px;
+}
+
+#goals-container h1 {
+  padding: 5px;
+  text-align: center;
+}
+
+#goals-container section {
+  display: flex;
+  padding: 5em;
+  flex: 1;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(67, 205, 205);
+  border-radius: 25px;
+  width: 200px;
+  height: 350px;
+}
+
+#goals-container section:hover {
+  border-width: 6px;
+}
+
+
