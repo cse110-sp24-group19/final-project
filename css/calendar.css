@@ -13,6 +13,11 @@
 body {
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 
 /*
@@ -22,7 +27,7 @@ body {
 */
 
 .calendar-body {
-  padding: 50px;
+  padding: 2vw;
 }
 
 .calendar-body ul {
@@ -35,29 +40,28 @@ body {
 .calendar-body .calendar-weekdays,
 .calendar-body .calendar-dates {
   display: grid;
-  grid-template-columns: repeat(7, 140px);
-  column-gap: 50px;
-  row-gap: 10px;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1vw;
 }
 
 .calendar-container {
-  margin-top: 14px;
+  margin-top: 1vw;
   background: #fff;
-  width: 60vw;
-  min-width: 600px;
-  border-radius: 30px;
+  width: 90vw;
+  max-width: 1200px;
+  min-width: 300px;
+  border-radius: 2vw;
 }
 
 .calendar-body .calendar-dates {
-  margin-bottom: 20px;
+  margin-bottom: 1vw;
 }
 
 /* Use this to change the font of the week days (Monday, Tuesday, Wednesday,.., etc) */
 .calendar-body .calendar-weekdays li {
   font-size: 1.3em;
   font-weight: bold;
-  padding: 0;
-  margin: 0;
+  padding: 0.5vw 0;
 }
 
 .calendar-body .calendar-weekdays .weekends,
@@ -67,7 +71,7 @@ body {
 
 /* Use this to change the rows in the calendar */
 .calendar-body .calendar-dates li {
-  margin-top: 15px;
+  margin-top: 0.5vw;
   position: relative;
   z-index: 1;
   cursor: pointer;
@@ -209,7 +213,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 10px;
+  padding: 5%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -218,19 +222,19 @@ body {
 }
 
 .sticky-note .date {
-  font-size: 1vw;
+  font-size: 1.5vw;
   font-weight: bold;
-  margin: 5px 0;
+  margin: 0.5vw 0;
 }
 
 .sticky-note .title {
   font-size: 0.8vw;
-  margin: 5px 0;
+  margin: 0.5vw 0;
 }
 
 .sticky-note .more-tasks {
   font-size: 0.5vw;
-  margin: 5px 0;
+  margin: 0.5vw 0;
 }
 
 /*
