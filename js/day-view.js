@@ -1,7 +1,7 @@
 // automatically checks if there is overflow
 hasOverflow()
 
-function deleteEntry(event) {
+function deleteEntry (event) {
   const buttonClicked = event.target
   const liToDelete = buttonClicked.parentElement
   liToDelete.remove()
@@ -14,7 +14,7 @@ document.querySelectorAll('.delete-button').forEach(button => {
   button.onclick = deleteEntry
 })
 
-function hasOverflow(){
+function hasOverflow () {
   const dayViewContainer = document.querySelector('.day-view')
   // Check if there is overflow in the day-view container
   const hasOverflow = dayViewContainer.scrollHeight > dayViewContainer.clientHeight
