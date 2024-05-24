@@ -109,6 +109,7 @@ body {
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
+  
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); lint issue */
   border-radius: 8px;
   display: flex;
@@ -161,8 +162,9 @@ body {
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid black;
-  border-radius: 8px;
+
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); lint issue */
+  border-radius: 8px;
 }
 
 /* Styling for the back button */
