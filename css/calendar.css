@@ -108,8 +108,7 @@ body {
   background-color: #f0f0f0; /* Light gray background color */
 }
 
-.day-view-hidden {
-  display: none;
+#day-view {
   width: 80%;
   height: 70vh;
   margin: 20px auto;
