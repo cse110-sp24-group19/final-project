@@ -30,7 +30,7 @@ function initializeP5Sketch () {
 
       // set up the color buttons
       const colors = ['black', 'gray', 'white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple']
-      colors.forEach((color, i) => {
+      colors.forEach((color) => {
         const button = sketch.createButton('')
         button.style('background-color', color)
         button.style('width', '30px')
