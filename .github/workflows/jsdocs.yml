@@ -3,18 +3,15 @@ name: Generate JSDocs
 
 on:
   push:
-    branches:
-      - main  # Adjust the branch as needed
+    branches-ignore:
+      - main  # This ensures it does not run on the main branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # Ensure we get all history for push
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -26,28 +23,11 @@ jobs:
 
       - name: Generate JSDocs
         run: npx jsdoc -r ./src/ -d docs
-  
-      - name: Commit Documentation
+
+      - name: Commit and Push Changes
         run: |
-          git config --local user.email "nikojb@gmail.com"
+          git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add docs/
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Update documentation"
-          fi
-
-      - name: Create Pull Request
-        id: cpr
-        uses: repo-sync/pull-request@v2
-        with:
-          source_branch: "docs-update-${{ github.run_number }}"
-          destination_branch: "main"
-          github_token: ${{ secrets.MY_GITHUB_TOKEN }}
-          pr_title: "Update JSDocs Documentation"
-          pr_body: "Automated pull request to update JSDocs documentation."
-          pr_label: "documentation"
-
-      - name: PR check
-        run: echo "Pull Request Successful
+          git commit -m "Update JSDocs" || echo "No changes to commit"
+          git push
