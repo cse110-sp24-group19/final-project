@@ -103,6 +103,89 @@ body {
   ======================================================================================================
 */
 
+.day-view {
+  width: 80%;
+  height: 70vh;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Adjust this to make space for the back button */
+  position: relative;
+  overflow: auto; /* Ensure the day-view container does not overflow */
+  border: 4px solid #8a2be2;
+}
+
+/* Styling for the date header */
+.day-view-date {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+/* Styling for the journal entries section */
+.journal-entries {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding-right: 10px; /* Add some padding to avoid hiding content behind the scrollbar */
+  position: relative;
+}
+
+.journal-entries h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase; /* Uppercase letters */
+  letter-spacing: 2px; /* Increase letter spacing */
+  border-bottom: 1px solid #ccc; /* Add a bottom border */
+  padding-bottom: 5px; /* Add some space below the border */
+}
+
+#journal-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#journal-list li {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); lint issue */
+  border-radius: 8px;
+}
+
+/* Styling for the back button */
+.back-button {
+  width: 100px;
+  padding: 10px;
+  background-color: #3ddf0c;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
 /*
   ======================================================================================================
   ||                                         STICKY NOTE                                               ||
