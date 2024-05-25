@@ -25,9 +25,9 @@ const currdate = document.querySelector('.calendar-current-date')
 
 const prenexIcons = document.querySelectorAll('.calendar-navigation span')
 
-const calendarView = document.querySelector('.calendar-container')
+const calendarView = document.getElementById('calendar-journal-page')
 
-const dayView = document.querySelector('#day-view')
+const dayView = document.getElementById('day-view')
 
 const returnCalendarButton = document.getElementById('return-calendar')
 
@@ -146,9 +146,9 @@ function openDayView (dateString) {
   })
 
   // Shows day view
-  dayView.style.display = 'block'
+  dayView.classList.remove('hidden')
   // Hide calendar view
-  calendarView.style.display = 'none'
+  calendarView.classList.add('hidden')
 }
 
 // Format date for journal entries
@@ -160,10 +160,10 @@ function formatDateForJournalEntries (dateString) {
 // Function to close day view and return to calendar
 function closeDayView () {
   // Hides day view
-  dayView.style.display = 'none'
+  dayView.classList.add('hidden')
 
   // Shows calendar view
-  calendarView.style.display = 'block'
+  calendarView.classList.remove('hidden')
 }
 
 // Attach a click event listener to each icon
