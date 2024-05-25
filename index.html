@@ -13,6 +13,7 @@
   <script src="js/sound.js" type="module"></script>
   <script src="js/calendar-script.js" type="module"></script>
   <script src="js/day-view.js" type="module"></script>
+  <script src="js/goal-page.js" type="module"></script>
   <title>Coding Monkeys</title>
 </head>
 <body>
@@ -205,22 +206,32 @@
     <div id="goals-container">
       <div id="daily-goals">
         <h1>Daily</h1>
-        <section>
-          <!-- Stickies go here -->
+        <section id="daily">
+          <!-- new goals are added here -->
+          <div class="last-child">
+            <button type="button" id="add-daily-goal">+</button>
+            <input type="hidden" id="daily-goal-input">
+          </div>
         </section>
       </div>
-
       <div id="weekly-goals">
         <h1>Weekly</h1>
-        <section>
-          <!-- Stickies go here -->
+        <section id="weekly">
+          <!-- new goals are added here -->
+          <div class="last-child">
+            <button type="button" id="add-weekly-goal">+</button>
+            <input type="hidden" id="weekly-goal-input">
+          </div>
         </section>
       </div>
-      
       <div id="long-term-goals">
         <h1>Long-Term</h1>
-        <section>
-          <!-- Stickies go here -->
+        <section id="long-term">
+          <!-- new goals are added here -->
+          <div class="last-child">
+            <button type="button" id="add-longterm-goal">+</button>
+            <input type="hidden" id="longterm-goal-input">
+          </div>
         </section>
       </div>
     </div>
