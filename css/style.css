@@ -340,7 +340,6 @@ body {
   max-height: 600vh;
   margin: auto;
   display: flex;
- 
   gap: 5vw;
   align-items: center;  
   padding: 50px;
@@ -356,7 +355,6 @@ body {
   display: flex;
   padding: 5em;
   flex: 1;
-  flex-shrink: 1;
   border-style: solid;
   border-width: 2px;
   border-color: rgb(67, 205, 205);
@@ -374,5 +372,3 @@ body {
 #goals-container > div {
   margin-top: auto;
 }
-
-
