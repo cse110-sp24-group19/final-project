@@ -14,19 +14,6 @@ body {
   display: none !important;
 }
 
-/*
-========================================================================================
-=====================================  Main Page  ======================================
-========================================================================================
-*/
-
-#main-page {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  cursor: url("../assets/firefly.png"), auto;
-}
-
 /* Star trace effect for the mouse cursor */
 .star {
   position: absolute;
@@ -51,6 +38,19 @@ body {
   animation: fade-out 1s forwards;
 }
 
+/*
+========================================================================================
+=====================================  Main Page  ======================================
+========================================================================================
+*/
+
+#main-page {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  cursor: url("../assets/firefly.png"), auto;
+}
+
 /* Setting the background */
 #forest-background {
   top: 0;
@@ -72,8 +72,8 @@ body {
   position: absolute;
   top: 5vh;
   right: 5vw;
-  width: 150px;
-  height: 150px;
+  width: 10.5vw;
+  height: 10.5vw;
   background: url("../assets/question-mark.png");
   background-size: cover;
   z-index: 12;
@@ -89,8 +89,8 @@ body {
   position: absolute;
   top: 20vh;
   right: 20vw;
-  width: 400px;
-  height: 400px;
+  width: 28vw;
+  height: 28vw;
   background: url("../assets/main-categories.jpg");
   background-size: cover;
   border-radius: 30px;
@@ -108,8 +108,8 @@ body {
   position: absolute;
   top: 5vh;
   left: 5vw;
-  width: 200px;
-  height: 200px;
+  width: 14.5vw;
+  height: 14.5vw;
   background: url("../assets/Moon.gif");
   background-size: cover;
 }
@@ -127,8 +127,8 @@ body {
   position: absolute;
   top: 5vh;
   right: 100vw;
-  width: 250px;
-  height: 250px;
+  width: 16vw;
+  height: 16vw;
   background: url("../assets/Cloud.gif");
   background-size: cover;
   animation: move-right 25s linear infinite;
@@ -141,8 +141,8 @@ body {
   position: absolute;
   top: 15vh;
   right: 100vw;
-  width: 100px;
-  height: 100px;
+  width: 7vw;
+  height: 7vw;
   background: url("../assets/Bird-purple.gif");
   background-size: cover;
   animation: move-left 18s linear infinite;
@@ -154,8 +154,8 @@ body {
   position: absolute;
   top: 20vh;
   right: 100vw;
-  width: 100px;
-  height: 100px;
+  width: 7vw;
+  height: 7vw;
   background: url("../assets/Bird-red.gif");
   background-size: cover;
   animation: move-right 18s linear infinite;
@@ -167,8 +167,8 @@ body {
   position: absolute;
   top: 30vh;
   right: 100vw;
-  width: 100px;
-  height: 100px;
+  width: 7vw;
+  height: 7vw;
   background: url("../assets/Bird-yellow.gif");
   background-size: cover;
   animation: move-left 15s linear infinite;
@@ -180,8 +180,8 @@ body {
 .stars {
   position: absolute;
   top: 0;
-  width: 250px;
-  height: 250px;
+  width: 17vw;
+  height: 17vw;
   background: url("../assets/Stars.gif");
   background-size: cover;
   pointer-events: none;
@@ -200,8 +200,8 @@ body {
   position: absolute;
   bottom: 5vh;
   right: 100vw;
-  width: 300px;
-  height: 300px;
+  width: 20vw;
+  height: 20vw;
   background: url("../assets/Rabbit.gif");
   background-size: cover;
   animation: move-left 25s linear infinite;
@@ -214,8 +214,8 @@ body {
   position: absolute;
   bottom: 3vh;
   right: 8vw;
-  width: 300px;
-  height: 300px;
+  width: 20vw;
+  height: 20vw;
   background: url("../assets/calendar.png");
   background-size: cover;
   z-index: 1;
@@ -235,8 +235,8 @@ body {
   position: absolute;
   bottom: 5vh;
   left: 10vw;
-  width: 300px;
-  height: 300px;
+  width: 20vw;
+  height: 20vw;
   background: url("../assets/white-board.png");
   background-size: cover;
   transform: rotate(-15deg);
@@ -258,8 +258,8 @@ body {
   position: absolute;
   bottom: 3vh;
   right: 25vw;
-  width: 300px;
-  height: 300px;
+  width: 20vw;
+  height: 20vw;
   background: url("../assets/goal.png");
   background-size: cover;
   transform: rotate(8deg);

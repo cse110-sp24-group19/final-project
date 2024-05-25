@@ -42,7 +42,7 @@ class NavBar extends HTMLElement {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 100px;
+        gap: 8vw;
         position: fixed;
         top: 0px;
         left: 0px;
@@ -63,6 +63,7 @@ class NavBar extends HTMLElement {
         display: flex;
         align-items: center;
         gap: 10px;
+        flex-wrap: wrap;
       }
 
       .icon-text-container:hover {
@@ -73,6 +74,31 @@ class NavBar extends HTMLElement {
 
       .icon-text-container:active {
         transform: scale(1.1);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 900px) {
+        .nav-bar {
+          gap: 5vw;
+          padding: 10px 0;
+        }
+        .nav-icon {
+          width: 25px;
+          height: 25px;
+        }
+        .icon-text-container {
+          gap: 5px;
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .nav-icon {
+          display: none;
+        }
+        .icon-text-container {
+          font-size: 14px;
+        }
       }
     `
 
