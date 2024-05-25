@@ -8,11 +8,11 @@ class Character {
    * @param {string} [type=null] - The type of the character (Monkey, Dragon, TBD).
    * @param {number} [progressionPoints=0] - Initial progression points (default is 0).
    * @example
-   * const usercharacter = new Character('Smaug', 'Dragon', 50);
-   * console.log(usercharacter.getCurrentProgression()); // 50
+   * const usercharacter = new Character('Smaug', 'Dragon', 5);
+   * console.log(usercharacter.getCurrentProgression()); // 5
    * console.log(usercharacter.fetchImageAsset) // images/dragon-baby.png
-   * console.log(usercharacter.updateProgression(100);
-   * console.log(usercharacter.getCurrentProgression()); // 150
+   * console.log(usercharacter.updateProgression(10);
+   * console.log(usercharacter.getCurrentProgression()); // 15
    */
   constructor (name = null, type = null, progressionPoints = 0) {
     if (name && type) {
@@ -93,7 +93,7 @@ class Character {
   fetchImageAsset () {
     const stage = this.getProgressionStage().toLowerCase()
     const type = this.type.toLowerCase()
-    return `images/${type}-${stage}.png` // Assuming images are named like 'dragon-baby.png'.
+    return `/assets/${type}-${stage}.png` // Assuming images are named like 'dragon-baby.png'.
   }
 
   /**
