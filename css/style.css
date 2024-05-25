@@ -282,6 +282,10 @@ body {
 ========================================================================================
 */
 
+#calendar-journal-page {
+  height: 88vh;
+}
+
 .search-bar-container {
   margin-top: 10px; /* Adjust as needed */
 }

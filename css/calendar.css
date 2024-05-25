@@ -13,6 +13,11 @@
 body {
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 
 /*
@@ -22,7 +27,7 @@ body {
 */
 
 .calendar-body {
-  padding: 50px;
+  padding: 2vw;
 }
 
 .calendar-body ul {
@@ -35,28 +40,28 @@ body {
 .calendar-body .calendar-weekdays,
 .calendar-body .calendar-dates {
   display: grid;
-  grid-template-columns: repeat(7, 200px);
-  column-gap: 100px;
-  row-gap: 50px;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1vw;
 }
 
 .calendar-container {
+  margin-top: 1vw;
   background: #fff;
-  width: 2000px;
-  height: 1000px;
-  min-width: 600px;
-  border-radius: 30px;
+  width: 90vw;
+  max-width: 1200px;
+  min-width: 300px;
+  border-radius: 2vw;
 }
 
 .calendar-body .calendar-dates {
-  margin-bottom: 20px;
+  margin-bottom: 1vw;
 }
 
 /* Use this to change the font of the week days (Monday, Tuesday, Wednesday,.., etc) */
 .calendar-body .calendar-weekdays li {
-  font-size: 28px;
+  font-size: 1.1em;
   font-weight: bold;
-  padding: 10px 0;
+  padding: 0.5vw 0;
 }
 
 .calendar-body .calendar-weekdays .weekends,
@@ -66,7 +71,7 @@ body {
 
 /* Use this to change the rows in the calendar */
 .calendar-body .calendar-dates li {
-  margin-top: 15px;
+  margin-top: 0.5vw;
   position: relative;
   z-index: 1;
   cursor: pointer;
@@ -80,11 +85,14 @@ body {
 
 /* Use this to change the background color of the current date */
 .sticky-note .date.active {
-  color: #d44e60;
+  border-radius: 10px;
+  border-radius: 10em;
+  padding: 5px;
+  background-color: #f0f0f0;
 }
 
 .calendar-body .calendar-weekdays {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 /* Use this to change the color of dates that are in the past month or in the next month when hovering over them */
@@ -97,6 +105,131 @@ body {
   ||                                          DAY-VIEW                                                 ||
   ======================================================================================================
 */
+
+/* If you have a container that wraps around the .day-view element */
+.wrapper {
+  background-color: #f0f0f0;
+}
+
+#day-view {
+  width: 80%;
+  height: 70vh;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(45deg, #ffb3ba, #ffdfba, #baffc9, #bae1ff, #babaff, #ffbaff, #ffb3ba);
+  background-size: 600% 600%;
+  animation: rainbow 20s ease infinite;
+  border-radius: 8px;
+  position: relative;
+  overflow: auto;
+  border: 4px solid #8a2be2;
+}
+
+@keyframes rainbow {
+  0%,
+  100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Styling for the date header */
+.day-view-date {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+/* Styling for the journal entries section */
+.journal-entries {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding-right: 10px; /* Add some padding to avoid hiding content behind the scrollbar */
+  position: relative;
+}
+
+.journal-entries h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase; /* Uppercase letters */
+  letter-spacing: 2px; /* Increase letter spacing */
+  border-bottom: 1px solid #ccc; /* Add a bottom border */
+  padding-bottom: 5px; /* Add some space below the border */
+}
+
+#journal-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#journal-list li {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); lint issue */
+  border-radius: 8px;
+}
+
+/* Styling for the back button */
+.back-button {
+  width: 100px;
+  padding: 10px;
+  background-color: #3ddf0c;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.add-button {
+  margin-right: 10px;
+  background-color: #3ddf0c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  float: right;
+  background-color: #c00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #8a2be2;
+}
 
 /*
   ======================================================================================================
@@ -118,13 +251,17 @@ body {
   box-sizing: border-box;
 }
 
+.sticky-note:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px -10px rgba(0 0 0 / 40%), 1px 10px 6px 0 rgba(0 0 0 / 10%);
+}
+
 .sticky-note .content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -133,19 +270,19 @@ body {
 }
 
 .sticky-note .date {
-  font-size: 1vw;
+  font-size: 1em;
   font-weight: bold;
-  margin: 5px 0;
+  margin: 0.5vw 0;
 }
 
 .sticky-note .title {
-  font-size: 0.8vw;
-  margin: 5px 0;
+  font-size: 0.7em;
+  margin: 0.5vw 0;
 }
 
 .sticky-note .more-tasks {
-  font-size: 0.5vw;
-  margin: 5px 0;
+  font-size: 0.5em;
+  margin: 0.5vw 0;
 }
 
 /*
@@ -168,8 +305,7 @@ body {
 
 /* Use this to change the style of the current date header i.e April, 2024 */
 .calendar-current-date {
-  font-weight: 500;
-  font-size: 2vw; /* Make the font size responsive */
+  font-size: 1vw; /* Make the font size responsive */
   margin: 0;
   font-family: raleway, Tahoma, sans-serif;
   text-align: center;
@@ -179,7 +315,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
-  padding: 10px;
+  padding: 0;
   position: relative;
   width: 100%;
 }
@@ -207,34 +343,4 @@ header .calendar-navigation span {
 
 header .calendar-navigation span:hover {
   background: #f2f2f2;
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-}
-
-.search-bar input[type="text"] {
-  padding: 10px;
-  border: 2px solid #cf0;
-  border-radius: 2px;
-  outline: none;
-  font-size: 16px;
-  background-color: #f0f0f0;
-  color: #151515;
-  margin-right: 10px;
-}
-
-.search-bar button {
-  padding: 10px 20px;
-  background-color: #cf0;
-  color: #fff;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.search-bar button:hover {
-  background-color: #9c0;
 }
