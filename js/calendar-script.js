@@ -14,6 +14,36 @@ function getTitles (date) {
   return titles
 }
 
+// Function to search journal entries
+function searchEntries(query) {
+  return journalEntries.filter(entry =>
+    entry.title.toLowerCase().includes(query.toLowerCase()) ||
+    entry.content.toLowerCase().includes(query.toLowerCase())
+  );
+}
+
+// Function to display search results in the calendar
+function displaySearchResults(entries) {
+  const calendar = document.querySelector('.calendar-dates');
+  calendar.innerHTML = ''; // Clear existing dates
+
+  entries.sort((a, b) => new Date(a.date) - new Date(b.date)); // Sort by date
+
+  entries.forEach(entry => {
+    const date = new Date(entry.date);
+    const listItem = document.createElement('li');
+    listItem.className = `sticky-note ${date.getDay() === 0 || date.getDay() === 6 ? 'weekend' : ''}`;
+    listItem.dataset.date = entry.date;
+    listItem.innerHTML = `
+      <div class="content">
+        <div class="date">${date.getDate()}</div>
+        <div class="title">${entry.title}</div>
+      </div>`;
+    listItem.addEventListener('click', () => openDayView(entry.date));
+    calendar.appendChild(listItem);
+  });
+}
+
 // get current date information
 let date = new Date()
 let year = date.getFullYear()
@@ -201,3 +231,11 @@ document.querySelector('.back-button').onclick = closeDayView
 
 // Attach event listener for the return to calendar button in the day view
 returnCalendarButton.addEventListener('click', closeDayView)
+
+// Function to handle search input dynamically
+document.getElementById('search-bar').addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent form submission
+  const query = document.querySelector('input[name="query"]').value;
+  const results = searchEntries(query);
+  displaySearchResults(results);
+});
