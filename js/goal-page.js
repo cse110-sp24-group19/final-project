@@ -1,11 +1,19 @@
-var goalCounter = 0; //used to give each goal a unique id
+let goalCounter = 0; //used to give each goal a unique id
 
 const dailyButton = document.getElementById('add-daily-goal');
 const weeklyButton = document.getElementById('add-weekly-goal');
-const longTermButton = document.getElementById('add-longterm-goal');
+const longTermButton = document.getElementById('add-long-term-goal');
 
-dailyButton.addEventListener('click', () => {
-    let inputBox = document.getElementById('daily-goal-input');
+dailyButton.addEventListener('click', () => addNewGoal('daily'));
+weeklyButton.addEventListener('click', () => addNewGoal('weekly'));
+longTermButton.addEventListener('click', () => addNewGoal('long-term'));
+
+/**
+ * Called when any + button is clicked. Prompts user to enter text, then calls createNewGoal().
+ * @param {string} category - 'daily', 'weekly', 'long-term'
+ */
+function addNewGoal(category){
+    const inputBox = document.getElementById(`${category}-goal-input`);
     inputBox.type = 'text';
     inputBox.focus();
     inputBox.addEventListener('keypress', function(event) {
@@ -14,43 +22,11 @@ dailyButton.addEventListener('click', () => {
             if (value != ""){
                 inputBox.type = 'hidden';
                 inputBox.value = "";
-                createNewGoal("daily", value);
+                createNewGoal(category, value);
             }
         }
     });
-})
-
-weeklyButton.addEventListener('click', () => {
-    let inputBox = document.getElementById('weekly-goal-input');
-    inputBox.type = 'text';
-    inputBox.focus();
-    inputBox.addEventListener('keypress', function(event) {
-        if(event.key === 'Enter'){
-            let value = inputBox.value;
-            if (value != ""){
-                inputBox.type = 'hidden';
-                inputBox.value = "";
-                createNewGoal("weekly", value);
-            }
-        }
-    });
-})
-
-longTermButton.addEventListener('click', () => {
-    let inputBox = document.getElementById('longterm-goal-input');
-    inputBox.type = 'text';
-    inputBox.focus();
-    inputBox.addEventListener('keypress', function(event) {
-        if(event.key === 'Enter'){
-            let value = inputBox.value;
-            if (value != ""){
-                inputBox.type = 'hidden';
-                inputBox.value = "";
-                createNewGoal("long-term", value);
-            }
-        }
-    });
-})
+}
 
 /**
  * Creates and adds a new goal to approporiate list
