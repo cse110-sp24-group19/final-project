@@ -172,4 +172,4 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!creativePlayPage.classList.contains('hidden')) {
     initializeP5Sketch()
   }
-})  
+})
