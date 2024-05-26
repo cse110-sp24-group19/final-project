@@ -1,11 +1,11 @@
 /* global p5 */
 
-function initializeP5Sketch() {
+function initializeP5Sketch () {
   const canvasContainer = document.querySelector('.p5-canvas-container')
 
   if (canvasContainer && !canvasContainer.firstChild) {
     // Initialize the p5 sketch
-    const P5 = p5;
+    const P5 = p5
     const instance = new P5((sketch) => {
       // keep track of user's settings
       const settings = {
@@ -31,7 +31,7 @@ function initializeP5Sketch() {
 
       // set up the color buttons
       const colors = ['black', 'gray', 'white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple']
-      colors.forEach((color, i) => {
+      colors.forEach((color) => {
         const button = sketch.createButton('')
         button.style('background-color', color)
         button.style('width', '30px')
@@ -145,7 +145,7 @@ function initializeP5Sketch() {
         }
       }
     })
-    console.log("Created p5 instance:", instance);
+    console.log('Created p5 instance:', instance)
   }
 }
 
