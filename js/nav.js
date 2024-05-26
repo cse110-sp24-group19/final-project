@@ -12,7 +12,8 @@ class NavBar extends HTMLElement {
       { id: 'main-nav', iconSrc: 'assets/monkey.png', text: 'Main Page' },
       { id: 'calendar-journal-nav', iconSrc: 'assets/calendar-nav.png', text: 'Calendar/Journal' },
       { id: 'creative-play-nav', iconSrc: 'assets/white-board-with-letters.png', text: 'Creative Play' },
-      { id: 'goal-setting-nav', iconSrc: 'assets/goal-nav.png', text: 'Goal-Setting' }
+      { id: 'goal-setting-nav', iconSrc: 'assets/goal-nav.png', text: 'Goal-Setting' },
+      { id: 'reward-nav', iconSrc: 'assets/reward.png', text: 'Reward' }
     ]
 
     // Create and append nav items to the nav bar
@@ -42,7 +43,7 @@ class NavBar extends HTMLElement {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8vw;
+        gap: 6vw;
         position: fixed;
         top: 0px;
         left: 0px;
@@ -77,9 +78,9 @@ class NavBar extends HTMLElement {
       }
 
       /* Responsive Styles */
-      @media (max-width: 900px) {
+      @media (max-width: 1100px) {
         .nav-bar {
-          gap: 5vw;
+          gap: 4vw;
           padding: 10px 0;
         }
         .nav-icon {
@@ -92,12 +93,18 @@ class NavBar extends HTMLElement {
         }
       }
 
-      @media (max-width: 680px) {
+      @media (max-width: 800px) {
         .nav-icon {
           display: none;
         }
         .icon-text-container {
-          font-size: 14px;
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 650px) {
+        .icon-text-container {
+          font-size: 12px;
         }
       }
     `
@@ -108,6 +115,10 @@ class NavBar extends HTMLElement {
   connectedCallback () {
     // Add event listeners for nav items
     this.shadowRoot.querySelectorAll('.icon-text-container').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const audio = new Audio('assets/click2.mp3')
+        audio.play()
+      })
       item.addEventListener('click', () => {
         const pageId = item.classList[1] // The second class is the page ID
         document.querySelectorAll('.page').forEach(page => {
@@ -131,14 +142,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const calendarJournalPage = document.getElementById('calendar-journal-page')
   const creativePlayPage = document.getElementById('creative-play-page')
   const goalSettingPage = document.getElementById('goal-setting-page')
+  const rewardPage = document.getElementById('reward-page')
 
   const calendarJournalPageNav = document.getElementById('calendar-journal')
   const creativePlayPageNav = document.getElementById('creative-play')
   const goalSettingPageNav = document.getElementById('goal-setting')
+  const rewardPageNav = document.getElementById('reward')
 
   // Function to show one page and hide others
   function showPage (pageToShow) {
-    [mainPage, calendarJournalPage, creativePlayPage, goalSettingPage].forEach(page => {
+    [mainPage, calendarJournalPage, creativePlayPage, goalSettingPage, rewardPage].forEach(page => {
       if (page === pageToShow) {
         page.classList.remove('hidden')
       } else {
@@ -160,5 +173,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // Add click event listener to goal setting page navigation button
   goalSettingPageNav.addEventListener('click', function () {
     showPage(goalSettingPage)
+  })
+
+  // Add click event listener to reward page navigation button
+  rewardPageNav.addEventListener('click', function () {
+    showPage(rewardPage)
   })
 })

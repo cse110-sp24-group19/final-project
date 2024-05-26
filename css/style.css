@@ -276,6 +276,29 @@ body {
   transform: rotate(8deg) scale(0.9);
 }
 
+/* Reward icon styling */
+#reward {
+  position: absolute;
+  bottom: 3vh;
+  left: 30vw;
+  width: 13vw;
+  height: 13vw;
+  background: url("../assets/reward.png");
+  background-size: cover;
+  transform: rotate(-2deg);
+  z-index: 3;
+}
+
+#reward:hover {
+  background: url("../assets/reward2.png");
+  background-size: cover;
+  transform: rotate(-2deg);
+}
+
+#reward:active {
+  transform: rotate(-2deg) scale(0.9);
+}
+
 /*
 ========================================================================================
 ===============================  Calendar/Journal Page  ================================
@@ -323,6 +346,12 @@ body {
   outline: none;
 }
 
+/* this belongs in goal-setting-- the linter is making me put it here!! */
+#goals-container button {
+  height: 13px;
+  width: 13px;
+}
+
 #search-bar button:hover {
   background-color: #0056b3; /* Darker shade of primary color */
 }
@@ -345,7 +374,6 @@ body {
   margin: auto;
   display: flex;
   gap: 5vw;
-  align-items: center;
   padding: 50px;
 }
 
@@ -357,16 +385,16 @@ body {
 
 #goals-container section {
   display: flex;
-  padding: 5em;
-  flex: 1;
+  padding: 1em;
+  align-items: start;
+  flex-direction: column;
   border-style: solid;
   border-width: 2px;
   border-color: rgb(67 205 205);
   border-radius: 25px;
-  width: 200px;
+  width: 250px;
   height: 350px;
-  flex-grow: 1;
-  flex-shrink: 1;
+  background-color: floralwhite;
 }
 
 #goals-container section:hover {
@@ -375,4 +403,13 @@ body {
 
 #goals-container > div {
   margin-top: auto;
+}
+
+#goal-setting-page img {
+  height: 10px;
+  padding-left: 5px;
+}
+
+#goal-setting-page img:hover {
+  height: 12px;
 }

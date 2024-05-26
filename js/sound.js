@@ -2,6 +2,7 @@
 const calendarJournal = document.getElementById('calendar-journal')
 const creativePlay = document.getElementById('creative-play')
 const goalSetting = document.getElementById('goal-setting')
+const reward = document.getElementById('reward')
 const sunMoon = document.getElementById('sun-moon')
 const questionMark = document.getElementById('question-mark')
 
@@ -12,7 +13,7 @@ function playAudio (audioPath) {
 }
 
 // Add event listeners to the elements
-[calendarJournal, creativePlay, goalSetting].forEach(element => {
+[calendarJournal, creativePlay, goalSetting, reward].forEach(element => {
   element.addEventListener('mouseenter', function () {
     playAudio('assets/click.mp3')
   })
