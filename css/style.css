@@ -276,6 +276,29 @@ body {
   transform: rotate(8deg) scale(0.9);
 }
 
+/* Reward icon styling */
+#reward {
+  position: absolute;
+  bottom: 3vh;
+  left: 30vw;
+  width: 13vw;
+  height: 13vw;
+  background: url("../assets/reward.png");
+  background-size: cover;
+  transform: rotate(-2deg);
+  z-index: 3;
+}
+
+#reward:hover {
+  background: url("../assets/reward2.png");
+  background-size: cover;
+  transform: rotate(-2deg);
+}
+
+#reward:active {
+  transform: rotate(-2deg) scale(0.9);
+}
+
 /*
 ========================================================================================
 ===============================  Calendar/Journal Page  ================================
