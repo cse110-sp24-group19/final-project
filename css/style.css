@@ -323,6 +323,12 @@ body {
   outline: none;
 }
 
+/*this belongs in goal-setting-- the linter is making me put it here!!*/
+#goals-container button {
+  height: 13px;
+  width: 13px;
+}
+
 #search-bar button:hover {
   background-color: #0056b3; /* Darker shade of primary color */
 }
@@ -374,11 +380,6 @@ body {
 
 #goals-container > div {
   margin-top: auto;
-}
-
-#goals-container button {
-  height: 13px;
-  width: 13px;
 }
 
 #goal-setting-page img {
