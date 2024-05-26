@@ -14,9 +14,14 @@
   <script src="js/calendar-script.js" type="module"></script>
   <script src="js/day-view.js" type="module"></script>
   <script src="js/goal-page.js" type="module"></script>
+
+  <script src="js/sketch.js" type="module"></script>
   <title>Coding Monkeys</title>
 </head>
 <body>
+  <!-- For p5.js to work -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
   <!-- Main Page -->
   <div id="main-page" class="page">
     <div id="forest-background"></div>
@@ -197,6 +202,7 @@
   <!-- Creative Play Page -->
   <div id="creative-play-page" class="page hidden">
     <nav-bar></nav-bar>
+    <div class="p5-canvas-container"></div>
   </div>
   <!-- End of the Creative Play Page -->
 
