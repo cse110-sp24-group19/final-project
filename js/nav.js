@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Function to show one page and hide others
   function showPage (pageToShow) {
-    [mainPage, calendarJournalPage, creativePlayPage, goalSettingPage,rewardPage].forEach(page => {
+    [mainPage, calendarJournalPage, creativePlayPage, goalSettingPage, rewardPage].forEach(page => {
       if (page === pageToShow) {
         page.classList.remove('hidden')
       } else {
