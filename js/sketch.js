@@ -145,7 +145,6 @@ function initializeP5Sketch () {
             sketch.line(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY)
           }
         }
-        
       }
     })
     console.log('Created p5 instance:', instance)
