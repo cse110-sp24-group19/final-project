@@ -138,10 +138,12 @@ function initializeP5Sketch () {
 
       sketch.draw = () => {
         // set color, size, etc to the settings
-        sketch.stroke(settings.color)
-        sketch.strokeWeight(settings.pensize)
-        if (sketch.mouseIsPressed && sketch.mouseX > 100) {
-          sketch.line(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY)
+        if (!canvasContainer.parentElement.classList.contains('hidden')) {
+          sketch.stroke(settings.color)
+          sketch.strokeWeight(settings.pensize)
+          if (sketch.mouseIsPressed && sketch.mouseX > 100) {
+            sketch.line(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY)
+          }
         }
       }
     })
