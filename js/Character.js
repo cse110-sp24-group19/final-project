@@ -93,7 +93,7 @@ class Character {
   fetchImageAsset () {
     const stage = this.getProgressionStage().toLowerCase()
     const type = this.type.toLowerCase()
-    return `/assets/${type}-${stage}.png` // Assuming images are named like 'dragon-baby.png'.
+    return `assets/${type}-${stage}.png` // Assuming images are named like 'dragon-baby.png'.
   }
 
   /**
