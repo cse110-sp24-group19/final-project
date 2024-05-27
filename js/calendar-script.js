@@ -1,6 +1,25 @@
 // dummy data for journal entries
 const journalEntries = [
-
+  { date: '2024-05-01', title: 'Grocery shopping', content: 'Bought groceries for the week' },
+  { date: '2024-05-02', title: 'Gym workout', content: 'Completed a full-body workout at the gym' },
+  { date: '2024-05-03', title: 'Read a book', content: 'Read several chapters of a new book' },
+  { date: '2024-05-04', title: 'Cooking', content: 'Prepared a new recipe for dinner' },
+  { date: '2024-05-05', title: 'Family gathering', content: 'Spent time with family at a gathering' },
+  { date: '2024-05-06', title: 'Outdoor walk', content: 'Went for a walk in the park' },
+  { date: '2024-05-07', title: 'Gardening', content: 'Worked on planting new flowers' },
+  { date: '2024-05-08', title: 'Movie night', content: 'Watched a movie with friends' },
+  { date: '2024-05-09', title: 'House cleaning', content: 'Cleaned the house thoroughly' },
+  { date: '2024-05-10', title: 'Yoga session', content: 'Attended a yoga class' },
+  { date: '2024-05-11', title: 'Shopping', content: 'Went shopping for new clothes' },
+  { date: '2024-05-12', title: 'Art project', content: 'Worked on a new painting' },
+  { date: '2024-05-13', title: 'Visit to the museum', content: 'Visited a local museum' },
+  { date: '2024-05-14', title: 'Concert', content: 'Attended a live concert' },
+  { date: '2024-05-15', title: 'Coffee with a friend', content: 'Met a friend for coffee' },
+  { date: '2024-05-16', title: 'Biking', content: 'Went on a biking trip' },
+  { date: '2024-05-17', title: 'Beach day', content: 'Spent the day at the beach' },
+  { date: '2024-05-18', title: 'Photography', content: 'Took photos around the city' },
+  { date: '2024-05-19', title: 'Volunteering', content: 'Volunteered at a local charity' },
+  { date: '2024-05-20', title: 'Cooking class', content: 'Attended a cooking class' }
 ]
 
 // function to retrieve journal entry titles from the array of journal entries
@@ -12,6 +31,36 @@ function getTitles (date) {
     }
   }
   return titles
+}
+
+// Function to search journal entries
+function searchEntries (query) {
+  return journalEntries.filter(entry =>
+    entry.title.toLowerCase().includes(query.toLowerCase()) ||
+    entry.content.toLowerCase().includes(query.toLowerCase())
+  )
+}
+
+// Function to display search results in the calendar
+function displaySearchResults (entries) {
+  const calendar = document.querySelector('.calendar-dates')
+  calendar.innerHTML = '' // Clear existing dates
+
+  entries.sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
+
+  entries.forEach(entry => {
+    const date = new Date(entry.date)
+    const listItem = document.createElement('li')
+    listItem.className = `sticky-note ${date.getDay() === 0 || date.getDay() === 6 ? 'weekend' : ''}`
+    listItem.dataset.date = entry.date
+    listItem.innerHTML = `
+      <div class="content">
+        <div class="date">${date.getDate()}</div>
+        <div class="title">${entry.title}</div>
+      </div>`
+    listItem.addEventListener('click', () => openDayView(entry.date))
+    calendar.appendChild(listItem)
+  })
 }
 
 // get current date information
@@ -201,3 +250,11 @@ document.querySelector('.back-button').onclick = closeDayView
 
 // Attach event listener for the return to calendar button in the day view
 returnCalendarButton.addEventListener('click', closeDayView)
+
+// Function to handle search input dynamically
+document.getElementById('search-bar').addEventListener('submit', (event) => {
+  event.preventDefault() // Prevent form submission
+  const query = document.querySelector('input[name="query"]').value
+  const results = searchEntries(query)
+  displaySearchResults(results)
+})
