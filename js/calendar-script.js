@@ -19,7 +19,7 @@ const journalEntries = [
   { date: '2024-05-17', title: 'Beach day', content: 'Spent the day at the beach' },
   { date: '2024-05-18', title: 'Photography', content: 'Took photos around the city' },
   { date: '2024-05-19', title: 'Volunteering', content: 'Volunteered at a local charity' },
-  { date: '2024-05-20', title: 'Cooking class', content: 'Attended a cooking class' },
+  { date: '2024-05-20', title: 'Cooking class', content: 'Attended a cooking class' }
 ]
 
 // function to retrieve journal entry titles from the array of journal entries
@@ -34,33 +34,33 @@ function getTitles (date) {
 }
 
 // Function to search journal entries
-function searchEntries(query) {
+function searchEntries (query) {
   return journalEntries.filter(entry =>
     entry.title.toLowerCase().includes(query.toLowerCase()) ||
     entry.content.toLowerCase().includes(query.toLowerCase())
-  );
+  )
 }
 
 // Function to display search results in the calendar
-function displaySearchResults(entries) {
-  const calendar = document.querySelector('.calendar-dates');
-  calendar.innerHTML = ''; // Clear existing dates
+function displaySearchResults (entries) {
+  const calendar = document.querySelector('.calendar-dates')
+  calendar.innerHTML = '' // Clear existing dates
 
-  entries.sort((a, b) => new Date(a.date) - new Date(b.date)); // Sort by date
+  entries.sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
 
   entries.forEach(entry => {
-    const date = new Date(entry.date);
-    const listItem = document.createElement('li');
-    listItem.className = `sticky-note ${date.getDay() === 0 || date.getDay() === 6 ? 'weekend' : ''}`;
-    listItem.dataset.date = entry.date;
+    const date = new Date(entry.date)
+    const listItem = document.createElement('li')
+    listItem.className = `sticky-note ${date.getDay() === 0 || date.getDay() === 6 ? 'weekend' : ''}`
+    listItem.dataset.date = entry.date
     listItem.innerHTML = `
       <div class="content">
         <div class="date">${date.getDate()}</div>
         <div class="title">${entry.title}</div>
-      </div>`;
-    listItem.addEventListener('click', () => openDayView(entry.date));
-    calendar.appendChild(listItem);
-  });
+      </div>`
+    listItem.addEventListener('click', () => openDayView(entry.date))
+    calendar.appendChild(listItem)
+  })
 }
 
 // get current date information
@@ -253,8 +253,8 @@ returnCalendarButton.addEventListener('click', closeDayView)
 
 // Function to handle search input dynamically
 document.getElementById('search-bar').addEventListener('submit', (event) => {
-  event.preventDefault(); // Prevent form submission
-  const query = document.querySelector('input[name="query"]').value;
-  const results = searchEntries(query);
-  displaySearchResults(results);
-});
+  event.preventDefault() // Prevent form submission
+  const query = document.querySelector('input[name="query"]').value
+  const results = searchEntries(query)
+  displaySearchResults(results)
+})
