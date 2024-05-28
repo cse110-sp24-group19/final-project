@@ -78,8 +78,8 @@
   </div>
   <!-- CALENDAR HTML END-->
     
-  <!-- Day View Starts Here -->
-  <div id="day-view" class="hidden">
+  <!-- Day View Starts Here class="hidden" -->
+  <div id="day-view" style="display: block;">
       <!-- Date Header (E.g. Friday, April 26 2024) -->
     <header class="day-view-date">5/9/2024</header>
 
@@ -88,107 +88,31 @@
         <!-- Header for Journal Entries -->
       <h3>Journal Entries:</h3>
       <ul id="journal-list">
-            <li>
-                Meeting with client
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Reviewed project progress
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Brainstormed ideas
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Team huddle
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Worked on presentation
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Code review
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Research for new feature
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Meeting minutes
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Updated project timeline
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Fixed bug in code
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Implemented new design
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Testing new feature
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Prepared for demo
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Documented project changes
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Refactored code
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Received feedback
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Team building activity
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Debugged issue
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Deployed new release
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-            <li>
-                Created user manual
-                <button class="add-button" onclick="">Add</button>
-                <button class="delete-button" onclick="">Delete</button>
-            </li>
-        </ul>
+        <li>
+            <p>Meeting with client</p>
+            <button class="edit-button" onclick="">Edit</button>
+            <button class="delete-button" onclick="">Delete</button>
+        </li>
+        <li>
+            <p>Reviewed project progress</p>
+            <button class="edit-button" onclick="">Edit</button>
+            <button class="delete-button" onclick="">Delete</button>
+        </li>
+        <li>
+            <p>Brainstormed ideas</p>
+            <button class="edit-button" onclick="">Edit</button>
+            <button class="delete-button" onclick="">Delete</button>
+        </li>
+        <li>
+            <p>Team huddle</p>
+            <button class="edit-button" onclick="">Edit</button>
+            <button class="delete-button" onclick="">Delete</button>
+        </li>
+        <li id="new-entry">
+          <input type="text" id="new-entry-input" placeholder="Add a new entry...">
+          <button class="add-button" onclick="">Add</button>
+        </li>
+      </ul>
     </div>
 
     <!-- button to return back to original position
