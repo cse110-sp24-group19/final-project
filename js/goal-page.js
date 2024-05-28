@@ -32,31 +32,31 @@ function addNewGoal (category) {
  * Allows the user to edit an existing goal.
  * @param {Event} event - The event object.
  */
-function editGoal(event) {
-  const div = event.target.parentElement;
-  const label = div.querySelector('label');
-  const inputBox = document.createElement('input');
-  inputBox.type = 'text';
-  inputBox.value = label.textContent.trim();
-  div.replaceChild(inputBox, label);
+function editGoal (event) {
+  const div = event.target.parentElement
+  const label = div.querySelector('label')
+  const inputBox = document.createElement('input')
+  inputBox.type = 'text'
+  inputBox.value = label.textContent.trim()
+  div.replaceChild(inputBox, label)
 
   inputBox.addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
       if (inputBox.value !== '') {
-        const newLabel = document.createElement('label');
-        newLabel.textContent = '  ' + inputBox.value;
-        newLabel.for = div.querySelector('input[type="checkbox"]').id;
-        div.replaceChild(newLabel, inputBox);
+        const newLabel = document.createElement('label')
+        newLabel.textContent = '  ' + inputBox.value
+        newLabel.for = div.querySelector('input[type="checkbox"]').id
+        div.replaceChild(newLabel, inputBox)
       }
     }
-  });
+  })
 
   inputBox.addEventListener('blur', function () {
-    const newLabel = document.createElement('label');
-    newLabel.textContent = '  ' + inputBox.value;
-    newLabel.for = div.querySelector('input[type="checkbox"]').id;
-    div.replaceChild(newLabel, inputBox);
-  });
+    const newLabel = document.createElement('label')
+    newLabel.textContent = '  ' + inputBox.value
+    newLabel.for = div.querySelector('input[type="checkbox"]').id
+    div.replaceChild(newLabel, inputBox)
+  })
 }
 
 /**
@@ -64,9 +64,9 @@ function editGoal(event) {
  * @param {Event} event - The object event
  */
 
-function deleteGoal(event) {
-  const div = event.target.parentElement;
-  div.remove();
+function deleteGoal (event) {
+  const div = event.target.parentElement
+  div.remove()
 }
 
 /**
@@ -86,17 +86,14 @@ function createNewGoal (category, input) {
   goalCounter++
   const penImg = document.createElement('img')
   penImg.src = 'assets/goal_icons/pen.png'
-  penImg.addEventListener('click', editGoal);
+  penImg.addEventListener('click', editGoal)
   const trashImg = document.createElement('img')
   trashImg.src = 'assets/goal_icons/trash.png'
-  trashImg.addEventListener('click', deleteGoal);
+  trashImg.addEventListener('click', deleteGoal)
   div.appendChild(checkbox)
   div.appendChild(label)
   div.appendChild(penImg)
   div.appendChild(trashImg)
-  // TO-DO
-  // penImg.addEventListener('click', editGoal());
-  // trashImg.addEventListener('click', deleteGoal());
   const container = document.getElementById(category) // select correct container
   const buffer = container.children[container.children.length - 1] // query that containers very last element(add button)
   container.insertBefore(div, buffer) // new goal is inserted at the end of the list
