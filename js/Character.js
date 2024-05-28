@@ -88,12 +88,12 @@ class Character {
    * Fetches the image asset URL for the character based on the current type and stage.
    * @returns {string} The URL to the image representing the current type and stage.
    * @example
-   * console.log(dragon.fetchImageAsset()); // Outputs 'images/dragon-baby.png'
+   * console.log(dragon.fetchImageAsset()); // Outputs 'assets/dragon-baby.png'
    */
   fetchImageAsset () {
     const stage = this.getProgressionStage().toLowerCase()
     const type = this.type.toLowerCase()
-    return `/assets/${type}-${stage}.png` // Assuming images are named like 'dragon-baby.png'.
+    return `assets/${type}-${stage}.png` // Assuming images are named like 'dragon-baby.png'.
   }
 
   /**
