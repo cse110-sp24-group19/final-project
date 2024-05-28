@@ -29,6 +29,47 @@ function addNewGoal (category) {
 }
 
 /**
+ * Allows the user to edit an existing goal.
+ * @param {Event} event - The event object.
+ */
+function editGoal(event) {
+  const div = event.target.parentElement;
+  const label = div.querySelector('label');
+  const inputBox = document.createElement('input');
+  inputBox.type = 'text';
+  inputBox.value = label.textContent.trim();
+  div.replaceChild(inputBox, label);
+
+  inputBox.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+      if (inputBox.value !== '') {
+        const newLabel = document.createElement('label');
+        newLabel.textContent = '  ' + inputBox.value;
+        newLabel.for = div.querySelector('input[type="checkbox"]').id;
+        div.replaceChild(newLabel, inputBox);
+      }
+    }
+  });
+
+  inputBox.addEventListener('blur', function () {
+    const newLabel = document.createElement('label');
+    newLabel.textContent = '  ' + inputBox.value;
+    newLabel.for = div.querySelector('input[type="checkbox"]').id;
+    div.replaceChild(newLabel, inputBox);
+  });
+}
+
+/**
+ * deleting the existing goal
+ * @param {Event} event - The object event
+ */
+
+function deleteGoal(event) {
+  const div = event.target.parentElement;
+  div.remove();
+}
+
+/**
  * Creates and adds a new goal to approporiate list
  * @param {string} category - 'daily', 'weekly', 'long-term'
  * @param {string} input - the text input for the label
@@ -45,8 +86,10 @@ function createNewGoal (category, input) {
   goalCounter++
   const penImg = document.createElement('img')
   penImg.src = 'assets/goal_icons/pen.png'
+  penImg.addEventListener('click', editGoal);
   const trashImg = document.createElement('img')
   trashImg.src = 'assets/goal_icons/trash.png'
+  trashImg.addEventListener('click', deleteGoal);
   div.appendChild(checkbox)
   div.appendChild(label)
   div.appendChild(penImg)
