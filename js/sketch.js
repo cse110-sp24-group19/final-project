@@ -1,6 +1,6 @@
 /* global p5 */
 
-function initializeP5Sketch () {
+function initializeP5Sketch() {
   const canvasContainer = document.querySelector('.p5-canvas-container')
 
   if (canvasContainer && !canvasContainer.firstChild) {
@@ -128,6 +128,13 @@ function initializeP5Sketch () {
       clearAllButton.style('cursor', 'pointer')
       clearAllButton.parent(buttonContainer)
 
+      /**
+       * The setup function sets up everything needed for running p5.js
+       * 
+       * The function creates the p5.js canvas, sets the background, and 
+       * accesses the canvas container.
+       * 
+       */
       sketch.setup = () => {
         // Create canvas and attach it to the canvasContainer
         const canvas = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight)
@@ -136,6 +143,13 @@ function initializeP5Sketch () {
         sketch.frameRate(100)
       }
 
+      /**
+       * The draw function
+       * 
+       * The function allows for button controls, configuring settings,
+       * and actually drawing the lines on the screen for the whiteboard.
+       * 
+       */
       sketch.draw = () => {
         // set color, size, etc to the settings
         if (!canvasContainer.parentElement.classList.contains('hidden')) {
