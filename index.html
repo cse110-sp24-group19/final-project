@@ -79,7 +79,7 @@
   <!-- CALENDAR HTML END-->
     
   <!-- Day View Starts Here class="hidden" -->
-  <div id="day-view" style="display: block;">
+  <div id="day-view" class="hidden">
       <!-- Date Header (E.g. Friday, April 26 2024) -->
     <header class="day-view-date">5/9/2024</header>
 
@@ -93,23 +93,8 @@
             <button class="edit-button" onclick="">Edit</button>
             <button class="delete-button" onclick="">Delete</button>
         </li>
-        <li>
-            <p>Reviewed project progress</p>
-            <button class="edit-button" onclick="">Edit</button>
-            <button class="delete-button" onclick="">Delete</button>
-        </li>
-        <li>
-            <p>Brainstormed ideas</p>
-            <button class="edit-button" onclick="">Edit</button>
-            <button class="delete-button" onclick="">Delete</button>
-        </li>
-        <li>
-            <p>Team huddle</p>
-            <button class="edit-button" onclick="">Edit</button>
-            <button class="delete-button" onclick="">Delete</button>
-        </li>
         <li id="new-entry">
-          <input type="text" id="new-entry-input" placeholder="Add a new entry...">
+          <textarea id="new-entry-input" placeholder="Add a new entry..."></textarea>
           <button class="add-button" onclick="">Add</button>
         </li>
       </ul>

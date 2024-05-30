@@ -177,11 +177,14 @@ body {
   margin-bottom: 10px;
   border: 1px solid black;
   border-radius: 8px;
+  word-wrap: break-word; /* Allow text to wrap */
 }
 
 #journal-list li p {
   margin: 0; /* Remove default margin */
   flex-grow: 1; /* Allow the paragraph to grow to take up available space */
+  overflow-wrap: break-word; /* Allow text to wrap within the paragraph */
+  max-width: calc(100% - 120px); /* Adjust the max-width to leave space for buttons */
 }
 
 /* Styling for the back button */
@@ -214,6 +217,7 @@ body {
   padding: 5px 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
 }
 
 .add-button:hover, .edit-button:hover {
@@ -229,10 +233,31 @@ body {
   padding: 5px 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
 }
 
 .delete-button:hover {
   background-color: #8a2be2;
+}
+
+#new-entry-input {
+  width: calc(100% - 120px); /* Adjust width to leave space for button */
+  height: 60px; /* Set height for textarea */
+  resize: vertical; /* Allow vertical resizing */
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#new-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 8px;
 }
 
 /*
