@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 // function to retrieve journal entry titles from the array of journal entries
-function getTitles (date) {
+function getTitles(date) {
   const titles = []
   for (const entry of journalEntries) {
     if (entry.date === date) {
@@ -96,7 +96,7 @@ function getTitles (date) {
 }
 
 // Function to search journal entries
-function searchEntries (query) {
+function searchEntries(query) {
   return journalEntries.filter(entry =>
     entry.title.toLowerCase().includes(query.toLowerCase()) ||
     entry.content.toLowerCase().includes(query.toLowerCase())
@@ -104,7 +104,7 @@ function searchEntries (query) {
 }
 
 // Function to display search results in the calendar
-function displaySearchResults (entries) {
+function displaySearchResults(entries) {
   const calendar = document.querySelector('.calendar-dates')
   calendar.innerHTML = '' // Clear existing dates
 
@@ -195,8 +195,8 @@ const manipulate = () => {
     const isWeekend = dayOfWeek === 0 || dayOfWeek === 6 ? 'weekend' : ''
     const isToday =
       i === new Date().getDate() &&
-      month === new Date().getMonth() &&
-      year === new Date().getFullYear()
+        month === new Date().getMonth() &&
+        year === new Date().getFullYear()
         ? 'active'
         : ''
     calendarHtml += `
@@ -243,7 +243,7 @@ const manipulate = () => {
 manipulate()
 
 // Function that opens the day view
-function openDayView (dateString) {
+function openDayView(dateString) {
   // Update day view content based on the clicked date
   const formattedDate = formatDateForJournalEntries(dateString)
   document.querySelector('.day-view-date').textContent = new Date(formattedDate).toDateString()
@@ -288,13 +288,13 @@ function openDayView (dateString) {
 }
 
 // Format date for journal entries
-function formatDateForJournalEntries (dateString) {
+function formatDateForJournalEntries(dateString) {
   const [year, month, day] = dateString.split('-')
   return `${parseInt(month)}/${parseInt(day)}/${year}`
 }
 
 // Function to close day view and return to calendar
-function closeDayView () {
+function closeDayView() {
   // Hides day view
   dayView.classList.add('hidden')
 
@@ -303,17 +303,34 @@ function closeDayView () {
 }
 
 /**
- * Adds a new journal entry
+ * Opens journal edit view
  * 
- * Opens the journal edit page and populates it with the given date selected
+ * Opens a new edit view based on the journal entry id.
+ * If its a new journal entry, the date autopopulates to 
+ * today. If editing an old journal entry, then the date,
+ * title, and text are autopopulated. All entries are saved
+ * when the save button is clicked.
  * 
+ * @param number journalId specifying which journal entry is
+ * being edited
  */
-function addNewEntry () {
+
+function openJournalEditView(journalId) {
   // Hides day view
   dayView.classList.add('hidden')
 
   // Shows journal entry edit page
   journalEditView.classList.remove('hidden')
+
+  if (journalId !== -1 && Number(journalId) !== NaN) {
+    // if the journal is being edited and the id is a number, edit the entry
+    
+  }
+
+  if (journalId === -1) {
+    // create a branch new journal object/entry
+    entry =
+  }
 }
 
 // Attach a click event listener to each icon
@@ -349,8 +366,8 @@ prenexIcons.forEach((icon) => {
 // Back button functionality
 document.querySelector('.back-button').onclick = closeDayView
 
-// Add button functionality
-document.querySelector('.add-button').onclick = addNewEntry
+// Add button functionality, -1 specifies that the entry does not yet exist
+document.querySelector('.add-button').onclick = openJournalEditView(-1)
 
 // Attach event listener for the return to calendar button in the day view
 returnCalendarButton.addEventListener('click', closeDayView)
