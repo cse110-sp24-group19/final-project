@@ -78,8 +78,6 @@ const calendarView = document.getElementById('calendar-journal-page')
 
 const dayView = document.getElementById('day-view')
 
-const newEntry  = document.querySelector('.journal-entries')
-
 const returnCalendarButton = document.getElementById('return-calendar')
 
 // Array of month names
