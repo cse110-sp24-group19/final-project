@@ -329,7 +329,6 @@ function openJournalEditView(journalId) {
 
   if (journalId === -1) {
     // create a branch new journal object/entry
-    entry =
   }
 }
 

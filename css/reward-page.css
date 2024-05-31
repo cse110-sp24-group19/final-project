@@ -1,0 +1,227 @@
+/* reward-page.css */
+
+/* General styles for the reward page */
+#reward-page {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Styles for the setting button */
+#setting-button {
+  position: absolute;
+  top: 100px;
+  right: 60px;
+  width: 60px;
+  height: 60px;
+  background: url("../assets/setting.png");
+  background-size: cover;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  z-index: 10;
+}
+
+/* Styles for the setting sidebar */
+#setting-sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Initially hide the sidebar off-screen to the right */
+  width: 300px;
+  height: 100vh;
+  background-color: lightblue;
+  transition: right 0.3s ease; /* Smooth transition for sliding effect */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+  gap: 5vh;
+}
+
+/* Show the sidebar when it has the 'visible' class */
+#setting-sidebar.visible {
+  right: 0;
+}
+
+/* Rotate animations for the setting button */
+.rotate-left {
+  transform: rotate(-90deg);
+}
+
+.rotate-right {
+  transform: rotate(90deg);
+}
+
+/* Contains two main containers */
+#reward-main-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
+  margin-top: 60px;
+  padding: 15px;
+  transition: margin-right 0.3s ease; /* Smooth transition for content shift */
+}
+
+/* Styles for the character and progress box, and profile and stat box */
+#character-and-progress-box,
+#profile-and-stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1vh;
+  width: 30vw;
+  height: 70vh;
+  margin: 10px;
+  padding: 20px;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 30px;
+  box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
+  min-width: 300px;
+  min-height: 450px;
+}
+
+/* Container for the profile photo */
+#profile-photo-container {
+  text-align: center;
+}
+
+/* Styles for the profile photo */
+#profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* Styles for user name */
+#user-name {
+  font-family: lxgw, sans-serif !important;
+  font-size: 20px;
+}
+
+/* Styles for horizontal lines */
+.horizontal-line {
+  width: 90%;
+  border-top: 1px solid lightgray;
+  margin: 20px 0;
+}
+
+#sidebar-horizontal-line {
+  border-top: 1px dotted darkcyan;
+}
+
+/* Styles for statistics text */
+.stat {
+  font-family: chakra, sans-serif !important;
+  font-size: 18px;
+  margin: 1vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8vh;
+}
+
+/* Styles for statistics values and level box */
+.value,
+#level-box {
+  font-weight: bold;
+  color: darkslategray;
+}
+
+/* Responsive Styles */
+@media (min-width: 1000px) and (max-width: 1200px) {
+  .stat {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .stat {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .stat {
+    font-size: 12px;
+  }
+}
+
+/* Grid styles for profile photo selection */
+#profile-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 20px;
+  column-gap: 30px;
+}
+
+/* Styles for each profile photo in the grid */
+.profile-photo {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+/* Hover and active states for profile photos */
+.profile-photo:hover {
+  transform: scale(1.1);
+}
+
+.profile-photo:active {
+  transform: scale(1);
+}
+
+/* Styles for the user name edit button */
+#user-name-edit-button {
+  padding: 1px 5px;
+}
+
+/* Styles for the progress bar container */
+#progress-container {
+  width: 80%;
+  height: 50px;
+  padding: 5px;
+  background-color: #e0e0e0;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 20px 0;
+  max-width: 300px;
+  box-sizing: border-box; /* Ensures padding is included in the total height */
+}
+
+/* Styles for the progress bar */
+#progress-bar {
+  height: 100%; /* Ensures the bar takes the full height of the container */
+  width: 0%;
+  background-color: #76c7c0;
+  border-radius: 25px; /* Ensures rounded ends */
+  transition: width 0.5s ease-in-out;
+  box-sizing: border-box; /* Ensures any padding is included in the total height */
+}
+
+/* Styles for the character image */
+#charactor {
+  width: 300px;
+  height: 300px;
+}
+
+/* Styles for the level box */
+#level-box {
+  font-family: chakra, sans-serif !important;
+  font-size: 18px;
+  display: flex;
+  gap: 5px;
+}
