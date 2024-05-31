@@ -122,7 +122,6 @@ body {
   border-radius: 8px;
   position: relative;
   overflow: auto;
-  /*border: 4px solid #8a2be2;*/
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, .2);
 
 }
@@ -139,9 +138,6 @@ body {
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-  /*background-color: #fff;*/
-  /*border: 1px solid black;
-  border-radius: 8px;*/
 }
 
 /* Styling for the journal entries section */
@@ -178,8 +174,6 @@ body {
   padding: 10px;
   margin-bottom: 10px;
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, .2);
-  /*border: 1px solid black;*/
-
   border-radius: 8px;
   word-wrap: break-word; /* Allow text to wrap */
 }
@@ -195,10 +189,8 @@ body {
 .back-button {
   width: 100px;
   padding: 10px;
-  /*background-color: #3ddf0c;*/
   background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
   box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
-  /*color: #fff;*/
   text-align: center;
   border: none;
   border-radius: 100px;
@@ -251,7 +243,7 @@ body {
   background-color: darkred;
 }
 
-#new-entry-input , .edit-text-box{
+#new-entry-input, .edit-text-box{
   width: calc(100% - 120px); /* Adjust width to leave space for button */
   height: 60px; /* Set height for textarea */
   resize: vertical; /* Allow vertical resizing */
@@ -260,9 +252,8 @@ body {
   padding: 10px;
 }
 
-#new-entry-input:focus .edit-text-box:focus{
+#new-entry-input:focus, .edit-text-box:focus{
   outline: none;
-  
   background-color: #f0fffe;
 }
 
@@ -273,12 +264,9 @@ body {
   background-color: #fff;
   padding: 10px;
   margin-bottom: 10px;
-  /*border: 1px solid black;*/
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, .2);
   border-radius: 8px;
 }
-
-
 
 /*
   ======================================================================================================
