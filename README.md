@@ -2,6 +2,7 @@
 
 - [View our project here](https://cse110-sp24-group19.github.io/final-project/)
 - [Internal Docs](https://cse110-sp24-group19.github.io/final-project/docs)
+- [Codacy Code Coverage](https://app.codacy.com/organizations/gh/cse110-sp24-group19/dashboard)
 
 ## Features
 
