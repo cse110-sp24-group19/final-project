@@ -122,7 +122,9 @@ body {
   border-radius: 8px;
   position: relative;
   overflow: auto;
-  border: 4px solid #8a2be2;
+  /*border: 4px solid #8a2be2;*/
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, .2);
+
 }
 
 @keyframes rainbow {
@@ -133,13 +135,13 @@ body {
 
 /* Styling for the date header */
 .day-view-date {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid black;
-  border-radius: 8px;
+  /*background-color: #fff;*/
+  /*border: 1px solid black;
+  border-radius: 8px;*/
 }
 
 /* Styling for the journal entries section */
@@ -175,7 +177,9 @@ body {
   background-color: #fff;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid black;
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, .2);
+  /*border: 1px solid black;*/
+
   border-radius: 8px;
   word-wrap: break-word; /* Allow text to wrap */
 }
@@ -191,24 +195,31 @@ body {
 .back-button {
   width: 100px;
   padding: 10px;
-  background-color: #3ddf0c;
-  color: #fff;
+  /*background-color: #3ddf0c;*/
+  background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.2);
+  /*color: #fff;*/
   text-align: center;
   border: none;
-  border-radius: 5px;
+  border-radius: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .back-button:hover {
-  background-color: #0056b3;
+  color: #fff;
+  transform: translateX(-50%) scale(1.1);
 }
 
-.add-button, .edit-button {
+.back-button:active {
+  transform: translateX(-50%) scale(1);
+}
+
+.add-button, .edit-button, .save-button {
   margin-right: 10px;
   background-color: #3ddf0c;
   color: #fff;
@@ -221,7 +232,7 @@ body {
 }
 
 .add-button:hover, .edit-button:hover {
-  background-color: #0056b3;
+  background-color: darkgreen;
 }
 
 .delete-button {
@@ -237,28 +248,37 @@ body {
 }
 
 .delete-button:hover {
-  background-color: #8a2be2;
+  background-color: darkred;
 }
 
-#new-entry-input {
+#new-entry-input , .edit-text-box{
   width: calc(100% - 120px); /* Adjust width to leave space for button */
   height: 60px; /* Set height for textarea */
   resize: vertical; /* Allow vertical resizing */
   border-radius: 5px;
-  border: 1px solid black;
+  border: 1px solid gray;
   padding: 10px;
 }
 
-#new-entry {
+#new-entry-input:focus .edit-text-box:focus{
+  outline: none;
+  
+  background-color: #f0fffe;
+}
+
+#new-entry, .edit-text-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, .2);
   border-radius: 8px;
 }
+
+
 
 /*
   ======================================================================================================
