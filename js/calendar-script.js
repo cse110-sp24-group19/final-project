@@ -366,7 +366,7 @@ prenexIcons.forEach((icon) => {
 document.querySelector('.back-button').onclick = closeDayView
 
 // Add button functionality, -1 specifies that the entry does not yet exist
-document.querySelector('.add-button').onclick = openJournalEditView(-1)
+// document.querySelector('.add-button').onclick = openJournalEditView(-1)
 
 // Attach event listener for the return to calendar button in the day view
 returnCalendarButton.addEventListener('click', closeDayView)
