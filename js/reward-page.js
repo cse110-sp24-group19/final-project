@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   // Change profile photo by clicking the options provided to users
-  profilePhotos.forEach((photo, index) => {
+  profilePhotos.forEach((photo) => {
     photo.addEventListener('click', function () {
       const currentSrc = this.src
       profilePhoto.src = `${currentSrc}`
