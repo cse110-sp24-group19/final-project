@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="assets/monkey.png">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/font.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="css/calendar.css">
+  <link rel="stylesheet" href="css/reward-page.css">
   <script src="js/script.js" type="module"></script>
   <script src="js/nav.js" type="module"></script>
   <script src="js/sound.js" type="module"></script>
@@ -14,6 +16,7 @@
   <script src="js/calendar-script.js" type="module"></script>
   <script src="js/day-view.js" type="module"></script>
   <script src="js/goal-page.js" type="module"></script>
+  <script src="js/reward-page.js" type="module"></script>
 
   <script src="js/sketch.js" type="module"></script>
   <title>Coding Monkeys</title>
@@ -206,7 +209,6 @@
   </div>
   <!-- End of the Creative Play Page -->
 
-  
   <!-- Goal-Setting Page -->
   <div id="goal-setting-page" class="page hidden">
     <nav-bar></nav-bar>
@@ -244,9 +246,62 @@
     </div>
   </div>
   <!-- End of the Goal-Setting Page -->
+  
   <!-- Reward Page -->
   <div id="reward-page" class="page hidden">
     <nav-bar></nav-bar>
+    <div id="setting-button"></div>
+    <div id="setting-sidebar">
+      <p>Change Profile Photo</p>
+      <div id="profile-photo-grid">
+        <img class="profile-photo" src="assets/profile0.png" alt="Profile Photo 0">
+        <img class="profile-photo" src="assets/profile1.png" alt="Profile Photo 1">
+        <img class="profile-photo" src="assets/profile2.png" alt="Profile Photo 2">
+        <img class="profile-photo" src="assets/profile3.png" alt="Profile Photo 3">
+        <img class="profile-photo" src="assets/profile4.png" alt="Profile Photo 4">
+        <img class="profile-photo" src="assets/profile5.png" alt="Profile Photo 5">
+        <img class="profile-photo" src="assets/profile6.png" alt="Profile Photo 6">
+        <img class="profile-photo" src="assets/profile7.png" alt="Profile Photo 7">
+        <img class="profile-photo" src="assets/profile8.png" alt="Profile Photo 8">
+      </div>
+      <input type="file" id="file-input" accept="image/*">
+      <div class="horizontal-line" id="sidebar-horizontal-line"></div>
+      <p>Change Name</p>
+      <p id="user-name-edit"></p>
+      <input type="text" id="user-name-input-field" class="hidden">
+      <button id="user-name-edit-button">Edit</button>
+    </div>
+    <div id="reward-main-content">
+      <div id="character-and-progress-box">
+        <img id="charactor" src="assets/egg.png" alt="Character Photo">
+        <div id="progress-container">
+          <div id="progress-bar"></div>
+        </div>
+        <div id="level-box">
+          <p>LV.</p>
+          <p id="level">0</p> <!-- Level -->
+        </div>
+      </div>
+      <div id="profile-and-stat-box">
+        <div id="profile-photo-container">
+          <img id="profile-photo" src="assets/profile0.png" alt="Profile Photo">
+        </div>
+        <p id="user-name">Anonymous</p>    <!-- User name -->
+        <div class="horizontal-line"></div>
+        <div class="stat">
+          <p>Total number of journal entries:</p>
+          <p class="value" id="num-of-journal-entries">20</p> <!-- Total number of journal entries -->
+        </div>
+        <div class="stat">
+          <p>Total number of logins:</p>
+          <p class="value" id="num-of-logins">74</p> <!-- Total number of logins -->
+        </div>
+        <div class="stat">
+          <p>Total number of goals achieved:</p>
+          <p class="value" id="num-of-goals-achieved">3</p> <!-- Total number of goals achieved -->
+        </div>
+      </div>
+    </div>
   </div>
   <!-- End of the Reward Page -->
 </body>

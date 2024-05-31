@@ -7,3 +7,13 @@
   font-family: comfortaa;
   src: url("../assets/Comfortaa-Bold.ttf");
 }
+
+@font-face {
+  font-family: chakra;
+  src: url("../assets/ChakraPetch-Regular.ttf");
+}
+
+@font-face {
+  font-family: lxgw;
+  src: url("../assets/LXGWWenKaiTC-Regular.ttf");
+}
