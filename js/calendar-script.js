@@ -187,7 +187,7 @@ function openDayView (dateString) {
   // Shows journal entries for selected date
   const titles = getTitles(formattedDate)
   const journalList = document.getElementById('journal-list')
-  journalList.innerHTML = ''
+  // journalList.innerHTML = ''
   titles.forEach((title) => {
     const listItem = document.createElement('li')
     listItem.textContent = title
