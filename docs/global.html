@@ -104,96 +104,6 @@
     
 
     
-    <h4 class="name" id="addNewEntry"><span class="type-signature"></span>addNewEntry<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Adds a new journal entry
-
-Opens the journal edit page and populates it with the given date selected
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="calendar-script.js.html">calendar-script.js</a>, <a href="calendar-script.js.html#line311">line 311</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
     <h4 class="name" id="addNewGoal"><span class="type-signature"></span>addNewGoal<span class="signature">(category)</span><span class="type-signature"></span></h4>
     
 
@@ -938,6 +848,145 @@ up to a maximum of 100%.
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id="openJournalEditView"><span class="type-signature"></span>openJournalEditView<span class="signature">(number)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Opens journal edit view
+
+Opens a new edit view based on the journal entry id.
+If its a new journal entry, the date autopopulates to 
+today. If editing an old journal entry, then the date,
+title, and text are autopopulated. All entries are saved
+when the save button is clicked.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>number</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">journalId specifying which journal entry is
+being edited</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="calendar-script.js.html">calendar-script.js</a>, <a href="calendar-script.js.html#line318">line 318</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     
 
     
@@ -953,29 +1002,13 @@ up to a maximum of 100%.
 </div>
 
 <nav>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Character.html">Character</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addNewGoal">addNewGoal</a></li><li><a href="global.html#createNewGoal">createNewGoal</a></li><li><a href="global.html#createStar">createStar</a></li><li><a href="global.html#deleteGoal">deleteGoal</a></li><li><a href="global.html#editGoal">editGoal</a></li><li><a href="global.html#increaseProgress">increaseProgress</a></li></ul>
-=======
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Character.html">Character</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addNewEntry">addNewEntry</a></li><li><a href="global.html#addNewGoal">addNewGoal</a></li><li><a href="global.html#createNewGoal">createNewGoal</a></li><li><a href="global.html#createStar">createStar</a></li><li><a href="global.html#deleteGoal">deleteGoal</a></li><li><a href="global.html#editGoal">editGoal</a></li></ul>
->>>>>>> 62b011c8fdbe155b7d97b8c83e7b1914089ca677
-=======
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Character.html">Character</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addNewEntry">addNewEntry</a></li><li><a href="global.html#addNewGoal">addNewGoal</a></li><li><a href="global.html#createNewGoal">createNewGoal</a></li><li><a href="global.html#createStar">createStar</a></li><li><a href="global.html#deleteGoal">deleteGoal</a></li><li><a href="global.html#editGoal">editGoal</a></li></ul>
->>>>>>> 42caf450b8248d0a4316741fd8f637097d45bdb8
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Character.html">Character</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addNewGoal">addNewGoal</a></li><li><a href="global.html#createNewGoal">createNewGoal</a></li><li><a href="global.html#createStar">createStar</a></li><li><a href="global.html#deleteGoal">deleteGoal</a></li><li><a href="global.html#editGoal">editGoal</a></li><li><a href="global.html#increaseProgress">increaseProgress</a></li><li><a href="global.html#openJournalEditView">openJournalEditView</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri May 31 2024 18:00:49 GMT+0000 (Coordinated Universal Time)
-=======
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri May 31 2024 18:27:40 GMT+0000 (Coordinated Universal Time)
->>>>>>> 62b011c8fdbe155b7d97b8c83e7b1914089ca677
-=======
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Thu May 30 2024 16:37:16 GMT+0000 (Coordinated Universal Time)
->>>>>>> 42caf450b8248d0a4316741fd8f637097d45bdb8
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri May 31 2024 18:55:27 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
