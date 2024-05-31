@@ -17,9 +17,9 @@ hasOverflow()
 
 document.querySelectorAll('.add-button').forEach(button => {
   button.onclick = addNewEntry
-}) 
+})
 
-document.getElementById('journal-list').addEventListener('click', function(event) {
+document.getElementById('journal-list').addEventListener('click', function (event) {
   // Check if the click occurred on a delete button
   if (event.target.classList.contains('delete-button')) {
     // Remove the parent list item of the clicked delete button
@@ -28,7 +28,7 @@ document.getElementById('journal-list').addEventListener('click', function(event
   hasOverflow()
 })
 
-function addNewEntry() {
+function addNewEntry () {
   // Get the input value
   const newEntryInput = document.getElementById('new-entry-input')
   const newEntryText = newEntryInput.value.trim()
@@ -41,7 +41,7 @@ function addNewEntry() {
       <p>${newEntryText}</p>
       <button class="edit-button" onclick="">Edit</button>
       <button class="delete-button" onclick="">Delete</button>
-    `;
+    `
     journalList.insertBefore(newListItem, document.getElementById('new-entry'))
 
     // Clear the input for the next entry
@@ -49,7 +49,7 @@ function addNewEntry() {
   }
 }
 
-function editEntry(editButton) {
+function editEntry (editButton) {
   const liToEdit = editButton.parentElement
   const pToEdit = liToEdit.querySelector('p')
   const originalText = pToEdit.innerText
@@ -60,10 +60,10 @@ function editEntry(editButton) {
 
   const saveButton = document.createElement('button')
   saveButton.innerText = 'Save'
-  saveButton.className = 'save-button' 
+  saveButton.className = 'save-button'
   saveButton.style.marginLeft = '10px' // Add margin to the right of the Save button
 
-  saveButton.onclick = function() {
+  saveButton.onclick = function () {
     const updatedText = inputField.value.trim()
     if (updatedText !== '') {
       pToEdit.innerText = updatedText
@@ -72,7 +72,7 @@ function editEntry(editButton) {
       liToEdit.appendChild(editButton)
       liToEdit.appendChild(liToEdit.querySelector('.delete-button'))
     }
-  };
+  }
 
   const space = document.createTextNode('\u00A0') // Add a non-breaking space
   liToEdit.replaceChild(inputField, pToEdit)
@@ -82,11 +82,8 @@ function editEntry(editButton) {
   liToEdit.appendChild(liToEdit.querySelector('.delete-button'))
 }
 
-
-document.getElementById('journal-list').addEventListener('click', function(event) {
+document.getElementById('journal-list').addEventListener('click', function (event) {
   if (event.target.classList.contains('edit-button')) {
     editEntry(event.target)
   }
 })
-
-
