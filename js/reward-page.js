@@ -1,7 +1,7 @@
 // reward-page.js
 
-let progress = parseInt(localStorage.getItem('progress')) || 0
-let level = parseInt(localStorage.getItem('level')) || 0
+let progress = parseInt(localStorage.getItem('progress'), 10) || 0
+let level = parseInt(localStorage.getItem('level'), 10) || 0
 
 document.addEventListener('DOMContentLoaded', function () {
   updateProgressBar()
@@ -38,7 +38,7 @@ function updateLevel () {
 
 // NIK!!
 function updateCharacter () {
-
+  console.log('Nik!!')
 }
 
 // This part should be removed eventually.
