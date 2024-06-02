@@ -1,24 +1,47 @@
 // reward-page.js
 
-let progress = 0
+let progress = parseInt(localStorage.getItem('progress'), 10) || 0
+let level = parseInt(localStorage.getItem('level'), 10) || 0
+
+document.addEventListener('DOMContentLoaded', function () {
+  updateProgressBar()
+  updateLevel()
+})
 
 /**
  * This function increments the progress bar by 10% each time it is called,
  * up to a maximum of 100%.
+ * If progress exceeds 100%, it resets and increases the level by 1.
  */
 function increaseProgress () {
-  if (progress < 100) {
-    progress += 10
-    document.getElementById('progress-bar').style.width = progress + '%'
+  progress += 10
+
+  if (progress > 100) {
+    progress -= 100
+    level += 1
+    localStorage.setItem('level', level)
+    updateLevel()
+    updateCharacter()
   }
+
+  localStorage.setItem('progress', progress)
+  updateProgressBar()
 }
 
-// This part should be removed eventually
-increaseProgress()
-increaseProgress()
-increaseProgress()
-increaseProgress()
-increaseProgress()
+function updateProgressBar () {
+  document.getElementById('progress-bar').style.width = progress + '%'
+}
+
+function updateLevel () {
+  document.getElementById('level').textContent = `${level}`
+}
+
+// NIK!!
+function updateCharacter () {
+  console.log('Nik!!')
+}
+
+// This part should be removed eventually.
 increaseProgress()
 
 document.addEventListener('DOMContentLoaded', function () {
