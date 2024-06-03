@@ -151,13 +151,30 @@ document.getElementById('delete-entry-button').addEventListener('click', functio
 
 document.getElementById('back-details-button').addEventListener('click', closeEntryDetails)
 
-
+/**
+ * Save a given journal entry to local storage
+ * 
+ * @param {String} id 
+ * @param {String} date 
+ * @param {String} title 
+ * @param {String} info 
+ */
 function saveEntryToLocalStorage(id, date, title, info) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   entries.push({ id, date, title, info })
   localStorage.setItem('journalEntries', JSON.stringify(entries))
 }
 
+/**
+ * Update an entry in the local storage
+ * 
+ * Specifically for editing and updating an existing entry
+ * based on the index and id
+ * 
+ * @param {String} id 
+ * @param {String} title 
+ * @param {String} info 
+ */
 function updateEntryInLocalStorage(id, title, info) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   const entryIndex = entries.findIndex(entry => entry.id === id)
@@ -168,12 +185,30 @@ function updateEntryInLocalStorage(id, title, info) {
   }
 }
 
+/**
+ * Remove an entry from local storage
+ * 
+ * Filter through to find the entry with a given id
+ * and remove it from the local storage
+ * 
+ * @param {String} id 
+ */
 function removeEntryFromLocalStorage(id) {
   let entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   entries = entries.filter(entry => entry.id !== id)
   localStorage.setItem('journalEntries', JSON.stringify(entries))
 }
 
+/**
+ * Tracks the changes in a given element
+ * 
+ * Meant to add event listeners to the list items
+ * in the day view so that they can be editable with 
+ * a click after 
+ * 
+ * @param {Array} mutationsList 
+ * @param {Object} observer 
+ */
 function onClassListChange(mutationsList, observer) {
   for (let mutation of mutationsList) {
     if (mutation.attributeName === 'class') {
@@ -198,6 +233,16 @@ function onClassListChange(mutationsList, observer) {
   }
 }
 
+/**
+ * Configures the tracking of changes in a 
+ * given element
+ * 
+ * Sets up a MutationObserver based on which HTML
+ * elements need to be observed and configures them
+ * to be tracked
+ * 
+ * @param {HTMLElement} element 
+ */
 const observeElementClasses = (element) => {
   const observer = new MutationObserver(onClassListChange);
   const config = { attributes: true, attributeFilter: ['class'] };
