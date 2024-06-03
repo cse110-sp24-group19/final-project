@@ -178,21 +178,42 @@ const manipulate = () => {
 
 manipulate()
 
+/**
+ * Loads entries for a given date
+ * 
+ * Gets all of the journal entries from local storage, 
+ * filters them based on a given date, and creates list
+ * items for the day view
+ * 
+ * @param {String} date 
+ */
+function loadEntriesForDate(date) {
+  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  const journalList = document.getElementById('journal-list')
+  journalList.innerHTML = '' // Clear existing entries
+
+  const filteredEntries = entries.filter(entry => entry.date === date)
+
+  filteredEntries.forEach(entry => {
+    const newEntry = document.createElement('li')
+    newEntry.textContent = entry.title
+    newEntry.dataset.info = entry.info
+    newEntry.dataset.id = entry.id
+    newEntry.dataset.date = entry.date
+    newEntry.addEventListener('click', function () {
+      openEntryDetails(newEntry)
+    })
+    journalList.appendChild(newEntry)
+  })
+}
+
 // Function that opens the day view
 function openDayView (dateString) {
   // Update day view content based on the clicked date
   const formattedDate = formatDateForJournalEntries(dateString)
   document.querySelector('.day-view-date').textContent = formattedDate
 
-  // Shows journal entries for selected date
-  const titles = getTitles(formattedDate)
-  const journalList = document.getElementById('journal-list')
-  // journalList.innerHTML = ''
-  titles.forEach((title) => {
-    const listItem = document.createElement('li')
-    listItem.textContent = title
-    journalList.appendChild(listItem)
-  })
+  loadEntriesForDate(formattedDate)
 
   // Shows day view
   dayView.classList.remove('hidden')

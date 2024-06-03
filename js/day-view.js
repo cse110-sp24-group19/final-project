@@ -4,7 +4,7 @@ const backButton = document.querySelector('.back-button')
 const entryDetailsView = document.getElementById('entry-details-page')
 
 // automatically checks if there is overflow
-function hasOverflow (returnButton) {
+function hasOverflow(returnButton) {
   // const dayViewContainer = document.querySelector('#day-view')
   // Check if there is overflow in the day-view container
 
@@ -21,17 +21,17 @@ function hasOverflow (returnButton) {
 
 hasOverflow(backButton)
 
-function addNewEntry () {
+function addNewEntry() {
   dayViewContainer.classList.add('hidden')
   dayNewEntryView.classList.toggle('hidden')
 }
 
-function closeNewEntry () {
+function closeNewEntry() {
   dayNewEntryView.classList.add('hidden')
   dayViewContainer.classList.remove('hidden')
 }
 
-function unhide () {
+function unhide() {
   document.getElementById('details-title').classList.remove('hidden')
   document.getElementById('details-info').classList.remove('hidden')
   document.getElementById('edit-entry-button').classList.remove('hidden')
@@ -58,7 +58,9 @@ document.querySelector('.save-button').addEventListener('click', function () {
   // Add new entry to day view
   const newEntry = document.createElement('li')
   const id = Date.now().toString()
+  const selectedDate = document.querySelector('.day-view-date').textContent
   newEntry.dataset.id = id
+  newEntry.dataset.date = selectedDate
   newEntry.textContent = title
   newEntry.dataset.info = info // Store the info in a data attribute
   newEntry.addEventListener('click', function () {
@@ -67,7 +69,7 @@ document.querySelector('.save-button').addEventListener('click', function () {
   document.getElementById('journal-list').appendChild(newEntry)
 
   // save entry to local storage
-  saveEntryToLocalStorage(id, title, info)
+  saveEntryToLocalStorage(id, selectedDate, title, info)
 
   // Reset input fields
   document.getElementById('entry-title').value = ''
@@ -81,7 +83,7 @@ document.querySelector('.save-button').addEventListener('click', function () {
 
 let currentEntryElement = null // To store the reference to the clicked entry
 
-function openEntryDetails (entryElement) {
+function openEntryDetails(entryElement) {
   currentEntryElement = entryElement // Store the reference to the clicked entry
   document.getElementById('details-title').textContent = entryElement.textContent
   document.getElementById('details-info').textContent = entryElement.dataset.info
@@ -91,10 +93,10 @@ function openEntryDetails (entryElement) {
   entryDetailsView.classList.remove('hidden')
 }
 
-function closeEntryDetails () {
+function closeEntryDetails() {
   if (document.getElementById('details-title-input').classList.contains('hidden') &&
-      document.getElementById('details-info-textarea').classList.contains('hidden') &&
-      document.getElementById('save-details-button').classList.contains('hidden')) {
+    document.getElementById('details-info-textarea').classList.contains('hidden') &&
+    document.getElementById('save-details-button').classList.contains('hidden')) {
     entryDetailsView.classList.add('hidden')
     dayViewContainer.classList.remove('hidden')
   } else {
@@ -142,7 +144,6 @@ document.getElementById('save-details-button').addEventListener('click', functio
 document.getElementById('delete-entry-button').addEventListener('click', function () {
   entryDetailsView.classList.add('hidden')
   dayViewContainer.classList.remove('hidden')
-  console.log(currentEntryElement)
   removeEntryFromLocalStorage(currentEntryElement.dataset.id)
   currentEntryElement.remove()
   hasOverflow(backButton)
@@ -151,9 +152,9 @@ document.getElementById('delete-entry-button').addEventListener('click', functio
 document.getElementById('back-details-button').addEventListener('click', closeEntryDetails)
 
 
-function saveEntryToLocalStorage(id, title, info) {
+function saveEntryToLocalStorage(id, date, title, info) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
-  entries.push({ id, title, info })
+  entries.push({ id, date, title, info })
   localStorage.setItem('journalEntries', JSON.stringify(entries))
 }
 
@@ -173,20 +174,36 @@ function removeEntryFromLocalStorage(id) {
   localStorage.setItem('journalEntries', JSON.stringify(entries))
 }
 
-function loadEntriesFromLocalStorage() {
-  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
-  const journalList = document.getElementById('journal-list')
-  entries.forEach(entry => {
-    const newEntry = document.createElement('li')
-    newEntry.textContent = entry.title
-    newEntry.dataset.info = entry.info
-    newEntry.dataset.id = entry.id
-    newEntry.addEventListener('click', function () {
-      openEntryDetails(newEntry)
-    })
-    journalList.appendChild(newEntry)
-  })
-  hasOverflow(backButton)
+function onClassListChange(mutationsList, observer) {
+  for (let mutation of mutationsList) {
+    if (mutation.attributeName === 'class') {
+      console.log('Class list changed:', mutation.target.classList);
+      if (!mutation.target.classList.contains('hidden')) {
+        // Perform actions when the element is shown
+
+        // Select the parent element with the ID 'journal-list'
+        const journalList = document.getElementById('journal-list');
+
+        // Query all the <li> elements within the 'journal-list' element
+        const entries = journalList.querySelectorAll('li');
+
+        // Add an event listener to each entry
+        entries.forEach(entry => {
+          entry.addEventListener('click', function () {
+            openEntryDetails(entry);
+          });
+        });
+      }
+    }
+  }
 }
 
-window.addEventListener('load', loadEntriesFromLocalStorage)
+const observeElementClasses = (element) => {
+  const observer = new MutationObserver(onClassListChange);
+  const config = { attributes: true, attributeFilter: ['class'] };
+  observer.observe(element, config);
+};
+
+// Start observing the class list changes
+observeElementClasses(dayViewContainer);
+observeElementClasses(dayNewEntryView);
