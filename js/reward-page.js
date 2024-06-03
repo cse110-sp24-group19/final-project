@@ -1,8 +1,6 @@
 // reward-page.js
 import Character from './Character.js'
 
-let progress = parseInt(localStorage.getItem('progress'), 10) || 0
-let level = parseInt(localStorage.getItem('level'), 10) || 0
 // No choose your character page yet, so initializing with a test character
 const userCharacter = new Character('Smaug', 'Dragon')
 document.addEventListener('DOMContentLoaded', function () {
