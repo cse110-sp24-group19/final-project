@@ -10,18 +10,18 @@ class Character {
    * @example
    * const usercharacter = new Character('Smaug', 'Dragon', 5);
    * console.log(usercharacter.getCurrentProgression()); // 5
-   * console.log(usercharacter.fetchImageAsset) // images/dragon-baby.png
+   * console.log(usercharacter.getCharacterInfo()[2] // assets/dragon-baby.png
    * console.log(usercharacter.updateProgression(10);
-   * console.log(usercharacter.getCurrentProgression()); // 15
+   * console.log(usercharacter.getCharacterInfo()[0]); // 15
    */
   constructor (name = null, type = null, progressionPoints = 0) {
-    if (name && type) {
+    if (name === null || type === null) {
+      this._loadCharacter() // Load the first available character from storage.
+    } else {
       this.name = name
       this.type = this._validateType(type)
       this.progressionPoints = progressionPoints
       this._saveCharacter() // Save character to localStorage when it's created with new parameters.
-    } else {
-      this._loadCharacter() // Load the first available character from storage.
     }
   }
 
@@ -40,31 +40,51 @@ class Character {
   }
 
   /**
+   * Gets the current character info as a tuple.
+   * @returns {array}The current progression points, the current life stage, and the image asset URL.
+   * @example
+   * console.log(dragon.getCharacterInfo()); // Outputs [progressionPoints, 'LifeStage', 'assets/character-stage.png',
+   * progressionStagePercentage]
+   */
+  getCharacterInfo () {
+    const progressionPoints = this.progressionPoints
+    const progressionStage = this._getProgressionStage()
+    const imageAsset = this._fetchImageAsset()
+    const progressionStagePercentage = this._getStageProgressionPercentage()
+    return [progressionPoints, progressionStage, imageAsset, progressionStagePercentage]
+  }
+
+  /**
    * Gets the current progression points of the character.
    * @returns {number} The current progression points.
    * @example
    * console.log(dragon.getCurrentProgression()); // Outputs the current progression points
    */
-  getCurrentProgression () {
+  _getCurrentProgression () {
+    console.log('Deprecation warning, this function will be replaced with getCharacterInfo during Sprint 3.')
     return this.progressionPoints
   }
 
   /**
-   * Updates the progression points of the character.
+   * Updates the progression points of the character and broadcasts an event to let other resources know to update their
+   * assets. The event is called 'characterInfoUpdated'.
    * @param {number} points - The number of points to add to the current progression.
    * @example
    * dragon.updateProgression(30);
-   * console.log(dragon.getCurrentProgression()); // 80
+   * console.log(dragon.getCharacterInfo()[0]); // 30
    */
   updateProgression (points) {
     const newProgression = this.progressionPoints + points
-    if (newProgression > 300) {
-      this.progressionPoints = 300
+    if (newProgression > 100) {
+      this.progressionPoints = 100
     } else if (newProgression < 0) {
       this.progressionPoints = 0
     } else {
       this.progressionPoints = newProgression
     }
+    // Dispatch custom event 'characterInfoUpdated'
+    const event = new CustomEvent('characterInfoUpdated')
+    document.dispatchEvent(event)
     this._saveCharacter() // Save after updating.
   }
 
@@ -74,13 +94,38 @@ class Character {
    * @example
    * console.log(dragon.getProgressionStage()); // Returns 'Baby', 'Child', or 'Adult' based on points
    */
-  getProgressionStage () {
-    if (this.progressionPoints <= 10) {
+  _getProgressionStage () {
+    if (this.progressionPoints < 10) {
+      return 'Egg'
+    } else if (this.progressionPoints < 25) {
+      return 'Hatching'
+    } else if (this.progressionPoints < 45) {
       return 'Baby'
-    } else if (this.progressionPoints <= 25) {
+    } else if (this.progressionPoints < 70) {
       return 'Child'
     } else {
       return 'Adult'
+    }
+  }
+
+  /**
+   * Determines the number of points to get from one progression stage to another
+   * @returns {int} The current life stage (Baby, Child, Adult).
+   * @example
+   * console.log(dragon.getStageThreshold()); // Returns 10, 15, or 20 based on points
+   */
+  _getStageProgressionPercentage () {
+    console.log('Deprecation warning, this function will be replaced with getCharacterInfo during Sprint 3.')
+    if (this.progressionPoints < 10) {
+      return ((this._getCurrentProgression()) / 10) * 100
+    } else if (this.progressionPoints < 25) {
+      return ((this._getCurrentProgression() - 10) / 15) * 100
+    } else if (this.progressionPoints < 45) {
+      return ((this._getCurrentProgression() - 25) / 20) * 100
+    } else if (this.progressionPoints < 70) {
+      return ((this._getCurrentProgression() - 45) / 25) * 100
+    } else {
+      return ((this._getCurrentProgression() - 70) / 30) * 100
     }
   }
 
@@ -90,8 +135,8 @@ class Character {
    * @example
    * console.log(dragon.fetchImageAsset()); // Outputs 'assets/dragon-baby.png'
    */
-  fetchImageAsset () {
-    const stage = this.getProgressionStage().toLowerCase()
+  _fetchImageAsset () {
+    const stage = this._getProgressionStage().toLowerCase()
     const type = this.type.toLowerCase()
     return `assets/${type}-${stage}.png` // Assuming images are named like 'dragon-baby.png'.
   }
