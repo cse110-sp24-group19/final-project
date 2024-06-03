@@ -97,16 +97,7 @@
   height: 70vh;
   margin: 20px auto;
   padding: 20px;
-  background: linear-gradient(
-    45deg,
-    #ffb3ba,
-    #ffdfba,
-    #baffc9,
-    #bae1ff,
-    #babaff,
-    #ffbaff,
-    #ffb3ba
-  );
+  background: linear-gradient(45deg, #ffb3ba, hsl(32, 100%, 86%), #baffc9, #bae1ff, #babaff, #ffbaff, #ffb3ba);
   background-size: 600% 600%;
   animation: rainbow 20s ease infinite;
   border-radius: 8px;
@@ -117,12 +108,8 @@
 
 @keyframes rainbow {
   0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
 }
 
 .journal-entries h3 {
