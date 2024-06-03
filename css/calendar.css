@@ -97,7 +97,16 @@
   height: 70vh;
   margin: 20px auto;
   padding: 20px;
-  background: linear-gradient(45deg, #ffb3ba, #ffdfba, #baffc9, #bae1ff, #babaff, #ffbaff, #ffb3ba);
+  background: linear-gradient(
+    45deg,
+    #ffb3ba,
+    #ffdfba,
+    #baffc9,
+    #bae1ff,
+    #babaff,
+    #ffbaff,
+    #ffb3ba
+  );
   background-size: 600% 600%;
   animation: rainbow 20s ease infinite;
   border-radius: 8px;
@@ -108,8 +117,12 @@
 
 @keyframes rainbow {
   0%,
-  100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .journal-entries h3 {
@@ -233,7 +246,12 @@
 .back-button {
   width: 100px;
   padding: 10px;
-  background-image: linear-gradient(to right, #ff8008 0%, #ffc837  51%, #ff8008  100%);
+  background-image: linear-gradient(
+    to right,
+    #ff8008 0%,
+    #ffc837 51%,
+    #ff8008 100%
+  );
   box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
   text-align: center;
   border: none;
@@ -327,7 +345,8 @@
 
 .sticky-note:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 30px -10px rgba(0 0 0 / 40%), 1px 10px 6px 0 rgba(0 0 0 / 10%);
+  box-shadow: 0 20px 30px -10px rgba(0 0 0 / 40%),
+    1px 10px 6px 0 rgba(0 0 0 / 10%);
 }
 
 .sticky-note .content {
@@ -388,7 +407,7 @@
 .calendar-header {
   display: flex;
   justify-content: end;
-  align-items:center;
+  align-items: center;
   padding: 0;
   position: relative;
   width: 100%;
@@ -425,9 +444,9 @@ header .calendar-navigation span:hover {
     width: 100%;
   }
   .calendar-navigation {
-  display: flex;
-  left: 40%;
-  transform: translateX(-50%);
+    display: flex;
+    left: 40%;
+    transform: translateX(-50%);
   }
   .calendar-current-date {
     font-size: 3vw; /* Make the font size responsive */
@@ -443,9 +462,8 @@ header .calendar-navigation span:hover {
   }
   .search-bar-container {
     margin-top: 10px; /* Adjust as needed */
-    
   }
-  
+
   #search-bar {
     display: flex;
     justify-content: right;
@@ -453,7 +471,7 @@ header .calendar-navigation span:hover {
     border-radius: 4px;
     margin-right: 40px; /* Adjust margin-right to move the search bar to the left */
   }
-  
+
   #search-bar input[type="text"] {
     padding: 8px;
     width: 10vw;
@@ -462,7 +480,7 @@ header .calendar-navigation span:hover {
     border-radius: 4px;
     font-family: "Comic Sans MS", cursive; /* Change the font */
   }
-  
+
   #search-bar button {
     padding: 1px 10px;
     margin-left: 10px;
@@ -473,7 +491,7 @@ header .calendar-navigation span:hover {
     cursor: pointer;
     font-family: "Comic Sans MS", cursive; /* Change the font */
   }
-  
+
   #search-bar input[type="text"]:focus {
     border-radius: 4px;
     border-color: #0056b3; /* Change border color on focus */
