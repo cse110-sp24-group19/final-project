@@ -432,21 +432,7 @@ body {
 }
 
 /* Responsive Styles */
-@media (min-width: 1000px) and (max-width: 1200px) {
-  #goals-container h1 {
-    font-size: 20px;
-  }
-
-  .list-container {
-    font-size: 14px;
-  }
-
-  #goal-setting-page img {
-    height: 14px;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1400px) {
+@media (width <= 1400px) {
   #goals-container h1 {
     font-size: 24px;
   }
@@ -460,7 +446,21 @@ body {
   }
 }
 
-@media (max-width: 1000px) {
+@media (width <= 1200px) {
+  #goals-container h1 {
+    font-size: 20px;
+  }
+
+  .list-container {
+    font-size: 14px;
+  }
+
+  #goal-setting-page img {
+    height: 14px;
+  }
+}
+
+@media (width < 1000px) {
   #goals-container h1 {
     font-size: 18px;
   }
