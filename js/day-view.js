@@ -85,15 +85,14 @@ function closeEntryDetails () {
       document.getElementById('save-details-button').classList.contains('hidden')) {
     entryDetailsView.classList.add('hidden')
     dayViewContainer.classList.remove('hidden')
-  }
-  else {
+  } else {
     document.getElementById('details-title-input').classList.add('hidden')
     document.getElementById('details-info-textarea').classList.add('hidden')
     document.getElementById('save-details-button').classList.add('hidden')
 
     document.getElementById('details-title').classList.remove('hidden')
     document.getElementById('details-info').classList.remove('hidden')
-    document.getElementById('edit-entry-button').classList.remove('hidden')  
+    document.getElementById('edit-entry-button').classList.remove('hidden')
     document.getElementById('delete-entry-button').classList.remove('hidden')
   }
 }
