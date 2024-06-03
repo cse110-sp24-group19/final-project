@@ -277,9 +277,9 @@
     
     <pre class="prettyprint"><code>const usercharacter = new Character('Smaug', 'Dragon', 5);
 console.log(usercharacter.getCurrentProgression()); // 5
-console.log(usercharacter.fetchImageAsset) // images/dragon-baby.png
+console.log(usercharacter.getCharacterInfo()[2] // assets/dragon-baby.png
 console.log(usercharacter.updateProgression(10);
-console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
+console.log(usercharacter.getCharacterInfo()[0]); // 15</code></pre>
 
 
 
@@ -309,7 +309,7 @@ console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
     
 
     
-    <h4 class="name" id="fetchImageAsset"><span class="type-signature"></span>fetchImageAsset<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="_fetchImageAsset"><span class="type-signature"></span>_fetchImageAsset<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -361,7 +361,7 @@ console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line93">line 93</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line138">line 138</a>
     </li></ul></dd>
     
 
@@ -424,7 +424,7 @@ console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
     
 
     
-    <h4 class="name" id="getCurrentProgression"><span class="type-signature"></span>getCurrentProgression<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="_getCurrentProgression"><span class="type-signature"></span>_getCurrentProgression<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span></h4>
     
 
     
@@ -476,7 +476,7 @@ console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line48">line 48</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line63">line 63</a>
     </li></ul></dd>
     
 
@@ -539,7 +539,7 @@ console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
     
 
     
-    <h4 class="name" id="getProgressionStage"><span class="type-signature"></span>getProgressionStage<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="_getProgressionStage"><span class="type-signature"></span>_getProgressionStage<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -591,7 +591,7 @@ console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line77">line 77</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line97">line 97</a>
     </li></ul></dd>
     
 
@@ -654,6 +654,237 @@ console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
     
 
     
+    <h4 class="name" id="_getStageProgressionPercentage"><span class="type-signature"></span>_getStageProgressionPercentage<span class="signature">()</span><span class="type-signature"> &rarr; {int}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Determines the number of points to get from one progression stage to another
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line117">line 117</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The current life stage (Baby, Child, Adult).
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">int</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>console.log(dragon.getStageThreshold()); // Returns 10, 15, or 20 based on points</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getCharacterInfo"><span class="type-signature"></span>getCharacterInfo<span class="signature">()</span><span class="type-signature"> &rarr; {array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Gets the current character info as a tuple.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line49">line 49</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The current progression points, the current life stage, and the image asset URL.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>console.log(dragon.getCharacterInfo()); // Outputs [progressionPoints, 'LifeStage', 'assets/character-stage.png',
+progressionStagePercentage]</code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="updateProgression"><span class="type-signature"></span>updateProgression<span class="signature">(points)</span><span class="type-signature"></span></h4>
     
 
@@ -662,7 +893,8 @@ console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
 
 
 <div class="description">
-    Updates the progression points of the character.
+    Updates the progression points of the character and broadcasts an event to let other resources know to update their
+assets. The event is called 'characterInfoUpdated'.
 </div>
 
 
@@ -755,7 +987,7 @@ console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line59">line 59</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line76">line 76</a>
     </li></ul></dd>
     
 
@@ -787,7 +1019,7 @@ console.log(usercharacter.getCurrentProgression()); // 15</code></pre>
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>dragon.updateProgression(30);
-console.log(dragon.getCurrentProgression()); // 80</code></pre>
+console.log(dragon.getCharacterInfo()[0]); // 30</code></pre>
 
 
 
@@ -807,13 +1039,13 @@ console.log(dragon.getCurrentProgression()); // 80</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Character.html">Character</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addNewGoal">addNewGoal</a></li><li><a href="global.html#createNewGoal">createNewGoal</a></li><li><a href="global.html#createStar">createStar</a></li><li><a href="global.html#deleteGoal">deleteGoal</a></li><li><a href="global.html#editGoal">editGoal</a></li><li><a href="global.html#increaseProgress">increaseProgress</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Character.html">Character</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addNewGoal">addNewGoal</a></li><li><a href="global.html#createNewGoal">createNewGoal</a></li><li><a href="global.html#createStar">createStar</a></li><li><a href="global.html#deleteGoal">deleteGoal</a></li><li><a href="global.html#editGoal">editGoal</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sun Jun 02 2024 04:42:56 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Mon Jun 03 2024 01:05:59 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
