@@ -65,7 +65,7 @@
 .sticky-note .date.active {
   border-radius: 10px;
   border-radius: 10em;
-  padding: 5px;
+  padding: 1px;
   background-color: crimson;
   color: white;
 }
@@ -388,7 +388,7 @@
 .calendar-header {
   display: flex;
   justify-content: end;
-  align-items: center;
+  align-items:center;
   padding: 0;
   position: relative;
   width: 100%;
@@ -407,7 +407,7 @@ header .calendar-navigation span {
   margin: 0 1px;
   cursor: pointer;
   color: rgb(61 223 12);
-  font-size: 35px;
+  font-size: 2vw;
 }
 
 /* More specific styles */
@@ -417,4 +417,66 @@ header .calendar-navigation span {
 
 header .calendar-navigation span:hover {
   background: #f2f2f2;
+}
+@media only screen and (max-width: 1000px) {
+  .calendar-header {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+  }
+  .calendar-navigation {
+  display: flex;
+  left: 40%;
+  transform: translateX(-50%);
+  }
+  .calendar-current-date {
+    font-size: 3vw; /* Make the font size responsive */
+    margin: 0;
+    font-family: raleway, Tahoma, sans-serif;
+    text-align: center;
+  }
+  header .calendar-navigation span {
+    margin: 0 1px;
+    cursor: pointer;
+    color: rgb(61 223 12);
+    font-size: 4vw;
+  }
+  .search-bar-container {
+    margin-top: 10px; /* Adjust as needed */
+    
+  }
+  
+  #search-bar {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    border-radius: 4px;
+    margin-right: 40px; /* Adjust margin-right to move the search bar to the left */
+  }
+  
+  #search-bar input[type="text"] {
+    padding: 8px;
+    width: 10vw;
+    height: 1vh;
+    border: 3px solid #3ddf0c;
+    border-radius: 4px;
+    font-family: "Comic Sans MS", cursive; /* Change the font */
+  }
+  
+  #search-bar button {
+    padding: 1px 10px;
+    margin-left: 10px;
+    background-color: #3ddf0c; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive; /* Change the font */
+  }
+  
+  #search-bar input[type="text"]:focus {
+    border-radius: 4px;
+    border-color: #0056b3; /* Change border color on focus */
+    outline: none;
+  }
 }
