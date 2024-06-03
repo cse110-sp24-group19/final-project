@@ -31,6 +31,13 @@ function closeNewEntry () {
   dayViewContainer.classList.remove('hidden')
 }
 
+function unhide () {
+  document.getElementById('details-title').classList.remove('hidden')
+  document.getElementById('details-info').classList.remove('hidden')
+  document.getElementById('edit-entry-button').classList.remove('hidden')
+  document.getElementById('delete-entry-button').classList.remove('hidden')
+}
+
 document.querySelectorAll('.add-button').forEach(button => {
   button.addEventListener('click', addNewEntry)
 })
@@ -89,11 +96,7 @@ function closeEntryDetails () {
     document.getElementById('details-title-input').classList.add('hidden')
     document.getElementById('details-info-textarea').classList.add('hidden')
     document.getElementById('save-details-button').classList.add('hidden')
-
-    document.getElementById('details-title').classList.remove('hidden')
-    document.getElementById('details-info').classList.remove('hidden')
-    document.getElementById('edit-entry-button').classList.remove('hidden')
-    document.getElementById('delete-entry-button').classList.remove('hidden')
+    unhide()
   }
 }
 
@@ -122,12 +125,7 @@ document.getElementById('save-details-button').addEventListener('click', functio
 
   currentEntryElement.textContent = updatedTitle // Update the title in the journal list
   currentEntryElement.dataset.info = updatedInfo // Update the info in the journal list
-
-  document.getElementById('details-title').classList.remove('hidden')
-  document.getElementById('details-info').classList.remove('hidden')
-  document.getElementById('edit-entry-button').classList.remove('hidden')
-  document.getElementById('delete-entry-button').classList.remove('hidden')
-
+  unhide()
   document.getElementById('details-title-input').classList.add('hidden')
   document.getElementById('details-info-textarea').classList.add('hidden')
   document.getElementById('save-details-button').classList.add('hidden')
