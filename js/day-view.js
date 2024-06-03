@@ -1,8 +1,6 @@
 const dayViewContainer = document.querySelector('#day-view')
 const dayNewEntryView = document.getElementById('new-entry-page')
 const backButton = document.querySelector('.back-button')
-const backEntryButton = document.querySelector('.back-entry-button')
-const entryInfoTextarea = document.getElementById('entry-info')
 const entryDetailsView = document.getElementById('entry-details-page')
 
 // automatically checks if there is overflow
@@ -19,7 +17,6 @@ function hasOverflow (returnButton) {
   } else {
     returnButton.style.position = 'absolute'
   }
-
 }
 
 hasOverflow(backButton)
@@ -86,10 +83,10 @@ function closeEntryDetails () {
   if (document.getElementById('details-title-input').classList.contains('hidden') &&
       document.getElementById('details-info-textarea').classList.contains('hidden') &&
       document.getElementById('save-details-button').classList.contains('hidden')) {
-        entryDetailsView.classList.add('hidden')
-        dayViewContainer.classList.remove('hidden')
+    entryDetailsView.classList.add('hidden')
+    dayViewContainer.classList.remove('hidden')
   }
-  else{
+  else {
     document.getElementById('details-title-input').classList.add('hidden')
     document.getElementById('details-info-textarea').classList.add('hidden')
     document.getElementById('save-details-button').classList.add('hidden')
