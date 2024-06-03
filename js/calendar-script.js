@@ -135,13 +135,17 @@ const manipulate = () => {
       year === new Date().getFullYear()
         ? 'active'
         : ''
+
+    const entries = loadEntriesForDate(date.toLocaleDateString())
+    const numEntries = entries.length
+
     calendarHtml += `
             <li class="sticky-note ${isWeekend}" data-date="${year}-${String(
       month + 1
     ).padStart(2, '0')}-${String(i).padStart(2, '0')}">
                <div class="content"> 
                 <div class="date ${isToday}">${i}</div>
-                <div class="title">Event ${i}</div>
+                <div class="title">${numEntries > 0 ? numEntries + ' entries' : ''}</div>
                 <div class="more-tasks">+3 more</div>
                </div>
             </li>`
@@ -182,17 +186,36 @@ manipulate()
  * Loads entries for a given date
  * 
  * Gets all of the journal entries from local storage, 
- * filters them based on a given date, and creates list
- * items for the day view
+ * filters them based on a given date, and returns the
+ * filtered list
  * 
  * @param {String} date 
+ * @returns {Array} filteredEntries
  */
-function loadEntriesForDate(date) {
+function loadEntriesForDate (date) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   const journalList = document.getElementById('journal-list')
   journalList.innerHTML = '' // Clear existing entries
 
   const filteredEntries = entries.filter(entry => entry.date === date)
+
+  return filteredEntries
+}
+
+/**
+ * Loads entries for a given date
+ * 
+ * Gets all of the journal entries from local storage, 
+ * filters them based on a given date, and creates list
+ * items for the day view
+ * 
+ * @param {String} date 
+ */
+function createEntriesForDate (date) { 
+  const journalList = document.getElementById('journal-list')
+  journalList.innerHTML = '' // Clear existing entries
+
+  const filteredEntries = loadEntriesForDate(date)
 
   filteredEntries.forEach(entry => {
     const newEntry = document.createElement('li')
@@ -213,7 +236,7 @@ function openDayView (dateString) {
   const formattedDate = formatDateForJournalEntries(dateString)
   document.querySelector('.day-view-date').textContent = formattedDate
 
-  loadEntriesForDate(formattedDate)
+  createEntriesForDate(formattedDate)
 
   // Shows day view
   dayView.classList.remove('hidden')
