@@ -3,7 +3,7 @@
  */
 class Character {
   /**
-   * Creates an instance of a Character. If no name and type are provided, it loads the first available character from storage.
+   * Creates an instance of a Character. If no name and type are provided it loads the first available character from storage.
    * @param {string} [name=null] - The name of the character.
    * @param {string} [type=null] - The type of the character (Monkey, Dragon, TBD).
    * @param {number} [progressionPoints=0] - Initial progression points (default is 0).
