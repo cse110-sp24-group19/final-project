@@ -41,7 +41,7 @@ class Character {
 
   /**
    * Gets the current character info as a tuple.
-   * @returns {[number, string, string]} The current progression points, the current life stage, and the image asset URL.
+   * @returns {[int, string, string, int]}The current progression points, the current life stage, and the image asset URL.
    * @example
    * console.log(dragon.getCharacterInfo()); // Outputs [progressionPoints, 'LifeStage', 'assets/character-stage.png',
    * progressionStagePercentage]
