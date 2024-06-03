@@ -35,28 +35,33 @@ function addNewGoal (category) {
 function editGoal (event) {
   const div = event.target.parentElement
   const label = div.querySelector('label')
+  if (!label) return
+
   const inputBox = document.createElement('input')
   inputBox.type = 'text'
   inputBox.value = label.textContent.trim()
+  inputBox.style.width = '15vw'
+  inputBox.style.height = '20px'
+  inputBox.style.fontFamily = 'lxgw, sans-serif'
+  inputBox.style.fontSize = '18px'
   div.replaceChild(inputBox, label)
+
+  function handleInputCommit () {
+    if (inputBox.value.trim() !== '') {
+      const newLabel = document.createElement('label')
+      newLabel.textContent = inputBox.value.trim()
+      newLabel.htmlFor = label.htmlFor
+      div.replaceChild(newLabel, inputBox)
+    }
+  }
 
   inputBox.addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
-      if (inputBox.value !== '') {
-        const newLabel = document.createElement('label')
-        newLabel.textContent = '  ' + inputBox.value
-        newLabel.for = div.querySelector('input[type="checkbox"]').id
-        div.replaceChild(newLabel, inputBox)
-      }
+      handleInputCommit()
     }
   })
 
-  inputBox.addEventListener('blur', function () {
-    const newLabel = document.createElement('label')
-    newLabel.textContent = '  ' + inputBox.value
-    newLabel.for = div.querySelector('input[type="checkbox"]').id
-    div.replaceChild(newLabel, inputBox)
-  })
+  inputBox.addEventListener('blur', handleInputCommit)
 }
 
 /**
@@ -70,6 +75,21 @@ function deleteGoal (event) {
 }
 
 /**
+ * achieving the existing goal
+ * @param {Event} event - The object event
+ */
+
+function achieved (event) {
+  const div = event.target.parentElement
+  div.style.textDecoration = 'line-through'
+  div.style.color = 'gray'
+  const checkIcon = div.querySelector('.check-icon')
+  checkIcon.src = 'assets/goal_icons/checked.png'
+  const penIcon = div.querySelector('.pen-icon')
+  penIcon.style.display = 'none'
+}
+
+/**
  * Creates and adds a new goal to approporiate list
  * @param {string} category - 'daily', 'weekly', 'long-term'
  * @param {string} input - the text input for the label
@@ -77,24 +97,26 @@ function deleteGoal (event) {
 function createNewGoal (category, input) {
   const div = document.createElement('div')
   div.id = goalCounter
-  const checkbox = document.createElement('input')
-  checkbox.type = 'checkbox'
-  checkbox.id = 'goal#' + goalCounter
   const label = document.createElement('label')
-  label.for = checkbox.id
-  label.textContent = '  ' + input
+  label.for = 'goal#' + goalCounter
+  label.textContent = input
   goalCounter++
+  const checkImg = document.createElement('img')
+  checkImg.classList.add('check-icon')
+  checkImg.src = 'assets/goal_icons/check.png'
+  checkImg.addEventListener('click', achieved)
   const penImg = document.createElement('img')
+  penImg.classList.add('pen-icon')
   penImg.src = 'assets/goal_icons/pen.png'
   penImg.addEventListener('click', editGoal)
   const trashImg = document.createElement('img')
   trashImg.src = 'assets/goal_icons/trash.png'
   trashImg.addEventListener('click', deleteGoal)
-  div.appendChild(checkbox)
   div.appendChild(label)
+  div.appendChild(checkImg)
   div.appendChild(penImg)
   div.appendChild(trashImg)
-  const container = document.getElementById(category) // select correct container
+  const container = document.querySelector(`#${category} .list-container`) // select correct container
   const buffer = container.children[container.children.length - 1] // query that containers very last element(add button)
   container.insertBefore(div, buffer) // new goal is inserted at the end of the list
 }
