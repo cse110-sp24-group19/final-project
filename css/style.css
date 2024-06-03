@@ -314,7 +314,7 @@ body {
 */
 
 #calendar-journal-page {
-  height: 88vh;
+  height: 90vh;
 }
 
 .search-bar-container {
@@ -331,14 +331,15 @@ body {
 
 #search-bar input[type="text"] {
   padding: 8px;
-  width: 200px;
+  width: 8vw;
+  height: 1vh;
   border: 3px solid #3ddf0c;
   border-radius: 4px;
   font-family: "Comic Sans MS", cursive; /* Change the font */
 }
 
 #search-bar button {
-  padding: 8px 16px;
+  padding: 5px 16px;
   margin-left: 10px;
   background-color: #3ddf0c; /* Bootstrap primary color */
   color: white;
