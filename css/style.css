@@ -314,7 +314,7 @@ body {
 */
 
 #calendar-journal-page {
-  height: 90vh;
+  height: 88vh;
 }
 
 .search-bar-container {
@@ -331,15 +331,14 @@ body {
 
 #search-bar input[type="text"] {
   padding: 8px;
-  width: 8vw;
-  height: 1vh;
+  width: 200px;
   border: 3px solid #3ddf0c;
   border-radius: 4px;
   font-family: "Comic Sans MS", cursive; /* Change the font */
 }
 
 #search-bar button {
-  padding: 5px 16px;
+  padding: 8px 16px;
   margin-left: 10px;
   background-color: #3ddf0c; /* Bootstrap primary color */
   color: white;
@@ -355,21 +354,9 @@ body {
   outline: none;
 }
 
-/* this belongs in goal-setting-- the linter is making me put it here!! */
-#goals-container button {
-  height: 13px;
-  width: 13px;
-}
-
 #search-bar button:hover {
   background-color: #0056b3; /* Darker shade of primary color */
 }
-
-/*
-========================================================================================
-================================  Creative Play Page  ==================================
-========================================================================================
-*/
 
 /*
 ========================================================================================
@@ -378,31 +365,28 @@ body {
 */
 
 #goals-container {
-  max-width: fit-content;
-  max-height: 600vh;
-  margin: auto;
+  margin-top: 60px;
   display: flex;
-  gap: 5vw;
-  padding: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 3vw;
 }
 
 #goals-container h1 {
   margin: auto;
-  padding: 5px;
+  padding: 10px;
   text-align: center;
 }
 
 #goals-container section {
+  box-sizing: border-box;
   display: flex;
-  padding: 1em;
-  align-items: start;
-  flex-direction: column;
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgb(67 205 205);
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(67 205 205);
   border-radius: 25px;
-  width: 250px;
-  height: 350px;
+  width: 28vw;
+  height: 70vh;
   background-color: floralwhite;
 }
 
@@ -410,15 +394,82 @@ body {
   border-width: 6px;
 }
 
-#goals-container > div {
-  margin-top: auto;
+.list-container {
+  font-family: lxgw, sans-serif !important;
+  font-size: 18px;
+  width: 23vw;
+  height: 62vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
 }
 
 #goal-setting-page img {
-  height: 10px;
-  padding-left: 5px;
+  height: 18px;
+  padding-left: 1vw;
+  cursor: pointer;
 }
 
 #goal-setting-page img:hover {
-  height: 12px;
+  transform: scale(1.1);
+}
+
+#goal-setting-page img:active {
+  transform: scale(1);
+}
+
+.plus-button {
+  width: 20px;
+  height: 20px;
+  margin-right: 1vw;
+}
+
+.goal-input {
+  width: 15vw;
+  height: 20px;
+  font-size: 16px;
+  font-family: lxgw, sans-serif !important;
+}
+
+/* Responsive Styles */
+@media (width <= 1400px) {
+  #goals-container h1 {
+    font-size: 24px;
+  }
+
+  .list-container {
+    font-size: 16px;
+  }
+
+  #goal-setting-page img {
+    height: 16px;
+  }
+}
+
+@media (width <= 1200px) {
+  #goals-container h1 {
+    font-size: 20px;
+  }
+
+  .list-container {
+    font-size: 14px;
+  }
+
+  #goal-setting-page img {
+    height: 14px;
+  }
+}
+
+@media (width < 1000px) {
+  #goals-container h1 {
+    font-size: 18px;
+  }
+
+  .list-container {
+    font-size: 12px;
+  }
+
+  #goal-setting-page img {
+    height: 12px;
+  }
 }
