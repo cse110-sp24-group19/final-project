@@ -83,6 +83,7 @@
     
   <!-- Day View Starts Here class="hidden" -->
   <div id="day-view" class="page hidden">
+    <button class="add-button" onclick="">Add</button>
       <!-- Date Header (E.g. Friday, April 26 2024) -->
     <header class="day-view-date">5/9/2024</header>
 
@@ -91,11 +92,7 @@
         <!-- Header for Journal Entries -->
       <h3>Journal Entries:</h3>
       <ul id="journal-list">
-        
-        <li id="new-entry">
-          <textarea id="new-entry-input" placeholder="Add a new entry..."></textarea>
-          <button class="add-button" onclick="">Add</button>
-        </li>
+        <!-- New Title Entries Here -->
       </ul>
     </div>
 
@@ -104,6 +101,33 @@
     and display the calendar-container -->
     <button class="back-button" onclick="">Go Back</button>
   </div>
+
+  <div id="new-entry-page" class="page hidden">
+    <button class="save-button" onclick="">Save</button>
+    <h3>NEW ENTRY:</h3>
+    <label for="entry-title">Title:</label>
+    <input type="text" id="entry-title" placeholder="Enter title">
+    <label for="entry-info">Information:</label>
+    <textarea id="entry-info" rows="8" placeholder="Enter information"></textarea>
+    <button class="back-entry-button" onclick="">Go Back</button>
+  </div>
+
+  <div id="entry-details-page" class="page hidden">
+    <button id="edit-entry-button" class="edit-button">Edit</button>
+    <button id="delete-entry-button" class="delete-button">Delete</button>
+    <button id="save-details-button" class="save-button hidden">Save</button>
+    <h3>ENTRY DETAILS:</h3>
+    <h2 id="details-title"></h2>
+    <label for="details-info" class="details-info"></label>
+    <textarea id="details-info" class="details-info" rows="12" readonly></textarea>
+
+    <label for="details-title-input" class="hidden">Title:</label>
+    <input type="text" id="details-title-input" class="hidden" placeholder="Enter title">
+    <label for="details-info-textarea" class="hidden">Information:</label>
+    <textarea id="details-info-textarea" class="hidden" rows="12" placeholder="Enter information"></textarea>
+    <button id="back-details-button" class="back-button">Go Back</button>
+  </div>
+
   <!-- Day View Ends Here -->
 
   <!-- End of the Calendar/Journal Page -->

@@ -110,6 +110,67 @@
   50% { background-position: 100% 50%; }
 }
 
+#new-entry-page,
+#entry-details-page
+ {
+  width: 80%;
+  height: 70vh;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(45deg, #ffb3ba, #ffdfba, #baffc9, #bae1ff, #babaff, #ffbaff, #ffb3ba);
+  background-size: 600% 600%;
+  animation: rainbow 20s ease infinite;
+  border-radius: 8px;
+  position: relative;
+  overflow: auto;
+  box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
+}
+
+#new-entry-page h3 {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#new-entry-page label {
+  display: block;
+  margin-top: 10px;
+}
+
+#details-info,
+#entry-info,
+#details-info-textarea,
+#new-entry-page input,
+#new-entry-page textarea {
+  width: 98%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#details-info {
+  padding: 8px;
+  margin-top: 5px;
+  margin-right: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#details-info,
+#details-info-textarea,
+#new-entry-page textarea {
+  resize: none;
+}
+
+#details-title-input {
+  margin: auto;
+  display: block;
+  margin-bottom: 15px;
+}
+
 /* Styling for the date header */
 .day-view-date {
   font-size: 2em;
@@ -139,6 +200,32 @@
   padding-bottom: 5px; /* Add some space below the border */
 }
 
+#new-entry-page h3,
+#entry-details-page h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase; /* Uppercase letters */
+  letter-spacing: 2px; /* Increase letter spacing */
+  border-bottom: 1px solid #ccc; /* Add a bottom border */
+  padding-bottom: 5px; /* Add some space below the border */
+}
+
+#entry-details-page h2{
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase; /* Uppercase letters */
+  letter-spacing: 2px; /* Increase letter spacing */
+  padding-bottom: 5px; /* Add some space below the border */
+}
+
 #journal-list {
   list-style-type: none;
   padding: 0;
@@ -156,14 +243,8 @@
   word-wrap: break-word; /* Allow text to wrap */
 }
 
-#journal-list li p {
-  margin: 0; /* Remove default margin */
-  flex-grow: 1; /* Allow the paragraph to grow to take up available space */
-  overflow-wrap: break-word; /* Allow text to wrap within the paragraph */
-  max-width: calc(100% - 120px); /* Adjust the max-width to leave space for buttons */
-}
-
 /* Styling for the back button */
+.back-entry-button,
 .back-button {
   width: 100px;
   padding: 10px;
@@ -180,76 +261,63 @@
   transform: translateX(-50%);
 }
 
+.back-entry-button:hover,
 .back-button:hover {
   color: #fff;
   transform: translateX(-50%) scale(1.1);
 }
 
+.back-entry-button:active,
 .back-button:active {
   transform: translateX(-50%) scale(1);
 }
 
-.add-button,
 .edit-button,
-.save-button {
-  margin-right: 10px;
+.save-button,
+.add-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   background-color: #3ddf0c;
-  color: #fff;
+  color: black;
   border: none;
-  border-radius: 5px;
   padding: 5px 10px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  flex-shrink: 0; /* Prevent buttons from shrinking */
+  box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
+}
+
+.save-button {
+  background-color: cyan;
 }
 
 .add-button:hover,
+.save-button:hover,
 .edit-button:hover {
   background-color: darkgreen;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: blue;
 }
 
 .delete-button {
-  float: right;
-  background-color: #c00;
-  color: #fff;
+  background-color: rgb(254, 66, 66);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: black;
   border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
+  padding: 5px 8px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  flex-shrink: 0; /* Prevent buttons from shrinking */
+  box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
 }
 
 .delete-button:hover {
+  color: white;
   background-color: darkred;
-}
-
-#new-entry-input,
-.edit-text-box {
-  width: calc(100% - 120px); /* Adjust width to leave space for button */
-  height: 60px; /* Set height for textarea */
-  resize: vertical; /* Allow vertical resizing */
-  border-radius: 5px;
-  border: 1px solid gray;
-  padding: 10px;
-}
-
-#new-entry,
-.edit-text-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
-  border-radius: 8px;
-}
-
-#new-entry-input:focus,
-.edit-text-box:focus {
-  outline: none;
-  background-color: #f0fffe;
 }
 
 /*
