@@ -420,38 +420,37 @@ header .calendar-navigation span:hover {
 }
 
 @media only screen and (max-width: 1000px) {
-
-.calendar-header {
+  .calendar-header {
     display: flex;
     justify-content: end;
-    width: 100%;
-  }
+    width: 100%; 
+}
 
-.calendar-navigation {
+  .calendar-navigation {
     display: flex;
     left: 40%;
     transform: translateX(-50%);
-  }
+}
 
-.calendar-current-date {
+  .calendar-current-date {
     font-size: 3vw;/* Make the font size responsive */
     margin: 0;
     font-family: raleway, Tahoma, sans-serif;
     text-align: center;
-  }
+}
 
-header .calendar-navigation span {
+  header .calendar-navigation span {
     margin: 0 1px;
     cursor: pointer;
     color: rgb(61 223 12);
     font-size: 4vw;
 }
 
-.search-bar-container {
+  .search-bar-container {
   margin-top: 10px;
-}
+} 
 
-#search-bar {
+  #search-bar {
     display: flex;
     justify-content: right;
     align-items: right;
@@ -466,7 +465,7 @@ header .calendar-navigation span {
     border: 3px solid #3ddf0c;
     border-radius: 4px;
     font-family: "Comic Sans MS", cursive;/* Change the font */
-  }
+}
 
   #search-bar button {
     padding: 1px 10px;
@@ -477,11 +476,11 @@ header .calendar-navigation span {
     border-radius: 4px;
     cursor: pointer;
     font-family: "Comic Sans MS", cursive;/* Change the font */
-  }
-  
+}
+
   #search-bar input[type="text"]:focus {
     border-radius: 4px;
     border-color: #0056b3;/* Change border color on focus */
     outline: none;
-  }
+}
 }
