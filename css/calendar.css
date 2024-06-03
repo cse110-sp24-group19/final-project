@@ -379,10 +379,10 @@
 
 /* Use this to change the style of the current date header i.e April, 2024 */
 .calendar-current-date {
-  font-size: 1vw;/* Make the font size responsive */
+  font-size: 1vw;
   margin: 0;
   font-family: raleway, Tahoma, sans-serif;
-  text-align: center; 
+  text-align: center;
 }
 
 .calendar-header {
@@ -421,44 +421,44 @@ header .calendar-navigation span:hover {
 
 @media only screen and (max-width: 1000px) {
 
-  .calendar-header {
+.calendar-header {
     display: flex;
     justify-content: end;
     width: 100%;
   }
 
-  .calendar-navigation {
+.calendar-navigation {
     display: flex;
     left: 40%;
     transform: translateX(-50%);
   }
 
-  .calendar-current-date {
+.calendar-current-date {
     font-size: 3vw;/* Make the font size responsive */
     margin: 0;
     font-family: raleway, Tahoma, sans-serif;
     text-align: center;
   }
 
-  header .calendar-navigation span {
+header .calendar-navigation span {
     margin: 0 1px;
     cursor: pointer;
     color: rgb(61 223 12);
     font-size: 4vw;
-  }
+}
 
-  .search-bar-container {
-    margin-top: 10px;/* Adjust as needed */
-  }
-  
-  #search-bar {
+.search-bar-container {
+  margin-top: 10px;
+}
+
+#search-bar {
     display: flex;
     justify-content: right;
     align-items: right;
     border-radius: 4px;
-    margin-right: 40px;/* Adjust margin-right to move the search bar to the left */
-  }
-  
+    margin-right: 40px;
+}
+
   #search-bar input[type="text"] {
     padding: 8px;
     width: 9vw;
@@ -467,7 +467,7 @@ header .calendar-navigation span:hover {
     border-radius: 4px;
     font-family: "Comic Sans MS", cursive;/* Change the font */
   }
-  
+
   #search-bar button {
     padding: 1px 10px;
     margin-left: 10px;
@@ -484,5 +484,4 @@ header .calendar-navigation span:hover {
     border-color: #0056b3;/* Change border color on focus */
     outline: none;
   }
-
 }
