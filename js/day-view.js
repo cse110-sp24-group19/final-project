@@ -212,22 +212,22 @@ function removeEntryFromLocalStorage(id) {
 function onClassListChange(mutationsList, observer) {
   for (let mutation of mutationsList) {
     if (mutation.attributeName === 'class') {
-      console.log('Class list changed:', mutation.target.classList);
+      console.log('Class list changed:', mutation.target.classList)
       if (!mutation.target.classList.contains('hidden')) {
         // Perform actions when the element is shown
 
         // Select the parent element with the ID 'journal-list'
-        const journalList = document.getElementById('journal-list');
+        const journalList = document.getElementById('journal-list')
 
         // Query all the <li> elements within the 'journal-list' element
-        const entries = journalList.querySelectorAll('li');
+        const entries = journalList.querySelectorAll('li')
 
         // Add an event listener to each entry
         entries.forEach(entry => {
           entry.addEventListener('click', function () {
-            openEntryDetails(entry);
-          });
-        });
+            openEntryDetails(entry)
+          })
+        })
       }
     }
   }
@@ -244,11 +244,11 @@ function onClassListChange(mutationsList, observer) {
  * @param {HTMLElement} element 
  */
 const observeElementClasses = (element) => {
-  const observer = new MutationObserver(onClassListChange);
-  const config = { attributes: true, attributeFilter: ['class'] };
-  observer.observe(element, config);
-};
+  const observer = new MutationObserver(onClassListChange)
+  const config = { attributes: true, attributeFilter: ['class'] }
+  observer.observe(element, config)
+}
 
 // Start observing the class list changes
-observeElementClasses(dayViewContainer);
-observeElementClasses(dayNewEntryView);
+observeElementClasses(dayViewContainer)
+observeElementClasses(dayNewEntryView)
