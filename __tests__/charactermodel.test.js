@@ -1,4 +1,5 @@
-import Character from '../src/models/Character.js'
+import Character from '../js/Character.js'
+
 describe('Basic character model tests for Character.js', () => {
   beforeAll(() => {
     class LocalStorageMock {

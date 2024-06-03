@@ -57,12 +57,17 @@ document.querySelector('.save-button').addEventListener('click', function () {
 
   // Add new entry to day view
   const newEntry = document.createElement('li')
+  const id = Date.now().toString()
+  newEntry.dataset.id = id
   newEntry.textContent = title
   newEntry.dataset.info = info // Store the info in a data attribute
   newEntry.addEventListener('click', function () {
     openEntryDetails(newEntry) // Pass the entry element
   })
   document.getElementById('journal-list').appendChild(newEntry)
+
+  // save entry to local storage
+  saveEntryToLocalStorage(id, title, info)
 
   // Reset input fields
   document.getElementById('entry-title').value = ''
@@ -129,13 +134,59 @@ document.getElementById('save-details-button').addEventListener('click', functio
   document.getElementById('details-title-input').classList.add('hidden')
   document.getElementById('details-info-textarea').classList.add('hidden')
   document.getElementById('save-details-button').classList.add('hidden')
+
+  // update local storage entry
+  updateEntryInLocalStorage(currentEntryElement.dataset.id, updatedTitle, updatedInfo)
 })
 
 document.getElementById('delete-entry-button').addEventListener('click', function () {
   entryDetailsView.classList.add('hidden')
   dayViewContainer.classList.remove('hidden')
+  console.log(currentEntryElement)
+  removeEntryFromLocalStorage(currentEntryElement.dataset.id)
   currentEntryElement.remove()
   hasOverflow(backButton)
 })
 
 document.getElementById('back-details-button').addEventListener('click', closeEntryDetails)
+
+
+function saveEntryToLocalStorage(id, title, info) {
+  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  entries.push({ id, title, info })
+  localStorage.setItem('journalEntries', JSON.stringify(entries))
+}
+
+function updateEntryInLocalStorage(id, title, info) {
+  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  const entryIndex = entries.findIndex(entry => entry.id === id)
+  if (entryIndex > -1) {
+    entries[entryIndex].title = title
+    entries[entryIndex].info = info
+    localStorage.setItem('journalEntries', JSON.stringify(entries))
+  }
+}
+
+function removeEntryFromLocalStorage(id) {
+  let entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  entries = entries.filter(entry => entry.id !== id)
+  localStorage.setItem('journalEntries', JSON.stringify(entries))
+}
+
+function loadEntriesFromLocalStorage() {
+  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  const journalList = document.getElementById('journal-list')
+  entries.forEach(entry => {
+    const newEntry = document.createElement('li')
+    newEntry.textContent = entry.title
+    newEntry.dataset.info = entry.info
+    newEntry.dataset.id = entry.id
+    newEntry.addEventListener('click', function () {
+      openEntryDetails(newEntry)
+    })
+    journalList.appendChild(newEntry)
+  })
+  hasOverflow(backButton)
+}
+
+window.addEventListener('load', loadEntriesFromLocalStorage)
