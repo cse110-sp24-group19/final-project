@@ -1,32 +1,32 @@
-window.addEventListener("DOMContentLoaded", init);
+/* global localStorage */
+window.addEventListener('DOMContentLoaded', init)
 
-function init() {
+function init () {
   let goals = getGoalsFromStorage()
-  if (goals == null){
+  if (goals == null) {
     goals = []
     localStorage.setItem('goals', JSON.stringify(goals))
-  }
-  else{
+  } else {
     populateGoals(goals)
   }
 }
 
-function getGoalsFromStorage(){
+function getGoalsFromStorage () {
   return JSON.parse(localStorage.getItem('goals'))
 }
 
-function populateGoals(goals){
+function populateGoals (goals) {
   localStorage.setItem('goals', '[]')
   goals.forEach((goal) => {
-    if (!goal.complete){
+    if (!goal.complete) {
       createNewGoal(goal.category, goal.text)
     }
   })
 }
 
-function saveGoalToStorage(category, input, id){
-  let goals = getGoalsFromStorage()
-  let newGoal = {}
+function saveGoalToStorage (category, input, id) {
+  const goals = getGoalsFromStorage()
+  const newGoal = {}
   newGoal.category = category
   newGoal.text = input
   newGoal.complete = false
@@ -35,29 +35,29 @@ function saveGoalToStorage(category, input, id){
   localStorage.setItem('goals', JSON.stringify(goals))
 }
 
-function updateGoalInStorage(id, newText){
-  let goals = getGoalsFromStorage()
+function updateGoalInStorage (id, newText) {
+  const goals = getGoalsFromStorage()
   goals.forEach((goal) => {
-    if (goal.id == id){
+    if (goal.id === id) {
       goal.text = newText
     }
   })
   localStorage.setItem('goals', JSON.stringify(goals))
 }
 
-function markGoalCompletedInStorage(id){
-  let goals = getGoalsFromStorage()
+function markGoalCompletedInStorage (id) {
+  const goals = getGoalsFromStorage()
   goals.forEach((goal) => {
-    if (goal.id == id){
+    if (goal.id === id) {
       goal.complete = true
     }
   })
   localStorage.setItem('goals', JSON.stringify(goals))
 }
 
-function removeGoalFromStorage(id){
+function removeGoalFromStorage (id) {
   let goals = getGoalsFromStorage()
-  goals = goals.filter(goal => goal.id != id)
+  goals = goals.filter(goal => goal.id !== id)
   localStorage.setItem('goals', JSON.stringify(goals))
 }
 
