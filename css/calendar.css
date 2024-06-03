@@ -111,8 +111,7 @@
 }
 
 #new-entry-page,
-#entry-details-page
- {
+#entry-details-page {
   width: 80%;
   height: 70vh;
   margin: 20px auto;
@@ -126,11 +125,22 @@
   box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
 }
 
+.journal-entries h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase; /* Uppercase letters */
+  letter-spacing: 2px; /* Increase letter spacing */
+  border-bottom: 1px solid #ccc; /* Add a bottom border */
+  padding-bottom: 5px; /* Add some space below the border */
+}
+
 #new-entry-page h3 {
   text-align: center;
   font-size: 2em;
   font-weight: bold;
-  text-align: center;
   margin-bottom: 20px;
 }
 
@@ -188,18 +198,6 @@
   position: relative;
 }
 
-.journal-entries h3 {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 10px;
-  text-align: center;
-  text-transform: uppercase; /* Uppercase letters */
-  letter-spacing: 2px; /* Increase letter spacing */
-  border-bottom: 1px solid #ccc; /* Add a bottom border */
-  padding-bottom: 5px; /* Add some space below the border */
-}
-
 #new-entry-page h3,
 #entry-details-page h3 {
   font-size: 1.2em;
@@ -214,7 +212,7 @@
   padding-bottom: 5px; /* Add some space below the border */
 }
 
-#entry-details-page h2{
+#entry-details-page h2 {
   font-size: 1.2em;
   font-weight: bold;
   color: black;
@@ -303,7 +301,7 @@
 }
 
 .delete-button {
-  background-color: rgb(254, 66, 66);
+  background-color: #fe4242;
   position: absolute;
   top: 20px;
   left: 20px;
