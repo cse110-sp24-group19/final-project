@@ -1,54 +1,44 @@
 // reward-page.js
+import Character from './Character.js'
 
 let progress = parseInt(localStorage.getItem('progress'), 10) || 0
 let level = parseInt(localStorage.getItem('level'), 10) || 0
-
+// No choose your character page yet, so initializing with a test character
+const userCharacter = new Character('Smaug', 'Dragon')
 document.addEventListener('DOMContentLoaded', function () {
   updateProgressBar()
   updateLevel()
 })
-
-/**
- * This function increments the progress bar by 10% each time it is called,
- * up to a maximum of 100%.
- * If progress exceeds 100%, it resets and increases the level by 1.
- */
-function increaseProgress () {
-  progress += 10
-
-  if (progress > 100) {
-    progress -= 100
-    level += 1
-    localStorage.setItem('level', level)
-    updateLevel()
-    updateCharacter()
-  }
-
-  localStorage.setItem('progress', progress)
+document.addEventListener('characterInfoUpdated', function () {
   updateProgressBar()
-}
+  updateLevel()
+  updateCharacterImage()
+})
+// JUST FOR TESTING REMOVE THIS LATER!!!
+document.addEventListener('click', function () {
+  userCharacter.updateProgression(1)
+  updateProgressBar()
+  updateLevel()
+})
 
 function updateProgressBar () {
-  document.getElementById('progress-bar').style.width = progress + '%'
+  document.getElementById('progress-bar').style.width = userCharacter.getCharacterInfo()[3] + '%'
 }
 
 function updateLevel () {
-  document.getElementById('level').textContent = `${level}`
+  document.getElementById('level').textContent = userCharacter.getCharacterInfo()[1]
 }
 
-// NIK!!
-function updateCharacter () {
-  console.log('Nik!!')
+function updateCharacterImage () {
+  document.getElementById('character').src = userCharacter.getCharacterInfo()[2]
 }
-
-// This part should be removed eventually.
-increaseProgress()
 
 document.addEventListener('DOMContentLoaded', function () {
   // Toggles a sidebar's visibility
   const settingButton = document.getElementById('setting-button')
   const settingSidebar = document.getElementById('setting-sidebar')
   const rewardMainContent = document.getElementById('reward-main-content')
+  const characterImage = document.getElementById('character')
   const profilePhotos = document.querySelectorAll('.profile-photo')
   const profilePhoto = document.getElementById('profile-photo')
   const fileInput = document.getElementById('file-input')
@@ -58,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
   if (savedImage) {
     profilePhoto.src = savedImage
   }
+
+  // Load character image
+  characterImage.src = userCharacter.getCharacterInfo()[2]
 
   // Sidebar toggle functionality
   settingButton.addEventListener('click', function () {
