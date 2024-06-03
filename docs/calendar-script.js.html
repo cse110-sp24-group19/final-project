@@ -27,90 +27,28 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// dummy data for journal entries
-// const journalEntries = [
-//   { date: '5/1/2024', title: 'Grocery shopping', content: 'Bought groceries for the week' },
-//   { date: '2024-05-02', title: 'Gym workout', content: 'Completed a full-body workout at the gym' },
-//   { date: '2024-05-03', title: 'Read a book', content: 'Read several chapters of a new book' },
-//   { date: '2024-05-04', title: 'Cooking', content: 'Prepared a new recipe for dinner' },
-//   { date: '2024-05-05', title: 'Family gathering', content: 'Spent time with family at a gathering' },
-//   { date: '2024-05-06', title: 'Outdoor walk', content: 'Went for a walk in the park' },
-//   { date: '2024-05-07', title: 'Gardening', content: 'Worked on planting new flowers' },
-//   { date: '2024-05-08', title: 'Movie night', content: 'Watched a movie with friends' },
-//   { date: '2024-05-09', title: 'House cleaning', content: 'Cleaned the house thoroughly' },
-//   { date: '2024-05-10', title: 'Yoga session', content: 'Attended a yoga class' },
-//   { date: '2024-05-11', title: 'Shopping', content: 'Went shopping for new clothes' },
-//   { date: '2024-05-12', title: 'Art project', content: 'Worked on a new painting' },
-//   { date: '2024-05-13', title: 'Visit to the museum', content: 'Visited a local museum' },
-//   { date: '2024-05-14', title: 'Concert', content: 'Attended a live concert' },
-//   { date: '2024-05-15', title: 'Coffee with a friend', content: 'Met a friend for coffee' },
-//   { date: '2024-05-16', title: 'Biking', content: 'Went on a biking trip' },
-//   { date: '2024-05-17', title: 'Beach day', content: 'Spent the day at the beach' },
-//   { date: '2024-05-18', title: 'Photography', content: 'Took photos around the city' },
-//   { date: '2024-05-19', title: 'Volunteering', content: 'Volunteered at a local charity' },
-//   { date: '2024-05-20', title: 'Cooking class', content: 'Attended a cooking class' }
-// ]
-
-// initialize empty array to populate with journal entries later
-let journalEntries;
-
-document.addEventListener("DOMContentLoaded", () => {
-  const localStorageEntries = localStorage.getItem("journalEntries")
-  if (localStorageEntries) {
-    // check if there are entries in local storage and load them in 
-    journalEntries = JSON.parse(localStorageEntries)
-  } else {
-    // otherwise initialize new item for journal entries in local storage
-    localStorage.setItem("journalEntries", JSON.stringify(
-      [
-        { date: '5/1/2024', title: 'Grocery shopping', content: 'Bought groceries for the week' },
-        { date: '2024-05-02', title: 'Gym workout', content: 'Completed a full-body workout at the gym' },
-        { date: '2024-05-03', title: 'Read a book', content: 'Read several chapters of a new book' },
-        { date: '2024-05-04', title: 'Cooking', content: 'Prepared a new recipe for dinner' },
-        { date: '2024-05-05', title: 'Family gathering', content: 'Spent time with family at a gathering' },
-        { date: '2024-05-06', title: 'Outdoor walk', content: 'Went for a walk in the park' },
-        { date: '2024-05-07', title: 'Gardening', content: 'Worked on planting new flowers' },
-        { date: '2024-05-08', title: 'Movie night', content: 'Watched a movie with friends' },
-        { date: '2024-05-09', title: 'House cleaning', content: 'Cleaned the house thoroughly' },
-        { date: '2024-05-10', title: 'Yoga session', content: 'Attended a yoga class' },
-        { date: '2024-05-11', title: 'Shopping', content: 'Went shopping for new clothes' },
-        { date: '2024-05-12', title: 'Art project', content: 'Worked on a new painting' },
-        { date: '2024-05-13', title: 'Visit to the museum', content: 'Visited a local museum' },
-        { date: '2024-05-14', title: 'Concert', content: 'Attended a live concert' },
-        { date: '2024-05-15', title: 'Coffee with a friend', content: 'Met a friend for coffee' },
-        { date: '2024-05-16', title: 'Biking', content: 'Went on a biking trip' },
-        { date: '2024-05-17', title: 'Beach day', content: 'Spent the day at the beach' },
-        { date: '2024-05-18', title: 'Photography', content: 'Took photos around the city' },
-        { date: '2024-05-19', title: 'Volunteering', content: 'Volunteered at a local charity' },
-        { date: '2024-05-20', title: 'Cooking class', content: 'Attended a cooking class' }
-      ]
-    ))
-
-    journalEntries = [
-      { date: '5/1/2024', title: 'Grocery shopping', content: 'Bought groceries for the week' },
-      { date: '5/1/2024', title: 'Gym workout', content: 'Completed a full-body workout at the gym' },
-      { date: '2024-05-03', title: 'Read a book', content: 'Read several chapters of a new book' },
-      { date: '2024-05-04', title: 'Cooking', content: 'Prepared a new recipe for dinner' },
-      { date: '2024-05-05', title: 'Family gathering', content: 'Spent time with family at a gathering' },
-      { date: '2024-05-06', title: 'Outdoor walk', content: 'Went for a walk in the park' },
-      { date: '2024-05-07', title: 'Gardening', content: 'Worked on planting new flowers' },
-      { date: '2024-05-08', title: 'Movie night', content: 'Watched a movie with friends' },
-      { date: '2024-05-09', title: 'House cleaning', content: 'Cleaned the house thoroughly' },
-      { date: '2024-05-10', title: 'Yoga session', content: 'Attended a yoga class' },
-      { date: '2024-05-11', title: 'Shopping', content: 'Went shopping for new clothes' },
-      { date: '2024-05-12', title: 'Art project', content: 'Worked on a new painting' },
-      { date: '2024-05-13', title: 'Visit to the museum', content: 'Visited a local museum' },
-      { date: '2024-05-14', title: 'Concert', content: 'Attended a live concert' },
-      { date: '2024-05-15', title: 'Coffee with a friend', content: 'Met a friend for coffee' },
-      { date: '2024-05-16', title: 'Biking', content: 'Went on a biking trip' },
-      { date: '2024-05-17', title: 'Beach day', content: 'Spent the day at the beach' },
-      { date: '2024-05-18', title: 'Photography', content: 'Took photos around the city' },
-      { date: '2024-05-19', title: 'Volunteering', content: 'Volunteered at a local charity' },
-      { date: '2024-05-20', title: 'Cooking class', content: 'Attended a cooking class' }
-    ]
-  }
-
-  // add func
-})
+const journalEntries = [
+  { date: '2024-05-01', title: 'Grocery shopping', content: 'Bought groceries for the week' },
+  { date: '2024-05-02', title: 'Gym workout', content: 'Completed a full-body workout at the gym' },
+  { date: '2024-05-03', title: 'Read a book', content: 'Read several chapters of a new book' },
+  { date: '2024-05-04', title: 'Cooking', content: 'Prepared a new recipe for dinner' },
+  { date: '2024-05-05', title: 'Family gathering', content: 'Spent time with family at a gathering' },
+  { date: '2024-05-06', title: 'Outdoor walk', content: 'Went for a walk in the park' },
+  { date: '2024-05-07', title: 'Gardening', content: 'Worked on planting new flowers' },
+  { date: '2024-05-08', title: 'Movie night', content: 'Watched a movie with friends' },
+  { date: '2024-05-09', title: 'House cleaning', content: 'Cleaned the house thoroughly' },
+  { date: '2024-05-10', title: 'Yoga session', content: 'Attended a yoga class' },
+  { date: '2024-05-11', title: 'Shopping', content: 'Went shopping for new clothes' },
+  { date: '2024-05-12', title: 'Art project', content: 'Worked on a new painting' },
+  { date: '2024-05-13', title: 'Visit to the museum', content: 'Visited a local museum' },
+  { date: '2024-05-14', title: 'Concert', content: 'Attended a live concert' },
+  { date: '2024-05-15', title: 'Coffee with a friend', content: 'Met a friend for coffee' },
+  { date: '2024-05-16', title: 'Biking', content: 'Went on a biking trip' },
+  { date: '2024-05-17', title: 'Beach day', content: 'Spent the day at the beach' },
+  { date: '2024-05-18', title: 'Photography', content: 'Took photos around the city' },
+  { date: '2024-05-19', title: 'Volunteering', content: 'Volunteered at a local charity' },
+  { date: '2024-05-20', title: 'Cooking class', content: 'Attended a cooking class' }
+]
 
 // function to retrieve journal entry titles from the array of journal entries
 function getTitles (date) {
@@ -167,8 +105,6 @@ const prenexIcons = document.querySelectorAll('.calendar-navigation span')
 const calendarView = document.getElementById('calendar-journal-page')
 
 const dayView = document.getElementById('day-view')
-
-const journalEditView = document.getElementById('journal-edit-page')
 
 const returnCalendarButton = document.getElementById('return-calendar')
 
@@ -227,13 +163,17 @@ const manipulate = () => {
       year === new Date().getFullYear()
         ? 'active'
         : ''
+
+    const entries = loadEntriesForDate(date.toLocaleDateString())
+    const numEntries = entries.length
+
     calendarHtml += `
             &lt;li class="sticky-note ${isWeekend}" data-date="${year}-${String(
       month + 1
     ).padStart(2, '0')}-${String(i).padStart(2, '0')}">
                &lt;div class="content"> 
                 &lt;div class="date ${isToday}">${i}&lt;/div>
-                &lt;div class="title">Event ${i}&lt;/div>
+                &lt;div class="title">${numEntries > 0 ? numEntries + ' entries' : ''}&lt;/div>
                 &lt;div class="more-tasks">+3 more&lt;/div>
                &lt;/div>
             &lt;/li>`
@@ -270,44 +210,61 @@ const manipulate = () => {
 
 manipulate()
 
+/**
+ * Loads entries for a given date
+ * 
+ * Gets all of the journal entries from local storage, 
+ * filters them based on a given date, and returns the
+ * filtered list
+ * 
+ * @param {String} date 
+ * @returns {Array} filteredEntries
+ */
+function loadEntriesForDate (date) {
+  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  const journalList = document.getElementById('journal-list')
+  journalList.innerHTML = '' // Clear existing entries
+
+  const filteredEntries = entries.filter(entry => entry.date === date)
+
+  return filteredEntries
+}
+
+/**
+ * Loads entries for a given date
+ * 
+ * Gets all of the journal entries from local storage, 
+ * filters them based on a given date, and creates list
+ * items for the day view
+ * 
+ * @param {String} date 
+ */
+function createEntriesForDate (date) { 
+  const journalList = document.getElementById('journal-list')
+  journalList.innerHTML = '' // Clear existing entries
+
+  const filteredEntries = loadEntriesForDate(date)
+
+  filteredEntries.forEach(entry => {
+    const newEntry = document.createElement('li')
+    newEntry.textContent = entry.title
+    newEntry.dataset.info = entry.info
+    newEntry.dataset.id = entry.id
+    newEntry.dataset.date = entry.date
+    newEntry.addEventListener('click', function () {
+      openEntryDetails(newEntry)
+    })
+    journalList.appendChild(newEntry)
+  })
+}
+
 // Function that opens the day view
 function openDayView (dateString) {
   // Update day view content based on the clicked date
   const formattedDate = formatDateForJournalEntries(dateString)
-  document.querySelector('.day-view-date').textContent = new Date(formattedDate).toDateString()
+  document.querySelector('.day-view-date').textContent = formattedDate
 
-  // Shows journal entries for selected date
-  const titles = getTitles(formattedDate)
-  const journalList = document.getElementById('journal-list')
-  journalList.innerHTML = ''
-  titles.forEach((title) => {
-    const listItem = document.createElement('li')
-    listItem.innerHTML = `
-      ${title}
-      &lt;div class="journal-buttons-container">
-        &lt;button class="edit-button">Edit&lt;/button>
-        &lt;button class="delete-button">Delete&lt;/button>
-      &lt;/div>
-    `
-    journalList.appendChild(listItem)
-
-    // Add event listeners to the buttons
-    const editButton = listItem.querySelector('.edit-button');
-    const deleteButton = listItem.querySelector('.delete-button');
-
-    editButton.addEventListener('click', () => {
-      // Custom behavior for the edit button
-      console.log(`Edit button clicked for: ${title}`);
-      // Implement the edit functionality here
-    });
-
-    deleteButton.addEventListener('click', () => {
-      // Custom behavior for the delete button
-      console.log(`Delete button clicked for: ${title}`);
-      // Implement the delete functionality here
-    });
-
-  })
+  createEntriesForDate(formattedDate)
 
   // Shows day view
   dayView.classList.remove('hidden')
@@ -328,20 +285,6 @@ function closeDayView () {
 
   // Shows calendar view
   calendarView.classList.remove('hidden')
-}
-
-/**
- * Adds a new journal entry
- * 
- * Opens the journal edit page and populates it with the given date selected
- * 
- */
-function addNewEntry () {
-  // Hides day view
-  dayView.classList.add('hidden')
-
-  // Shows journal entry edit page
-  journalEditView.classList.remove('hidden')
 }
 
 // Attach a click event listener to each icon
@@ -377,9 +320,6 @@ prenexIcons.forEach((icon) => {
 // Back button functionality
 document.querySelector('.back-button').onclick = closeDayView
 
-// Add button functionality
-document.querySelector('.add-button').onclick = addNewEntry
-
 // Attach event listener for the return to calendar button in the day view
 returnCalendarButton.addEventListener('click', closeDayView)
 
@@ -400,17 +340,13 @@ document.getElementById('search-bar').addEventListener('submit', (event) => {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Character.html">Character</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addNewEntry">addNewEntry</a></li><li><a href="global.html#addNewGoal">addNewGoal</a></li><li><a href="global.html#createNewGoal">createNewGoal</a></li><li><a href="global.html#createStar">createStar</a></li><li><a href="global.html#deleteGoal">deleteGoal</a></li><li><a href="global.html#editGoal">editGoal</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Character.html">Character</a></li></ul><h3>Global</h3><ul><li><a href="global.html#achieved">achieved</a></li><li><a href="global.html#addNewGoal">addNewGoal</a></li><li><a href="global.html#createEntriesForDate">createEntriesForDate</a></li><li><a href="global.html#createNewGoal">createNewGoal</a></li><li><a href="global.html#createStar">createStar</a></li><li><a href="global.html#deleteGoal">deleteGoal</a></li><li><a href="global.html#editGoal">editGoal</a></li><li><a href="global.html#loadEntriesForDate">loadEntriesForDate</a></li><li><a href="global.html#observeElementClasses">observeElementClasses</a></li><li><a href="global.html#onClassListChange">onClassListChange</a></li><li><a href="global.html#removeEntryFromLocalStorage">removeEntryFromLocalStorage</a></li><li><a href="global.html#saveEntryToLocalStorage">saveEntryToLocalStorage</a></li><li><a href="global.html#updateEntryInLocalStorage">updateEntryInLocalStorage</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-<<<<<<< HEAD
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri May 31 2024 18:27:40 GMT+0000 (Coordinated Universal Time)
-=======
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Thu May 30 2024 16:37:16 GMT+0000 (Coordinated Universal Time)
->>>>>>> 42caf450b8248d0a4316741fd8f637097d45bdb8
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Mon Jun 03 2024 23:24:26 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
