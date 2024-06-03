@@ -97,7 +97,7 @@
   height: 70vh;
   margin: 20px auto;
   padding: 20px;
-  background: linear-gradient(45, #ffb3ba, #ffdfba, #baffc9, #bae1ff, #babaff, #ffbaff, #ffb3ba);
+  background: linear-gradient(45deg, #ffb3ba, #ffdfba, #baffc9, #bae1ff, #babaff, #ffbaff, #ffb3ba);
   background-size: 600% 600%;
   animation: rainbow 20s ease infinite;
   border-radius: 8px;
@@ -379,16 +379,16 @@
 
 /* Use this to change the style of the current date header i.e April, 2024 */
 .calendar-current-date {
-  font-size: 1vw; /* Make the font size responsive */
+  font-size: 1vw;/* Make the font size responsive */
   margin: 0;
   font-family: raleway, Tahoma, sans-serif;
-  text-align: center;
+  text-align: center; 
 }
 
 .calendar-header {
   display: flex;
   justify-content: end;
-  align-items:center;
+  align-items: center;
   padding: 0;
   position: relative;
   width: 100%;
@@ -418,7 +418,9 @@ header .calendar-navigation span {
 header .calendar-navigation span:hover {
   background: #f2f2f2;
 }
+
 @media only screen and (max-width: 1000px) {
+
   .calendar-header {
     display: flex;
     justify-content: end;
@@ -432,7 +434,7 @@ header .calendar-navigation span:hover {
   }
 
   .calendar-current-date {
-    font-size: 3vw; /* Make the font size responsive */
+    font-size: 3vw;/* Make the font size responsive */
     margin: 0;
     font-family: raleway, Tahoma, sans-serif;
     text-align: center;
@@ -444,9 +446,9 @@ header .calendar-navigation span:hover {
     color: rgb(61 223 12);
     font-size: 4vw;
   }
-  
+
   .search-bar-container {
-    margin-top: 10px; /* Adjust as needed */
+    margin-top: 10px;/* Adjust as needed */
   }
   
   #search-bar {
@@ -454,7 +456,7 @@ header .calendar-navigation span:hover {
     justify-content: right;
     align-items: right;
     border-radius: 4px;
-    margin-right: 40px; /* Adjust margin-right to move the search bar to the left */
+    margin-right: 40px;/* Adjust margin-right to move the search bar to the left */
   }
   
   #search-bar input[type="text"] {
@@ -463,23 +465,24 @@ header .calendar-navigation span:hover {
     height: 1vh;
     border: 3px solid #3ddf0c;
     border-radius: 4px;
-    font-family: "Comic Sans MS", cursive; /* Change the font */
+    font-family: "Comic Sans MS", cursive;/* Change the font */
   }
   
   #search-bar button {
     padding: 1px 10px;
     margin-left: 10px;
-    background-color: #3ddf0c; /* Bootstrap primary color */
+    background-color: #3ddf0c;/* Bootstrap primary color */
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-family: "Comic Sans MS", cursive; /* Change the font */
+    font-family: "Comic Sans MS", cursive;/* Change the font */
   }
   
   #search-bar input[type="text"]:focus {
     border-radius: 4px;
-    border-color: #0056b3; /* Change border color on focus */
+    border-color: #0056b3;/* Change border color on focus */
     outline: none;
   }
+
 }
