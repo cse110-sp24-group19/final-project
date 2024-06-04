@@ -1,9 +1,10 @@
 engines:
   eslint:
     enabled: true
-  cppcheck:
-    enabled: true
+  # Add other engines as necessary
 
-ignore:
-  - path: "node_modules/**"
-  - path: "coverage/**"
+ignore_paths:
+  - node_modules/
+  - dist/
+  - build/
+  - coverage/
