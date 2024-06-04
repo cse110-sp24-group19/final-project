@@ -1,3 +1,66 @@
+/* global localStorage */
+window.addEventListener('DOMContentLoaded', init)
+
+function init () {
+  let goals = getGoalsFromStorage()
+  if (goals == null) {
+    goals = []
+    localStorage.setItem('goals', JSON.stringify(goals))
+  } else {
+    populateGoals(goals)
+  }
+}
+
+function getGoalsFromStorage () {
+  return JSON.parse(localStorage.getItem('goals'))
+}
+
+function populateGoals (goals) {
+  localStorage.setItem('goals', '[]')
+  goals.forEach((goal) => {
+    if (!goal.complete) {
+      createNewGoal(goal.category, goal.text)
+    }
+  })
+}
+
+function saveGoalToStorage (category, input, id) {
+  const goals = getGoalsFromStorage()
+  const newGoal = {}
+  newGoal.category = category
+  newGoal.text = input
+  newGoal.complete = false
+  newGoal.id = id
+  goals.push(newGoal)
+  localStorage.setItem('goals', JSON.stringify(goals))
+}
+
+function updateGoalInStorage (id, newText) {
+  const goals = getGoalsFromStorage()
+  goals.forEach((goal) => {
+    if (goal.id === id) {
+      goal.text = newText
+    }
+  })
+  localStorage.setItem('goals', JSON.stringify(goals))
+}
+
+function markGoalCompletedInStorage (id) {
+  const goals = getGoalsFromStorage()
+  goals.forEach((goal) => {
+    if (goal.id === id) {
+      goal.complete = true
+    }
+  })
+  localStorage.setItem('goals', JSON.stringify(goals))
+}
+
+function removeGoalFromStorage (id) {
+  let goals = getGoalsFromStorage()
+  goals = goals.filter(goal => goal.id !== id)
+  localStorage.setItem('goals', JSON.stringify(goals))
+}
+
 let goalCounter = 0 // used to give each goal a unique id
 
 const dailyButton = document.getElementById('add-daily-goal')
@@ -52,6 +115,7 @@ function editGoal (event) {
       newLabel.textContent = inputBox.value.trim()
       newLabel.htmlFor = label.htmlFor
       div.replaceChild(newLabel, inputBox)
+      updateGoalInStorage(div.id, newLabel.textContent)
     }
   }
 
@@ -71,6 +135,7 @@ function editGoal (event) {
 
 function deleteGoal (event) {
   const div = event.target.parentElement
+  removeGoalFromStorage(div.id)
   div.remove()
 }
 
@@ -87,6 +152,7 @@ function achieved (event) {
   checkIcon.src = 'assets/goal_icons/checked.png'
   const penIcon = div.querySelector('.pen-icon')
   penIcon.style.display = 'none'
+  markGoalCompletedInStorage(div.id)
 }
 
 /**
@@ -119,4 +185,5 @@ function createNewGoal (category, input) {
   const container = document.querySelector(`#${category} .list-container`) // select correct container
   const buffer = container.children[container.children.length - 1] // query that containers very last element(add button)
   container.insertBefore(div, buffer) // new goal is inserted at the end of the list
+  saveGoalToStorage(category, input, div.id)
 }
