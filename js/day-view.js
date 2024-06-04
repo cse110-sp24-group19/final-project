@@ -166,6 +166,36 @@ function saveEntryToLocalStorage(id, date, title, info) {
 }
 
 /**
+ * Validate the id
+ * @param {String} id 
+ * @returns {Boolean}
+ */
+function isValidId(id) {
+  // Example: Ensure id is a non-empty string
+  return typeof id === 'string' && id.trim().length > 0;
+}
+
+/**
+ * Validate the title
+ * @param {String} title 
+ * @returns {Boolean}
+ */
+function isValidTitle(title) {
+  // Example: Ensure title is a non-empty string and meets other criteria
+  return typeof title === 'string' && title.trim().length > 0;
+}
+
+/**
+ * Validate the info
+ * @param {String} info 
+ * @returns {Boolean}
+ */
+function isValidInfo(info) {
+  // Example: Ensure info is a non-empty string
+  return typeof info === 'string' && info.trim().length > 0;
+}
+
+/**
  * Update an entry in the local storage
  * 
  * Specifically for editing and updating an existing entry
@@ -178,6 +208,13 @@ function saveEntryToLocalStorage(id, date, title, info) {
 function updateEntryInLocalStorage(id, title, info) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   const entryIndex = entries.findIndex(entry => entry.id === id)
+  
+  // Validate and sanitize inputs
+  if (!isValidId(id) || !isValidTitle(title) || !isValidInfo(info)) {
+    console.error('Invalid input data');
+    return;
+  }
+
   if (entryIndex > -1) {
     entries[entryIndex].title = title
     entries[entryIndex].info = info
