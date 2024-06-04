@@ -75,23 +75,6 @@ body {
   z-index: -1; /* Place it behind other content */
 }
 
-/* Question mark icon styling */
-#question-mark {
-  position: absolute;
-  top: 5vh;
-  right: 5vw;
-  width: 10.5vw;
-  height: 10.5vw;
-  background: url("../assets/question-mark.png");
-  background-size: cover;
-  z-index: 12;
-}
-
-/* Hover effect for the question mark icon */
-#question-mark:hover {
-  transform: scale(1.2);
-}
-
 /* Main categories description box styling */
 #main-categories-description {
   position: absolute;
@@ -104,11 +87,6 @@ body {
   border-radius: 30px;
   z-index: 12;
   display: none;
-}
-
-/* Display the main categories description box when hovering over the question mark */
-#question-mark:hover + #main-categories-description {
-  display: block;
 }
 
 /* Sun and moon icon styling */
@@ -219,23 +197,16 @@ body {
 
 /* Calendar icon styling */
 #calendar-journal {
-  position: absolute;
-  bottom: 3vh;
-  right: 8vw;
   width: 20vw;
   height: 20vw;
   background: url("../assets/calendar.png");
   background-size: cover;
   z-index: 1;
+  margin-top: -4vh;
 }
 
 #calendar-journal:hover {
   background: url("../assets/calendar-removing-page.png");
-  position: absolute;
-  bottom: 3vh;
-  right: 8vw;
-  width: 22vw;
-  height: 22vw;
   background-size: cover;
 }
 
@@ -245,24 +216,17 @@ body {
 
 /* Whiteboard icon styling */
 #creative-play {
-  position: absolute;
-  bottom: 5vh;
-  left: 10vw;
   width: 20vw;
   height: 20vw;
   background: url("../assets/white-board.png");
   background-size: cover;
   transform: rotate(-15deg);
   z-index: 3;
+  margin-top: 0.5vh;
 }
 
 #creative-play:hover {
   background: url("../assets/white-board-with-letters.png");
-  position: absolute;
-  bottom: 3vh;
-  left: 5vw;
-  width: 30vw;
-  height: 30vw;
   background-size: cover;
   transform: rotate(-15deg);
 }
@@ -273,24 +237,17 @@ body {
 
 /* Goal icon styling */
 #goal-setting {
-  position: absolute;
-  bottom: 3vh;
-  right: 25vw;
   width: 20vw;
   height: 20vw;
   background: url("../assets/goal.png");
   background-size: cover;
   transform: rotate(8deg);
+  margin-top: -4vh;
   z-index: 3;
 }
 
 #goal-setting:hover {
   background: url("../assets/goal-with-arrow.png");
-  position: absolute;
-  bottom: 3vh;
-  right: 25vw;
-  width: 22vw;
-  height: 22vw;
   background-size: cover;
   transform: rotate(8deg);
 }
@@ -301,9 +258,6 @@ body {
 
 /* Reward icon styling */
 #reward {
-  position: absolute;
-  bottom: 3vh;
-  left: 30vw;
   width: 13vw;
   height: 13vw;
   background: url("../assets/reward.png");
@@ -314,17 +268,83 @@ body {
 
 #reward:hover {
   background: url("../assets/reward2.png");
-  position: absolute;
-  bottom: 3vh;
-  left: 30vw;
-  width: 20vw;
-  height: 20vw;
   background-size: cover;
   transform: rotate(-2deg);
 }
 
 #reward:active {
   transform: rotate(-2deg) scale(0.9);
+}
+
+.page-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  gap: 1vh;
+}
+
+#calendar-journal-box {
+  bottom: 3vh;
+  right: 8vw;
+}
+
+#creative-play-box {
+  align-items: start;
+  bottom: 5vh;
+  left: 10vw;
+}
+
+#goal-setting-box {
+  bottom: 3vh;
+  right: 25vw;
+}
+
+#reward-box {
+  bottom: 3vh;
+  left: 30vw;
+}
+
+.page-text {
+  text-align: center;
+  border: 1vw solid black;
+  width: fit-content;
+  height: fit-content;
+  padding: 1vw 1.5vw;
+  font-size: 1.5vw;
+  visibility: hidden;
+}
+
+.page-box:hover .page-text {
+  visibility: visible;
+}
+
+#calendar-journal-text {
+  color: white;
+  border-color: #6f6ecf;
+  background: #b3b5e6;
+  transform: rotate(11deg);
+}
+
+#creative-play-text {
+  color: black;
+  border-color: #55c9f0;
+  background: #e5e7e8;
+  transform: rotate(-15deg);
+}
+
+#goal-setting-text {
+  color: white;
+  border-color: #ef5b6a;
+  background: #d5a6bd;
+  transform: rotate(8deg);
+}
+
+#reward-text {
+  color: #f27564;
+  border-color: #f27564;
+  background: #ffc54d;
+  transform: rotate(-2deg);
 }
 
 /*
