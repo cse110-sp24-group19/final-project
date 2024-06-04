@@ -13,7 +13,7 @@ class NavBar extends HTMLElement {
       { id: 'calendar-journal-nav', iconSrc: 'assets/calendar-nav.png', text: 'Calendar/Journal' },
       { id: 'creative-play-nav', iconSrc: 'assets/white-board.png', text: 'Creative Play' },
       { id: 'goal-setting-nav', iconSrc: 'assets/goal.png', text: 'Goal-Setting' },
-      { id: 'reward-nav', iconSrc: 'assets/reward.png', text: 'Reward' }
+      { id: 'reward-nav', iconSrc: 'assets/reward.png', text: 'Rewards' }
     ]
 
     // Create and append nav items to the nav bar
