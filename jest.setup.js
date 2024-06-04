@@ -1,7 +1,7 @@
 // Jest setup file
 
 // Mock CustomEvent for Node environment
-import jest from 'jest-mock';
+import jest from 'jest-mock'
 
 global.CustomEvent = class CustomEvent extends Event {
   constructor (event, params) {
