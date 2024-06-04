@@ -6,14 +6,14 @@ const usercharacter = new Character()
  * calls Character.js method to add 1 progress point
  * to current character
  */
-function updateCharacterProgression(){
+function updateCharacterProgression () {
   usercharacter.updateProgression(1)
 }
 
 /**
  * Increments completed goal count on rewards page
  */
-function updateGoalCount(){
+function updateGoalCount () {
   const goalStats = document.querySelector('#num-of-goals-achieved')
   const numGoals = parseInt(goalStats.textContent)
   goalStats.textContent = numGoals + 1
@@ -26,7 +26,7 @@ function updateGoalCount(){
 window.addEventListener('DOMContentLoaded', init)
 
 /**
- * Sets 'goals' to an empty array in local storage if it doesn't exist, 
+ * Sets 'goals' to an empty array in local storage if it doesn't exist,
  * otherwise populates page with existing goals
  */
 function init () {
@@ -42,7 +42,7 @@ function init () {
 /**
  * Returns a parsed array of goal objects found at 'goals'
  * in loal storage
- * @returns Array<Object> - an array of goal objects 
+ * @returns Array<Object> - an array of goal objects
  */
 function getGoalsFromStorage () {
   return JSON.parse(localStorage.getItem('goals')) || []
@@ -68,7 +68,7 @@ function populateGoals (goals) {
  * Loads an existing completed  goal to the page, then
  * saves it to local storage. This additional function
  * was necessary to avoid accruing extra points each time the page is reloaded.
- * @param {Object} goal:  {string category, string text, boolean complete, int id} 
+ * @param {Object} goal:  {string category, string text, boolean complete, int id}
  */
 function populateCompletedGoal (goal) {
   // goal container
@@ -96,16 +96,16 @@ function populateCompletedGoal (goal) {
   const container = document.querySelector(`#${goal.category} .list-container`) // select correct container
   const buffer = container.children[container.children.length - 1] // query that containers very last element(add button)
   container.insertBefore(div, buffer) // new goal is inserted at the end of the list
-  saveGoalToStorage(goal.category, goal.text, div.id, true) //true == completed
+  saveGoalToStorage(goal.category, goal.text, div.id, true) // true == completed
 }
 
 /**
- * Creates a goal object with the following attributes, and 
+ * Creates a goal object with the following attributes, and
  * stores it in local storaeg under 'goals'
- * @param {string} category 
- * @param {string} input 
- * @param {number} id 
- * @param {boolean} complete 
+ * @param {string} category
+ * @param {string} input
+ * @param {number} id
+ * @param {boolean} complete
  */
 function saveGoalToStorage (category, input, id, complete) {
   const goals = getGoalsFromStorage()
@@ -121,8 +121,8 @@ function saveGoalToStorage (category, input, id, complete) {
 /**
  * When a goal's text is edited: finds correct goal in local
  * storage by id and updates goal.text attribute
- * @param {number} id 
- * @param {string} newText 
+ * @param {number} id
+ * @param {string} newText
  */
 function updateGoalInStorage (id, newText) {
   const goals = getGoalsFromStorage()
@@ -137,7 +137,7 @@ function updateGoalInStorage (id, newText) {
 /**
  * When a goal is achieved: finds correct goal in local
  * storage by id and sets 'complete' attribute to true
- * @param {number} id 
+ * @param {number} id
  */
 function markGoalCompletedInStorage (id) {
   const goals = getGoalsFromStorage()
@@ -152,7 +152,7 @@ function markGoalCompletedInStorage (id) {
 /**
  * When user deletes a goal: finds correct goal in local
  * storage by id and removes from the array
- * @param {number} id 
+ * @param {number} id
  */
 function removeGoalFromStorage (id) {
   let goals = getGoalsFromStorage()
@@ -171,12 +171,12 @@ weeklyButton.addEventListener('click', () => addNewGoal('weekly'))
 longTermButton.addEventListener('click', () => addNewGoal('long-term'))
 
 /**
- * Called when any + button is clicked. Prompts user to enter text, 
+ * Called when any + button is clicked. Prompts user to enter text,
  * then calls createNewGoal().
  * @param {string} category - 'daily', 'weekly', 'long-term'
  */
 function addNewGoal (category) {
-  const inputBox = document.getElementById(`${category}-goal-input`) //select correct category container
+  const inputBox = document.getElementById(`${category}-goal-input`) // select correct category container
   inputBox.type = 'text'
   inputBox.focus()
   inputBox.addEventListener('keypress', function (event) {
@@ -185,7 +185,7 @@ function addNewGoal (category) {
       if (value !== '') {
         inputBox.type = 'hidden'
         inputBox.value = ''
-        createNewGoal(category, value) 
+        createNewGoal(category, value)
       }
     }
   })
@@ -206,7 +206,7 @@ function editGoal (event) {
   inputBox.type = 'text'
   inputBox.value = label.textContent.trim()
 
-  div.replaceChild(inputBox, label) //replace old label with an input box containing that label's text
+  div.replaceChild(inputBox, label) // replace old label with an input box containing that label's text
 
   // replace input box with a new label containing edited text content
   function handleInputCommit () {
@@ -294,5 +294,5 @@ function createNewGoal (category, input) {
   const container = document.querySelector(`#${category} .list-container`) // select correct container
   const buffer = container.children[container.children.length - 1] // query that containers very last element(add button)
   container.insertBefore(div, buffer) // new goal is inserted at the end of the list
-  saveGoalToStorage(category, input, div.id, false) //false == not completed
+  saveGoalToStorage(category, input, div.id, false) // false == not completed
 }
