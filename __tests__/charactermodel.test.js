@@ -1,5 +1,4 @@
 import Character from '../js/Character.js'
-import jest from 'jest'
 describe('Basic character model tests for Character.js', () => {
   // Test for creating a character
   it('should create a character with default progression points', () => {
