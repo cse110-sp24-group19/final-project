@@ -228,7 +228,7 @@ function formatDateForJournalEntries (dateString) {
 function closeDayView () {
   // Update the calendar view after day view changes
   manipulate()
-  
+
   // Hides day view
   dayView.classList.add('hidden')
 
@@ -280,4 +280,3 @@ document.getElementById('search-bar').addEventListener('submit', (event) => {
   const results = searchEntries(allEntries, query)
   displaySearchResults(results)
 })
-
