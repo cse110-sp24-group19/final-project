@@ -223,9 +223,6 @@ function createEntriesForDate (date) {
     newEntry.dataset.info = entry.info
     newEntry.dataset.id = entry.id
     newEntry.dataset.date = entry.date
-    newEntry.addEventListener('click', function () {
-      openEntryDetails(newEntry)
-    })
     journalList.appendChild(newEntry)
   })
 }
