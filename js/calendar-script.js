@@ -103,6 +103,7 @@ const manipulate = () => {
 
     const entries = loadEntriesForDate(date.toLocaleDateString())
     const numEntries = entries.length
+    const firstEntryTitle = numEntries > 0 ? entries[0].title : ''
 
     calendarHtml += `
             <li class="sticky-note ${isWeekend}" data-date="${year}-${String(
@@ -110,8 +111,8 @@ const manipulate = () => {
     ).padStart(2, '0')}-${String(i).padStart(2, '0')}">
                <div class="content"> 
                 <div class="date ${isToday}">${i}</div>
-                <div class="title">${numEntries > 0 ? numEntries + ' entries' : ''}</div>
-                <div class="more-tasks">+3 more</div>
+                <div class="title">${firstEntryTitle}</div>
+                <div class="more-tasks">${numEntries > 1 ? `+${numEntries - 1} more` : ''}</div>
                </div>
             </li>`
   }
