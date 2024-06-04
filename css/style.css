@@ -474,3 +474,7 @@ body {
     height: 12px;
   }
 }
+
+#goal-setting-page label {
+  overflow-wrap: break-word;
+}
