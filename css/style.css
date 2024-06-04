@@ -459,6 +459,16 @@ body {
   font-family: lxgw, sans-serif !important;
 }
 
+#goal-setting-page label {
+  overflow-wrap: break-word;
+}
+
+.completed-goal {
+  text-decoration: line-through;
+  color: gray;
+
+}
+
 /* Responsive Styles */
 @media (width <= 1400px) {
   #goals-container h1 {
@@ -500,8 +510,4 @@ body {
   #goal-setting-page img {
     height: 12px;
   }
-}
-
-#goal-setting-page label {
-  overflow-wrap: break-word;
 }
