@@ -1,38 +1,3 @@
-// dummy data for journal entries
-const journalEntries = [
-  { date: '2024-05-01', title: 'Grocery shopping', content: 'Bought groceries for the week' },
-  { date: '2024-05-02', title: 'Gym workout', content: 'Completed a full-body workout at the gym' },
-  { date: '2024-05-03', title: 'Read a book', content: 'Read several chapters of a new book' },
-  { date: '2024-05-04', title: 'Cooking', content: 'Prepared a new recipe for dinner' },
-  { date: '2024-05-05', title: 'Family gathering', content: 'Spent time with family at a gathering' },
-  { date: '2024-05-06', title: 'Outdoor walk', content: 'Went for a walk in the park' },
-  { date: '2024-05-07', title: 'Gardening', content: 'Worked on planting new flowers' },
-  { date: '2024-05-08', title: 'Movie night', content: 'Watched a movie with friends' },
-  { date: '2024-05-09', title: 'House cleaning', content: 'Cleaned the house thoroughly' },
-  { date: '2024-05-10', title: 'Yoga session', content: 'Attended a yoga class' },
-  { date: '2024-05-11', title: 'Shopping', content: 'Went shopping for new clothes' },
-  { date: '2024-05-12', title: 'Art project', content: 'Worked on a new painting' },
-  { date: '2024-05-13', title: 'Visit to the museum', content: 'Visited a local museum' },
-  { date: '2024-05-14', title: 'Concert', content: 'Attended a live concert' },
-  { date: '2024-05-15', title: 'Coffee with a friend', content: 'Met a friend for coffee' },
-  { date: '2024-05-16', title: 'Biking', content: 'Went on a biking trip' },
-  { date: '2024-05-17', title: 'Beach day', content: 'Spent the day at the beach' },
-  { date: '2024-05-18', title: 'Photography', content: 'Took photos around the city' },
-  { date: '2024-05-19', title: 'Volunteering', content: 'Volunteered at a local charity' },
-  { date: '2024-05-20', title: 'Cooking class', content: 'Attended a cooking class' }
-]
-
-// function to retrieve journal entry titles from the array of journal entries
-function getTitles (date) {
-  const titles = []
-  for (const entry of journalEntries) {
-    if (entry.date === date) {
-      titles.push(entry.title)
-    }
-  }
-  return titles
-}
-
 // Function to search journal entries
 function searchEntries (query) {
   return journalEntries.filter(entry =>
@@ -184,12 +149,12 @@ manipulate()
 
 /**
  * Loads entries for a given date
- * 
- * Gets all of the journal entries from local storage, 
+ *
+ * Gets all of the journal entries from local storage,
  * filters them based on a given date, and returns the
  * filtered list
- * 
- * @param {String} date 
+ *
+ * @param {String} date
  * @returns {Array} filteredEntries
  */
 function loadEntriesForDate (date) {
@@ -204,14 +169,14 @@ function loadEntriesForDate (date) {
 
 /**
  * Loads entries for a given date
- * 
- * Gets all of the journal entries from local storage, 
+ *
+ * Gets all of the journal entries from local storage,
  * filters them based on a given date, and creates list
  * items for the day view
- * 
- * @param {String} date 
+ *
+ * @param {String} date
  */
-function createEntriesForDate (date) { 
+function createEntriesForDate (date) {
   const journalList = document.getElementById('journal-list')
   journalList.innerHTML = '' // Clear existing entries
 

@@ -4,7 +4,7 @@ const backButton = document.querySelector('.back-button')
 const entryDetailsView = document.getElementById('entry-details-page')
 
 // automatically checks if there is overflow
-function hasOverflow(returnButton) {
+function hasOverflow (returnButton) {
   // const dayViewContainer = document.querySelector('#day-view')
   // Check if there is overflow in the day-view container
 
@@ -21,17 +21,17 @@ function hasOverflow(returnButton) {
 
 hasOverflow(backButton)
 
-function addNewEntry() {
+function addNewEntry () {
   dayViewContainer.classList.add('hidden')
   dayNewEntryView.classList.toggle('hidden')
 }
 
-function closeNewEntry() {
+function closeNewEntry () {
   dayNewEntryView.classList.add('hidden')
   dayViewContainer.classList.remove('hidden')
 }
 
-function unhide() {
+function unhide () {
   document.getElementById('details-title').classList.remove('hidden')
   document.getElementById('details-info').classList.remove('hidden')
   document.getElementById('edit-entry-button').classList.remove('hidden')
@@ -83,7 +83,7 @@ document.querySelector('.save-button').addEventListener('click', function () {
 
 let currentEntryElement = null // To store the reference to the clicked entry
 
-function openEntryDetails(entryElement) {
+function openEntryDetails (entryElement) {
   currentEntryElement = entryElement // Store the reference to the clicked entry
   document.getElementById('details-title').textContent = entryElement.textContent
   document.getElementById('details-info').textContent = entryElement.dataset.info
@@ -93,7 +93,7 @@ function openEntryDetails(entryElement) {
   entryDetailsView.classList.remove('hidden')
 }
 
-function closeEntryDetails() {
+function closeEntryDetails () {
   if (document.getElementById('details-title-input').classList.contains('hidden') &&
     document.getElementById('details-info-textarea').classList.contains('hidden') &&
     document.getElementById('save-details-button').classList.contains('hidden')) {
@@ -153,13 +153,13 @@ document.getElementById('back-details-button').addEventListener('click', closeEn
 
 /**
  * Save a given journal entry to local storage
- * 
- * @param {String} id 
- * @param {String} date 
- * @param {String} title 
- * @param {String} info 
+ *
+ * @param {String} id
+ * @param {String} date
+ * @param {String} title
+ * @param {String} info
  */
-function saveEntryToLocalStorage(id, date, title, info) {
+function saveEntryToLocalStorage (id, date, title, info) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   entries.push({ id, date, title, info })
   localStorage.setItem('journalEntries', JSON.stringify(entries))
@@ -167,52 +167,55 @@ function saveEntryToLocalStorage(id, date, title, info) {
 
 /**
  * Validate the id
+ *
  * @param {String} id 
  * @returns {Boolean}
  */
-function isValidId(id) {
+function isValidId (id) {
   // Example: Ensure id is a non-empty string
-  return typeof id === 'string' && id.trim().length > 0;
+  return typeof id === 'string' && id.trim().length > 0
 }
 
 /**
  * Validate the title
- * @param {String} title 
+ *
+ * @param {String} title
  * @returns {Boolean}
  */
-function isValidTitle(title) {
+function isValidTitle (title) {
   // Example: Ensure title is a non-empty string and meets other criteria
-  return typeof title === 'string' && title.trim().length > 0;
+  return typeof title === 'string' && title.trim().length > 0
 }
 
 /**
  * Validate the info
- * @param {String} info 
+ *
+ * @param {String} info
  * @returns {Boolean}
  */
-function isValidInfo(info) {
+function isValidInfo (info) {
   // Example: Ensure info is a non-empty string
-  return typeof info === 'string' && info.trim().length > 0;
+  return typeof info === 'string' && info.trim().length > 0
 }
 
 /**
  * Update an entry in the local storage
- * 
+ *
  * Specifically for editing and updating an existing entry
  * based on the index and id
- * 
- * @param {String} id 
- * @param {String} title 
+ *
+ * @param {String} id
+ * @param {String} title
  * @param {String} info 
  */
-function updateEntryInLocalStorage(id, title, info) {
+function updateEntryInLocalStorage (id, title, info) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   const entryIndex = entries.findIndex(entry => entry.id === id)
-  
+
   // Validate and sanitize inputs
   if (!isValidId(id) || !isValidTitle(title) || !isValidInfo(info)) {
-    console.error('Invalid input data');
-    return;
+    console.error('Invalid input data')
+    return
   }
 
   if (entryIndex > -1) {
@@ -224,13 +227,13 @@ function updateEntryInLocalStorage(id, title, info) {
 
 /**
  * Remove an entry from local storage
- * 
+ *
  * Filter through to find the entry with a given id
  * and remove it from the local storage
- * 
+ *
  * @param {String} id 
  */
-function removeEntryFromLocalStorage(id) {
+function removeEntryFromLocalStorage (id) {
   let entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   entries = entries.filter(entry => entry.id !== id)
   localStorage.setItem('journalEntries', JSON.stringify(entries))
@@ -238,14 +241,14 @@ function removeEntryFromLocalStorage(id) {
 
 /**
  * Tracks the changes in a given element
- * 
+ *
  * Meant to add event listeners to the list items
- * in the day view so that they can be editable with 
+ * in the day view so that they can be editable with
  * a click after 
- * 
+ *
  * @param {Array} mutationsList is the list of mutations in the DOM
  */
-function onClassListChange(mutationsList) {
+function onClassListChange (mutationsList) {
   for (let mutation of mutationsList) {
     if (mutation.attributeName === 'class') {
       console.log('Class list changed:', mutation.target.classList)
@@ -270,16 +273,16 @@ function onClassListChange(mutationsList) {
 }
 
 /**
- * Configures the tracking of changes in a 
+ * Configures the tracking of changes in a
  * given element
- * 
+ *
  * Sets up a MutationObserver based on which HTML
  * elements need to be observed and configures them
  * to be tracked
- * 
- * @param {HTMLElement} element 
+ *
+ * @param {HTMLElement} element
  */
-const observeElementClasses = (element) => {
+function observeElementClasses (element) {
   const observer = new MutationObserver(onClassListChange)
   const config = { attributes: true, attributeFilter: ['class'] }
   observer.observe(element, config)
