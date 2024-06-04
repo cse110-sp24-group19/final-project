@@ -64,7 +64,7 @@
 /* Use this to change the background color of the current date */
 .sticky-note .date.active {
   border-radius: 5px;
-  padding: 2px 8px 2px 8px;
+  padding: 2px 8px;
   background-color: crimson;
   color: white;
 }
