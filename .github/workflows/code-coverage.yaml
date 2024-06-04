@@ -1,0 +1,29 @@
+name: Code Coverage Integration
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '19'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests with coverage
+        run: npm test -- --coverage
+
+      - name: Upload coverage report to Codacy
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        run: |
+          curl -Ls https://coverage.codacy.com/get.sh | bash
+          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage/lcov.info

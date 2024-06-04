@@ -231,6 +231,11 @@ body {
 
 #calendar-journal:hover {
   background: url("../assets/calendar-removing-page.png");
+  position: absolute;
+  bottom: 3vh;
+  right: 8vw;
+  width: 22vw;
+  height: 22vw;
   background-size: cover;
 }
 
@@ -253,6 +258,11 @@ body {
 
 #creative-play:hover {
   background: url("../assets/white-board-with-letters.png");
+  position: absolute;
+  bottom: 3vh;
+  left: 5vw;
+  width: 30vw;
+  height: 30vw;
   background-size: cover;
   transform: rotate(-15deg);
 }
@@ -276,6 +286,11 @@ body {
 
 #goal-setting:hover {
   background: url("../assets/goal-with-arrow.png");
+  position: absolute;
+  bottom: 3vh;
+  right: 25vw;
+  width: 22vw;
+  height: 22vw;
   background-size: cover;
   transform: rotate(8deg);
 }
@@ -299,6 +314,11 @@ body {
 
 #reward:hover {
   background: url("../assets/reward2.png");
+  position: absolute;
+  bottom: 3vh;
+  left: 30vw;
+  width: 20vw;
+  height: 20vw;
   background-size: cover;
   transform: rotate(-2deg);
 }
@@ -402,6 +422,8 @@ body {
   height: 62vh;
   display: flex;
   flex-direction: column;
+  word-wrap: break-word;
+  overflow-y: scroll;
   gap: 2vh;
 }
 
@@ -420,14 +442,19 @@ body {
 }
 
 .plus-button {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(67 205 205);
+  box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
   margin-right: 1vw;
 }
 
 .goal-input {
   width: 15vw;
   height: 20px;
+  padding: 10px;
   font-size: 16px;
   font-family: lxgw, sans-serif !important;
 }

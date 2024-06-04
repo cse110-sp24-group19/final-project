@@ -1,0 +1,10 @@
+engines:
+  eslint:
+    enabled: true
+  # Add other engines as necessary
+
+ignore_paths:
+  - node_modules/
+  - dist/
+  - build/
+  - coverage/

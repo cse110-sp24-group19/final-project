@@ -1,0 +1,6 @@
+docs/scripts/prettify/lang-css.js
+docs/scripts/prettify/prettify.js
+node_modules/
+dist/
+build/
+coverage/
