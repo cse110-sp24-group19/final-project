@@ -5,7 +5,7 @@ class Character {
   /**
    * Creates an instance of a Character. If no name and type are provided it loads the first available character from storage.
    * @param {string} [name=null] - The name of the character.
-   * @param {string} [type=null] - The type of the character (Monkey, Dragon, TBD).
+   * @param {string} [type=null] - The type of the character (Monkey, Dragon).
    * @param {number} [progressionPoints=0] - Initial progression points (default is 0).
    * @example
    * const usercharacter = new Character('Smaug', 'Dragon', 5);
@@ -32,9 +32,9 @@ class Character {
    * @private
    */
   _validateType (type) {
-    const validTypes = ['Monkey', 'Dragon', 'TBD']
+    const validTypes = ['Monkey', 'Dragon']
     if (!validTypes.includes(type)) {
-      throw new Error("Invalid type specified. Must be 'Monkey', 'Dragon', or 'TBD'.")
+      throw new Error("Invalid type specified. Must be 'Monkey' or 'Dragon'")
     }
     return type
   }
@@ -61,7 +61,6 @@ class Character {
    * console.log(dragon.getCurrentProgression()); // Outputs the current progression points
    */
   _getCurrentProgression () {
-    console.log('Deprecation warning, this function will be replaced with getCharacterInfo during Sprint 3.')
     return this.progressionPoints
   }
 
@@ -115,7 +114,6 @@ class Character {
    * console.log(dragon.getStageThreshold()); // Returns 10, 15, or 20 based on points
    */
   _getStageProgressionPercentage () {
-    console.log('Deprecation warning, this function will be replaced with getCharacterInfo during Sprint 3.')
     if (this.progressionPoints < 10) {
       return ((this._getCurrentProgression()) / 10) * 100
     } else if (this.progressionPoints < 25) {
