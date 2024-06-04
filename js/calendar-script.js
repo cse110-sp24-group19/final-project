@@ -1,5 +1,5 @@
 // Function to search journal entries
-function searchEntries (query) {
+function searchEntries (journalEntries, query) {
   return journalEntries.filter(entry =>
     entry.title.toLowerCase().includes(query.toLowerCase()) ||
     entry.content.toLowerCase().includes(query.toLowerCase())
@@ -148,6 +148,17 @@ const manipulate = () => {
 manipulate()
 
 /**
+ * Loads all entries
+ *
+ * Gets all entries from local storage
+ *
+ * @returns {Array} entries
+ */
+function loadAllEntries () {
+  return JSON.parse(localStorage.getItem('journalEntries')) || []
+}
+
+/**
  * Loads entries for a given date
  *
  * Gets all of the journal entries from local storage,
@@ -261,6 +272,7 @@ returnCalendarButton.addEventListener('click', closeDayView)
 document.getElementById('search-bar').addEventListener('submit', (event) => {
   event.preventDefault() // Prevent form submission
   const query = document.querySelector('input[name="query"]').value
-  const results = searchEntries(query)
+  const allEntries = loadAllEntries()
+  const results = searchEntries(allEntries, query)
   displaySearchResults(results)
 })

@@ -168,7 +168,7 @@ function saveEntryToLocalStorage (id, date, title, info) {
 /**
  * Validate the id
  *
- * @param {String} id 
+ * @param {String} id
  * @returns {Boolean}
  */
 function isValidId (id) {
@@ -206,7 +206,7 @@ function isValidInfo (info) {
  *
  * @param {String} id
  * @param {String} title
- * @param {String} info 
+ * @param {String} info
  */
 function updateEntryInLocalStorage (id, title, info) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
@@ -220,8 +220,8 @@ function updateEntryInLocalStorage (id, title, info) {
 
   if (entryIndex > -1) {
     const entry = entries[entryIndex]
-    entry.title= title
-    entry.info= info
+    entry.title = title
+    entry.info = info
     localStorage.setItem('journalEntries', JSON.stringify(entries))
   }
 }
@@ -232,7 +232,7 @@ function updateEntryInLocalStorage (id, title, info) {
  * Filter through to find the entry with a given id
  * and remove it from the local storage
  *
- * @param {String} id 
+ * @param {String} id
  */
 function removeEntryFromLocalStorage (id) {
   let entries = JSON.parse(localStorage.getItem('journalEntries')) || []
@@ -245,12 +245,12 @@ function removeEntryFromLocalStorage (id) {
  *
  * Meant to add event listeners to the list items
  * in the day view so that they can be editable with
- * a click after 
+ * a click after
  *
  * @param {Array} mutationsList is the list of mutations in the DOM
  */
 function onClassListChange (mutationsList) {
-  for (let mutation of mutationsList) {
+  for (const mutation of mutationsList) {
     if (mutation.attributeName === 'class') {
       console.log('Class list changed:', mutation.target.classList)
       if (!mutation.target.classList.contains('hidden')) {
