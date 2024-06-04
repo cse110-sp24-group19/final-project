@@ -60,7 +60,7 @@ class Character {
    * @example
    * console.log(dragon.getCurrentProgression()); // Outputs the current progression points
    */
-  _getCurrentProgression () {
+  getCurrentProgression () {
     console.log('Deprecation warning, this function will be replaced with getCharacterInfo during Sprint 3.')
     return this.progressionPoints
   }
