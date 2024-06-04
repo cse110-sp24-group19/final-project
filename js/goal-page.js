@@ -20,14 +20,13 @@ function populateGoals (goals) {
   goals.forEach((goal) => {
     if (!goal.complete) {
       createNewGoal(goal.category, goal.text)
-    }
-    else {
+    } else {
       populateCompletedGoal(goal)
     }
   })
 }
 
-function populateCompletedGoal(goal){
+function populateCompletedGoal (goal) {
   const div = document.createElement('div')
   div.id = goalCounter
   div.style.textDecoration = 'line-through'
