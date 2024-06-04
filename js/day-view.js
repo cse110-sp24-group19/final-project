@@ -219,8 +219,9 @@ function updateEntryInLocalStorage (id, title, info) {
   }
 
   if (entryIndex > -1) {
-    entries[entryIndex].title = title
-    entries[entryIndex].info = info
+    const entry = entries[entryIndex]
+    entry['title'] = title
+    entry['info'] = info
     localStorage.setItem('journalEntries', JSON.stringify(entries))
   }
 }
