@@ -12,7 +12,7 @@ function init () {
 }
 
 function getGoalsFromStorage () {
-  return JSON.parse(localStorage.getItem('goals'))
+  return JSON.parse(localStorage.getItem('goals')) || []
 }
 
 function populateGoals (goals) {
@@ -31,19 +31,24 @@ function populateCompletedGoal (goal) {
   div.id = goalCounter
   div.style.textDecoration = 'line-through'
   div.style.color = 'gray'
+
   const label = document.createElement('label')
   label.for = 'goal#' + goalCounter
   label.textContent = goal.text
   goalCounter++
+
   const checkImg = document.createElement('img')
   checkImg.classList.add('check-icon')
   checkImg.src = 'assets/goal_icons/checked.png'
+
   const trashImg = document.createElement('img')
   trashImg.src = 'assets/goal_icons/trash.png'
   trashImg.addEventListener('click', deleteGoal)
+
   div.appendChild(label)
   div.appendChild(checkImg)
   div.appendChild(trashImg)
+
   const container = document.querySelector(`#${goal.category} .list-container`) // select correct container
   const buffer = container.children[container.children.length - 1] // query that containers very last element(add button)
   container.insertBefore(div, buffer) // new goal is inserted at the end of the list
@@ -127,12 +132,10 @@ function editGoal (event) {
   if (!label) return
 
   const inputBox = document.createElement('input')
+  inputBox.classList.add('goal-input')
   inputBox.type = 'text'
   inputBox.value = label.textContent.trim()
-  inputBox.style.width = '15vw'
-  inputBox.style.height = '20px'
-  inputBox.style.fontFamily = 'lxgw, sans-serif'
-  inputBox.style.fontSize = '18px'
+
   div.replaceChild(inputBox, label)
 
   function handleInputCommit () {

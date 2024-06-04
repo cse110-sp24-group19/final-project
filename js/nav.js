@@ -11,8 +11,8 @@ class NavBar extends HTMLElement {
     const navItems = [
       { id: 'main-nav', iconSrc: 'assets/monkey.png', text: 'Main Page' },
       { id: 'calendar-journal-nav', iconSrc: 'assets/calendar-nav.png', text: 'Calendar/Journal' },
-      { id: 'creative-play-nav', iconSrc: 'assets/white-board-with-letters.png', text: 'Creative Play' },
-      { id: 'goal-setting-nav', iconSrc: 'assets/goal-nav.png', text: 'Goal-Setting' },
+      { id: 'creative-play-nav', iconSrc: 'assets/white-board.png', text: 'Creative Play' },
+      { id: 'goal-setting-nav', iconSrc: 'assets/goal.png', text: 'Goal-Setting' },
       { id: 'reward-nav', iconSrc: 'assets/reward.png', text: 'Reward' }
     ]
 
