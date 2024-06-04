@@ -220,8 +220,8 @@ function updateEntryInLocalStorage (id, title, info) {
 
   if (entryIndex > -1) {
     const entry = entries[entryIndex]
-    entry['title'] = title
-    entry['info'] = info
+    entry.title= title
+    entry.info= info
     localStorage.setItem('journalEntries', JSON.stringify(entries))
   }
 }
