@@ -206,10 +206,9 @@ function removeEntryFromLocalStorage(id) {
  * in the day view so that they can be editable with 
  * a click after 
  * 
- * @param {Array} mutationsList 
- * @param {Object} observer 
+ * @param {Array} mutationsList is the list of mutations in the DOM
  */
-function onClassListChange(mutationsList, observer) {
+function onClassListChange(mutationsList) {
   for (let mutation of mutationsList) {
     if (mutation.attributeName === 'class') {
       console.log('Class list changed:', mutation.target.classList)
