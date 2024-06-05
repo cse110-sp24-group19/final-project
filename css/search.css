@@ -1,0 +1,22 @@
+/* Search Results Page Styles */
+.search-results-container {
+    padding: 20px;
+  }
+  
+  .search-results-container h1 {
+    margin-bottom: 20px;
+  }
+  
+  #search-results-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #search-results-list li {
+    margin-bottom: 10px;
+  }
+  
+  .back-button {
+    margin-top: 20px;
+  }
+  
