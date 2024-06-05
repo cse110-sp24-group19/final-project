@@ -386,7 +386,8 @@
 
 .calendar-header {
   display: flex;
-  justify-content: end;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   padding: 0;
   position: relative;
@@ -418,16 +419,37 @@ header .calendar-navigation span:hover {
   background: #f2f2f2;
 }
 
+.today-button {
+  background-color: #3ddf0c;/* Green color */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 40px;
+  cursor: pointer;
+  border-radius: 12px;/* Rounded corners */
+  box-shadow: 0 5px #1e7e34;/* 3D effect */
+  transition: all 0.2s;
+}
+
+.today-button:active {
+  box-shadow: 0 2px #1e7e34;
+  transform: translateY(3px);
+}
+
 @media only screen and (max-width: 1000px) {
   .calendar-header {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     width: 100%;
   }
 
   .calendar-navigation {
     display: flex;
-    left: 40%;
+    left: 54%;
     transform: translateX(-50%);
   }
 
@@ -454,7 +476,7 @@ header .calendar-navigation span:hover {
     justify-content: right;
     align-items: right;
     border-radius: 4px;
-    margin-right: 40px;
+    margin: 40px;
   }
 
   #search-bar input[type="text"] {
@@ -481,5 +503,21 @@ header .calendar-navigation span:hover {
     border-radius: 4px;
     border-color: #0056b3;/* Change border color on focus */
     outline: none;
+  }
+
+  .today-button {
+    background-color: #3ddf0c;/* Green color */
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 40px;
+    cursor: pointer;
+    border-radius: 12px;/* Rounded corners */
+    box-shadow: 0 5px #1e7e34;/* 3D effect */
+    transition: all 0.2s;
   }
 }

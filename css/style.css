@@ -366,7 +366,7 @@ body {
   justify-content: right;
   align-items: right;
   border-radius: 4px;
-  margin-right: 40px; /* Adjust margin-right to move the search bar to the left */
+  margin: 40px; /* Adjust margin-right to move the search bar to the left */
 }
 
 #search-bar input[type="text"] {
