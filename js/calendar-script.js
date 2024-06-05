@@ -43,7 +43,7 @@ const todayButton = document.getElementById('reloadbutton')
 // Because the pages are all in the same HTML file, we have to essentially go through the same process
 // that the page goes through when it first loads, it hides all the pages besides the main-page. However,
 // when we use the Today Button it will hide all the pages (including main) and just expose the calendar instead.
-function reloadAndRunFunction() {
+function reloadAndRunFunction () {
   localStorage.setItem('runAfterReload', 'true')
   location.reload()
 }
@@ -69,11 +69,11 @@ function anotherFunction () {
     showPage(calendarJournalPage)
   })
 }
-todayButton.addEventListener('click', reloadAndRunFunction);
+todayButton.addEventListener('click', reloadAndRunFunction)
 if (localStorage.getItem('runAfterReload') === 'true') {
-      localStorage.removeItem('runAfterReload')
-      anotherFunction()
-  }
+  localStorage.removeItem('runAfterReload')
+  anotherFunction()
+}
 
 // Array of month names
 const months = [
