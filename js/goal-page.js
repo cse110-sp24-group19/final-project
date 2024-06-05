@@ -197,7 +197,7 @@ function addNewGoal (category) {
  * @param {Event} event - The event object (click)
  */
 function editGoal (event) {
-  const div = event.target.parentElement
+  const div = event.target.parentElement.parentElement
   const label = div.querySelector('label')
   if (!label) return
 
@@ -235,7 +235,7 @@ function editGoal (event) {
  */
 
 function deleteGoal (event) {
-  const div = event.target.parentElement
+  const div = event.target.parentElement.parentElement
   removeGoalFromStorage(div.id)
   div.remove()
 }
@@ -247,7 +247,7 @@ function deleteGoal (event) {
  */
 
 function achieveGoal (event) {
-  const div = event.target.parentElement
+  const div = event.target.parentElement.parentElement
   div.className = 'completed-goal'
   const checkIcon = div.querySelector('.check-icon')
   checkIcon.src = 'assets/goal_icons/checked.png'
@@ -265,12 +265,17 @@ function achieveGoal (event) {
  */
 function createNewGoal (category, input) {
   const div = document.createElement('div')
+  div.style.borderBottom = 'solid lightgray 2px'
   div.id = goalCounter
 
   const label = document.createElement('label')
   label.for = 'goal#' + goalCounter
   label.textContent = input
   goalCounter++
+
+  const buttonsContainer = document.createElement('div')
+  buttonsContainer.style.margin = '5px'
+  buttonsContainer.style.float = 'right'
 
   const checkImg = document.createElement('img')
   checkImg.classList.add('check-icon')
@@ -286,10 +291,11 @@ function createNewGoal (category, input) {
   trashImg.src = 'assets/goal_icons/trash.png'
   trashImg.addEventListener('click', deleteGoal)
 
+  buttonsContainer.appendChild(checkImg)
+  buttonsContainer.appendChild(penImg)
+  buttonsContainer.appendChild(trashImg)
   div.appendChild(label)
-  div.appendChild(checkImg)
-  div.appendChild(penImg)
-  div.appendChild(trashImg)
+  div.appendChild(buttonsContainer)
 
   const container = document.querySelector(`#${category} .list-container`) // select correct container
   const buffer = container.children[container.children.length - 1] // query that containers very last element(add button)

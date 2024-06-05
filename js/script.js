@@ -52,6 +52,10 @@ function setTheme (theme) {
       star.style.display = 'block'
     })
   }
+
+  forestBg.style.backgroundSize = 'cover'
+  forestBg.style.backgroundRepeat = 'no-repeat'
+  forestBg.style.backgroundPosition = 'center'
 }
 
 // Add a click event listener to the 'sun-moon' element
@@ -60,21 +64,17 @@ sunMoon.addEventListener('click', function () {
 
   // Change night to day
   if (currentSunMoon.includes('Moon.gif')) {
-    localStorage.setItem('theme', DAY_THEME)
     setTheme(DAY_THEME)
+    localStorage.setItem('theme', DAY_THEME)
   // Change day to sunset
   } else if (currentSunMoon.includes('Sun-bright.gif')) {
-    localStorage.setItem('theme', SUNSET_THEME)
     setTheme(SUNSET_THEME)
+    localStorage.setItem('theme', SUNSET_THEME)
   // Change sunset to night
   } else {
-    localStorage.setItem('theme', NIGHT_THEME)
     setTheme(NIGHT_THEME)
+    localStorage.setItem('theme', NIGHT_THEME)
   }
-
-  forestBg.style.backgroundSize = 'cover'
-  forestBg.style.backgroundRepeat = 'no-repeat'
-  forestBg.style.backgroundPosition = 'center'
 })
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -83,5 +83,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   if (theme) {
     setTheme(theme)
+  } else {
+    setTheme(NIGHT_THEME)
   }
 })
