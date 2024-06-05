@@ -47,6 +47,10 @@
   right: 0;
 }
 
+#setting-sidebar.hidden {
+  display: none;
+}
+
 /* Rotate animations for the setting button */
 .rotate-left {
   transform: rotate(-90deg);
@@ -63,7 +67,7 @@
   left: 10px;
   color: white;
   background-color: red;
-  font-size: 16px;
+  font-size: px;
   cursor: pointer;
   z-index: 1000;
 }

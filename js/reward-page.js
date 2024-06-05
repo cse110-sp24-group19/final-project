@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Sidebar toggle functionality
   settingButton.addEventListener('click', function () {
     settingSidebar.classList.toggle('visible')
+    settingSidebar.classList.remove('hidden')
     if (settingSidebar.classList.contains('visible')) {
       rewardMainContent.style.marginRight = '300px'
       settingButton.classList.add('hidden')
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Close sidebar functionality
   closeButton.addEventListener('click', function () {
     settingSidebar.classList.remove('visible')
+    settingSidebar.classList.add('hidden')
     rewardMainContent.style.marginRight = '0'
     settingButton.classList.remove('rotate-left')
     settingButton.classList.add('rotate-right')
