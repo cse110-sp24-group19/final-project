@@ -26,7 +26,7 @@
 
 /* Styles for the setting sidebar */
 #setting-sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: -300px; /* Initially hide the sidebar off-screen to the right */
   width: 300px;
@@ -38,12 +38,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 60px;
-  gap: 5vh;
-}
-
-#setting-sidebar.hidden {
-  display: none;
+  padding-top: 120px;
+  gap: 2.5vh;
 }
 
 /* Show the sidebar when it has the 'visible' class */
@@ -58,23 +54,6 @@
 
 .rotate-right {
   transform: rotate(90deg);
-}
-
-/* closes sidebar */
-#close-button {
-  position: absolute;
-  top: 100px;
-  left: 10px;
-  color: white;
-  background-color: red;
-  font-size: px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-/* hides the setting button */
-#setting-button.hidden {
-  display: none;
 }
 
 /* Contains two main containers */
