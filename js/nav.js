@@ -78,7 +78,7 @@ class NavBar extends HTMLElement {
       }
 
       /* Responsive Styles */
-      @media (max-width: 1100px) {
+      @media (width <= 1100px) {
         .nav-bar {
           gap: 4vw;
           padding: 10px 0;
@@ -93,7 +93,7 @@ class NavBar extends HTMLElement {
         }
       }
 
-      @media (max-width: 800px) {
+      @media (width <= 800px) {
         .nav-icon {
           display: none;
         }
@@ -102,9 +102,15 @@ class NavBar extends HTMLElement {
         }
       }
 
-      @media (max-width: 650px) {
+      @media (width <= 650px) {
         .icon-text-container {
           font-size: 12px;
+        }
+      }
+
+      @media (width <= 450px) {
+        .icon-text-container {
+          font-size: 8px;
         }
       }
     `
