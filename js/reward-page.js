@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const profilePhotos = document.querySelectorAll('.profile-photo')
   const profilePhoto = document.getElementById('profile-photo')
   const fileInput = document.getElementById('file-input')
+  const closeButton = document.getElementById('close-button');
 
   // Load the saved profile photo from local storage
   const savedImage = localStorage.getItem('profilePhoto')
@@ -41,13 +42,20 @@ document.addEventListener('DOMContentLoaded', function () {
     settingSidebar.classList.toggle('visible')
     if (settingSidebar.classList.contains('visible')) {
       rewardMainContent.style.marginRight = '300px'
-      settingButton.classList.remove('rotate-right')
-      settingButton.classList.add('rotate-left')
+      settingButton.classList.add('hidden')
     } else {
       rewardMainContent.style.marginRight = '0'
-      settingButton.classList.remove('rotate-left')
-      settingButton.classList.add('rotate-right')
+      settingButton.classList.remove('hidden')
     }
+  })
+
+  // Close sidebar functionality
+  closeButton.addEventListener('click', function () {
+    settingSidebar.classList.remove('visible')
+    rewardMainContent.style.marginRight = '0'
+    settingButton.classList.remove('rotate-left')
+    settingButton.classList.add('rotate-right')
+    settingButton.classList.remove('hidden')
   })
 
   // Change profile photo by clicking the options provided to users
