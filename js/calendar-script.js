@@ -1,11 +1,3 @@
-// Function to search journal entries
-function searchEntries (journalEntries, query) {
-  return journalEntries.filter(entry =>
-    entry.title.toLowerCase().includes(query.toLowerCase()) ||
-    entry.content.toLowerCase().includes(query.toLowerCase())
-  )
-}
-
 // Function to display search results in the calendar
 function displaySearchResults (entries) {
   const calendar = document.querySelector('.calendar-dates')
@@ -278,5 +270,13 @@ document.getElementById('search-bar').addEventListener('submit', (event) => {
   const query = document.querySelector('input[name="query"]')
   const allEntries = loadAllEntries()
   const results = searchEntries(allEntries, query)
-  displaySearchResults(results)
+  console.log(displaySearchResults(results))
 })
+
+// Function to search journal entries
+function searchEntries (journalEntries, query) {
+  return journalEntries.filter(entry =>
+    entry.title.toLowerCase().includes(query.toLowerCase()) ||
+    entry.content.toLowerCase().includes(query.toLowerCase())
+  )
+}
