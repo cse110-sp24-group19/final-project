@@ -106,7 +106,6 @@
 }
 
 @keyframes rainbow {
-
   0%,
   100% {
     background-position: 0% 50%;
@@ -124,13 +123,15 @@
   margin-bottom: 10px;
   text-align: center;
   text-transform: uppercase;
+  
   /* Uppercase letters */
   letter-spacing: 2px;
+  
   /* Increase letter spacing */
   border-bottom: 1px solid #ccc;
+  
   /* Add a bottom border */
   padding-bottom: 5px;
-  /* Add some space below the border */
 }
 
 #new-entry-page h3 {
