@@ -13,10 +13,10 @@
 /* Styles for the setting button */
 #setting-button {
   position: absolute;
-  top: 100px;
-  right: 60px;
-  width: 60px;
-  height: 60px;
+  bottom: 5vh;
+  right: 3vw;
+  width: 3vw;
+  height: 3vw;
   background: url("../assets/setting.png");
   background-size: cover;
   cursor: pointer;
@@ -38,8 +38,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 120px;
-  gap: 2.5vh;
+  padding-top: 60px;
+  gap: 5vh;
 }
 
 /* Show the sidebar when it has the 'visible' class */

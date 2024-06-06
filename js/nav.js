@@ -121,10 +121,6 @@ class NavBar extends HTMLElement {
   connectedCallback () {
     // Add event listeners for nav items
     this.shadowRoot.querySelectorAll('.icon-text-container').forEach(item => {
-      item.addEventListener('mouseenter', () => {
-        const audio = new Audio('assets/click2.mp3')
-        audio.play()
-      })
       item.addEventListener('click', () => {
         const pageId = item.classList[1] // The second class is the page ID
         document.querySelectorAll('.page').forEach(page => {
