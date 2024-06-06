@@ -106,9 +106,15 @@
 }
 
 @keyframes rainbow {
+
   0%,
-  100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .journal-entries h3 {
@@ -117,10 +123,14 @@
   color: black;
   margin-bottom: 10px;
   text-align: center;
-  text-transform: uppercase; /* Uppercase letters */
-  letter-spacing: 2px; /* Increase letter spacing */
-  border-bottom: 1px solid #ccc; /* Add a bottom border */
-  padding-bottom: 5px; /* Add some space below the border */
+  text-transform: uppercase;
+  /* Uppercase letters */
+  letter-spacing: 2px;
+  /* Increase letter spacing */
+  border-bottom: 1px solid #ccc;
+  /* Add a bottom border */
+  padding-bottom: 5px;
+  /* Add some space below the border */
 }
 
 #new-entry-page h3 {
@@ -180,7 +190,8 @@
   flex-grow: 1;
   overflow-y: auto;
   margin-bottom: 20px;
-  padding-right: 10px; /* Add some padding to avoid hiding content behind the scrollbar */
+  padding-right: 10px;
+  /* Add some padding to avoid hiding content behind the scrollbar */
   position: relative;
 }
 
@@ -192,10 +203,14 @@
   margin-top: 30px;
   margin-bottom: 10px;
   text-align: center;
-  text-transform: uppercase; /* Uppercase letters */
-  letter-spacing: 2px; /* Increase letter spacing */
-  border-bottom: 1px solid #ccc; /* Add a bottom border */
-  padding-bottom: 5px; /* Add some space below the border */
+  text-transform: uppercase;
+  /* Uppercase letters */
+  letter-spacing: 2px;
+  /* Increase letter spacing */
+  border-bottom: 1px solid #ccc;
+  /* Add a bottom border */
+  padding-bottom: 5px;
+  /* Add some space below the border */
 }
 
 #entry-details-page h2 {
@@ -205,9 +220,12 @@
   margin-top: 30px;
   margin-bottom: 10px;
   text-align: center;
-  text-transform: uppercase; /* Uppercase letters */
-  letter-spacing: 2px; /* Increase letter spacing */
-  padding-bottom: 5px; /* Add some space below the border */
+  text-transform: uppercase;
+  /* Uppercase letters */
+  letter-spacing: 2px;
+  /* Increase letter spacing */
+  padding-bottom: 5px;
+  /* Add some space below the border */
 }
 
 #journal-list {
@@ -217,14 +235,17 @@
 
 #journal-list li {
   display: flex;
-  justify-content: space-between; /* Change from flex-end to space-between */
-  align-items: center; /* Align items vertically */
+  justify-content: space-between;
+  /* Change from flex-end to space-between */
+  align-items: center;
+  /* Align items vertically */
   background-color: #fff;
   padding: 10px;
   margin-bottom: 10px;
   box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
   border-radius: 8px;
-  word-wrap: break-word; /* Allow text to wrap */
+  word-wrap: break-word;
+  /* Allow text to wrap */
 }
 
 /* Styling for the back button */
@@ -232,7 +253,7 @@
 .back-button {
   width: 100px;
   padding: 10px;
-  background-image: linear-gradient(to right, #ff8008 0%, #ffc837  51%, #ff8008  100%);
+  background-image: linear-gradient(to right, #ff8008 0%, #ffc837 51%, #ff8008 100%);
   box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
   text-align: center;
   border: none;
@@ -378,36 +399,35 @@
 
 /* Use this to change the style of the current date header i.e April, 2024 */
 .calendar-current-date {
-  font-size: 1vw;
+  font-size: min(5vw, 30px);
   margin: 0;
-  font-family: raleway, Tahoma, sans-serif;
+  font-family: comfortaa, raleway, Tahoma, sans-serif;
   text-align: center;
+  width:  max(5vw, 200px);
 }
 
 .calendar-header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
-  position: relative;
-  width: 100%;
+  flex-wrap: wrap;
+  padding: 20px;
+  /* position: relative; */
+  /* width: 90%; */
 }
 
 .calendar-navigation {
   display: flex;
   align-items: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  flex-wrap: nowrap;
 }
 
 /* Use this to control the navigation buttons < > */
 header .calendar-navigation span {
-  margin: 0 1px;
+  /* margin: 0 1px; */
   cursor: pointer;
   color: rgb(61 223 12);
-  font-size: 2vw;
+  font-size: min(10vw, 50px);
 }
 
 /* More specific styles */
@@ -419,105 +439,48 @@ header .calendar-navigation span:hover {
   background: #f2f2f2;
 }
 
-.today-button {
-  background-color: #3ddf0c;/* Green color */
+.green-button {
+  font-family: comfortaa, raleway, Tahoma, sans-serif;
+  background-color: #3ddf0c;
+  /* Green color */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 15px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 40px;
   cursor: pointer;
-  border-radius: 12px;/* Rounded corners */
-  box-shadow: 0 5px #1e7e34;/* 3D effect */
+  border-radius: 12px;
+  /* Rounded corners */
+  box-shadow: 0 5px #1e7e34;
+  /* 3D effect */
   transition: all 0.2s;
 }
 
-.today-button:active {
+.green-button:hover {
   box-shadow: 0 2px #1e7e34;
   transform: translateY(3px);
 }
 
-@media only screen and (max-width: 1000px) {
-  .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
+.search-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
 
-  .calendar-navigation {
-    display: flex;
-    left: 54%;
-    transform: translateX(-50%);
-  }
+.search-bar-container input[type="text"] {
+  padding: 10px;
+  width: 100px;
+  height: 20px;
+  border: 3px solid #3ddf0c;
+  border-radius: 12px;
+  font-family: comfortaa, raleway, Tahoma, sans-serif;
+}
 
-  .calendar-current-date {
-    font-size: 3vw;/* Make the font size responsive */
-    margin: 0;
-    font-family: raleway, Tahoma, sans-serif;
-    text-align: center;
-  }
-
-  header .calendar-navigation span {
-    margin: 0 1px;
-    cursor: pointer;
-    color: rgb(61 223 12);
-    font-size: 4vw;
-  }
-
-  .search-bar-container {
-    margin-top: 10px;
-  }
-
-  #search-bar {
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    border-radius: 4px;
-    margin: 40px;
-  }
-
-  #search-bar input[type="text"] {
-    padding: 8px;
-    width: 9vw;
-    height: 1vh;
-    border: 3px solid #3ddf0c;
-    border-radius: 4px;
-    font-family: "Comic Sans MS", cursive;/* Change the font */
-  }
-
-  #search-bar button {
-    padding: 1px 10px;
-    margin-left: 10px;
-    background-color: #3ddf0c;/* Bootstrap primary color */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: "Comic Sans MS", cursive;/* Change the font */
-  }
-
-  #search-bar input[type="text"]:focus {
-    border-radius: 4px;
-    border-color: #0056b3;/* Change border color on focus */
-    outline: none;
-  }
-
-  .today-button {
-    background-color: #3ddf0c;/* Green color */
-    border: none;
-    color: white;
-    padding: 10px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 40px;
-    cursor: pointer;
-    border-radius: 12px;/* Rounded corners */
-    box-shadow: 0 5px #1e7e34;/* 3D effect */
-    transition: all 0.2s;
-  }
+#search-bar input[type="text"]:focus {
+  border-radius: 4px;
+  border-color: #0056b3;
+  /* Change border color on focus */
+  outline: none;
 }
