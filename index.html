@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/font.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="css/reward-page.css">
+  <link rel="stylesheet" href="css/character-selection.css">
   <script src="js/script.js" type="module"></script>
   <script src="js/nav.js" type="module"></script>
   <script src="js/sound.js" type="module"></script>
@@ -17,6 +18,7 @@
   <script src="js/day-view.js" type="module"></script>
   <script src="js/goal-page.js" type="module"></script>
   <script src="js/reward-page.js" type="module"></script>
+  <script src="js/character-selection.js" type="module"></script>
 
   <script src="js/sketch.js" type="module"></script>
   <title>Coding Monkeys</title>
@@ -24,6 +26,33 @@
 <body>
   <!-- For p5.js to work -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
+  <!-- For Character Selection -->
+  <div id="character-selection-container">
+    <div id="character-selection-background"></div> <!-- New inner div for background -->
+    <div id="greeting-message">
+      <p>Welcome!</p>
+      <p>Choose Your Character!</p>
+    </div>
+    <div id="characters-container">
+      <div class="character-container" id="dragon-container"> <!-- When clicked, users select the dragon -->
+        <img class="character-image" id="dragon-egg-image" src="assets/dragon-egg.png" alt="dragon egg image">
+        <p class="character-description">Fiery Dragon</p>
+        <div class="character-container-cover">
+          <div class="cover-background"></div>
+          <p class="select-text">Select</p>
+        </div>
+      </div>
+      <div class="character-container" id="monkey-container"> <!-- When clicked, users select the monkey -->
+        <img class="character-image" id="monkey-egg-image" src="assets/dragon-egg.png" alt="monkey egg image">
+        <p class="character-description">Happy Monkey</p>
+        <div class="character-container-cover">
+          <div class="cover-background"></div>
+          <p class="select-text">Select</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Main Page -->
   <div id="main-page" class="page">
