@@ -73,6 +73,7 @@ function populateGoals (goals) {
 function populateCompletedGoal (goal) {
   // goal container
   const div = document.createElement('div')
+  div.style.borderBottom = 'solid lightgray 2px'
   div.className = 'completed-goal'
   div.id = goalCounter
 
