@@ -185,7 +185,7 @@ manipulate()
  *
  * @returns {Array} entries
  */
-function loadAllEntries () {
+export function loadAllEntries () {
   return JSON.parse(localStorage.getItem('journalEntries')) || []
 }
 
@@ -199,7 +199,7 @@ function loadAllEntries () {
  * @param {String} date
  * @returns {Array} filteredEntries
  */
-function loadEntriesForDate (date) {
+export function loadEntriesForDate (date) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   const journalList = document.getElementById('journal-list')
   journalList.innerHTML = '' // Clear existing entries
@@ -218,7 +218,7 @@ function loadEntriesForDate (date) {
  *
  * @param {String} date
  */
-function createEntriesForDate (date) {
+export function createEntriesForDate (date) {
   const journalList = document.getElementById('journal-list')
   journalList.innerHTML = '' // Clear existing entries
 
@@ -235,7 +235,7 @@ function createEntriesForDate (date) {
 }
 
 // Function that opens the day view
-function openDayView (dateString) {
+export function openDayView (dateString) {
   // Update day view content based on the clicked date
   const formattedDate = formatDateForJournalEntries(dateString)
   document.querySelector('.day-view-date').textContent = formattedDate
@@ -249,13 +249,13 @@ function openDayView (dateString) {
 }
 
 // Format date for journal entries
-function formatDateForJournalEntries (dateString) {
+export function formatDateForJournalEntries (dateString) {
   const [year, month, day] = dateString.split('-')
   return `${parseInt(month)}/${parseInt(day)}/${year}`
 }
 
 // Function to close day view and return to calendar
-function closeDayView () {
+export function closeDayView () {
   // Update the calendar view after day view changes
   manipulate()
 
