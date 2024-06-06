@@ -1,22 +1,17 @@
 // reward-page.js
 import Character from './Character.js'
 
-// No choose your character page yet, so initializing with a test character
-const userCharacter = new Character('Smaug', 'Dragon')
+// Loading character from storage
+const userCharacter = new Character(null, null, 0)
 document.addEventListener('DOMContentLoaded', function () {
   updateProgressBar()
   updateLevel()
 })
 document.addEventListener('characterInfoUpdated', function () {
+  console.log('Event triggered')
   updateProgressBar()
   updateLevel()
   updateCharacterImage()
-})
-// JUST FOR TESTING REMOVE THIS LATER!!!
-document.addEventListener('click', function () {
-  userCharacter.updateProgression(1)
-  updateProgressBar()
-  updateLevel()
 })
 
 function updateProgressBar () {
