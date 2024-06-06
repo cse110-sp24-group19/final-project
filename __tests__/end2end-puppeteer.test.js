@@ -129,12 +129,10 @@ import puppeteer from 'puppeteer';
     
         expect(currNoteCount).toBe(prevNoteCount + 1);
         // Validate the content of the last added entry
-        let lastEntry = await page.$eval(`${selectors.journalList}:last-child`, el => {
-          return {
-            title: el.textContent,
-            info: el.dataset.info
-          };
-        });
+        let lastEntry = await page.$eval(`${selectors.journalList}:last-child`, el => ({
+          title: el.textContent,
+          info: el.dataset.info
+        }));
         expect(lastEntry.title).toBe(entryTitle);
         expect(lastEntry.info).toBe(entryInfo);
       }, 50000);
