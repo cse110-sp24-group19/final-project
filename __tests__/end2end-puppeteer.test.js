@@ -65,7 +65,6 @@ import puppeteer from 'puppeteer';
       longTermGoalInput: '#long-term-goal-input',
       longTermGoalList: '#long-term .list-container > div:not(.last-child) label',
       calendarJournal: '#calendar-journal',
-      dailyGoalList: '#daily .list-container > div:not(.last-child) label',
       editButton: '.pen-icon',
       deleteButton: 'img[src="assets/goal_icons/trash.png"]',
       inputBox: 'input.goal-input'
