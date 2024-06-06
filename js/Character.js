@@ -158,11 +158,22 @@ class Character {
    * @private
    */
   _loadCharacter () {
-    const datapoint = JSON.parse(localStorage.getItem('character'))
-    if (datapoint) {
-      this.name = datapoint.name
-      this.type = this._validateType(datapoint.type)
-      this.progressionPoints = datapoint.progressionPoints
+    const data = localStorage.getItem('character');
+    if (data) {
+      try {
+        const datapoint = JSON.parse(data);
+        if (datapoint) {
+          this.name = datapoint.name
+          this.type = this._validateType(datapoint.type)
+          this.progressionPoints = datapoint.progressionPoints
+        }
+      } catch (e) {
+        console.error('Error parsing character data from localStorage:', e);
+        // Handle the error, perhaps set default values or notify the user
+      }
+    } else {
+      console.warn('No character data found in localStorage');
+      // Handle the absence of data, perhaps set default values or create a new character
     }
   }
 
