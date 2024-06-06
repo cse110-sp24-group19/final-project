@@ -73,6 +73,7 @@ class Character {
    * console.log(dragon.getCharacterInfo()[0]); // 30
    */
   updateProgression (points) {
+    this._loadCharacter()
     const newProgression = this.progressionPoints + points
     if (newProgression > 100) {
       this.progressionPoints = 100
@@ -163,6 +164,14 @@ class Character {
       this.type = this._validateType(datapoint.type)
       this.progressionPoints = datapoint.progressionPoints
     }
+  }
+
+  /**
+   * Returns true if there's a character in local storage, false otherwise.
+   */
+  static checkStorage () {
+    const datapoint = JSON.parse(localStorage.getItem('character'))
+    return !!datapoint
   }
 }
 export default Character
