@@ -72,9 +72,23 @@
   </div>
   <!-- End of the Main Page-->
 
+  <!-- Search Results Page -->
+  <div id="search-results-page" class="page hidden">
+    <nav-bar></nav-bar>
+    <div class="search-results-container">
+      <h1>Search Results</h1>
+      <ul id="search-results-list">
+        <!-- Search results will be appended here dynamically -->
+      </ul>
+      <button class="search-back-button" onclick="showPage('calendar-journal-nav')">Go Back</button>
+    </div>
+  </div>
+  <!-- End of the Search Results Page -->
+
   <!-- Calendar/Journal Page -->
   <div id="calendar-journal-page" class="page hidden">
     <nav-bar></nav-bar>
+
     <div class="calendar-container">
       <header class="calendar-header">
         <div class="calendar-navigation">
@@ -85,7 +99,7 @@
 
         <div class="search-bar-container">
           <input type="text" name="query" placeholder="Search...">
-          <button type="submit" id="search-button" class="green-button">Search</button>
+          <button id="search-button" class="green-button">Search</button>
           <button class="green-button" id="reloadbutton">Today</button>
         </div>
       </header>
@@ -266,19 +280,6 @@
     </div>
   </div>
   <!-- End of the Reward Page -->
-
-  <!-- Search Results Page -->
-  <div id="search-results-page" class="page hidden">
-    <nav-bar></nav-bar>
-    <div class="search-results-container">
-      <h1>Search Results</h1>
-      <ul id="search-results-list">
-        <!-- Search results will be appended here dynamically -->
-      </ul>
-      <button class="search-back-button" onclick="showPage('calendar-journal-nav')" >Go Back</button>
-    </div>
-  </div>
-  <!-- End of the Search Results Page -->
 </body>
 
 </html>

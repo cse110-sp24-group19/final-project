@@ -1,7 +1,6 @@
 // Add an event listener to the form with ID 'search-bar' that triggers on form submission
-document.getElementById('search-bar').addEventListener('submit', function (event) {
-  event.preventDefault()
-  const searchText = event.target.query.value.trim().toLowerCase()
+document.getElementById('search-button').addEventListener('click', function (event) {
+  const searchText = event.target.value.trim().toLowerCase()
   const entries = loadAllEntries()
   const filteredEntries = entries.filter(entry =>
     entry.title.toLowerCase().includes(searchText) ||
