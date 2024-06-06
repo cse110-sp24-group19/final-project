@@ -76,6 +76,10 @@ function populateCompletedGoal (goal) {
   div.className = 'completed-goal'
   div.id = goalCounter
 
+  const buttonsContainer = document.createElement('div')
+  buttonsContainer.style.margin = '5px'
+  buttonsContainer.style.float = 'right'
+
   const label = document.createElement('label')
   label.for = 'goal#' + goalCounter
   label.textContent = goal.text
@@ -89,9 +93,10 @@ function populateCompletedGoal (goal) {
   trashImg.src = 'assets/goal_icons/trash.png'
   trashImg.addEventListener('click', deleteGoal)
 
+  buttonsContainer.appendChild(checkImg)
+  buttonsContainer.appendChild(trashImg)
   div.appendChild(label)
-  div.appendChild(checkImg)
-  div.appendChild(trashImg)
+  div.appendChild(buttonsContainer)
 
   const container = document.querySelector(`#${goal.category} .list-container`) // select correct container
   const buffer = container.children[container.children.length - 1] // query that containers very last element(add button)
