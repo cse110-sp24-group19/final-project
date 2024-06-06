@@ -8,8 +8,9 @@
   transform: translate(-50%, -50%);
   width: 85vw;
   height: 85vh;
-  background-color: rgba(255, 255, 255, 0.85);
-  box-shadow: 0px 0px 15px 0 #0006, 2px 2px 8px 0 rgba(0 0 0 / 13%);
+  background-color: white;
+  opacity: 0.85;
+  box-shadow: 0 0 15px 0 #0006, 2px 2px 8px 0 rgba(0 0 0 / 13%);
   border-radius: 3vw;
   display: flex;
   flex-direction: column;
@@ -69,7 +70,8 @@
   right: 0;
   bottom: 0;
   background-size: cover;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent cover */
+  background-color: black;
+  opacity: 0.5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,7 +90,7 @@
 
 /* Shrink "select" text on click */
 .character-container:active .select-text {
-  transform: scale(0.9);  
+  transform: scale(0.9);
 }
 
 /* Styling for character descriptions */
