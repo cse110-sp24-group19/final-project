@@ -17,3 +17,8 @@
   font-family: lxgw;
   src: url("../assets/LXGWWenKaiTC-Regular.ttf");
 }
+
+@font-face {
+  font-family: seymour;
+  src: url("../assets/SeymourOne-Regular.ttf");
+}
