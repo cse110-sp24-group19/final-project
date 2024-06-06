@@ -129,6 +129,7 @@ class NavBar extends HTMLElement {
         const pageId = item.classList[1] // The second class is the page ID
         document.querySelectorAll('.page').forEach(page => {
           if (page.id === pageId.replace('-nav', '-page')) {
+            localStorage.setItem('currentPage', page.id) // save current page to local storage
             page.classList.remove('hidden')
           } else {
             page.classList.add('hidden')
@@ -141,6 +142,9 @@ class NavBar extends HTMLElement {
 
 // Define the new element
 customElements.define('nav-bar', NavBar)
+
+/* global localStorage */
+/* global sessionStorage */
 
 // Event listener to navigate from the main page
 document.addEventListener('DOMContentLoaded', function () {
@@ -155,6 +159,22 @@ document.addEventListener('DOMContentLoaded', function () {
   const goalSettingPageNav = document.getElementById('goal-setting')
   const rewardPageNav = document.getElementById('reward')
 
+  // event listener for page unload (reload or close)
+  window.onbeforeunload = loadLastPage()
+
+  // loads the last page if page reload
+  // else sets current page to main page
+  function loadLastPage () {
+    if (sessionStorage.getItem('reloaded') != null) { // if 'reloaded' exists in session storage, the page is being reloaded
+      const currentPage = localStorage.getItem('currentPage')
+      const pageDiv = document.getElementById(currentPage)
+      showPage(pageDiv)
+    } else { // if 'reloaded' does not exist in session storage, the page is being opened for a new session
+      localStorage.setItem('currentPage', 'main-page')
+    }
+    sessionStorage.setItem('reloaded', 'yes')
+  }
+
   // Function to show one page and hide others
   function showPage (pageToShow) {
     [mainPage, calendarJournalPage, creativePlayPage, goalSettingPage, rewardPage].forEach(page => {
@@ -164,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
         page.classList.add('hidden')
       }
     })
+    localStorage.setItem('currentPage', pageToShow.id)
   }
 
   // Add click event listener to calendar/journal page navigation button
