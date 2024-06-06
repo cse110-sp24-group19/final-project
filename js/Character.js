@@ -47,11 +47,7 @@ class Character {
    * progressionStagePercentage]
    */
   getCharacterInfo () {
-    this._loadCharacter()
     const progressionPoints = this.progressionPoints
-    this.progressionPoints += 0
-    this.progressionPoints += 0
-    this.progressionPoints += 0
     const progressionStage = this._getProgressionStage()
     const imageAsset = this._fetchImageAsset()
     const progressionStagePercentage = this._getStageProgressionPercentage()
