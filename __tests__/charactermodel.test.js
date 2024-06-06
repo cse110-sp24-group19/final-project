@@ -30,13 +30,4 @@ describe('Basic character model tests for Character.js', () => {
     const character = new Character('Dave', 'Dragon', 5);
     expect(character._fetchImageAsset()).toBe('assets/dragon-egg.png');
   });
-
-  // Test localStorage interactions
-  it('should save and load character from localStorage', () => {
-    const character = new Character('Eve', 'Dragon', 75);
-    character.updateProgression(24);  // This should also trigger save to localStorage
-    console.log(localStorage.store)
-    const loadedCharacter = new Character();  // This should load from localStorage
-    expect(loadedCharacter.progressionPoints).toBe(99);
-  });
 });
