@@ -143,9 +143,6 @@ class NavBar extends HTMLElement {
 // Define the new element
 customElements.define('nav-bar', NavBar)
 
-/* global localStorage */
-/* global sessionStorage */
-
 // Event listener to navigate from the main page
 document.addEventListener('DOMContentLoaded', function () {
   const mainPage = document.getElementById('main-page')
