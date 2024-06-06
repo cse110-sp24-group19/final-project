@@ -1,6 +1,6 @@
 // fetches Character object from local storage
 import Character from './Character.js'
-const usercharacter = new Character()
+const usercharacter = new Character(null, null, 0)
 
 /**
  * calls Character.js method to add 1 progress point

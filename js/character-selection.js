@@ -1,14 +1,31 @@
+import Character from './Character.js'
 document.addEventListener('DOMContentLoaded', function () {
-  // Select all character containers
-  const characterContainers = document.querySelectorAll('.character-container')
-  // Select the main character selection container
+  // Select the main character selection container and it's children
   const characterSelectionContainer = document.getElementById('character-selection-container')
+  const dragonContainer = document.getElementById('dragon-container')
+  const monkeyContainer = document.getElementById('monkey-container')
+  // Hide if a character has been saved already
+  if (Character.checkStorage()) {
+    characterSelectionContainer.classList.add('hidden')
+  } else {
+    characterSelectionContainer.classList.remove('hidden')
+    // dragonContainer.classList.remove('hidden')
+    // characterSelectionContainer.classList.remove('hidden')
+    // charDesc.classList.remove('hidden')
+  }
+  // Add click event listener for the dragon container
+  dragonContainer.addEventListener('click', function () {
+    console.log('Dragon selected')
+    characterSelectionContainer.classList.add('hidden')
+    const character = new Character('Generic', 'Dragon', 0)
+    character.updateProgression(0)
+  })
 
-  // Add click event listener to each character container
-  characterContainers.forEach(container => {
-    container.addEventListener('click', function () {
-      // Add the hidden class to the main container
-      characterSelectionContainer.classList.add('hidden')
-    })
+  // Add click event listener for the monkey container
+  monkeyContainer.addEventListener('click', function () {
+    console.log('Monkey selected')
+    characterSelectionContainer.classList.add('hidden')
+    const character = new Character('Generic', 'Monkey', 0)
+    character.updateProgression(0)
   })
 })
