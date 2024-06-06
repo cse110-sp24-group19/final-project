@@ -455,6 +455,7 @@ header .calendar-navigation span:hover {
   box-shadow: 0 5px #1e7e34;
   /* 3D effect */
   transition: all 0.2s;
+  margin: 5px;
 }
 
 .green-button:hover {
@@ -470,6 +471,7 @@ header .calendar-navigation span:hover {
 }
 
 .search-bar-container input[type="text"] {
+  margin-top: 5px;
   padding: 10px;
   width: 100px;
   height: 20px;
