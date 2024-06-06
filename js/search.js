@@ -108,5 +108,19 @@ export function loadEntriesForDate (date) {
 
   return filteredEntries
 }
-
-document.getElementById('goback').addEventListener("click", showPage('calendar-journal-page'));
+window.addEventListener('DOMContentLoaded', () => {
+  // Add your event listeners here
+  // Also better practice, declare your function before appending the listener
+  const backButton = document.getElementById('goback')
+  function showPage (pageId) {
+    const pages = document.querySelectorAll('.page')
+    pages.forEach(page => {
+      if (page.id === pageId) {
+        page.classList.remove('hidden')
+      } else {
+        page.classList.add('hidden')
+      }
+    })
+  }
+  backButton.onclick = showPage('calendar-journal-page')
+});
