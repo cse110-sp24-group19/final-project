@@ -139,24 +139,19 @@ import puppeteer from 'puppeteer';
     
       test('editing a journal entry', async () => {
         await page.click(`${selectors.journalList}:last-child`); // Click on the last added entry to open details
-        let oldEntry = await page.$eval(`${selectors.journalList}:last-child`, el => {
-          return {
-            title: el.textContent,
-            info: el.dataset.info
-          };
-        });
+        let oldEntry = await page.$eval(`${selectors.journalList}:last-child`, el => ({
+          title: el.textContent,
+          info: el.dataset.info
+        }));
         await page.click(selectors.editEntryButton);
         let updatedInfo = '!! :)';
         await page.type(selectors.detailsInfoTextarea, updatedInfo);
         await page.click(selectors.saveDetailsButton);
-    
-        // Validate the updated content
-        let editedEntry = await page.$eval(`${selectors.journalList}:last-child`, el => {
-          return {
-            title: el.textContent,
-            info: el.dataset.info
-          };
-        });
+
+        let editedEntry = await page.$eval(`${selectors.journalList}:last-child`, el => ({
+          title: el.textContent,
+          info: el.dataset.info
+        }));
         expect(editedEntry.info).toBe(oldEntry.info+updatedInfo);
       }, 50000);
 
