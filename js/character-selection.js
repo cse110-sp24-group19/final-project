@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     characterSelectionContainer.classList.add('hidden')
   } else {
     characterSelectionContainer.classList.remove('hidden')
-    // dragonContainer.classList.remove('hidden')
-    // characterSelectionContainer.classList.remove('hidden')
-    // charDesc.classList.remove('hidden')
   }
   // Add click event listener for the dragon container
   dragonContainer.addEventListener('click', function () {

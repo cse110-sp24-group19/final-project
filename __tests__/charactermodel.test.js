@@ -5,7 +5,7 @@ describe('Basic character model tests for Character.js', () => {
     const character = new Character('Alice', 'Dragon');
     expect(character.name).toBe('Alice');
     expect(character.type).toBe('Dragon');
-    expect(character._getCurrentProgression()).toBe(0);
+    expect(character.progressionPoints).toBe(0);
   });
 
   // Test for updating progression
@@ -14,7 +14,8 @@ describe('Basic character model tests for Character.js', () => {
     character.updateProgression(25);
     expect(character._getCurrentProgression()).toBe(25);
     character.updateProgression(-5);
-    expect(character._getCurrentProgression()).toBe(20);
+    console.log(character.getCharacterInfo()[0])
+    expect(character.progressionPoints).toBe(20);
   });
 
   // Test for character stage based on progression
