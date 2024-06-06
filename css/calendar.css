@@ -420,7 +420,9 @@
 .calendar-navigation {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: nowrap;
+  margin-top: 20px;
 }
 
 /* Use this to control the navigation buttons < > */
