@@ -1,24 +1,26 @@
 {
   "devDependencies": {
     "jest": "^29.7.0",
-    "jest-junit": "^16.0.0",
-    "jest-environment-jsdom": "^29.7.0",
     "jsdoc": "^4.0.3",
     "standard": "^17.1.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "puppeteer": "^22.7.1",
+    "jest-puppeteer": "^10.0.0",
     "babel-jest": "^27.0.6",
     "@babel/preset-env": "^7.14.7"
   },
   "scripts": {
     "generate-docs": "jsdoc -r src -d docs",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --maxWorkers=1",
+    "test:puppeteer": "node --experimental-vm-modules node_modules/jest/bin/jest.js __tests__/end2end-puppeteer.test.js --maxWorkers=1"
   },
   "type": "module",
   "jest": {
-    "testEnvironment": "jsdom",
     "setupFilesAfterEnv": ["./jest.setup.js"],
     "transform": {
       "^.+\\.js$": "babel-jest"
     },
+    "preset": "jest-puppeteer",
     "verbose": true
   },
   "standard": {
@@ -27,4 +29,5 @@
     ]
   }
 }
+
 
