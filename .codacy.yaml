@@ -8,3 +8,4 @@ ignore_paths:
   - dist/
   - build/
   - coverage/
+  - __tests__/end2end-puppeteer.test.js
