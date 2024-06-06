@@ -8,7 +8,7 @@
   transform: translate(-50%, -50%);
   width: 85vw;
   height: 85vh;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 85%);
   box-shadow: 0 0 15px 0 #0006, 2px 2px 8px 0 rgba(0 0 0 / 13%);
   border-radius: 3vw;
   display: flex;
@@ -66,7 +66,7 @@
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent cover */
+  background-color: rgba(0, 0, 0, 50%); /* Semi-transparent cover */
   display: flex;
   justify-content: center;
   align-items: center;
