@@ -1,0 +1,31 @@
+name: Puppeteer Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '19'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests with coverage
+        run: npm run test:puppeteer
+
+      - name: Success message
+        if: success()
+        run: echo "Tests completed successfully."
+
+      - name: Failure message
+        if: failure()
+        run: echo "Test(s) failed. Check the logs for details."
