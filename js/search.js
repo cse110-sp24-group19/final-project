@@ -29,7 +29,6 @@ function displaySearchResults (results) {
         <strong>Date:</strong> ${result.date}<br>
         <p>${result.info}</p>
     `
-    listItem.addEventListener('click', () => openDayView(result.date))
     searchResultsList.appendChild(listItem)
   })
   showPage('search-results-page')
