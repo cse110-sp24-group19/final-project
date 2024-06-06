@@ -1,0 +1,15 @@
+.search-back-button {
+  width: 100px;
+  padding: 10px;
+  background-image: linear-gradient(to right, #ff8008 0%, #ffc837  51%, #ff8008  100%);
+  box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
+  text-align: center;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
