@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="css/reward-page.css">
   <link rel="stylesheet" href="css/character-selection.css">
+  <link rel="stylesheet" href="css/search.css">
   <link rel="preload" as="image" href="assets/calendar-removing-page.png">
   <link rel="preload" as="image" href="assets/goal-with-arrow.png">
   <link rel="preload" as="image" href="assets/reward2.png">
@@ -21,6 +22,7 @@
   <script src="js/goal-page.js" type="module"></script>
   <script src="js/reward-page.js" type="module"></script>
   <script src="js/character-selection.js" type="module"></script>
+  <script src="js/search.js" type="module"></script>
 
   <script src="js/sketch.js" type="module"></script>
   <title>Coding Monkeys</title>
@@ -285,5 +287,18 @@
     </div>
   </div>
   <!-- End of the Reward Page -->
+
+  <!-- Search Results Page -->
+  <div id="search-results-page" class="page hidden">
+    <nav-bar></nav-bar>
+    <div class="search-results-container">
+      <h1>Search Results</h1>
+      <ul id="search-results-list">
+        <!-- Search results will be appended here dynamically -->
+      </ul>
+      <button class="search-back-button" onclick="showPage('calendar-journal-nav')" >Go Back</button>
+    </div>
+  </div>
+  <!-- End of the Search Results Page -->
 </body>
 </html>
