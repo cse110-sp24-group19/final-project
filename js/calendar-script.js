@@ -305,10 +305,10 @@ returnCalendarButton.addEventListener('click', closeDayView)
 // Function to handle search input dynamically
 document.getElementById('search-bar').addEventListener('submit', (event) => {
   event.preventDefault() // Prevent form submission
-  const query = document.querySelector('input[name="query"]')
+  const query = document.querySelector('input[name="query"]').value
   const allEntries = loadAllEntries()
   const results = searchEntries(allEntries, query)
-  console.log(displaySearchResults(results))
+  displaySearchResults(results)
 })
 
 // Function to search journal entries
