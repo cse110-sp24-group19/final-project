@@ -123,14 +123,8 @@
   margin-bottom: 10px;
   text-align: center;
   text-transform: uppercase;
-  
-  /* Uppercase letters */
   letter-spacing: 2px;
-  
-  /* Increase letter spacing */
   border-bottom: 1px solid #ccc;
-  
-  /* Add a bottom border */
   padding-bottom: 5px;
 }
 
@@ -192,7 +186,6 @@
   overflow-y: auto;
   margin-bottom: 20px;
   padding-right: 10px;
-  /* Add some padding to avoid hiding content behind the scrollbar */
   position: relative;
 }
 
@@ -205,13 +198,9 @@
   margin-bottom: 10px;
   text-align: center;
   text-transform: uppercase;
-  /* Uppercase letters */
   letter-spacing: 2px;
-  /* Increase letter spacing */
   border-bottom: 1px solid #ccc;
-  /* Add a bottom border */
   padding-bottom: 5px;
-  /* Add some space below the border */
 }
 
 #entry-details-page h2 {
@@ -222,11 +211,8 @@
   margin-bottom: 10px;
   text-align: center;
   text-transform: uppercase;
-  /* Uppercase letters */
   letter-spacing: 2px;
-  /* Increase letter spacing */
   padding-bottom: 5px;
-  /* Add some space below the border */
 }
 
 #journal-list {
@@ -237,16 +223,13 @@
 #journal-list li {
   display: flex;
   justify-content: space-between;
-  /* Change from flex-end to space-between */
   align-items: center;
-  /* Align items vertically */
   background-color: #fff;
   padding: 10px;
   margin-bottom: 10px;
   box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
   border-radius: 8px;
   word-wrap: break-word;
-  /* Allow text to wrap */
 }
 
 /* Styling for the back button */
@@ -404,7 +387,7 @@
   margin: 0;
   font-family: comfortaa, raleway, Tahoma, sans-serif;
   text-align: center;
-  width:  max(5vw, 200px);
+  width: max(5vw, 200px);
 }
 
 .calendar-header {
@@ -413,8 +396,6 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
-  /* position: relative; */
-  /* width: 90%; */
 }
 
 .calendar-navigation {
@@ -427,7 +408,6 @@
 
 /* Use this to control the navigation buttons < > */
 header .calendar-navigation span {
-  /* margin: 0 1px; */
   cursor: pointer;
   color: rgb(61 223 12);
   font-size: min(10vw, 50px);
@@ -445,7 +425,6 @@ header .calendar-navigation span:hover {
 .green-button {
   font-family: comfortaa, raleway, Tahoma, sans-serif;
   background-color: #3ddf0c;
-  /* Green color */
   border: none;
   color: white;
   padding: 10px 15px;
@@ -454,9 +433,7 @@ header .calendar-navigation span:hover {
   font-size: 16px;
   cursor: pointer;
   border-radius: 12px;
-  /* Rounded corners */
   box-shadow: 0 5px #1e7e34;
-  /* 3D effect */
   transition: all 0.2s;
   margin: 5px;
 }
@@ -486,6 +463,5 @@ header .calendar-navigation span:hover {
 #search-bar input[type="text"]:focus {
   border-radius: 4px;
   border-color: #0056b3;
-  /* Change border color on focus */
   outline: none;
 }
