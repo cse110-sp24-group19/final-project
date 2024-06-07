@@ -112,6 +112,6 @@ export function loadEntriesForDate (date) {
 }
 
 backButton.addEventListener('click', function(){
-  showPage('calendar-journal-page')
+  showPage(calendarView)
 })
 
