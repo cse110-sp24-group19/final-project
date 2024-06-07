@@ -8,11 +8,14 @@
   height: 100vh;
   display: flex;
   overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Styles for the setting button */
 #setting-button {
-  position: absolute;
+  position: fixed;
   bottom: 5vh;
   right: 3vw;
   width: 3vw;
@@ -21,7 +24,7 @@
   background-size: cover;
   cursor: pointer;
   transition: transform 0.5s ease;
-  z-index: 10;
+  z-index: 30;
 }
 
 /* Styles for the setting sidebar */
@@ -40,6 +43,7 @@
   justify-content: center;
   padding-top: 60px;
   gap: 5vh;
+  z-index: 20;
 }
 
 /* Show the sidebar when it has the 'visible' class */
@@ -58,12 +62,13 @@
 
 /* Contains two main containers */
 #reward-main-content {
+  position: absolute;
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5vw;
-  margin-top: 60px;
+  flex-wrap: wrap;
+  gap: 3vw;
   padding: 15px;
   transition: margin-right 0.3s ease; /* Smooth transition for content shift */
 }
@@ -153,6 +158,16 @@
 @media (max-width: 1000px) {
   .stat {
     font-size: 12px;
+  }
+
+  /* Make the setting button larger for easier tap */
+  #setting-button {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  #reward-main-content {
+    top: 50px;
   }
 }
 
