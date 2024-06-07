@@ -108,4 +108,4 @@ export function loadEntriesForDate (date) {
 
   return filteredEntries
 }
-backButton.addEventListener("click", showPage('calendar-journal-page'))
+backButton.addEventListener('click', showPage('calendar-journal-page'))

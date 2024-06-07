@@ -513,15 +513,6 @@ header .calendar-navigation span:hover {
     margin: 40px;
   }
 
-  #search-bar input[type="text"] {
-    padding: 8px;
-    width: 9vw;
-    height: 1vh;
-    border: 3px solid #3ddf0c;
-    border-radius: 4px;
-    font-family: "Comic Sans MS", cursive;/* Change the font */
-  }
-
   #search-bar button {
     padding: 1px 10px;
     margin-left: 10px;
@@ -540,12 +531,6 @@ header .calendar-navigation span:hover {
     flex-direction: row;
   }
 
-  #search-bar input[type="text"]:focus {
-    border-radius: 4px;
-    border-color: #0056b3;
-    outline: none;
-  }
-
   .search-bar-container input[type="text"] {
     margin-top: 5px;
     padding: 10px;
@@ -554,5 +539,20 @@ header .calendar-navigation span:hover {
     border: 3px solid #3ddf0c;
     border-radius: 12px;
     font-family: comfortaa, raleway, Tahoma, sans-serif;
+  }
+
+  #search-bar input[type="text"] {
+    padding: 8px;
+    width: 9vw;
+    height: 1vh;
+    border: 3px solid #3ddf0c;
+    border-radius: 4px;
+    font-family: "Comic Sans MS", cursive;/* Change the font */
+  }
+
+  #search-bar input[type="text"]:focus {
+    border-radius: 4px;
+    border-color: #0056b3;
+    outline: none;
   }
 }
