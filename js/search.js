@@ -3,7 +3,7 @@ const resultView = document.getElementById('search-results-page')
 const backButton = document.getElementById('goback')
 // Add an event listener to the form with ID 'search-bar' that triggers on form submission
 document.getElementById('search-button').addEventListener('click', function (event) {
-  const searchText = event.target.value.trim().toLowerCase()
+  const searchText = document.getElementById("query").value.trim().toLowerCase()
   const entries = loadAllEntries()
   const filteredEntries = entries.filter(entry =>
     entry.title.toLowerCase().includes(searchText) ||
