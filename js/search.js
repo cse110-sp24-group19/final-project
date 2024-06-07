@@ -2,6 +2,7 @@ const dayView = document.getElementById('day-view')
 const calendarView = document.getElementById('calendar-journal-page')
 const resultView = document.getElementById('search-results-page')
 const backButton = document.getElementById('goback')
+
 // Add an event listener to the form with ID 'search-bar' that triggers on form submission
 document.getElementById('search-button').addEventListener('click', function (event) {
   const searchText = document.getElementById('query').value.trim().toLowerCase()
@@ -109,7 +110,15 @@ export function loadEntriesForDate (date) {
 
   return filteredEntries
 }
+<<<<<<< Updated upstream
 backButton.addEventListener('click', function(){
   showPage('calendar-journal-page')
 })
 
+=======
+
+// Ensure back button works
+backButton.addEventListener('click', function() {
+  showPage('calendar-journal-page')
+})
+>>>>>>> Stashed changes
