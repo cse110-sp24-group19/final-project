@@ -111,6 +111,6 @@ export function loadEntriesForDate (date) {
   return filteredEntries
 }
 
-backButton.addEventListener ('click', function(){
+backButton.addEventListener('click', function () {
   showPage(calendarView)
 })
