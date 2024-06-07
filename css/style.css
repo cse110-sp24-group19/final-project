@@ -312,11 +312,11 @@ body {
   height: fit-content;
   padding: 1vw 1.5vw;
   font-size: 1.5vw;
-  visibility: hidden;
+  display: none;
 }
 
 .page-box:hover .page-text {
-  visibility: visible;
+  display: block;
 }
 
 #calendar-journal-text {
