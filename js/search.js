@@ -110,15 +110,8 @@ export function loadEntriesForDate (date) {
 
   return filteredEntries
 }
-<<<<<<< Updated upstream
+
 backButton.addEventListener('click', function(){
   showPage('calendar-journal-page')
 })
 
-=======
-
-// Ensure back button works
-backButton.addEventListener('click', function() {
-  showPage('calendar-journal-page')
-})
->>>>>>> Stashed changes
