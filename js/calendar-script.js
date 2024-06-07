@@ -48,7 +48,8 @@ function reloadAndRunFunction () {
   location.reload()
 }
 
-function anotherFunction () {
+// this function hides everything but the calendar page
+function reloadPage () {
   document.addEventListener('DOMContentLoaded', function () {
     const mainPage = document.getElementById('main-page')
     const calendarJournalPage = document.getElementById('calendar-journal-page')
@@ -72,7 +73,7 @@ function anotherFunction () {
 todayButton.addEventListener('click', reloadAndRunFunction)
 if (localStorage.getItem('runAfterReload') === 'true') {
   localStorage.removeItem('runAfterReload')
-  anotherFunction()
+  reloadPage()
 }
 
 // Array of month names
