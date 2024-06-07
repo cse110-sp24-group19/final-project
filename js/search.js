@@ -1,5 +1,6 @@
 const dayView = document.getElementById('day-view')
 const resultView = document.getElementById('search-results-page')
+const backButton = document.getElementById('goback')
 // Add an event listener to the form with ID 'search-bar' that triggers on form submission
 document.getElementById('search-button').addEventListener('click', function (event) {
   const searchText = event.target.value.trim().toLowerCase()
@@ -107,19 +108,4 @@ export function loadEntriesForDate (date) {
 
   return filteredEntries
 }
-window.addEventListener('DOMContentLoaded', () => {
-  // Add your event listeners here
-  // Also better practice, declare your function before appending the listener
-  const backButton = document.getElementById('goback')
-  function showPage (pageId) {
-    const pages = document.querySelectorAll('.page')
-    pages.forEach(page => {
-      if (page.id === pageId) {
-        page.classList.remove('hidden')
-      } else {
-        page.classList.add('hidden')
-      }
-    })
-  }
-  backButton.onclick = showPage('calendar-journal-page')
-})
+backButton.addEventListener("click", showPage('calendar-journal-page'))
