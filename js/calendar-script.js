@@ -298,7 +298,6 @@ prenexIcons.forEach((icon) => {
 
 // Back button functionality
 document.querySelector('.back-button').onclick = closeDayView
-
 // Attach event listener for the return to calendar button in the day view
 returnCalendarButton.addEventListener('click', closeDayView)
 

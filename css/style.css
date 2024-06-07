@@ -357,6 +357,10 @@ body {
   height: 90vh;
 }
 
+#search-results-page {
+  height: 80vh;
+}
+
 .search-bar-container {
   margin-top: 10px; /* Adjust as needed */
 }

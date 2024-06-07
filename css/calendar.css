@@ -443,25 +443,116 @@ header .calendar-navigation span:hover {
   transform: translateY(3px);
 }
 
-.search-bar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
+/* search result */
+.result {
+  margin-bottom: 10px;
 }
 
-.search-bar-container input[type="text"] {
-  margin-top: 5px;
-  padding: 10px;
-  width: 100px;
-  height: 20px;
-  border: 3px solid #3ddf0c;
-  border-radius: 12px;
-  font-family: comfortaa, raleway, Tahoma, sans-serif;
+.info {
+  max-width: 8ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-#search-bar input[type="text"]:focus {
-  border-radius: 4px;
-  border-color: #0056b3;
-  outline: none;
+#search-results-list {
+  display: grid;
+  grid-template-columns: repeat(7, 3fr);
+  gap: 10px;
+}
+
+.search-results-container {
+  margin-top: 60px;
+  width: 90vw;
+  max-width: 1200px;
+  min-width: 300px;
+}
+
+#title-search {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  #search-results-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .calendar-navigation {
+    display: flex;
+    left: 54%;
+    transform: translateX(-50%);
+  }
+
+  .calendar-current-date {
+    font-size: 3vw;/* Make the font size responsive */
+    margin: 0;
+    font-family: raleway, Tahoma, sans-serif;
+    text-align: center;
+  }
+
+  header .calendar-navigation span {
+    margin: 0 1px;
+    cursor: pointer;
+    color: rgb(61 223 12);
+    font-size: 4vw;
+  }
+
+  #search-bar {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    border-radius: 4px;
+    margin: 40px;
+  }
+
+  #search-bar button {
+    padding: 1px 10px;
+    margin-left: 10px;
+    background-color: #3ddf0c;/* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive;/* Change the font */
+  }
+
+  .search-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .search-bar-container input[type="text"] {
+    margin-top: 5px;
+    padding: 10px;
+    width: 100px;
+    height: 20px;
+    border: 3px solid #3ddf0c;
+    border-radius: 12px;
+    font-family: comfortaa, raleway, Tahoma, sans-serif;
+  }
+
+  #search-bar input[type="text"] {
+    padding: 8px;
+    width: 9vw;
+    height: 1vh;
+    border: 3px solid #3ddf0c;
+    border-radius: 4px;
+    font-family: "Comic Sans MS", cursive;/* Change the font */
+  }
+
+  #search-bar input[type="text"]:focus {
+    border-radius: 4px;
+    border-color: #0056b3;
+    outline: none;
+  }
 }
