@@ -53,40 +53,27 @@ body {
 */
 
 #main-page {
-  display: flex;
-  justify-content: center;
-  position: absolute;
   cursor: url("../assets/firefly.png"), auto;
 }
 
-/* Setting the background */
 #forest-background {
-  top: 0;
+  position: absolute;
+  bottom: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background:
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  z-index: -1;
+  background: 
     linear-gradient(to bottom, blue, #feb47b),
     url("../assets/forest.svg");
-  background-size: cover;
-  background-position: center;
+  background-size: auto 100%, cover;
+  background-position: bottom center;
   background-repeat: no-repeat;
   background-blend-mode: multiply;
-  z-index: -1; /* Place it behind other content */
-}
-
-/* Main categories description box styling */
-#main-categories-description {
-  position: absolute;
-  top: 20vh;
-  right: 20vw;
-  width: 28vw;
-  height: 28vw;
-  background: url("../assets/main-categories.jpg");
-  background-size: cover;
-  border-radius: 30px;
-  z-index: 12;
-  display: none;
 }
 
 /* Sun and moon icon styling */
