@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/calendar.css">
   <link rel="stylesheet" href="css/font.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="css/reward-page.css">
   <link rel="stylesheet" href="css/character-selection.css">
   <link rel="stylesheet" href="css/search.css">
@@ -20,6 +22,8 @@
   <link rel="preload" as="image" href="assets/Moon.gif">
   <script src="js/script.js" type="module"></script>
   <script src="js/nav.js" type="module"></script>
+  <script src="js/sound.js" type="module"></script>
+  <script src="js/sound.js" type="module"></script>
   <script src="js/calendar-script.js" type="module"></script>
   <script src="js/day-view.js" type="module"></script>
   <script src="js/goal-page.js" type="module"></script>
@@ -30,6 +34,7 @@
   <script src="js/sketch.js" type="module"></script>
   <title>Coding Monkeys</title>
 </head>
+
 <body>
   <!-- For p5.js to work -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
@@ -51,7 +56,7 @@
         </div>
       </div>
       <div class="character-container" id="monkey-container"> <!-- When clicked, users select the monkey -->
-        <img class="character-image" id="monkey-egg-image" src="assets/dragon-egg.png" alt="monkey egg image">
+        <img class="character-image" id="monkey-egg-image" src="assets/monkey-egg.png" alt="monkey egg image">
         <p class="character-description">Happy Monkey</p>
         <div class="character-container-cover">
           <div class="cover-background"></div>
@@ -76,7 +81,8 @@
     <div id="rabbit"></div>
     <div class="page-box" id="calendar-journal-box">
       <div class="page-text" id="calendar-journal-text">Calendar/Journal</div>
-      <div class="page-object" id="calendar-journal"></div> <!-- When clicked, navigate users to the Calendar/Journal page -->
+      <div class="page-object" id="calendar-journal"></div>
+      <!-- When clicked, navigate users to the Calendar/Journal page -->
     </div>
     <div class="page-box" id="creative-play-box">
       <div class="page-text" id="creative-play-text">Creative Play</div>
@@ -93,54 +99,65 @@
   </div>
   <!-- End of the Main Page-->
 
+  <!-- Search Results Page -->
+  <div id="search-results-page" class="page hidden">
+    <nav-bar></nav-bar>
+    <div class="search-results-container">
+      <h1>Search Results</h1>
+      <ul id="search-results-list">
+        <!-- Search results will be appended here dynamically -->
+      </ul>
+      <button class="search-back-button" onclick="showPage('calendar-journal-nav')">Go Back</button>
+    </div>
+  </div>
+  <!-- End of the Search Results Page -->
+
   <!-- Calendar/Journal Page -->
   <div id="calendar-journal-page" class="page hidden">
     <nav-bar></nav-bar>
-      <div class="calendar-container"> 
-        <header class="calendar-header">
-          <div class="calendar-navigation">
-              <span id="calendar-prev" class="material-symbols-rounded">chevron_left</span>
-              <p class="calendar-current-date"></p>
-              <span id="calendar-next" class="material-symbols-rounded">chevron_right</span>
-          </div>
-          <div class="search-bar-container">
-            <form id="search-bar" action="search_results_page" method="GET">
-              <input type="text" name="query" placeholder="Search...">
-              <button type="submit">Search</button>
-            </form>
-          </div>
-          <div>
-            <button class="today-button" id="reloadbutton">Today</button>
-          </div>
-        </header>
-  
-        <!-- Calendar Body for displaying the dates-->
-        <div class="calendar-body">
-          <!--Static Weekdays Header-->
-          <ul class="calendar-weekdays">
-            <li class="weekends">Sun</li>
-            <li>Mon</li>
-            <li>Tue</li>
-            <li>Wed</li>
-            <li>Thu</li>
-            <li>Fri</li>
-            <li class="weekends">Sat</li>
-          </ul>
-          <ul class="calendar-dates"></ul>
+
+    <div class="calendar-container">
+      <header class="calendar-header">
+        <div class="calendar-navigation">
+          <span id="calendar-prev" class="material-symbols-rounded">chevron_left</span>
+          <p class="calendar-current-date"></p>
+          <span id="calendar-next" class="material-symbols-rounded">chevron_right</span>
         </div>
-     </div>
+
+        <div class="search-bar-container">
+          <input type="text" name="query" placeholder="Search...">
+          <button id="search-button" class="green-button">Search</button>
+          <button class="green-button" id="reloadbutton">Today</button>
+        </div>
+      </header>
+
+      <!-- Calendar Body for displaying the dates-->
+      <div class="calendar-body">
+        <!--Static Weekdays Header-->
+        <ul class="calendar-weekdays">
+          <li class="weekends">Sun</li>
+          <li>Mon</li>
+          <li>Tue</li>
+          <li>Wed</li>
+          <li>Thu</li>
+          <li>Fri</li>
+          <li class="weekends">Sat</li>
+        </ul>
+        <ul class="calendar-dates"></ul>
+      </div>
+    </div>
   </div>
   <!-- CALENDAR HTML END-->
-    
+
   <!-- Day View Starts Here class="hidden" -->
   <div id="day-view" class="page hidden">
     <button class="add-button" onclick="">Add</button>
-      <!-- Date Header (E.g. Friday, April 26 2024) -->
+    <!-- Date Header (E.g. Friday, April 26 2024) -->
     <header class="day-view-date">5/9/2024</header>
 
-      <!-- Set of journals as containers -->
+    <!-- Set of journals as containers -->
     <div class="journal-entries">
-        <!-- Header for Journal Entries -->
+      <!-- Header for Journal Entries -->
       <h3>Journal Entries:</h3>
       <ul id="journal-list">
         <!-- New Title Entries Here -->
@@ -232,7 +249,7 @@
     </div>
   </div>
   <!-- End of the Goal-Setting Page -->
-  
+
   <!-- Reward Page -->
   <div id="reward-page" class="page hidden">
     <nav-bar></nav-bar>
@@ -272,7 +289,7 @@
         <div id="profile-photo-container">
           <img id="profile-photo" src="assets/profile0.png" alt="Profile Photo">
         </div>
-        <p id="user-name">Anonymous</p>    <!-- User name -->
+        <p id="user-name">Anonymous</p> <!-- User name -->
         <div class="horizontal-line"></div>
         <div class="stat">
           <p>Total number of journal entries:</p>
@@ -290,18 +307,6 @@
     </div>
   </div>
   <!-- End of the Reward Page -->
-
-  <!-- Search Results Page -->
-  <div id="search-results-page" class="page hidden">
-    <nav-bar></nav-bar>
-      <h1 id="title-search">Search Results</h1>
-      <div class="search-results-container">
-      <ul id="search-results-list">
-        <!-- Search results will be appended here dynamically -->
-      </ul>
-    </div>
-    <button class="search-back-button" id="goback">Go Back</button>
-  </div>
-  <!-- End of the Search Results Page -->
 </body>
+
 </html>

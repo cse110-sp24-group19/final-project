@@ -158,11 +158,13 @@ class Character {
    * @private
    */
   _loadCharacter () {
-    const datapoint = JSON.parse(localStorage.getItem('character'))
-    if (datapoint) {
-      this.name = datapoint.name
-      this.type = this._validateType(datapoint.type)
-      this.progressionPoints = datapoint.progressionPoints
+    if (Character.checkStorage()) {
+      const datapoint = JSON.parse(localStorage.getItem('character'))
+      if (datapoint) {
+        this.name = datapoint.name
+        this.type = this._validateType(datapoint.type)
+        this.progressionPoints = datapoint.progressionPoints
+      }
     }
   }
 
@@ -170,7 +172,7 @@ class Character {
    * Returns true if there's a character in local storage, false otherwise.
    */
   static checkStorage () {
-    const datapoint = JSON.parse(localStorage.getItem('character'))
+    const datapoint = localStorage.getItem('character')
     return !!datapoint
   }
 }
