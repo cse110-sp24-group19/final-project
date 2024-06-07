@@ -459,6 +459,7 @@ header .calendar-navigation span:hover {
   grid-template-columns: repeat(7,3fr);
   gap: 10px;
 }
+
 .search-results-container{
   margin-top: 60px;
   width: 90vw;
@@ -470,6 +471,7 @@ header .calendar-navigation span:hover {
   text-align: center;
   margin-bottom: 20px;
 }
+
 @media only screen and (max-width: 1000px) {
   #search-results-list{
     display: grid;
@@ -503,12 +505,6 @@ header .calendar-navigation span:hover {
     font-size: 4vw;
   }
 
-  
-  
-  {
-    margin-top: 10px;
-  }
-
   #search-bar {
     display: flex;
     justify-content: right;
@@ -537,25 +533,26 @@ header .calendar-navigation span:hover {
     font-family: "Comic Sans MS", cursive;/* Change the font */
   }
   
-.search-bar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-}
+ .search-bar-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-direction: row;
+ }
 
-.search-bar-container input[type="text"] {
-  margin-top: 5px;
-  padding: 10px;
-  width: 100px;
-  height: 20px;
-  border: 3px solid #3ddf0c;
-  border-radius: 12px;
-  font-family: comfortaa, raleway, Tahoma, sans-serif;
-}
+ .search-bar-container input[type="text"] {
+   margin-top: 5px;
+   padding: 10px;
+   width: 100px;
+   height: 20px;
+   border: 3px solid #3ddf0c;
+   border-radius: 12px;
+   font-family: comfortaa, raleway, Tahoma, sans-serif;
+ }
 
-#search-bar input[type="text"]:focus {
-  border-radius: 4px;
-  border-color: #0056b3;
-  outline: none;
+ #search-bar input[type="text"]:focus {
+   border-radius: 4px;
+   border-color: #0056b3;
+   outline: none;
+ }
 }
