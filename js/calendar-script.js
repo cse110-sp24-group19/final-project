@@ -309,17 +309,7 @@ document.getElementById('search-bar').addEventListener('submit', (event) => {
   const results = searchEntries(allEntries, query)
   displaySearchResults(results)
 })
-// Function to show a specific page and hide others
-function showPage (pageId) {
-  const pages = document.querySelectorAll('.page')
-  pages.forEach(page => {
-    if (page.id === pageId) {
-      page.classList.remove('hidden')
-    } else {
-      page.classList.add('hidden')
-    }
-  })
-}
+
 // Function to search journal entries
 function searchEntries (journalEntries, query) {
   return journalEntries.filter(entry =>

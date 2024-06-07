@@ -67,7 +67,7 @@ function openDayView (dateString) {
 
   // Shows day view
   dayView.classList.remove('hidden')
-  resultView.classList.add("hidden")
+  resultView.classList.add('hidden')
   // Hide calendar view
 }
 
@@ -76,7 +76,7 @@ function formatDateForJournalEntries (dateString) {
   return `${parseInt(month)}/${parseInt(day)}/${year}`
 }
 
-//reverse date format to 2024-06-20
+// reverse date format to 2024-06-20
 function reverseFormat (dateString) {
   const [month, day, year] = dateString.split('/')
   return `${parseInt(year)}-${parseInt(month)}-${day}`
@@ -122,4 +122,4 @@ window.addEventListener('DOMContentLoaded', () => {
     })
   }
   backButton.onclick = showPage('calendar-journal-page')
-});
+})
