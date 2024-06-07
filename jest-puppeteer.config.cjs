@@ -1,6 +1,6 @@
 module.exports = {
   launch: {
-    headless: true,  
+    headless: true,
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -12,4 +12,4 @@ module.exports = {
       '--disable-gpu'
     ]
   }
-};
+}
