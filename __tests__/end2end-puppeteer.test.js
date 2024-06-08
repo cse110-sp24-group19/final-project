@@ -207,6 +207,10 @@ import puppeteer from 'puppeteer';
         
         await page.click(`${selectors.journalList}:last-child`);
         let prevNoteCount = await page.$$eval(selectors.journalList, notes => notes.length);
+        // Listen for the dialog event
+        page.once('dialog', async dialog => {
+          await dialog.accept();
+        });
         await page.click(selectors.deleteEntryButton);
         let currNoteCount = await page.$$eval(selectors.journalList, notes => notes.length);
 
