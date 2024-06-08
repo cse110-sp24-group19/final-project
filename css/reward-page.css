@@ -70,6 +70,7 @@
   flex-wrap: wrap;
   gap: 3vw;
   padding: 15px;
+  margin-top: 60px;
   transition: margin-right 0.3s ease; /* Smooth transition for content shift */
 }
 
@@ -167,7 +168,7 @@
   }
 
   #reward-main-content {
-    top: 50px;
+    top: 5px;
   }
 }
 
