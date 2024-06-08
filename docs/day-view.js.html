@@ -173,12 +173,18 @@ document.getElementById('save-details-button').addEventListener('click', functio
 })
 
 document.getElementById('delete-entry-button').addEventListener('click', function () {
-  entryDetailsView.classList.add('hidden')
-  dayViewContainer.classList.remove('hidden')
-  removeEntryFromLocalStorage(currentEntryElement.dataset.id)
-  currentEntryElement.remove()
-  hasOverflow(backButton)
-  Character.updateJournalEntryCount()
+  const result = confirm('Are you sure you want to delete this entry?')
+  if (result) {
+    entryDetailsView.classList.add('hidden')
+    dayViewContainer.classList.remove('hidden')
+    removeEntryFromLocalStorage(currentEntryElement.dataset.id)
+    currentEntryElement.remove()
+    hasOverflow(backButton)
+    Character.updateJournalEntryCount()
+    console.log('Entry deleted.')
+  } else {
+    console.log('Deletion cancelled.')
+  }
 })
 
 document.getElementById('back-details-button').addEventListener('click', closeEntryDetails)
