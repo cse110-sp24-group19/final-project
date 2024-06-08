@@ -150,6 +150,7 @@
   margin-top: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-family: comfortaa, raleway, chakra, sans-serif !important;
 }
 
 #details-info {
@@ -158,18 +159,25 @@
   margin-right: 20px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-family: comfortaa, raleway, chakra, sans-serif !important;
 }
 
 #details-info,
 #details-info-textarea,
 #new-entry-page textarea {
   resize: none;
+  font-family: comfortaa, raleway, chakra, sans-serif !important;
 }
 
 #details-title-input {
   margin: auto;
   display: block;
   margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  width: 98%;
+  border-radius: 2px;
+  font-family: comfortaa, raleway, chakra, sans-serif !important;
 }
 
 /* Styling for the date header */
