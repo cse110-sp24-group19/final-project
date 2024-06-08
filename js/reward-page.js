@@ -51,9 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
     profilePhoto.src = savedImage
   }
 
-  // Load character image
-  characterImage.src = userCharacter.getCharacterInfo()[2]
-
   // Sidebar toggle functionality
   settingButton.addEventListener('click', function () {
     settingSidebar.classList.toggle('visible')
@@ -129,4 +126,6 @@ document.addEventListener('DOMContentLoaded', function () {
       localStorage.setItem('userName', newUserName)
     }
   })
+  // Load character image
+  characterImage.src = userCharacter.getCharacterInfo()[2]
 })
