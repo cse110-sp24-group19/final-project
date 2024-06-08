@@ -44,6 +44,7 @@
   0% {
     transform: translateX(110vw); /* 从屏幕右边开始 */
   }
+  
   100% {
     transform: translateX(-35vw); /* 飞到屏幕左边之外 */
   }
@@ -63,7 +64,7 @@
   0%, 100% {
     transform: translateY(0);
     }
-    
+
     50% {
       transform: translateY(-10px); /* 调整上下移动的幅度 */
   }
