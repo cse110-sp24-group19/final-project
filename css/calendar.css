@@ -243,6 +243,7 @@
 /* Styling for the back button */
 .back-entry-button,
 .back-button {
+  font-family: comfortaa, raleway, chakra, sans-serif !important;
   width: 100px;
   padding: 10px;
   background-image: linear-gradient(to right, #ff8008 0%, #ffc837 51%, #ff8008 100%);
@@ -252,61 +253,45 @@
   border-radius: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .back-entry-button:hover,
 .back-button:hover {
   color: #fff;
-  transform: translateX(-50%) scale(1.1);
-}
-
-.back-entry-button:active,
-.back-button:active {
-  transform: translateX(-50%) scale(1);
 }
 
 .edit-button,
 .save-button,
 .add-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  font-family: comfortaa, raleway, chakra, sans-serif !important;
   background-color: #3ddf0c;
   color: black;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
 }
 
 .save-button {
-  background-color: cyan;
+  color: white;
 }
 
 .add-button:hover,
-.save-button:hover,
-.edit-button:hover {
+.save-button:hover {
   background-color: darkgreen;
   color: white;
 }
 
-.save-button:hover {
-  background-color: blue;
-}
-
 .delete-button {
+  font-family: comfortaa, raleway, chakra, sans-serif !important;
   background-color: #fe4242;
   position: absolute;
   top: 20px;
-  left: 20px;
+  right: 20px;
   color: black;
   border: none;
-  padding: 5px 8px;
+  padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
@@ -315,6 +300,24 @@
 .delete-button:hover {
   color: white;
   background-color: darkred;
+}
+
+.edit-button {
+  background-color: #ffc837;
+  position: absolute;
+  top: 20px;
+  right: 110px;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
+}
+
+.edit-button:hover {
+  background-color: #00b37a;
+  color: white;
 }
 
 /*
