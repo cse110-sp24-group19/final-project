@@ -1,0 +1,79 @@
+.airplane-container {
+    position: absolute;
+    top: 6vh;
+    right: 100vw;
+    width: 15vw;
+    height: 12vw;
+    animation: move-left 18s ease-out infinite;
+    z-index: 11;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .airplane {
+    width: 100%;
+    height: 100%;
+    background: url("../assets/airplane.png");
+    background-size: cover;
+    pointer-events: auto; /* 允许鼠标事件 */
+  }
+  
+  .airplane-label {
+    position: absolute;
+    bottom: 100px; /* 调整标签位置以跟在飞机后面 */
+    left: 90%;
+    transform: translateX(-50%);
+    font-size: 60px;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    animation: label-waving 0.5s infinite alternate, label-bobbing 1s infinite ease-in-out; /* 添加波浪效果 */
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* 添加渐变背景 */
+    padding: 10px 10px; /* 增加标签左右两侧的内边距 */
+    border-radius: 10px;
+    width: auto;
+    display: inline-block; /* 确保标签根据内容自动调整宽度 */
+    white-space: nowrap; /* 防止文本换行 */
+    background-size: cover; /* 确保背景覆盖整个标签 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* 添加半透明的边框 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加文字阴影 */
+  }
+  
+  @keyframes move-left {
+    0% {
+      transform: translateX(110vw); /* 从屏幕右边开始 */
+    }
+    100% {
+      transform: translateX(-35vw); /* 飞到屏幕左边之外 */
+    }
+  }
+  
+  @keyframes label-waving {
+    0% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(10deg);
+    }
+  }
+  
+  @keyframes label-bobbing {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* 调整上下移动的幅度 */
+    }
+  }
+  
+  /* 鼠标悬停时暂停动画 */
+  .airplane-container:hover {
+    animation-play-state: paused;
+  }
+  
+  .airplane-container:hover .airplane,
+  .airplane-container:hover .airplane-label {
+    animation-play-state: paused;
+  }
+  
