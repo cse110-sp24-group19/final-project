@@ -25,19 +25,19 @@
   left: 90%;
   transform: translateX(-50%);
   font-size: 60px;
-  color: #ffffff;
+  color: #fff;
   font-family: Arial, sans-serif;
   animation: label-waving 0.5s infinite alternate, label-bobbing 1s infinite ease-in-out; /* 添加波浪效果 */
   background: linear-gradient(135deg, #ff7e5f, #feb47b); /* 添加渐变背景 */
-  padding: 10px 10px; /* 增加标签左右两侧的内边距 */
+  padding: 10px; /* 增加标签左右两侧的内边距 */
   border-radius: 10px;
   width: auto;
   display: inline-block; /* 确保标签根据内容自动调整宽度 */
   white-space: nowrap; /* 防止文本换行 */
   background-size: cover; /* 确保背景覆盖整个标签 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
-  border: 2px solid rgba(255, 255, 255, 0.5); /* 添加半透明的边框 */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加文字阴影 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 30%); /* 添加阴影效果 */
+  border: 2px solid rgba(255, 255, 255, 50%); /* 添加半透明的边框 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 50%); /* 添加文字阴影 */
 }
   
 @keyframes move-left {
