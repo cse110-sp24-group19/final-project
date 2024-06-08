@@ -53,6 +53,8 @@ body {
 */
 
 #main-page {
+  width: 100vw;
+  height: 100vh;
   cursor: url("../assets/firefly.png"), auto;
 }
 
@@ -72,7 +74,7 @@ body {
   background-blend-mode: multiply;
 }
 
-/* Sun and moon icon styling */
+/*  and moon icon styling */
 #sun-moon {
   position: absolute;
   top: 5vh;
@@ -101,14 +103,14 @@ body {
   background: url("../assets/Cloud.gif");
   background-size: cover;
   animation: move-right 25s linear infinite;
-  z-index: 10;
+  z-index: 9;
   pointer-events: none;
 }
 
 /* Bird animations */
 #bird1 {
   position: absolute;
-  top: 15vh;
+  top: 22vh;
   right: 100vw;
   width: 7vw;
   height: 7vw;
@@ -121,7 +123,7 @@ body {
 
 #bird2 {
   position: absolute;
-  top: 20vh;
+  top: 28vh;
   right: 100vw;
   width: 7vw;
   height: 7vw;
@@ -134,7 +136,7 @@ body {
 
 #bird3 {
   position: absolute;
-  top: 30vh;
+  top: 35vh;
   right: 100vw;
   width: 7vw;
   height: 7vw;
