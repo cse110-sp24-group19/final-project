@@ -1,0 +1,80 @@
+.airplane-container {
+  position: absolute;
+  top: 6vh;
+  right: 100vw;
+  width: 15vw;
+  height: 12vw;
+  animation: move-left 18s ease-out infinite;
+  z-index: 11;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.airplane {
+  width: 100%;
+  height: 100%;
+  background: url("../assets/airplane.png");
+  background-size: cover;
+  pointer-events: auto;
+}
+
+.airplane-label {
+  position: absolute;
+  bottom: 100px;
+  left: 90%;
+  transform: translateX(-50%);
+  font-size: 60px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  animation: label-waving 0.5s infinite alternate, label-bobbing 1s infinite ease-in-out;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  border-radius: 10px;
+  width: auto;
+  display: inline-block;
+  white-space: nowrap;
+  background-size: cover;
+  box-shadow: 0 4px 8px rgba(0 0 0 / 30%);
+  border: 2px solid rgba(255 255 255 / 50%);
+  text-shadow: 2px 2px 4px rgba(0 0 0 / 50%);
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(110vw);
+  }
+
+  100% {
+    transform: translateX(-35vw);
+  }
+}
+
+@keyframes label-waving {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(10deg);
+  }
+}
+
+@keyframes label-bobbing {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px); /* 调整上下移动的幅度 */
+  }
+}
+
+.airplane-container:hover {
+  animation-play-state: paused;
+}
+
+.airplane-container:hover .airplane,
+.airplane-container:hover .airplane-label {
+  animation-play-state: paused;
+}
