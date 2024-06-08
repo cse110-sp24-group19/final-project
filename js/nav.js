@@ -159,7 +159,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // else sets current page to main page
   function loadLastPage () {
     if (sessionStorage.getItem('reloaded') != null) { // if 'reloaded' exists in session storage, the page is being reloaded
-      const currentPage = localStorage.getItem('currentPage')
+      let currentPage = localStorage.getItem('currentPage')
+      if (currentPage === null) {
+        localStorage.setItem('currentPage', 'main-page')
+        currentPage = localStorage.getItem('currentPage')
+      }
       const pageDiv = document.getElementById(currentPage)
       showPage(pageDiv)
     } else { // if 'reloaded' does not exist in session storage, the page is being opened for a new session

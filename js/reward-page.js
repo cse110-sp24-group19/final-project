@@ -17,7 +17,7 @@ document.addEventListener('characterInfoUpdated', function () {
 
 function updateProgressBar () {
   document.getElementById('progress-bar').style.width = userCharacter.getCharacterInfo()[3] + '%'
-  document.getElementById('progress-bar-percent').textContent = `Progress: ${userCharacter.getCharacterInfo()[3]}%`
+  document.getElementById('progress-bar-percent').textContent = `Progress: ${userCharacter.getCharacterInfo()[4]}`
 }
 
 function updateLevel () {
