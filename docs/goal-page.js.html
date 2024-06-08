@@ -42,9 +42,7 @@ function updateCharacterProgression () {
  * Increments completed goal count on rewards page
  */
 function updateGoalCount () {
-  const goalStats = document.querySelector('#num-of-goals-achieved')
-  const numGoals = parseInt(goalStats.textContent)
-  goalStats.textContent = numGoals + 1
+  Character.addGoalComplete()
 }
 
 // the following comment is necessary for the linter

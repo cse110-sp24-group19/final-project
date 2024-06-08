@@ -208,6 +208,61 @@ class Character {
     const datapoint = localStorage.getItem('character')
     return !!datapoint
   }
+
+  /**
+   * Adds one to the login count of the users profile.
+   */
+  static addLogin () {
+    let loginCount = localStorage.getItem('loginsCountProfile')
+    if (loginCount !== null) {
+      // If the key exists, parse the value to an integer and increment it
+      loginCount = parseInt(loginCount, 10) + 1
+    } else {
+      // If the key doesn't exist, start the count at 1
+      loginCount = 1
+    }
+    localStorage.setItem('loginsCountProfile', loginCount.toString())
+    const event = new CustomEvent('characterInfoUpdated')
+    document.dispatchEvent(event)
+  }
+
+  /**
+   * Gets the journal entry count of the users profile
+   */
+  static updateJournalEntryCount () {
+    // Retrieve the journal entries from local storage
+    const journalEntries = localStorage.getItem('journalEntries')
+
+    // Parse the journal entries if they exist, or default to an empty array
+    const entries = journalEntries ? JSON.parse(journalEntries) : []
+
+    // Count the number of journal entries
+    const journalEntryCount = entries.length
+
+    // Update the journal entry count in local storage
+    localStorage.setItem('journalEntryCountProfile', journalEntryCount.toString())
+
+    // Dispatch an event to notify the application of the update
+    const event = new CustomEvent('characterInfoUpdated')
+    document.dispatchEvent(event)
+  }
+
+  /**
+   * Adds one to the goals completed count of the users profile
+   */
+  static addGoalComplete () {
+    let goalsCount = localStorage.getItem('goalsCompletedCountProfile')
+    if (goalsCount !== null) {
+      // If the key exists, parse the value to an integer and increment it
+      goalsCount = parseInt(goalsCount, 10) + 1
+    } else {
+      // If the key doesn't exist, start the count at 1
+      goalsCount = 1
+    }
+    localStorage.setItem('goalsCompletedCountProfile', goalsCount.toString())
+    const event = new CustomEvent('characterInfoUpdated')
+    document.dispatchEvent(event)
+  }
 }
 export default Character
 </code></pre>
