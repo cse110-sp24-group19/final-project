@@ -1,3 +1,5 @@
+import Character from './Character.js'
+
 const dayViewContainer = document.querySelector('#day-view')
 const dayNewEntryView = document.getElementById('new-entry-page')
 const backButton = document.querySelector('.back-button')
@@ -139,6 +141,7 @@ document.getElementById('save-details-button').addEventListener('click', functio
 
   // update local storage entry
   updateEntryInLocalStorage(currentEntryElement.dataset.id, updatedTitle, updatedInfo)
+  Character.updateJournalEntryCount()
 })
 
 document.getElementById('delete-entry-button').addEventListener('click', function () {
@@ -147,6 +150,7 @@ document.getElementById('delete-entry-button').addEventListener('click', functio
   removeEntryFromLocalStorage(currentEntryElement.dataset.id)
   currentEntryElement.remove()
   hasOverflow(backButton)
+  Character.updateJournalEntryCount()
 })
 
 document.getElementById('back-details-button').addEventListener('click', closeEntryDetails)
@@ -173,6 +177,7 @@ function saveEntryToLocalStorage (id, date, title, info) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   entries.push({ id, date, title, info })
   localStorage.setItem('journalEntries', JSON.stringify(entries))
+  Character.updateJournalEntryCount()
 }
 
 /**
@@ -234,6 +239,7 @@ function updateEntryInLocalStorage (id, title, info) {
     entry.info = info
     localStorage.setItem('journalEntries', JSON.stringify(entries))
   }
+  Character.updateJournalEntryCount()
 }
 
 /**
