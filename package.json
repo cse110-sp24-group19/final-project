@@ -12,7 +12,8 @@
   "scripts": {
     "generate-docs": "jsdoc -r src -d docs",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --maxWorkers=1 --coverage",
-    "test:puppeteer": "node --experimental-vm-modules node_modules/jest/bin/jest.js __tests__/end2end-puppeteer.test.js --maxWorkers=1"
+    "test:puppeteer": "node --experimental-vm-modules node_modules/jest/bin/jest.js __tests__/end2end-puppeteer.test.js --maxWorkers=1",
+    "generate-changelog": "changelog generate"
   },
   "type": "module",
   "jest": {
