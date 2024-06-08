@@ -21,12 +21,12 @@ window.addEventListener('DOMContentLoaded', function () {
   /* ------------------------------------------------------------------------- */
   /* ------------------------Functions---------------------------------------- */
   // Get all Entries from Local Storage
-  function loadAllEntries() {
+  function loadAllEntries () {
     return JSON.parse(localStorage.getItem('journalEntries')) || []
   }
 
   // Function to display search results
-  function displaySearchResults(results) {
+  function displaySearchResults (results) {
     results.sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
     const searchResultsList = document.getElementById('search-results-list')
     searchResultsList.innerHTML = ''
@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   // Function to show a specific page and hide others
-  function showPage(pageId) {
+  function showPage (pageId) {
     const pages = document.querySelectorAll('.page')
     pages.forEach(page => {
       if (page.id === pageId) {
@@ -64,7 +64,7 @@ window.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  function openDayView(dateString) {
+  function openDayView (dateString) {
     // Update day view content based on the clicked date
     const formattedDate = formatDateForJournalEntries(dateString)
     document.querySelector('.day-view-date').textContent = formattedDate
@@ -77,18 +77,18 @@ window.addEventListener('DOMContentLoaded', function () {
     // Hide calendar view
   }
 
-  function formatDateForJournalEntries(dateString) {
+  function formatDateForJournalEntries (dateString) {
     const [year, month, day] = dateString.split('-')
     return `${parseInt(month)}/${parseInt(day)}/${year}`
   }
 
   // reverse date format to 2024-06-20
-  function reverseFormat(dateString) {
+  function reverseFormat (dateString) {
     const [month, day, year] = dateString.split('/')
     return `${parseInt(year)}-${parseInt(month)}-${day}`
   }
 
-  function createEntriesForDate(date) {
+  function createEntriesForDate (date) {
     const journalList = document.getElementById('journal-list')
     journalList.innerHTML = '' // Clear existing entries
 
@@ -103,10 +103,9 @@ window.addEventListener('DOMContentLoaded', function () {
       journalList.appendChild(newEntry)
     })
   }
-
 })
 
-export function loadEntriesForDate(date) {
+export function loadEntriesForDate (date) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   const journalList = document.getElementById('journal-list')
   journalList.innerHTML = '' // Clear existing entries
