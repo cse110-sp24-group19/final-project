@@ -154,7 +154,7 @@ document.getElementById('back-details-button').addEventListener('click', closeEn
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
     if (!dayNewEntryView.classList.contains('hidden')) {
-      closeNewEntry() 
+      closeNewEntry()
     } else if (!entryDetailsView.classList.contains('hidden')) {
       closeEntryDetails()
     }
