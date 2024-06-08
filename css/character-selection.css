@@ -45,7 +45,7 @@
 
 /* Styling for character images */
 .character-image {
-  width: 25vw;
+  width: min(25vw, 35vh);
 }
 
 /* Container for character selections (dragon and monkey) */
@@ -67,8 +67,8 @@
   box-shadow: 2px 2px 8px 0 #0003, 2px 2px 8px 0 rgba(0 0 0 / 13%);
   border-radius: 3vw;
   width: 30vw;
-  height: 60vh;
-  gap: 2vh;
+  height: 50vh;
+  padding: 1vh 0;
   background: white;
   overflow: hidden;
   cursor: pointer;
