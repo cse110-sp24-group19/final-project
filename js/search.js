@@ -18,95 +18,94 @@ window.addEventListener('DOMContentLoaded', function () {
   backButton.addEventListener('click', function () {
     showPage('calendar-journal-page')
   })
-})
 
-/* ------------------------------------------------------------------------- */
-/* ------------------------Functions---------------------------------------- */
-// Get all Entries from Local Storage
-function loadAllEntries() {
-  return JSON.parse(localStorage.getItem('journalEntries')) || []
-}
+  /* ------------------------------------------------------------------------- */
+  /* ------------------------Functions---------------------------------------- */
+  // Get all Entries from Local Storage
+  function loadAllEntries() {
+    return JSON.parse(localStorage.getItem('journalEntries')) || []
+  }
 
-// Function to display search results
-function displaySearchResults(results) {
-  results.sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
-  const searchResultsList = document.getElementById('search-results-list')
-  searchResultsList.innerHTML = ''
+  // Function to display search results
+  function displaySearchResults(results) {
+    results.sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
+    const searchResultsList = document.getElementById('search-results-list')
+    searchResultsList.innerHTML = ''
 
-  results.forEach(result => {
-    const listItem = document.createElement('li')
-    listItem.className = 'sticky-note result'
-    listItem.setAttribute('data-date', reverseFormat(result.date))
-    listItem.innerHTML = `
+    results.forEach(result => {
+      const listItem = document.createElement('li')
+      listItem.className = 'sticky-note result'
+      listItem.setAttribute('data-date', reverseFormat(result.date))
+      listItem.innerHTML = `
         <div class="content">
          <div class="date ">${result.date}</div>
          <div class="title"> ${result.title}</div>
        </div>
     `
+      listItem.addEventListener('click', function () {
+        console.log(`opening day view for this date : ${this.getAttribute('data-date')}`)
+        openDayView(this.getAttribute('data-date'))
+      })
 
-    searchResultsList.appendChild(listItem)
-  })
-
-  document.querySelectorAll('.sticky-note').forEach((item) => {
-    item.addEventListener('click', function () {
-      console.log(`opening day view for this date : ${this.getAttribute('data-date')}`)
-      openDayView(this.getAttribute('data-date'))
+      searchResultsList.appendChild(listItem)
     })
-  })
-  showPage('search-results-page')
-}
 
-// Function to show a specific page and hide others
-function showPage(pageId) {
-  const pages = document.querySelectorAll('.page')
-  pages.forEach(page => {
-    if (page.id === pageId) {
-      page.classList.remove('hidden')
-    } else {
-      page.classList.add('hidden')
-    }
-  })
-}
+    showPage('search-results-page')
+  }
 
-function openDayView(dateString) {
-  // Update day view content based on the clicked date
-  const formattedDate = formatDateForJournalEntries(dateString)
-  document.querySelector('.day-view-date').textContent = formattedDate
+  // Function to show a specific page and hide others
+  function showPage(pageId) {
+    const pages = document.querySelectorAll('.page')
+    pages.forEach(page => {
+      if (page.id === pageId) {
+        page.classList.remove('hidden')
+      } else {
+        page.classList.add('hidden')
+      }
+    })
+  }
 
-  createEntriesForDate(formattedDate)
+  function openDayView(dateString) {
+    // Update day view content based on the clicked date
+    const formattedDate = formatDateForJournalEntries(dateString)
+    document.querySelector('.day-view-date').textContent = formattedDate
 
-  // Shows day view
-  dayView.classList.remove('hidden')
-  resultView.classList.add('hidden')
-  // Hide calendar view
-}
+    createEntriesForDate(formattedDate)
 
-function formatDateForJournalEntries(dateString) {
-  const [year, month, day] = dateString.split('-')
-  return `${parseInt(month)}/${parseInt(day)}/${year}`
-}
+    // Shows day view
+    dayView.classList.remove('hidden')
+    resultView.classList.add('hidden')
+    // Hide calendar view
+  }
 
-// reverse date format to 2024-06-20
-function reverseFormat(dateString) {
-  const [month, day, year] = dateString.split('/')
-  return `${parseInt(year)}-${parseInt(month)}-${day}`
-}
+  function formatDateForJournalEntries(dateString) {
+    const [year, month, day] = dateString.split('-')
+    return `${parseInt(month)}/${parseInt(day)}/${year}`
+  }
 
-function createEntriesForDate(date) {
-  const journalList = document.getElementById('journal-list')
-  journalList.innerHTML = '' // Clear existing entries
+  // reverse date format to 2024-06-20
+  function reverseFormat(dateString) {
+    const [month, day, year] = dateString.split('/')
+    return `${parseInt(year)}-${parseInt(month)}-${day}`
+  }
 
-  const filteredEntries = loadEntriesForDate(date)
+  function createEntriesForDate(date) {
+    const journalList = document.getElementById('journal-list')
+    journalList.innerHTML = '' // Clear existing entries
 
-  filteredEntries.forEach(entry => {
-    const newEntry = document.createElement('li')
-    newEntry.textContent = entry.title
-    newEntry.dataset.info = entry.info
-    newEntry.dataset.id = entry.id
-    newEntry.dataset.date = entry.date
-    journalList.appendChild(newEntry)
-  })
-}
+    const filteredEntries = loadEntriesForDate(date)
+
+    filteredEntries.forEach(entry => {
+      const newEntry = document.createElement('li')
+      newEntry.textContent = entry.title
+      newEntry.dataset.info = entry.info
+      newEntry.dataset.id = entry.id
+      newEntry.dataset.date = entry.date
+      journalList.appendChild(newEntry)
+    })
+  }
+
+})
 
 export function loadEntriesForDate(date) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
