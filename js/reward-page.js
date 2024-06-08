@@ -17,7 +17,7 @@ document.addEventListener('characterInfoUpdated', function () {
 
 function updateProgressBar () {
   document.getElementById('progress-bar').style.width = userCharacter.getCharacterInfo()[3] + '%'
-  document.getElementById('progress-bar-percent').textContent = `Progress: ${userCharacter.getCharacterInfo()[3]}%`
+  document.getElementById('progress-bar-percent').textContent = `Progress: ${userCharacter.getCharacterInfo()[4]}`
 }
 
 function updateLevel () {
@@ -29,14 +29,13 @@ function updateCharacterImage () {
 }
 
 function updateProfileStats () {
-  document.getElementById('num-of-journal-entries').textContent = localStorage.getItem('journalEntryCountProfile')
-  document.getElementById('num-of-logins').textContent = localStorage.getItem('loginsCountProfile')
-  document.getElementById('num-of-goals-achieved').textContent = localStorage.getItem('goalsCompletedCountProfile')
+  // Get the goals completed count from local storage or set to '0' if null
+  document.getElementById('num-of-goals-achieved').textContent = localStorage.getItem('goalsCompletedCountProfile') || '0'
+  // Get the number of journal entries from local storage or set to '0' if null
+  document.getElementById('num-of-journal-entries').textContent = localStorage.getItem('journalEntryCountProfile') || '0'
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Add one to login count
-  Character.addLogin()
   // Toggles a sidebar's visibility
   const settingButton = document.getElementById('setting-button')
   const settingSidebar = document.getElementById('setting-sidebar')
@@ -129,4 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
   })
   // Load character image
   characterImage.src = userCharacter.getCharacterInfo()[2]
+  // Get the goals completed count from local storage or set to '0' if null
+  document.getElementById('num-of-goals-achieved').textContent = localStorage.getItem('goalsCompletedCountProfile') || '0'
+  // Get the number of journal entries from local storage or set to '0' if null
+  document.getElementById('num-of-journal-entries').textContent = localStorage.getItem('journalEntryCountProfile') || '0'
 })
