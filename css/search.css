@@ -14,3 +14,7 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+#search-results-list {
+  margin-top: 20px;
+}

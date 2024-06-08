@@ -1,30 +1,38 @@
-const dayView = document.getElementById('day-view')
-const calendarView = document.getElementById('calendar-journal-page')
-const resultView = document.getElementById('search-results-page')
-const backButton = document.getElementById('goback')
-// Add an event listener to the form with ID 'search-bar' that triggers on form submission
-document.getElementById('search-button').addEventListener('click', function (event) {
-  const searchText = document.getElementById('query').value.trim().toLowerCase()
-  const entries = loadAllEntries()
-  const filteredEntries = entries.filter(entry =>
-    entry.title.toLowerCase().includes(searchText) ||
-    entry.info.toLowerCase().includes(searchText)
-  )
-  displaySearchResults(filteredEntries)
+window.addEventListener('DOMContentLoaded', function () {
+  const dayView = document.getElementById('day-view')
+  const calendarView = document.getElementById('calendar-journal-page')
+  const resultView = document.getElementById('search-results-page')
+  const backButton = document.getElementById('search-back-button')
+
+  // Add an event listener to the form with ID 'search-bar' that triggers on form submission
+  document.getElementById('search-button').addEventListener('click', function (event) {
+    const searchText = document.getElementById('query').value.trim().toLowerCase()
+    const entries = loadAllEntries()
+    const filteredEntries = entries.filter(entry =>
+      entry.title.toLowerCase().includes(searchText) ||
+      entry.info.toLowerCase().includes(searchText)
+    )
+    displaySearchResults(filteredEntries)
+  })
+
+  backButton.addEventListener('click', function () {
+    showPage('calendar-journal-page')
+  })
 })
 
 /* ------------------------------------------------------------------------- */
 /* ------------------------Functions---------------------------------------- */
 // Get all Entries from Local Storage
-function loadAllEntries () {
+function loadAllEntries() {
   return JSON.parse(localStorage.getItem('journalEntries')) || []
 }
 
 // Function to display search results
-function displaySearchResults (results) {
+function displaySearchResults(results) {
   results.sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
   const searchResultsList = document.getElementById('search-results-list')
   searchResultsList.innerHTML = ''
+
   results.forEach(result => {
     const listItem = document.createElement('li')
     listItem.className = 'sticky-note result'
@@ -32,10 +40,10 @@ function displaySearchResults (results) {
     listItem.innerHTML = `
         <div class="content">
          <div class="date ">${result.date}</div>
-         <p class="info">${result.info}</p>
-         <div class="title">Title: ${result.title}</div>
+         <div class="title"> ${result.title}</div>
        </div>
     `
+
     searchResultsList.appendChild(listItem)
   })
 
@@ -49,7 +57,7 @@ function displaySearchResults (results) {
 }
 
 // Function to show a specific page and hide others
-function showPage (pageId) {
+function showPage(pageId) {
   const pages = document.querySelectorAll('.page')
   pages.forEach(page => {
     if (page.id === pageId) {
@@ -60,7 +68,7 @@ function showPage (pageId) {
   })
 }
 
-function openDayView (dateString) {
+function openDayView(dateString) {
   // Update day view content based on the clicked date
   const formattedDate = formatDateForJournalEntries(dateString)
   document.querySelector('.day-view-date').textContent = formattedDate
@@ -73,18 +81,18 @@ function openDayView (dateString) {
   // Hide calendar view
 }
 
-function formatDateForJournalEntries (dateString) {
+function formatDateForJournalEntries(dateString) {
   const [year, month, day] = dateString.split('-')
   return `${parseInt(month)}/${parseInt(day)}/${year}`
 }
 
 // reverse date format to 2024-06-20
-function reverseFormat (dateString) {
+function reverseFormat(dateString) {
   const [month, day, year] = dateString.split('/')
   return `${parseInt(year)}-${parseInt(month)}-${day}`
 }
 
-function createEntriesForDate (date) {
+function createEntriesForDate(date) {
   const journalList = document.getElementById('journal-list')
   journalList.innerHTML = '' // Clear existing entries
 
@@ -100,7 +108,7 @@ function createEntriesForDate (date) {
   })
 }
 
-export function loadEntriesForDate (date) {
+export function loadEntriesForDate(date) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   const journalList = document.getElementById('journal-list')
   journalList.innerHTML = '' // Clear existing entries
@@ -109,6 +117,3 @@ export function loadEntriesForDate (date) {
 
   return filteredEntries
 }
-backButton.addEventListener('click', function () {
-  showPage(calendarView)
-})
