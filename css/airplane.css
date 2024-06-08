@@ -35,9 +35,9 @@
   display: inline-block; /* 确保标签根据内容自动调整宽度 */
   white-space: nowrap; /* 防止文本换行 */
   background-size: cover; /* 确保背景覆盖整个标签 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 30%); /* 添加阴影效果 */
-  border: 2px solid rgba(255, 255, 255, 50%); /* 添加半透明的边框 */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 50%); /* 添加文字阴影 */
+  box-shadow: 0 4px 8px rgba(0 0 0 / 30%); /* 添加阴影效果 */
+  border: 2px solid rgba(255 255 255 / 50%); /* 添加半透明的边框 */
+  text-shadow: 2px 2px 4px rgba(0 0 0 / 50%); /* 添加文字阴影 */
 }
   
 @keyframes move-left {
@@ -53,6 +53,7 @@
   0% {
     transform: translateX(-50%) rotate(0deg);
   }
+
   100% {
     transform: translateX(-50%) rotate(10deg);
   }
@@ -62,6 +63,7 @@
   0%, 100% {
     transform: translateY(0);
     }
+    
     50% {
       transform: translateY(-10px); /* 调整上下移动的幅度 */
   }
