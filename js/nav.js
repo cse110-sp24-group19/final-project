@@ -52,7 +52,7 @@ class NavBar extends HTMLElement {
         font-family: comfortaa, sans-serif;
         font-size: 18px;
         background-color: white;
-        z-index: 10;
+        z-index: 50;
       }
 
       .nav-icon {
