@@ -151,6 +151,17 @@ document.getElementById('delete-entry-button').addEventListener('click', functio
 
 document.getElementById('back-details-button').addEventListener('click', closeEntryDetails)
 
+document.addEventListener('keydown', function (event) {
+  if (event.key === "Escape") {
+    if (!dayNewEntryView.classList.contains('hidden')) {
+      closeNewEntry()
+    }
+    else if (!entryDetailsView.classList.contains('hidden')) {
+      closeEntryDetails()
+    }
+  }
+})
+
 /**
  * Save a given journal entry to local storage
  *
