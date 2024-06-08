@@ -4,7 +4,7 @@ import puppeteer from 'puppeteer';
     let browser;
     let page;
     beforeAll(async () => {
-      browser = await puppeteer.launch({ defaultViewport: null, headless: false, slowMo: 50 });
+      browser = await puppeteer.launch({ defaultViewport: null, headless: true, slowMo: 50 });
       page = await browser.newPage();
       await page.goto('https://cse110-sp24-group19.github.io/final-project/', { waitUntil: 'networkidle2' });
 
