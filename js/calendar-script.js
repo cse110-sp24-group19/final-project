@@ -267,6 +267,12 @@ function closeDayView () {
   calendarView.classList.remove('hidden')
 }
 
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !dayView.classList.contains('hidden')) {
+    closeDayView()
+  }
+})
+
 // Attach a click event listener to each icon
 prenexIcons.forEach((icon) => {
   // When an icon is clicked
