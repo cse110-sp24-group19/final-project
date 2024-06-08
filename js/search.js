@@ -1,11 +1,10 @@
 window.addEventListener('DOMContentLoaded', function () {
   const dayView = document.getElementById('day-view')
-  const calendarView = document.getElementById('calendar-journal-page')
   const resultView = document.getElementById('search-results-page')
   const backButton = document.getElementById('search-back-button')
 
   // Add an event listener to the form with ID 'search-bar' that triggers on form submission
-  document.getElementById('search-button').addEventListener('click', function (event) {
+  document.getElementById('search-button').addEventListener('click', function () {
     const searchText = document.getElementById('query').value.trim().toLowerCase()
     const entries = loadAllEntries()
     const filteredEntries = entries.filter(entry =>
