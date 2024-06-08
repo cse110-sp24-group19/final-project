@@ -4,7 +4,7 @@ import puppeteer from 'puppeteer';
     let browser;
     let page;
     beforeAll(async () => {
-      browser = await puppeteer.launch({ defaultViewport: null, headless: true, slowMo: 50 });
+      browser = await puppeteer.launch({ defaultViewport: null, headless: false, slowMo: 50 });
       page = await browser.newPage();
       await page.goto('https://cse110-sp24-group19.github.io/final-project/', { waitUntil: 'networkidle2' });
 
@@ -35,6 +35,10 @@ import puppeteer from 'puppeteer';
       creativePlayNav: '.creative-play-nav',
       goalSettingNav: '.goal-setting-nav',
       rewardNav: '.reward-nav',
+      calendarJournalBox: '#calendar-journal-box',
+      creativePlayBox: '#creative-play-box',
+      goalSettingBox: '#goal-setting-box',
+      rewardBox:'#reward-box',
       mainPage: '#main-page',
       calendarJournalPage: '#calendar-journal-page',
       creativePlayPage: '#creative-play-page',
@@ -101,11 +105,29 @@ import puppeteer from 'puppeteer';
     
       test('navigating back to main page', async () => {
         const mainNav = await getShadowElement(selectors.mainNav);
-        await mainNav.evaluate(el => el.click());
-        await page.waitForSelector(selectors.mainPage, { visible: true });
-        const mainPage = await page.$(selectors.mainPage);
-        expect(mainPage).toBeTruthy();
-      });
+        await mainNav.evaluate(el => el.click())
+        await page.waitForSelector(selectors.mainPage);
+        // Wait for specific elements to be visible on the page
+        await page.waitForSelector(selectors.calendarJournalBox, { visible: true });
+        await page.waitForSelector(selectors.creativePlayBox, { visible: true });
+        await page.waitForSelector(selectors.rewardBox, { visible: true });
+        await page.waitForSelector(selectors.creativePlayBox, { visible: true });
+
+        // Evaluate the visibility of each page box to ensure they're not hidden
+        const boxSelectors = [selectors.calendarJournalBox,
+          selectors.creativePlayBox,
+          selectors.rewardBox,
+          selectors.creativePlayBox];
+        for (const selector of boxSelectors) {
+          const isVisible = await page.evaluate(sel => {
+            const el = document.querySelector(sel);
+            const style = window.getComputedStyle(el);
+            return style.visibility !== 'hidden' && style.display !== 'none';
+          }, selector);
+          // Assert that each page box is visible
+          expect(isVisible).toBeTruthy();
+        }
+      }, 10000);
     });
 
 

@@ -62,6 +62,7 @@ class Character {
    * console.log(dragon.getCurrentProgression()); // Outputs the current progression points
    */
   _getCurrentProgression () {
+    this._loadCharacter()
     return this.progressionPoints
   }
 
@@ -96,6 +97,7 @@ class Character {
    * console.log(dragon.getProgressionStage()); // Returns 'Baby', 'Child', or 'Adult' based on points
    */
   _getProgressionStage () {
+    this._loadCharacter()
     if (this.progressionPoints < 10) {
       return 'Egg'
     } else if (this.progressionPoints < 25) {
@@ -116,6 +118,7 @@ class Character {
    * console.log(dragon.getStageThreshold()); // Returns 10, 15, or 20 based on points
    */
   _getStageProgressionPercentage () {
+    this._loadCharacter()
     if (this.progressionPoints < 10) {
       return ((this._getCurrentProgression()) / 10) * 100
     } else if (this.progressionPoints < 25) {
@@ -136,6 +139,7 @@ class Character {
    * console.log(dragon.fetchImageAsset()); // Outputs 'assets/dragon-baby.png'
    */
   _fetchImageAsset () {
+    this._loadCharacter()
     const stage = this._getProgressionStage().toLowerCase()
     const type = this.type.toLowerCase()
     return `assets/${type}-${stage}.png` // Assuming images are named like 'dragon-baby.png'.
