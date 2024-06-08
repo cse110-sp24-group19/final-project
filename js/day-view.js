@@ -145,7 +145,7 @@ document.getElementById('save-details-button').addEventListener('click', functio
 })
 
 document.getElementById('delete-entry-button').addEventListener('click', function () {
-  let result = confirm('Are you sure you want to delete this entry?')
+  const result = confirm('Are you sure you want to delete this entry?')
   if (result) {
     entryDetailsView.classList.add('hidden')
     dayViewContainer.classList.remove('hidden')
@@ -153,7 +153,7 @@ document.getElementById('delete-entry-button').addEventListener('click', functio
     currentEntryElement.remove()
     hasOverflow(backButton)
     Character.updateJournalEntryCount()
-    console.log("Entry deleted.")
+    console.log('Entry deleted.')
   } else {
     console.log('Deletion cancelled.')
   }

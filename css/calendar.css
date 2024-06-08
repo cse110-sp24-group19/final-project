@@ -253,21 +253,12 @@
   border-radius: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  /* position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%); */
 }
 
 .back-entry-button:hover,
 .back-button:hover {
   color: #fff;
 }
-
-/* .back-entry-button:active,
-.back-button:active {
-  transform: translateX(0%) scale(2);
-} */
 
 .edit-button,
 .save-button,
@@ -287,8 +278,7 @@
 }
 
 .add-button:hover,
-.save-button:hover,
-.edit-button:hover {
+.save-button:hover {
   background-color: darkgreen;
   color: white;
 }
@@ -327,6 +317,7 @@
 
 .edit-button:hover {
   background-color: #00b37a;
+  color: white;
 }
 
 /*
