@@ -12,6 +12,7 @@ document.addEventListener('characterInfoUpdated', function () {
   updateProgressBar()
   updateLevel()
   updateCharacterImage()
+  updateProfileStats()
 })
 
 function updateProgressBar () {
@@ -27,7 +28,15 @@ function updateCharacterImage () {
   document.getElementById('character').src = userCharacter.getCharacterInfo()[2]
 }
 
+function updateProfileStats () {
+  document.getElementById('num-of-journal-entries').textContent = localStorage.getItem('journalEntryCountProfile')
+  document.getElementById('num-of-logins').textContent = localStorage.getItem('loginsCountProfile')
+  document.getElementById('num-of-goals-achieved').textContent = localStorage.getItem('goalsCompletedCountProfile')
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+  // Add one to login count
+  Character.addLogin()
   // Toggles a sidebar's visibility
   const settingButton = document.getElementById('setting-button')
   const settingSidebar = document.getElementById('setting-sidebar')
@@ -42,9 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (savedImage) {
     profilePhoto.src = savedImage
   }
-
-  // Load character image
-  characterImage.src = userCharacter.getCharacterInfo()[2]
 
   // Sidebar toggle functionality
   settingButton.addEventListener('click', function () {
@@ -121,4 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
       localStorage.setItem('userName', newUserName)
     }
   })
+  // Load character image
+  characterImage.src = userCharacter.getCharacterInfo()[2]
 })
