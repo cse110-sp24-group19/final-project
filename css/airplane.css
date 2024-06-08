@@ -16,7 +16,7 @@
   height: 100%;
   background: url("../assets/airplane.png");
   background-size: cover;
-  pointer-events: auto; 
+  pointer-events: auto;
 }
 
 .airplane-label {
@@ -60,12 +60,13 @@
 }
 
 @keyframes label-bobbing {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
-    }
+  }
 
-    50% {
-      transform: translateY(-10px); /* 调整上下移动的幅度 */
+  50% {
+    transform: translateY(-10px); /* 调整上下移动的幅度 */
   }
 }
 
