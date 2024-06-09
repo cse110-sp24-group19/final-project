@@ -26,8 +26,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
+          git config --global user.name 'nikothomas'
+          git config --global user.email 'nikojb@gmail.com'
           git add CHANGELOG.md
           git commit -m "Update changelog [skip ci]" || echo "No changes to commit"
-          git push origin HEAD
+          git push https://${{ secrets.MY_GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
