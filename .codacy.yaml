@@ -9,4 +9,4 @@ ignore_paths:
   - build/
   - coverage/
   - __tests__/end2end-puppeteer.test.js
-  - *.md
+  - "CHANGELOG.md"
