@@ -1,9 +1,13 @@
 name: Generate Changelog
-on: [push, pull_request]
+
+on:
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   generate_changelog:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -14,15 +18,27 @@ jobs:
           node-version: '19'
 
       - name: Install dependencies
-        run: npm install generate-changelog
+        run: npm install
 
       - name: Generate Changelog
         run: npm run generate-changelog
 
       - name: Commit Changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name 'milgor931'
-          git config --global user.email 'milagorobchenko@gmail.com'
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
           git add CHANGELOG.md
           git commit -m "Update changelog [skip ci]"
-          git push https://${{ secrets.MY_GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
+          git push origin HEAD:refs/heads/update-changelog
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update changelog
+          branch: update-changelog
+          title: Update changelog
+          body: This PR updates the changelog.
+          base: main
