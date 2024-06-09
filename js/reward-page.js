@@ -87,8 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
         profilePhoto.src = dataUrl
         // Save the profile photo to local storage
         localStorage.setItem('profilePhoto', dataUrl)
-        // Reset the file input to allow the same file to be selected again if needed
-        fileInput.value = ''
       }
       reader.readAsDataURL(file)
     }
