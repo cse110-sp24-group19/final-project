@@ -124,11 +124,12 @@
           <p class="calendar-current-date"></p>
           <span id="calendar-next" class="material-symbols-rounded">chevron_right</span>
         </div>
-
         <div class="search-bar-container">
-          <input type="text" id="query" name="query" placeholder="Search...">
-          <button id="search-button" class="green-button">Search</button>
-          <button class="green-button" id="reloadbutton">Today</button>
+          <form id="search">
+            <input type="text" id="query" name="query" placeholder="Search..." required/>
+            <button id="search-button" class="green-button" type="submit">Search</button>
+            <button class="green-button" id="reloadbutton">Today</button>
+          </form>
         </div>
       </header>
 
