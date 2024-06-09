@@ -24,8 +24,8 @@ jobs:
 
       - name: Commit Changelog
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
+          git config --global user.name 'milgor931'
+          git config --global user.email 'milagorobchenko@gmail.com'
           git add CHANGELOG.md
           git commit -m "Update changelog [skip ci]"
-          git push
+          git push https://${{ secrets.MY_GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
