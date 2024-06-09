@@ -6,14 +6,15 @@ const backButton = document.querySelector('.back-button')
 const entryDetailsView = document.getElementById('entry-details-page')
 
 // automatically checks if there is overflow
-function hasOverflow (returnButton) {
+export function hasOverflow (container, returnButton) {
   // const dayViewContainer = document.querySelector('#day-view')
   // Check if there is overflow in the day-view container
 
-  const hasOverflow = dayViewContainer.scrollHeight > dayViewContainer.clientHeight
+  const hasOverflow = container.scrollHeight > container.clientHeight
 
   // Set the position of the back button based on overflow
   // const backButton = document.querySelector('.back-button')
+  console.log(hasOverflow);
   if (hasOverflow) {
     returnButton.style.position = 'relative'
   } else {
@@ -21,7 +22,147 @@ function hasOverflow (returnButton) {
   }
 }
 
-hasOverflow(backButton)
+
+/**
+ * Save a given journal entry to local storage
+ *
+ * @param {String} id
+ * @param {String} date
+ * @param {String} title
+ * @param {String} info
+ */
+export function saveEntryToLocalStorage (id, date, title, info) {
+  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  entries.push({ id, date, title, info })
+  localStorage.setItem('journalEntries', JSON.stringify(entries))
+  Character.updateJournalEntryCount()
+}
+
+/**
+ * Validate the id
+ *
+ * @param {String} id
+ * @returns {Boolean}
+ */
+export function isValidId (id) {
+  // Example: Ensure id is a non-empty string
+  return typeof id === 'string' && id.trim().length > 0
+}
+
+/**
+ * Validate the title
+ *
+ * @param {String} title
+ * @returns {Boolean}
+ */
+export function isValidTitle (title) {
+  // Example: Ensure title is a non-empty string and meets other criteria
+  return typeof title === 'string' && title.trim().length > 0
+}
+
+/**
+ * Validate the info
+ *
+ * @param {String} info
+ * @returns {Boolean}
+ */
+export function isValidInfo (info) {
+  // Example: Ensure info is a non-empty string
+  return typeof info === 'string' && info.trim().length > 0
+}
+
+/**
+ * Update an entry in the local storage
+ *
+ * Specifically for editing and updating an existing entry
+ * based on the index and id
+ *
+ * @param {String} id
+ * @param {String} title
+ * @param {String} info
+ */
+export function updateEntryInLocalStorage (id, title, info) {
+  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  const entryIndex = entries.findIndex(entry => entry.id === id)
+
+  // Validate and sanitize inputs
+  if (!isValidId(id) || !isValidTitle(title) || !isValidInfo(info)) {
+    console.error('Invalid input data')
+    return
+  }
+
+  if (entryIndex > -1) {
+    const entry = entries[entryIndex]
+    entry.title = title
+    entry.info = info
+    localStorage.setItem('journalEntries', JSON.stringify(entries))
+  }
+  Character.updateJournalEntryCount()
+}
+
+/**
+ * Remove an entry from local storage
+ *
+ * Filter through to find the entry with a given id
+ * and remove it from the local storage
+ *
+ * @param {String} id
+ */
+export function removeEntryFromLocalStorage (id) {
+  let entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  entries = entries.filter(entry => entry.id !== id)
+  localStorage.setItem('journalEntries', JSON.stringify(entries))
+}
+
+/**
+ * Tracks the changes in a given element
+ *
+ * Meant to add event listeners to the list items
+ * in the day view so that they can be editable with
+ * a click after
+ *
+ * @param {Array} mutationsList is the list of mutations in the DOM
+ */
+export function onClassListChange (mutationsList) {
+  for (const mutation of mutationsList) {
+    if (mutation.attributeName === 'class') {
+      console.log('Class list changed:', mutation.target.classList)
+      if (!mutation.target.classList.contains('hidden')) {
+        // Perform actions when the element is shown
+
+        // Select the parent element with the ID 'journal-list'
+        const journalList = document.getElementById('journal-list')
+
+        // Query all the <li> elements within the 'journal-list' element
+        const entries = journalList.querySelectorAll('li')
+
+        // Add an event listener to each entry
+        entries.forEach(entry => {
+          entry.addEventListener('click', function () {
+            openEntryDetails(entry)
+          })
+        })
+      }
+    }
+  }
+}
+
+/**
+ * Configures the tracking of changes in a
+ * given element
+ *
+ * Sets up a MutationObserver based on which HTML
+ * elements need to be observed and configures them
+ * to be tracked
+ *
+ * @param {HTMLElement} element
+ */
+export function observeElementClasses (element) {
+  const observer = new MutationObserver(onClassListChange)
+  const config = { attributes: true, attributeFilter: ['class'] }
+  observer.observe(element, config)
+}
+
 
 function addNewEntry () {
   dayViewContainer.classList.add('hidden')
@@ -39,6 +180,10 @@ function unhide () {
   document.getElementById('edit-entry-button').classList.remove('hidden')
   document.getElementById('delete-entry-button').classList.remove('hidden')
 }
+
+function initializeDayViewScript() {
+
+hasOverflow(dayViewContainer, backButton)
 
 document.querySelectorAll('.add-button').forEach(button => {
   button.addEventListener('click', addNewEntry)
@@ -80,7 +225,7 @@ document.querySelector('.save-button').addEventListener('click', function () {
   // Hide new-entry-page and show day-view
   dayNewEntryView.classList.add('hidden')
   dayViewContainer.classList.remove('hidden')
-  hasOverflow(backButton)
+  hasOverflow(dayViewContainer, backButton)
 })
 
 let currentEntryElement = null // To store the reference to the clicked entry
@@ -151,7 +296,7 @@ document.getElementById('delete-entry-button').addEventListener('click', functio
     dayViewContainer.classList.remove('hidden')
     removeEntryFromLocalStorage(currentEntryElement.dataset.id)
     currentEntryElement.remove()
-    hasOverflow(backButton)
+    hasOverflow(dayViewContainer, backButton)
     Character.updateJournalEntryCount()
     console.log('Entry deleted.')
   } else {
@@ -171,146 +316,11 @@ document.addEventListener('keydown', function (event) {
   }
 })
 
-/**
- * Save a given journal entry to local storage
- *
- * @param {String} id
- * @param {String} date
- * @param {String} title
- * @param {String} info
- */
-function saveEntryToLocalStorage (id, date, title, info) {
-  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
-  entries.push({ id, date, title, info })
-  localStorage.setItem('journalEntries', JSON.stringify(entries))
-  Character.updateJournalEntryCount()
-}
-
-/**
- * Validate the id
- *
- * @param {String} id
- * @returns {Boolean}
- */
-function isValidId (id) {
-  // Example: Ensure id is a non-empty string
-  return typeof id === 'string' && id.trim().length > 0
-}
-
-/**
- * Validate the title
- *
- * @param {String} title
- * @returns {Boolean}
- */
-function isValidTitle (title) {
-  // Example: Ensure title is a non-empty string and meets other criteria
-  return typeof title === 'string' && title.trim().length > 0
-}
-
-/**
- * Validate the info
- *
- * @param {String} info
- * @returns {Boolean}
- */
-function isValidInfo (info) {
-  // Example: Ensure info is a non-empty string
-  return typeof info === 'string' && info.trim().length > 0
-}
-
-/**
- * Update an entry in the local storage
- *
- * Specifically for editing and updating an existing entry
- * based on the index and id
- *
- * @param {String} id
- * @param {String} title
- * @param {String} info
- */
-function updateEntryInLocalStorage (id, title, info) {
-  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
-  const entryIndex = entries.findIndex(entry => entry.id === id)
-
-  // Validate and sanitize inputs
-  if (!isValidId(id) || !isValidTitle(title) || !isValidInfo(info)) {
-    console.error('Invalid input data')
-    return
-  }
-
-  if (entryIndex > -1) {
-    const entry = entries[entryIndex]
-    entry.title = title
-    entry.info = info
-    localStorage.setItem('journalEntries', JSON.stringify(entries))
-  }
-  Character.updateJournalEntryCount()
-}
-
-/**
- * Remove an entry from local storage
- *
- * Filter through to find the entry with a given id
- * and remove it from the local storage
- *
- * @param {String} id
- */
-function removeEntryFromLocalStorage (id) {
-  let entries = JSON.parse(localStorage.getItem('journalEntries')) || []
-  entries = entries.filter(entry => entry.id !== id)
-  localStorage.setItem('journalEntries', JSON.stringify(entries))
-}
-
-/**
- * Tracks the changes in a given element
- *
- * Meant to add event listeners to the list items
- * in the day view so that they can be editable with
- * a click after
- *
- * @param {Array} mutationsList is the list of mutations in the DOM
- */
-function onClassListChange (mutationsList) {
-  for (const mutation of mutationsList) {
-    if (mutation.attributeName === 'class') {
-      console.log('Class list changed:', mutation.target.classList)
-      if (!mutation.target.classList.contains('hidden')) {
-        // Perform actions when the element is shown
-
-        // Select the parent element with the ID 'journal-list'
-        const journalList = document.getElementById('journal-list')
-
-        // Query all the <li> elements within the 'journal-list' element
-        const entries = journalList.querySelectorAll('li')
-
-        // Add an event listener to each entry
-        entries.forEach(entry => {
-          entry.addEventListener('click', function () {
-            openEntryDetails(entry)
-          })
-        })
-      }
-    }
-  }
-}
-
-/**
- * Configures the tracking of changes in a
- * given element
- *
- * Sets up a MutationObserver based on which HTML
- * elements need to be observed and configures them
- * to be tracked
- *
- * @param {HTMLElement} element
- */
-function observeElementClasses (element) {
-  const observer = new MutationObserver(onClassListChange)
-  const config = { attributes: true, attributeFilter: ['class'] }
-  observer.observe(element, config)
-}
 
 // Start observing the class list changes
 observeElementClasses(dayViewContainer)
 observeElementClasses(dayNewEntryView)
+}
+
+
+document.addEventListener('DOMContentLoaded', initializeDayViewScript)
