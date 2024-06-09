@@ -44,7 +44,7 @@ class Character {
    * @returns {array}The current progression points, the current life stage, and the image asset URL.
    * @example
    * console.log(dragon.getCharacterInfo()); // Outputs [progressionPoints, 'LifeStage', 'assets/character-stage.png',
-   * progressionStagePercentage]
+   * progressionStagePercentage, 'progressionStageFrac']
    */
   getCharacterInfo () {
     this._loadCharacter()
@@ -52,7 +52,8 @@ class Character {
     const progressionStage = this._getProgressionStage()
     const imageAsset = this._fetchImageAsset()
     const progressionStagePercentage = this._getStageProgressionPercentage()
-    return [progressionPoints, progressionStage, imageAsset, progressionStagePercentage]
+    const progressionStageFrac = this._getStageProgressionFrac()
+    return [progressionPoints, progressionStage, imageAsset, progressionStagePercentage, progressionStageFrac]
   }
 
   /**
@@ -112,10 +113,10 @@ class Character {
   }
 
   /**
-   * Determines the number of points to get from one progression stage to another
-   * @returns {int} The current life stage (Baby, Child, Adult).
+   * Determines the percentage of points to reach next stage.
+   * @returns {float} percentage
    * @example
-   * console.log(dragon.getStageThreshold()); // Returns 10, 15, or 20 based on points
+   * console.log(dragon.getStageThreshold()); // 0%
    */
   _getStageProgressionPercentage () {
     this._loadCharacter()
@@ -129,6 +130,29 @@ class Character {
       return ((this._getCurrentProgression() - 45) / 25) * 100
     } else {
       return ((this._getCurrentProgression() - 70) / 30) * 100
+    }
+  }
+
+  /**
+   * Determines the fraction of points to reach next stage.
+   * @returns {string} fraction
+   * @example
+   * console.log(dragon.getStageThreshold()); // 0/10
+   */
+  _getStageProgressionFrac () {
+    this._loadCharacter()
+    const currentProgress = this._getCurrentProgression()
+
+    if (this.progressionPoints < 10) {
+      return `${currentProgress}/10`
+    } else if (this.progressionPoints < 25) {
+      return `${currentProgress - 10}/15`
+    } else if (this.progressionPoints < 45) {
+      return `${currentProgress - 25}/20`
+    } else if (this.progressionPoints < 70) {
+      return `${currentProgress - 45}/25`
+    } else {
+      return `${currentProgress - 70}/30`
     }
   }
 
