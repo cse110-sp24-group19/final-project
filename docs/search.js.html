@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: search.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: search.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>window.addEventListener('DOMContentLoaded', function () {
+  const dayView = document.getElementById('day-view')
+  const resultView = document.getElementById('search-results-page')
+  const backButton = document.getElementById('search-back-button')
+
+  // Add an event listener to the form with ID 'search-bar' that triggers on form submission
+  document.getElementById('search').addEventListener('submit', function (event) {
+    event.preventDefault()
+    const searchText = document.getElementById('query').value.trim().toLowerCase()
+    const entries = loadAllEntries()
+    const filteredEntries = entries.filter(entry =>
+      entry.title.toLowerCase().includes(searchText) ||
+      entry.info.toLowerCase().includes(searchText)
+    )
+    displaySearchResults(filteredEntries)
+  })
+
+  backButton.addEventListener('click', function () {
+    showPage('calendar-journal-page')
+  })
+})
+
+/* ------------------------------------------------------------------------- */
+/* ------------------------Functions---------------------------------------- */
+
+/**
+ * Gets all entries from local storage
+ *
+ * @returns {Array} - The array of all journal entries
+ */
+function loadAllEntries () {
+  return JSON.parse(localStorage.getItem('journalEntries')) || []
+}
+
+/**
+ * Displays search results in the search results list
+ *
+ * @param {Array} results - The array of filtered journal entries
+ */
+function displaySearchResults(results) {
+  results.sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
+  const searchResultsList = document.getElementById('search-results-list')
+  searchResultsList.innerHTML = ''
+
+  results.forEach(result => {
+    const listItem = document.createElement('li')
+    listItem.className = 'sticky-note result'
+    listItem.setAttribute('data-date', reverseFormat(result.date))
+    listItem.innerHTML = `
+      &lt;div class="content">
+        &lt;div class="date">${result.date}&lt;/div>
+        &lt;div class="title">${result.title.trim()}&lt;/div>
+      &lt;/div>
+    `
+    listItem.addEventListener('click', function () {
+      console.log(`opening day view for this date : ${this.getAttribute('data-date')}`)
+      openDayView(this.getAttribute('data-date'))
+    })
+
+    searchResultsList.appendChild(listItem)
+  })
+
+  showPage('search-results-page')
+}
+
+/**
+ * Shows a specific page and hides others
+ *
+ * @param {String} pageId - The ID of the page to show
+ */
+function showPage (pageId) {
+  const pages = document.querySelectorAll('.page')
+  pages.forEach(page => {
+    if (page.id === pageId) {
+      page.classList.remove('hidden')
+    } else {
+      page.classList.add('hidden')
+    }
+  })
+}
+
+/**
+ * Opens the day view for a specific date
+ *
+ * @param {String} dateString - The date string to open in the day view
+ */
+function openDayView (dateString) {
+  const formattedDate = formatDateForJournalEntries(dateString)
+  document.querySelector('.day-view-date').textContent = formattedDate
+
+  createEntriesForDate(formattedDate)
+
+  const dayView = document.getElementById('day-view')
+  const resultView = document.getElementById('search-results-page')
+  dayView.classList.remove('hidden')
+  resultView.classList.add('hidden')
+}
+
+/**
+ * Formats date string for journal entries
+ *
+ * @param {String} dateString - The date string to format
+ * @returns {String} - The formatted date string
+ */
+function formatDateForJournalEntries (dateString) {
+  const [year, month, day] = dateString.split('-')
+  return `${parseInt(month)}/${parseInt(day)}/${year}`
+}
+
+/**
+ * Reverses date format to 'yyyy-mm-dd'
+ *
+ * @param {String} dateString - The date string to reverse
+ * @returns {String} - The reversed date string
+ */
+function reverseFormat (dateString) {
+  const [month, day, year] = dateString.split('/')
+  return `${parseInt(year)}-${parseInt(month)}-${parseInt(day).toString().padStart(2, '0')}`
+}
+
+/**
+ * Creates entries for a specific date
+ *
+ * @param {String} date - The date to create entries for
+ */
+function createEntriesForDate (date) {
+  const journalList = document.getElementById('journal-list')
+  journalList.innerHTML = ''
+
+  const filteredEntries = loadEntriesForDate(date)
+
+  filteredEntries.forEach(entry => {
+    const newEntry = document.createElement('li')
+    newEntry.textContent = entry.title
+    newEntry.dataset.info = entry.info
+    newEntry.dataset.id = entry.id
+    newEntry.dataset.date = entry.date
+    journalList.appendChild(newEntry)
+  })
+}
+
+/**
+ * Loads entries for a specific date from local storage
+ *
+ * @param {String} date - The date to filter entries by
+ * @returns {Array} - The filtered entries
+ */
+function loadEntriesForDate (date) {
+  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  const journalList = document.getElementById('journal-list')
+  journalList.innerHTML = '' // Clear existing entries
+
+  const filteredEntries = entries.filter(entry => entry.date === date)
+
+  return filteredEntries
+}
+
+// Export functions for testing
+export { loadAllEntries, displaySearchResults, showPage, openDayView, formatDateForJournalEntries, reverseFormat, createEntriesForDate, loadEntriesForDate }</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Character.html">Character</a></li></ul><h3>Global</h3><ul><li><a href="global.html#achieveGoal">achieveGoal</a></li><li><a href="global.html#addNewGoal">addNewGoal</a></li><li><a href="global.html#createEntriesForDate">createEntriesForDate</a></li><li><a href="global.html#createNewGoal">createNewGoal</a></li><li><a href="global.html#createStar">createStar</a></li><li><a href="global.html#deleteGoal">deleteGoal</a></li><li><a href="global.html#displaySearchResults">displaySearchResults</a></li><li><a href="global.html#editGoal">editGoal</a></li><li><a href="global.html#formatDateForJournalEntries">formatDateForJournalEntries</a></li><li><a href="global.html#getGoalsFromStorage">getGoalsFromStorage</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#isValidId">isValidId</a></li><li><a href="global.html#isValidInfo">isValidInfo</a></li><li><a href="global.html#isValidTitle">isValidTitle</a></li><li><a href="global.html#loadAllEntries">loadAllEntries</a></li><li><a href="global.html#loadEntriesForDate">loadEntriesForDate</a></li><li><a href="global.html#markGoalCompletedInStorage">markGoalCompletedInStorage</a></li><li><a href="global.html#observeElementClasses">observeElementClasses</a></li><li><a href="global.html#onClassListChange">onClassListChange</a></li><li><a href="global.html#openDayView">openDayView</a></li><li><a href="global.html#populateCompletedGoal">populateCompletedGoal</a></li><li><a href="global.html#populateGoals">populateGoals</a></li><li><a href="global.html#removeEntryFromLocalStorage">removeEntryFromLocalStorage</a></li><li><a href="global.html#removeGoalFromStorage">removeGoalFromStorage</a></li><li><a href="global.html#reverseFormat">reverseFormat</a></li><li><a href="global.html#saveEntryToLocalStorage">saveEntryToLocalStorage</a></li><li><a href="global.html#saveGoalToStorage">saveGoalToStorage</a></li><li><a href="global.html#showPage">showPage</a></li><li><a href="global.html#updateCharacterProgression">updateCharacterProgression</a></li><li><a href="global.html#updateEntryInLocalStorage">updateEntryInLocalStorage</a></li><li><a href="global.html#updateGoalCount">updateGoalCount</a></li><li><a href="global.html#updateGoalInStorage">updateGoalInStorage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sun Jun 09 2024 23:18:00 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
