@@ -65,7 +65,7 @@ function initializeP5Sketch () {
       increaseButton.style('border-radius', '10px')
       increaseButton.style('cursor', 'pointer')
       const increaseImg = sketch.createImg(
-        'assets/up_arrow.svg',
+        'image-assets/up_arrow.svg',
         'The p5.js magenta asterisk.'
       )
       increaseImg.style('width', '30px')
@@ -87,7 +87,7 @@ function initializeP5Sketch () {
       decreaseButton.style('border-radius', '10px')
       decreaseButton.style('cursor', 'pointer')
       const decreaseImg = sketch.createImg(
-        'assets/down_arrow.svg',
+        'image-assets/down_arrow.svg',
         'The p5.js magenta asterisk.'
       )
       decreaseImg.style('width', '30px')
@@ -108,7 +108,7 @@ function initializeP5Sketch () {
       eraserButton.style('border-radius', '10px')
       eraserButton.style('cursor', 'pointer')
       const eraserImg = sketch.createImg(
-        'assets/eraser.jpg',
+        'image-assets/eraser.jpg',
         'The p5.js magenta asterisk.'
       )
       eraserImg.style('width', '30px')

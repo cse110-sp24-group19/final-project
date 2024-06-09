@@ -13,7 +13,7 @@
     "generate-docs": "jsdoc -r src -d docs",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --maxWorkers=1 --coverage",
     "test:puppeteer": "node --experimental-vm-modules node_modules/jest/bin/jest.js __tests__/end2end-puppeteer.test.js --maxWorkers=1",
-    "generate-changelog": "changelog generate"
+    "generate-changelog": "changelog generate > agile-process/CHANGELOG.md"
   },
   "type": "module",
   "jest": {

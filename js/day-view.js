@@ -153,9 +153,6 @@ document.getElementById('delete-entry-button').addEventListener('click', functio
     currentEntryElement.remove()
     hasOverflow(backButton)
     Character.updateJournalEntryCount()
-    console.log('Entry deleted.')
-  } else {
-    console.log('Deletion cancelled.')
   }
 })
 

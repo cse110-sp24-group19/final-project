@@ -21,7 +21,7 @@
   right: 3vw;
   width: 3vw;
   height: 3vw;
-  background: url("../assets/setting.png");
+  background: url("../image-assets/setting.png");
   background-size: cover;
   cursor: pointer;
   transition: transform 0.5s ease;

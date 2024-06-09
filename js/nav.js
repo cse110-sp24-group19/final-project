@@ -9,11 +9,11 @@ class NavBar extends HTMLElement {
 
     // Define the nav items
     const navItems = [
-      { id: 'main-nav', iconSrc: 'assets/monkey.png', text: 'Main Page' },
-      { id: 'calendar-journal-nav', iconSrc: 'assets/calendar-nav.png', text: 'Calendar/Journal' },
-      { id: 'creative-play-nav', iconSrc: 'assets/white-board.png', text: 'Creative Play' },
-      { id: 'goal-setting-nav', iconSrc: 'assets/goal.png', text: 'Goal-Setting' },
-      { id: 'reward-nav', iconSrc: 'assets/reward.png', text: 'Rewards' }
+      { id: 'main-nav', iconSrc: 'image-assets/monkey.png', text: 'Main Page' },
+      { id: 'calendar-journal-nav', iconSrc: 'image-assets/calendar-nav.png', text: 'Calendar/Journal' },
+      { id: 'creative-play-nav', iconSrc: 'image-assets/white-board.png', text: 'Creative Play' },
+      { id: 'goal-setting-nav', iconSrc: 'image-assets/goal.png', text: 'Goal-Setting' },
+      { id: 'reward-nav', iconSrc: 'image-assets/reward.png', text: 'Rewards' }
     ]
 
     // Create and append nav items to the nav bar

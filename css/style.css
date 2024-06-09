@@ -53,7 +53,7 @@ body {
 */
 
 #main-page {
-  cursor: url("../assets/firefly.png"), auto;
+  cursor: url("../image-image-assets/firefly.png"), auto;
 }
 
 #forest-background {
@@ -65,7 +65,7 @@ body {
   z-index: -1;
   background:
     linear-gradient(to bottom, blue, #feb47b),
-    url("../assets/forest.svg");
+    url("../image-assets/forest.svg");
   background-size: auto 100%, cover;
   background-position: bottom center;
   background-repeat: no-repeat;
@@ -79,7 +79,7 @@ body {
   left: 5vw;
   width: 14.5vw;
   height: 14.5vw;
-  background: url("../assets/Moon.gif");
+  background: url("../image-assets/Moon.gif");
   background-size: cover;
 }
 
@@ -98,7 +98,7 @@ body {
   right: 100vw;
   width: 16vw;
   height: 16vw;
-  background: url("../assets/Cloud.gif");
+  background: url("../image-assets/Cloud.gif");
   background-size: cover;
   animation: move-right 25s linear infinite;
   z-index: 10;
@@ -112,7 +112,7 @@ body {
   right: 100vw;
   width: 7vw;
   height: 7vw;
-  background: url("../assets/Bird-purple.gif");
+  background: url("../image-assets/Bird-purple.gif");
   background-size: cover;
   animation: move-left 18s linear infinite;
   z-index: 11;
@@ -125,7 +125,7 @@ body {
   right: 100vw;
   width: 7vw;
   height: 7vw;
-  background: url("../assets/Bird-red.gif");
+  background: url("../image-assets/Bird-red.gif");
   background-size: cover;
   animation: move-right 18s linear infinite;
   z-index: 11;
@@ -138,7 +138,7 @@ body {
   right: 100vw;
   width: 7vw;
   height: 7vw;
-  background: url("../assets/Bird-yellow.gif");
+  background: url("../image-assets/Bird-yellow.gif");
   background-size: cover;
   animation: move-left 15s linear infinite;
   z-index: 11;
@@ -151,7 +151,7 @@ body {
   top: 0;
   width: 17vw;
   height: 17vw;
-  background: url("../assets/Stars.gif");
+  background: url("../image-assets/Stars.gif");
   background-size: cover;
   pointer-events: none;
 }
@@ -171,7 +171,7 @@ body {
   right: 100vw;
   width: 20vw;
   height: 20vw;
-  background: url("../assets/Rabbit.gif");
+  background: url("../image-assets/Rabbit.gif");
   background-size: cover;
   animation: move-left 25s linear infinite;
   z-index: 2;
@@ -182,14 +182,14 @@ body {
 #calendar-journal {
   width: 20vw;
   height: 20vw;
-  background: url("../assets/calendar.png");
+  background: url("../image-assets/calendar.png");
   background-size: cover;
   z-index: 1;
   margin-top: -4vh;
 }
 
 #calendar-journal:hover {
-  background: url("../assets/calendar-removing-page.png");
+  background: url("../image-assets/calendar-removing-page.png");
   background-size: cover;
 }
 
@@ -201,7 +201,7 @@ body {
 #creative-play {
   width: 20vw;
   height: 20vw;
-  background: url("../assets/white-board.png");
+  background: url("../image-assets/white-board.png");
   background-size: cover;
   transform: rotate(-15deg);
   z-index: 3;
@@ -209,7 +209,7 @@ body {
 }
 
 #creative-play:hover {
-  background: url("../assets/white-board-with-letters.png");
+  background: url("../image-assets/white-board-with-letters.png");
   background-size: cover;
   transform: rotate(-15deg);
 }
@@ -222,7 +222,7 @@ body {
 #goal-setting {
   width: 20vw;
   height: 20vw;
-  background: url("../assets/goal.png");
+  background: url("../image-assets/goal.png");
   background-size: cover;
   transform: rotate(8deg);
   margin-top: -4vh;
@@ -230,7 +230,7 @@ body {
 }
 
 #goal-setting:hover {
-  background: url("../assets/goal-with-arrow.png");
+  background: url("../image-assets/goal-with-arrow.png");
   background-size: cover;
   transform: rotate(8deg);
 }
@@ -243,14 +243,14 @@ body {
 #reward {
   width: 13vw;
   height: 13vw;
-  background: url("../assets/reward.png");
+  background: url("../image-assets/reward.png");
   background-size: cover;
   transform: rotate(-2deg);
   z-index: 3;
 }
 
 #reward:hover {
-  background: url("../assets/reward2.png");
+  background: url("../image-assets/reward2.png");
   background-size: cover;
   transform: rotate(-2deg);
 }

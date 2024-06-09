@@ -10,7 +10,7 @@ class Character {
    * @example
    * const usercharacter = new Character('Smaug', 'Dragon', 5);
    * console.log(usercharacter.getCurrentProgression()); // 5
-   * console.log(usercharacter.getCharacterInfo()[2] // assets/dragon-baby.png
+   * console.log(usercharacter.getCharacterInfo()[2] // image-assets/dragon-baby.png
    * console.log(usercharacter.updateProgression(10);
    * console.log(usercharacter.getCharacterInfo()[0]); // 15
    */
@@ -43,7 +43,7 @@ class Character {
    * Gets the current character info as a tuple.
    * @returns {array}The current progression points, the current life stage, and the image asset URL.
    * @example
-   * console.log(dragon.getCharacterInfo()); // Outputs [progressionPoints, 'LifeStage', 'assets/character-stage.png',
+   * console.log(dragon.getCharacterInfo()); // Outputs [progressionPoints, 'LifeStage', 'image-assets/character-stage.png',
    * progressionStagePercentage]
    */
   getCharacterInfo () {
@@ -68,7 +68,7 @@ class Character {
 
   /**
    * Updates the progression points of the character and broadcasts an event to let other resources know to update their
-   * assets. The event is called 'characterInfoUpdated'.
+   * image-assets. The event is called 'characterInfoUpdated'.
    * @param {number} points - The number of points to add to the current progression.
    * @example
    * dragon.updateProgression(30);
@@ -136,13 +136,13 @@ class Character {
    * Fetches the image asset URL for the character based on the current type and stage.
    * @returns {string} The URL to the image representing the current type and stage.
    * @example
-   * console.log(dragon.fetchImageAsset()); // Outputs 'assets/dragon-baby.png'
+   * console.log(dragon.fetchImageAsset()); // Outputs 'image-assets/dragon-baby.png'
    */
   _fetchImageAsset () {
     this._loadCharacter()
     const stage = this._getProgressionStage().toLowerCase()
     const type = this.type.toLowerCase()
-    return `assets/${type}-${stage}.png` // Assuming images are named like 'dragon-baby.png'.
+    return `image-assets/${type}-${stage}.png` // Assuming images are named like 'dragon-baby.png'.
   }
 
   /**

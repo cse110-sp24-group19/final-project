@@ -9,23 +9,23 @@ const forestBg = document.getElementById('forest-background')
 const stars = document.querySelectorAll('.stars') // Select all elements with the class 'stars'
 
 if (!sunMoon.style.backgroundImage) {
-  sunMoon.style.backgroundImage = "url('assets/Moon.gif')"
+  sunMoon.style.backgroundImage = "url('image-assets/Moon.gif')"
 }
 
 // set the theme
 function setTheme (theme) {
   if (theme === DAY_THEME) {
-    sunMoon.style.backgroundImage = "url('assets/Sun-bright.gif')"
-    forestBg.style.background = "linear-gradient(315deg, #ffffff 0%, #abd8ff 74%), url('assets/forest.svg')"
+    sunMoon.style.backgroundImage = "url('image-assets/Sun-bright.gif')"
+    forestBg.style.background = "linear-gradient(315deg, #ffffff 0%, #abd8ff 74%), url('image-assets/forest.svg')"
     stars.forEach(star => {
       star.style.display = 'none'
     })
   } else if (theme === SUNSET_THEME) {
-    sunMoon.style.backgroundImage = "url('assets/Sun-dim.gif')"
-    forestBg.style.background = "linear-gradient(to bottom, #ff7e5f, #feb47b), url('assets/forest.svg')"
+    sunMoon.style.backgroundImage = "url('image-assets/Sun-dim.gif')"
+    forestBg.style.background = "linear-gradient(to bottom, #ff7e5f, #feb47b), url('image-assets/forest.svg')"
   } else if (theme === NIGHT_THEME) {
-    sunMoon.style.backgroundImage = "url('assets/Moon.gif')"
-    forestBg.style.background = "linear-gradient(to bottom, blue, #feb47b), url('assets/forest.svg')"
+    sunMoon.style.backgroundImage = "url('image-assets/Moon.gif')"
+    forestBg.style.background = "linear-gradient(to bottom, blue, #feb47b), url('image-assets/forest.svg')"
     stars.forEach(star => {
       star.style.display = 'block'
     })

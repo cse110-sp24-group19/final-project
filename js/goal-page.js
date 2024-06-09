@@ -86,10 +86,10 @@ function populateCompletedGoal (goal) {
 
   const checkImg = document.createElement('img')
   checkImg.classList.add('check-icon')
-  checkImg.src = 'assets/goal_icons/checked.png'
+  checkImg.src = 'image-assets/goal_icons/checked.png'
 
   const trashImg = document.createElement('img')
-  trashImg.src = 'assets/goal_icons/trash.png'
+  trashImg.src = 'image-assets/goal_icons/trash.png'
   trashImg.addEventListener('click', deleteGoal)
 
   buttonsContainer.appendChild(checkImg)
@@ -254,7 +254,7 @@ function achieveGoal (event) {
   const div = event.target.parentElement.parentElement
   div.className = 'completed-goal'
   const checkIcon = div.querySelector('.check-icon')
-  checkIcon.src = 'assets/goal_icons/checked.png'
+  checkIcon.src = 'image-assets/goal_icons/checked.png'
   const penIcon = div.querySelector('.pen-icon')
   penIcon.style.display = 'none'
   markGoalCompletedInStorage(div.id)
@@ -283,16 +283,16 @@ function createNewGoal (category, input) {
 
   const checkImg = document.createElement('img')
   checkImg.classList.add('check-icon')
-  checkImg.src = 'assets/goal_icons/check.png'
+  checkImg.src = 'image-assets/goal_icons/check.png'
   checkImg.addEventListener('click', achieveGoal)
 
   const penImg = document.createElement('img')
   penImg.classList.add('pen-icon')
-  penImg.src = 'assets/goal_icons/pen.png'
+  penImg.src = 'image-assets/goal_icons/pen.png'
   penImg.addEventListener('click', editGoal)
 
   const trashImg = document.createElement('img')
-  trashImg.src = 'assets/goal_icons/trash.png'
+  trashImg.src = 'image-assets/goal_icons/trash.png'
   trashImg.addEventListener('click', deleteGoal)
 
   buttonsContainer.appendChild(checkImg)

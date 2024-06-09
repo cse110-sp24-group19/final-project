@@ -1,24 +1,24 @@
 @font-face {
   font-family: roboto;
-  src: url("../assets/RobotoMono-Bold.ttf");
+  src: url("../fonts/RobotoMono-Bold.ttf");
 }
 
 @font-face {
   font-family: comfortaa;
-  src: url("../assets/Comfortaa-Bold.ttf");
+  src: url("../fonts/Comfortaa-Bold.ttf");
 }
 
 @font-face {
   font-family: chakra;
-  src: url("../assets/ChakraPetch-Regular.ttf");
+  src: url("../fonts/ChakraPetch-Regular.ttf");
 }
 
 @font-face {
   font-family: lxgw;
-  src: url("../assets/LXGWWenKaiTC-Regular.ttf");
+  src: url("../fonts/LXGWWenKaiTC-Regular.ttf");
 }
 
 @font-face {
   font-family: seymour;
-  src: url("../assets/SeymourOne-Regular.ttf");
+  src: url("../fonts/SeymourOne-Regular.ttf");
 }
