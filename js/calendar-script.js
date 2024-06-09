@@ -1,3 +1,65 @@
+/**
+ * Loads entries for a given date
+ *
+ * Gets all of the journal entries from local storage,
+ * filters them based on a given date, and creates list
+ * items for the day view
+ *
+ * @param {String} date
+ */
+export function createEntriesForDate (date) {
+  const journalList = document.getElementById('journal-list')
+  journalList.innerHTML = '' // Clear existing entries
+
+  const filteredEntries = loadEntriesForDate(date)
+
+  filteredEntries.forEach(entry => {
+    const newEntry = document.createElement('li')
+    newEntry.textContent = entry.title
+    newEntry.dataset.info = entry.info
+    newEntry.dataset.id = entry.id
+    newEntry.dataset.date = entry.date
+    journalList.appendChild(newEntry)
+  })
+}
+
+/**
+ * Loads entries for a given date
+ *
+ * Gets all of the journal entries from local storage,
+ * filters them based on a given date, and returns the
+ * filtered list
+ *
+ * @param {String} date
+ * @returns {Array} filteredEntries
+ */
+export function loadEntriesForDate (date) {
+  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
+  const journalList = document.getElementById('journal-list')
+  if (journalList) {
+    journalList.innerHTML = '' // Clear existing entries
+  }
+
+  const filteredEntries = entries.filter(entry => entry.date === date)
+
+  return filteredEntries
+}
+
+// Format date for journal entries
+export function formatDateForJournalEntries (dateString) {
+  const [year, month, day] = dateString.split('-')
+  return `${parseInt(month)}/${parseInt(day)}/${year}`
+}
+
+// Function to search journal entries
+export function searchEntries (journalEntries, query) {
+  return journalEntries.filter(entry =>
+    entry.title.toLowerCase().includes(query.toLowerCase()) ||
+    entry.content.toLowerCase().includes(query.toLowerCase())
+  )
+}
+
+export function initializeCalendarScript() {
 // Function to display search results in the calendar
 function displaySearchResults (entries) {
   const calendar = document.querySelector('.calendar-dates')
@@ -190,50 +252,6 @@ function loadAllEntries () {
   return JSON.parse(localStorage.getItem('journalEntries')) || []
 }
 
-/**
- * Loads entries for a given date
- *
- * Gets all of the journal entries from local storage,
- * filters them based on a given date, and returns the
- * filtered list
- *
- * @param {String} date
- * @returns {Array} filteredEntries
- */
-function loadEntriesForDate (date) {
-  const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
-  const journalList = document.getElementById('journal-list')
-  journalList.innerHTML = '' // Clear existing entries
-
-  const filteredEntries = entries.filter(entry => entry.date === date)
-
-  return filteredEntries
-}
-
-/**
- * Loads entries for a given date
- *
- * Gets all of the journal entries from local storage,
- * filters them based on a given date, and creates list
- * items for the day view
- *
- * @param {String} date
- */
-function createEntriesForDate (date) {
-  const journalList = document.getElementById('journal-list')
-  journalList.innerHTML = '' // Clear existing entries
-
-  const filteredEntries = loadEntriesForDate(date)
-
-  filteredEntries.forEach(entry => {
-    const newEntry = document.createElement('li')
-    newEntry.textContent = entry.title
-    newEntry.dataset.info = entry.info
-    newEntry.dataset.id = entry.id
-    newEntry.dataset.date = entry.date
-    journalList.appendChild(newEntry)
-  })
-}
 
 // Function that opens the day view
 function openDayView (dateString) {
@@ -249,11 +267,7 @@ function openDayView (dateString) {
   calendarView.classList.add('hidden')
 }
 
-// Format date for journal entries
-function formatDateForJournalEntries (dateString) {
-  const [year, month, day] = dateString.split('-')
-  return `${parseInt(month)}/${parseInt(day)}/${year}`
-}
+
 
 // Function to close day view and return to calendar
 function closeDayView () {
@@ -317,10 +331,8 @@ document.getElementById('search-bar').addEventListener('submit', (event) => {
   displaySearchResults(results)
 })
 
-// Function to search journal entries
-function searchEntries (journalEntries, query) {
-  return journalEntries.filter(entry =>
-    entry.title.toLowerCase().includes(query.toLowerCase()) ||
-    entry.content.toLowerCase().includes(query.toLowerCase())
-  )
 }
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', initializeCalendarScript);
+}
+
