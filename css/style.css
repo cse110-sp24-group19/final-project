@@ -53,6 +53,8 @@ body {
 */
 
 #main-page {
+  width: 100vw;
+  height: 100vh;
   cursor: url("../assets/firefly.png"), auto;
 }
 
@@ -72,7 +74,39 @@ body {
   background-blend-mode: multiply;
 }
 
-/* Sun and moon icon styling */
+#airplane-container {
+  position: absolute;
+  top: 6vh;
+  right: 100vw;
+  display: flex;
+  align-items: center;
+  animation: move-left 20s linear infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#airplane {
+  width: 18vw;
+  height: 14vw;
+  background: url("../assets/airplane.png");
+  background-size: cover;
+}
+
+#airplane-label {
+  background: linear-gradient(135deg, #14bde6, #80a2f4, #e274ff);
+  border-radius: 10px;
+  color: white;
+  font-family: comfortaa, sans-serif;
+  font-size: 3vw;
+  white-space: nowrap;
+  animation: bounce 2s linear infinite;
+  padding: 1vh 1vw;
+  box-shadow: 0 4px 8px rgba(0 0 0 / 30%);
+  border: 2px solid rgba(255 255 255 / 50%);
+  text-shadow: 2px 2px 4px rgba(0 0 0 / 50%);
+}
+
+/*  and moon icon styling */
 #sun-moon {
   position: absolute;
   top: 5vh;
@@ -101,14 +135,14 @@ body {
   background: url("../assets/Cloud.gif");
   background-size: cover;
   animation: move-right 25s linear infinite;
-  z-index: 10;
+  z-index: 9;
   pointer-events: none;
 }
 
 /* Bird animations */
 #bird1 {
   position: absolute;
-  top: 15vh;
+  top: 22vh;
   right: 100vw;
   width: 7vw;
   height: 7vw;
@@ -121,7 +155,7 @@ body {
 
 #bird2 {
   position: absolute;
-  top: 20vh;
+  top: 28vh;
   right: 100vw;
   width: 7vw;
   height: 7vw;
@@ -134,7 +168,7 @@ body {
 
 #bird3 {
   position: absolute;
-  top: 30vh;
+  top: 35vh;
   right: 100vw;
   width: 7vw;
   height: 7vw;

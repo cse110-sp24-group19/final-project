@@ -4,7 +4,8 @@ window.addEventListener('DOMContentLoaded', function () {
   const backButton = document.getElementById('search-back-button')
 
   // Add an event listener to the form with ID 'search-bar' that triggers on form submission
-  document.getElementById('search-button').addEventListener('click', function () {
+  document.getElementById('search').addEventListener('submit', function (event) {
+    event.preventDefault()
     const searchText = document.getElementById('query').value.trim().toLowerCase()
     const entries = loadAllEntries()
     const filteredEntries = entries.filter(entry =>
