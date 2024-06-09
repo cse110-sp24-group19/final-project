@@ -18,95 +18,134 @@ window.addEventListener('DOMContentLoaded', function () {
   backButton.addEventListener('click', function () {
     showPage('calendar-journal-page')
   })
-
-  /* ------------------------------------------------------------------------- */
-  /* ------------------------Functions---------------------------------------- */
-  // Get all Entries from Local Storage
-  function loadAllEntries () {
-    return JSON.parse(localStorage.getItem('journalEntries')) || []
-  }
-
-  // Function to display search results
-  function displaySearchResults (results) {
-    results.sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
-    const searchResultsList = document.getElementById('search-results-list')
-    searchResultsList.innerHTML = ''
-
-    results.forEach(result => {
-      const listItem = document.createElement('li')
-      listItem.className = 'sticky-note result'
-      listItem.setAttribute('data-date', reverseFormat(result.date))
-      listItem.innerHTML = `
-        <div class="content">
-         <div class="date ">${result.date}</div>
-         <div class="title"> ${result.title}</div>
-       </div>
-    `
-      listItem.addEventListener('click', function () {
-        console.log(`opening day view for this date : ${this.getAttribute('data-date')}`)
-        openDayView(this.getAttribute('data-date'))
-      })
-
-      searchResultsList.appendChild(listItem)
-    })
-
-    showPage('search-results-page')
-  }
-
-  // Function to show a specific page and hide others
-  function showPage (pageId) {
-    const pages = document.querySelectorAll('.page')
-    pages.forEach(page => {
-      if (page.id === pageId) {
-        page.classList.remove('hidden')
-      } else {
-        page.classList.add('hidden')
-      }
-    })
-  }
-
-  function openDayView (dateString) {
-    // Update day view content based on the clicked date
-    const formattedDate = formatDateForJournalEntries(dateString)
-    document.querySelector('.day-view-date').textContent = formattedDate
-
-    createEntriesForDate(formattedDate)
-
-    // Shows day view
-    dayView.classList.remove('hidden')
-    resultView.classList.add('hidden')
-    // Hide calendar view
-  }
-
-  function formatDateForJournalEntries (dateString) {
-    const [year, month, day] = dateString.split('-')
-    return `${parseInt(month)}/${parseInt(day)}/${year}`
-  }
-
-  // reverse date format to 2024-06-20
-  function reverseFormat (dateString) {
-    const [month, day, year] = dateString.split('/')
-    return `${parseInt(year)}-${parseInt(month)}-${day}`
-  }
-
-  function createEntriesForDate (date) {
-    const journalList = document.getElementById('journal-list')
-    journalList.innerHTML = '' // Clear existing entries
-
-    const filteredEntries = loadEntriesForDate(date)
-
-    filteredEntries.forEach(entry => {
-      const newEntry = document.createElement('li')
-      newEntry.textContent = entry.title
-      newEntry.dataset.info = entry.info
-      newEntry.dataset.id = entry.id
-      newEntry.dataset.date = entry.date
-      journalList.appendChild(newEntry)
-    })
-  }
 })
 
-export function loadEntriesForDate (date) {
+/* ------------------------------------------------------------------------- */
+/* ------------------------Functions---------------------------------------- */
+
+/**
+ * Gets all entries from local storage
+ *
+ * @returns {Array} - The array of all journal entries
+ */
+function loadAllEntries () {
+  return JSON.parse(localStorage.getItem('journalEntries')) || []
+}
+
+/**
+ * Displays search results in the search results list
+ *
+ * @param {Array} results - The array of filtered journal entries
+ */
+function displaySearchResults(results) {
+  results.sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
+  const searchResultsList = document.getElementById('search-results-list')
+  searchResultsList.innerHTML = ''
+
+  results.forEach(result => {
+    const listItem = document.createElement('li')
+    listItem.className = 'sticky-note result'
+    listItem.setAttribute('data-date', reverseFormat(result.date))
+    listItem.innerHTML = `
+      <div class="content">
+        <div class="date">${result.date}</div>
+        <div class="title">${result.title.trim()}</div>
+      </div>
+    `
+    listItem.addEventListener('click', function () {
+      console.log(`opening day view for this date : ${this.getAttribute('data-date')}`)
+      openDayView(this.getAttribute('data-date'))
+    })
+
+    searchResultsList.appendChild(listItem)
+  })
+
+  showPage('search-results-page')
+}
+
+/**
+ * Shows a specific page and hides others
+ *
+ * @param {String} pageId - The ID of the page to show
+ */
+function showPage (pageId) {
+  const pages = document.querySelectorAll('.page')
+  pages.forEach(page => {
+    if (page.id === pageId) {
+      page.classList.remove('hidden')
+    } else {
+      page.classList.add('hidden')
+    }
+  })
+}
+
+/**
+ * Opens the day view for a specific date
+ *
+ * @param {String} dateString - The date string to open in the day view
+ */
+function openDayView (dateString) {
+  const formattedDate = formatDateForJournalEntries(dateString)
+  document.querySelector('.day-view-date').textContent = formattedDate
+
+  createEntriesForDate(formattedDate)
+
+  const dayView = document.getElementById('day-view')
+  const resultView = document.getElementById('search-results-page')
+  dayView.classList.remove('hidden')
+  resultView.classList.add('hidden')
+}
+
+/**
+ * Formats date string for journal entries
+ *
+ * @param {String} dateString - The date string to format
+ * @returns {String} - The formatted date string
+ */
+function formatDateForJournalEntries (dateString) {
+  const [year, month, day] = dateString.split('-')
+  return `${parseInt(month)}/${parseInt(day)}/${year}`
+}
+
+/**
+ * Reverses date format to 'yyyy-mm-dd'
+ *
+ * @param {String} dateString - The date string to reverse
+ * @returns {String} - The reversed date string
+ */
+function reverseFormat (dateString) {
+  const [month, day, year] = dateString.split('/')
+  return `${parseInt(year)}-${parseInt(month)}-${parseInt(day).toString().padStart(2, '0')}`
+}
+
+/**
+ * Creates entries for a specific date
+ *
+ * @param {String} date - The date to create entries for
+ */
+function createEntriesForDate (date) {
+  const journalList = document.getElementById('journal-list')
+  journalList.innerHTML = ''
+
+  const filteredEntries = loadEntriesForDate(date)
+
+  filteredEntries.forEach(entry => {
+    const newEntry = document.createElement('li')
+    newEntry.textContent = entry.title
+    newEntry.dataset.info = entry.info
+    newEntry.dataset.id = entry.id
+    newEntry.dataset.date = entry.date
+    journalList.appendChild(newEntry)
+  })
+}
+
+/**
+ * Loads entries for a specific date from local storage
+ *
+ * @param {String} date - The date to filter entries by
+ * @returns {Array} - The filtered entries
+ */
+function loadEntriesForDate (date) {
   const entries = JSON.parse(localStorage.getItem('journalEntries')) || []
   const journalList = document.getElementById('journal-list')
   journalList.innerHTML = '' // Clear existing entries
@@ -115,3 +154,6 @@ export function loadEntriesForDate (date) {
 
   return filteredEntries
 }
+
+// Export functions for testing
+export { loadAllEntries, displaySearchResults, showPage, openDayView, formatDateForJournalEntries, reverseFormat, createEntriesForDate, loadEntriesForDate }
