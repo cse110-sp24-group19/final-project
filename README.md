@@ -61,11 +61,16 @@ To get a local copy up and running follow these simple steps.
 ### Installation
 
 1. Clone the repo
-   ```sh
-   git clone https://github.com/cse110-sp24-group19/final-project.git
+
+    ```sh
+    git clone https://github.com/cse110-sp24-group19/final-project.git
+    ```
 
 2. Install NPM packages
-   ```npm install
+
+    ```sh
+    npm install
+    ```
 
 ## Usage
 
