@@ -8,9 +8,7 @@ import {
   isValidTitle,
   isValidInfo,
   updateEntryInLocalStorage,
-  removeEntryFromLocalStorage,
-  onClassListChange,
-  observeElementClasses
+  removeEntryFromLocalStorage
 } from '../js/day-view'
 
 describe('Day View Utility Functions', () => {
@@ -91,5 +89,6 @@ describe('Day View Utility Functions', () => {
   })
 
 })
+
 
 

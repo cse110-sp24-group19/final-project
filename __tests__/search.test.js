@@ -68,6 +68,13 @@ describe('search.js', () => {
       localStorage.setItem('journalEntries', JSON.stringify(entries));
   };
 
+  // Helper function to load and verify entries for a specific date
+  const loadAndVerifyEntriesForDate = (date, expectedEntries) => {
+      setMockEntries(expectedEntries);
+      const entries = loadEntriesForDate(date);
+      return entries;
+  };
+
   test('createEntriesForDate creates entries for a specific date', () => {
       const mockEntries = [
           { id: '1', date: '6/8/2024', title: 'Event 1', info: 'Info 1' },
@@ -96,10 +103,10 @@ describe('search.js', () => {
           { id: '1', date: '6/8/2024', title: 'Event 1', info: 'Info 1' },
           { id: '2', date: '6/9/2024', title: 'Event 2', info: 'Info 2' }
       ];
-      setMockEntries(mockEntries);
-      const entries = loadEntriesForDate('6/8/2024');
+      const entries = loadAndVerifyEntriesForDate('6/8/2024', mockEntries);
       expect(entries).toEqual([{ id: '1', date: '6/8/2024', title: 'Event 1', info: 'Info 1' }]);
   });
 });
+
 
   
