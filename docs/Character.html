@@ -277,7 +277,7 @@
     
     <pre class="prettyprint"><code>const usercharacter = new Character('Smaug', 'Dragon', 5);
 console.log(usercharacter.getCurrentProgression()); // 5
-console.log(usercharacter.getCharacterInfo()[2] // assets/dragon-baby.png
+console.log(usercharacter.getCharacterInfo()[2] // image-assets/dragon-baby.png
 console.log(usercharacter.updateProgression(10);
 console.log(usercharacter.getCharacterInfo()[0]); // 15</code></pre>
 
@@ -361,7 +361,7 @@ console.log(usercharacter.getCharacterInfo()[0]); // 15</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line165">line 165</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line170">line 170</a>
     </li></ul></dd>
     
 
@@ -414,7 +414,7 @@ console.log(usercharacter.getCharacterInfo()[0]); // 15</code></pre>
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>console.log(dragon.fetchImageAsset()); // Outputs 'assets/dragon-baby.png'</code></pre>
+    <pre class="prettyprint"><code>console.log(dragon.fetchImageAsset()); // Outputs 'image-assets/dragon-baby.png'</code></pre>
 
 
 
@@ -476,7 +476,7 @@ console.log(usercharacter.getCharacterInfo()[0]); // 15</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line65">line 65</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -591,7 +591,7 @@ console.log(usercharacter.getCharacterInfo()[0]); // 15</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line100">line 100</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line105">line 105</a>
     </li></ul></dd>
     
 
@@ -706,7 +706,7 @@ console.log(usercharacter.getCharacterInfo()[0]); // 15</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line142">line 142</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line147">line 147</a>
     </li></ul></dd>
     
 
@@ -821,7 +821,7 @@ console.log(usercharacter.getCharacterInfo()[0]); // 15</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line121">line 121</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line126">line 126</a>
     </li></ul></dd>
     
 
@@ -936,7 +936,7 @@ console.log(usercharacter.getCharacterInfo()[0]); // 15</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line49">line 49</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -989,8 +989,13 @@ console.log(usercharacter.getCharacterInfo()[0]); // 15</code></pre>
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>console.log(dragon.getCharacterInfo()); // Outputs [progressionPoints, 'LifeStage', 'assets/character-stage.png',
-progressionStagePercentage, 'progressionStageFrac']</code></pre>
+    <pre class="prettyprint"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+console.log(dragon.getCharacterInfo()); // Outputs [progressionPoints, 'LifeStage', 'image-assets/character-stage.png',
+progressionStagePercentage]
+=======
+console.log(dragon.getCharacterInfo()); // Outputs [progressionPoints, 'LifeStage', 'assets/character-stage.png',
+progressionStagePercentage, 'progressionStageFrac']
+>>>>>>> 4c59155a593952aca568b2a7f08e6c237040907a</code></pre>
 
 
 
@@ -1009,7 +1014,7 @@ progressionStagePercentage, 'progressionStageFrac']</code></pre>
 
 <div class="description">
     Updates the progression points of the character and broadcasts an event to let other resources know to update their
-assets. The event is called 'characterInfoUpdated'.
+image-assets. The event is called 'characterInfoUpdated'.
 </div>
 
 
@@ -1102,7 +1107,7 @@ assets. The event is called 'characterInfoUpdated'.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line78">line 78</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line83">line 83</a>
     </li></ul></dd>
     
 
@@ -1196,7 +1201,7 @@ console.log(dragon.getCharacterInfo()[0]); // 30</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line249">line 249</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line254">line 254</a>
     </li></ul></dd>
     
 
@@ -1284,7 +1289,7 @@ console.log(dragon.getCharacterInfo()[0]); // 30</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line211">line 211</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line216">line 216</a>
     </li></ul></dd>
     
 
@@ -1372,7 +1377,7 @@ console.log(dragon.getCharacterInfo()[0]); // 30</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line203">line 203</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line208">line 208</a>
     </li></ul></dd>
     
 
@@ -1460,7 +1465,7 @@ console.log(dragon.getCharacterInfo()[0]); // 30</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line228">line 228</a>
+        <a href="Character.js.html">Character.js</a>, <a href="Character.js.html#line233">line 233</a>
     </li></ul></dd>
     
 
@@ -1512,7 +1517,7 @@ console.log(dragon.getCharacterInfo()[0]); // 30</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sun Jun 09 2024 09:10:59 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Mon Jun 10 2024 00:04:51 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
