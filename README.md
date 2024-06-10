@@ -4,15 +4,14 @@
 [![Docs](https://img.shields.io/badge/Docs-Internal_Docs-brightgreen)](https://cse110-sp24-group19.github.io/final-project/docs)
 [![Codacy](https://img.shields.io/badge/Codacy-Code_Coverage-ff69b4)](https://app.codacy.com/organizations/gh/cse110-sp24-group19/dashboard)
 
-Welcome to The Cool Gen Z Work Journal! This innovative web app is designed to help you stay productive, track your goals, and have fun along the way.
+Welcome to The Cool Gen Z Work Journal! This innovative web app is a fun way for users to manage daily tasks, set and achieve goals, and enjoy creative activities, all while earning rewards. Watch your adorable reward character start from an egg and grow up based on your activity in the app!
 
 ## Table of Contents
 
 - [🐵 Coding Monkeys present... The Cool Gen Z Work Journal 📝](#-coding-monkeys-present-the-cool-gen-z-work-journal-)
-  - [Table of Contents](#table-of-contents)
   - [✨ Features](#-features)
     - [🚀 Main Page](#-main-page)
-    - [🗓 Calendar/Journal](#-calendarjournal)
+    - [🗓 Calendar Journal](#-calendar-journal)
     - [🎯 Goal Setting](#-goal-setting)
     - [🏆 Rewards](#-rewards)
     - [🎨 Creative Play](#-creative-play)
@@ -34,7 +33,7 @@ Welcome to The Cool Gen Z Work Journal! This innovative web app is designed to h
 
 - **Navigation**: Easy access to Creative Play, Goal Setting, Rewards, and Calendar/Journal sections.
 
-### 🗓 Calendar/Journal
+### 🗓 Calendar Journal
 
 - **Views**:
   - **Calendar View**: Monthly overview with previews of journal entries.
@@ -48,7 +47,7 @@ Welcome to The Cool Gen Z Work Journal! This innovative web app is designed to h
 
 ### 🏆 Rewards
 
-- **Character Status**: Track your character's progression from egg to adult (Monkey, Dragon).
+- **Character Status**: Track your character's progression from egg to adult (Monkey or Dragon).
 - **Points System**: Earn points by logging in daily and completing tasks. First level-up at 10 points, then every 5 points.
 - **Progressions**: Automatic character evolution as points accumulate.
 
