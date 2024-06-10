@@ -22,10 +22,6 @@ Welcome to The Cool Gen Z Work Journal! This innovative web app is designed to h
     - [Installation](#installation)
   - [🚀 Usage](#-usage)
   - [🤝 Contributing](#-contributing)
-  - [🧑‍💻 Developer Guide](#-developer-guide)
-    - [Languages and Tools Used](#languages-and-tools-used)
-    - [Repo Information](#repo-information)
-    - [CI/CD Pipeline and Testing](#cicd-pipeline-and-testing)
   - [👥 Team Members](#-team-members)
     - [Team Leads](#team-leads)
     - [Developers](#developers)
@@ -123,22 +119,6 @@ Contributions are what make the open-source community such an amazing place to l
     git push origin feature/AmazingFeature
     ```
 5. **Open a Pull Request**
-
-## 🧑‍💻 Developer Guide
-
-### Languages and Tools Used
-
-- HTML
-- CSS
-- JavaScript
-
-### Repo Information
-
-![Diagram of folders and notable files in the repository.](/assets/diagrams/file_architecture.png "Architectural Documentation")
-
-### CI/CD Pipeline and Testing
-
-![Diagram of steps of the CI/CD Pipeline.](/assets/diagrams/pipeline.png "Diagram of Build Pipeline")
 
 For detailed information, refer to our [Developer Guide](/developer-guide.md).
 
