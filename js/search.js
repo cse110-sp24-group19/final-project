@@ -102,7 +102,7 @@ function openDayView (dateString) {
  */
 function formatDateForJournalEntries (dateString) {
   const [year, month, day] = dateString.split('-')
-  return `${parseInt(month)}/${parseInt(day)}/${year}`
+  return `${parseInt(month, 10)}/${parseInt(day, 10)}/${year}`
 }
 
 /**
@@ -113,7 +113,7 @@ function formatDateForJournalEntries (dateString) {
  */
 function reverseFormat (dateString) {
   const [month, day, year] = dateString.split('/')
-  return `${parseInt(year)}-${parseInt(month)}-${parseInt(day).toString().padStart(2, '0')}`
+  return `${parseInt(year, 10)}-${parseInt(month, 10)}-${parseInt(day, 10).toString().padStart(2, '0')}`
 }
 
 /**
