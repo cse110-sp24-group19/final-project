@@ -6,34 +6,31 @@
 
 ## Features
 
-### Home Page
+### Main Page
 
-- Links to each of the three modes: journal, goal setting, creative play
-- User's character appears on home page
+- Links to creative play, goal setting, rewards, and calendar/journal
 
-### Journal
+### Calendar/Journal
 
-- Calendar View integrated with work journal view
 - Two views: Journal Entry View and Calendar/Work Journal View
+  - Calendar View shows the month with previews of journal entries for each day
+  - Journal Entry View lets you view entries specific to that day, and add, edit, and delete entries
 - Search feature
-  - search between entries in work journal view
-- Label creation + tagging
-  - labels: personal, work, free-write
+  - Search the title of entries in Calendar View
 
 ### Goal Setting
 
-- Notification system as reminders
-  - frequency can be based on category
-- three categories: daily, weekly, long-term
+- Three categories: daily, weekly, long-term
+- Checklist style where you can create a goal, mark it as complete, edit, and delete
 
-### Character Level Up
+### Rewards
 
-- 3 possible characters max
+- See status of character
   - Monkey, dragon
-- Possible progression: egg -> cracked egg -> baby -> teenager -> adult
+- Egg -> cracked egg -> baby -> teenager -> adult
 - User earns 1 point for each day they log on, and for each task they complete
   - Points for goal completion TBD
-- First character level-up occurs when 10 pts have been accumulated, each successive level-up increments cost by 5 pts
+- First character level-up occurs when 10 pts have been accumulated, each successive level-up increments with 5 pts
   - Progressions happen automatically when enough points have been accumulated
 
 ### Creative Play
@@ -43,4 +40,6 @@
 
 ## Future Features
 
-- Possible GitHub integration
+- GitHub integration
+- Labels to categorize journal entries, such as work, school, personal
+- Search by date range
