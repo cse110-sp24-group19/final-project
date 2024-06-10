@@ -1,6 +1,7 @@
 # 🐵 Coding Monkeys present... The Cool Gen Z Work Journal 📝
 
 [![Project](https://img.shields.io/badge/Project-View_Here-blue)](https://cse110-sp24-group19.github.io/final-project/)
+
 [![Docs](https://img.shields.io/badge/Docs-Internal_Docs-brightgreen)](https://cse110-sp24-group19.github.io/final-project/docs)
 [![Codacy](https://img.shields.io/badge/Codacy-Code_Coverage-ff69b4)](https://app.codacy.com/organizations/gh/cse110-sp24-group19/dashboard)
 
