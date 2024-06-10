@@ -173,6 +173,7 @@ function unhide () {
   document.getElementById('delete-entry-button').classList.remove('hidden')
 }
 
+let currentEntryElement = null // To store the reference to the clicked entry
 function openEntryDetails (entryElement) {
   currentEntryElement = entryElement // Store the reference to the clicked entry
   document.getElementById('details-title').textContent = entryElement.textContent
@@ -229,19 +230,17 @@ function initializeDayViewScript () {
     hasOverflow(dayViewContainer, backButton)
   })
 
-  let currentEntryElement = null // To store the reference to the clicked entry
-
   function closeEntryDetails () {
-  if (document.getElementById('details-title-input').classList.contains('hidden') &&
+    if (document.getElementById('details-title-input').classList.contains('hidden') &&
     document.getElementById('details-info-textarea').classList.contains('hidden') &&
     document.getElementById('save-details-button').classList.contains('hidden')) {
-    entryDetailsView.classList.add('hidden')
-    dayViewContainer.classList.remove('hidden')
-  } else {
-    document.getElementById('details-title-input').classList.add('hidden')
-    document.getElementById('details-info-textarea').classList.add('hidden')
-    document.getElementById('save-details-button').classList.add('hidden')
-    unhide()
+      entryDetailsView.classList.add('hidden')
+      dayViewContainer.classList.remove('hidden')
+    } else {
+      document.getElementById('details-title-input').classList.add('hidden')
+      document.getElementById('details-info-textarea').classList.add('hidden')
+      document.getElementById('save-details-button').classList.add('hidden')
+      unhide()
     }
   }
 
@@ -277,34 +276,34 @@ function initializeDayViewScript () {
 
     // update local storage entry
     updateEntryInLocalStorage(currentEntryElement.dataset.id, updatedTitle, updatedInfo)
-      Character.updateJournalEntryCount()
-    })
+    Character.updateJournalEntryCount()
+  })
 
-    document.getElementById('delete-entry-button').addEventListener('click', function () {
-      const result = confirm('Are you sure you want to delete this entry?')
-      if (result) {
-        entryDetailsView.classList.add('hidden')
-        dayViewContainer.classList.remove('hidden')
-        removeEntryFromLocalStorage(currentEntryElement.dataset.id)
-        currentEntryElement.remove()
-        hasOverflow(dayViewContainer, backButton)
-        Character.updateJournalEntryCount()
-        console.log('Entry deleted.')
-      } else {
-        console.log('Deletion cancelled.')
-      }
+  document.getElementById('delete-entry-button').addEventListener('click', function () {
+    const result = confirm('Are you sure you want to delete this entry?')
+    if (result) {
+      entryDetailsView.classList.add('hidden')
+      dayViewContainer.classList.remove('hidden')
+      removeEntryFromLocalStorage(currentEntryElement.dataset.id)
+      currentEntryElement.remove()
+      hasOverflow(dayViewContainer, backButton)
+      Character.updateJournalEntryCount()
+      console.log('Entry deleted.')
+    } else {
+      console.log('Deletion cancelled.')
+    }
   })
 
   document.getElementById('back-details-button').addEventListener('click', closeEntryDetails)
 
   document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape') {
-    if (!dayNewEntryView.classList.contains('hidden')) {
-      closeNewEntry()
-    } else if (!entryDetailsView.classList.contains('hidden')) {
-      closeEntryDetails()
+    if (event.key === 'Escape') {
+      if (!dayNewEntryView.classList.contains('hidden')) {
+        closeNewEntry()
+      } else if (!entryDetailsView.classList.contains('hidden')) {
+        closeEntryDetails()
+      }
     }
-  }
   })
 
   // Start observing the class list changes
