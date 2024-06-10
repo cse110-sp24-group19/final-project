@@ -7,21 +7,14 @@ const entryDetailsView = document.getElementById('entry-details-page')
 
 // automatically checks if there is overflow
 export function hasOverflow (container, returnButton) {
-  // const dayViewContainer = document.querySelector('#day-view')
-  // Check if there is overflow in the day-view container
-
   const hasOverflow = container.scrollHeight > container.clientHeight
-
   // Set the position of the back button based on overflow
-  // const backButton = document.querySelector('.back-button')
-  console.log(hasOverflow);
   if (hasOverflow) {
     returnButton.style.position = 'relative'
   } else {
     returnButton.style.position = 'absolute'
   }
 }
-
 
 /**
  * Save a given journal entry to local storage
@@ -183,17 +176,27 @@ function unhide () {
 
 function initializeDayViewScript() {
 
-hasOverflow(dayViewContainer, backButton)
+  function openEntryDetails (entryElement) {
+    currentEntryElement = entryElement // Store the reference to the clicked entry
+    document.getElementById('details-title').textContent = entryElement.textContent
+    document.getElementById('details-info').textContent = entryElement.dataset.info
+    document.getElementById('details-title-input').value = entryElement.textContent
+    document.getElementById('details-info-textarea').value = entryElement.dataset.info
+    dayViewContainer.classList.add('hidden')
+    entryDetailsView.classList.remove('hidden')
+  }
 
-document.querySelectorAll('.add-button').forEach(button => {
+  hasOverflow(dayViewContainer, backButton)
+
+  document.querySelectorAll('.add-button').forEach(button => {
   button.addEventListener('click', addNewEntry)
-})
+  })
 
-document.querySelectorAll('.back-entry-button').forEach(button => {
+  document.querySelectorAll('.back-entry-button').forEach(button => {
   button.addEventListener('click', closeNewEntry)
-})
+  })
 
-document.querySelector('.save-button').addEventListener('click', function () {
+  document.querySelector('.save-button').addEventListener('click', function () {
   const title = document.getElementById('entry-title').value
   const info = document.getElementById('entry-info').value
 
@@ -226,21 +229,11 @@ document.querySelector('.save-button').addEventListener('click', function () {
   dayNewEntryView.classList.add('hidden')
   dayViewContainer.classList.remove('hidden')
   hasOverflow(dayViewContainer, backButton)
-})
+  })
 
-let currentEntryElement = null // To store the reference to the clicked entry
+  let currentEntryElement = null // To store the reference to the clicked entry
 
-function openEntryDetails (entryElement) {
-  currentEntryElement = entryElement // Store the reference to the clicked entry
-  document.getElementById('details-title').textContent = entryElement.textContent
-  document.getElementById('details-info').textContent = entryElement.dataset.info
-  document.getElementById('details-title-input').value = entryElement.textContent
-  document.getElementById('details-info-textarea').value = entryElement.dataset.info
-  dayViewContainer.classList.add('hidden')
-  entryDetailsView.classList.remove('hidden')
-}
-
-function closeEntryDetails () {
+  function closeEntryDetails () {
   if (document.getElementById('details-title-input').classList.contains('hidden') &&
     document.getElementById('details-info-textarea').classList.contains('hidden') &&
     document.getElementById('save-details-button').classList.contains('hidden')) {
@@ -252,9 +245,9 @@ function closeEntryDetails () {
     document.getElementById('save-details-button').classList.add('hidden')
     unhide()
   }
-}
+  }
 
-document.getElementById('edit-entry-button').addEventListener('click', function () {
+  document.getElementById('edit-entry-button').addEventListener('click', function () {
   document.getElementById('details-title').classList.add('hidden')
   document.getElementById('details-info').classList.add('hidden')
   document.getElementById('edit-entry-button').classList.add('hidden')
@@ -263,9 +256,9 @@ document.getElementById('edit-entry-button').addEventListener('click', function 
   document.getElementById('details-title-input').classList.remove('hidden')
   document.getElementById('details-info-textarea').classList.remove('hidden')
   document.getElementById('save-details-button').classList.remove('hidden')
-})
+  })
 
-document.getElementById('save-details-button').addEventListener('click', function () {
+  document.getElementById('save-details-button').addEventListener('click', function () {
   const updatedTitle = document.getElementById('details-title-input').value
   const updatedInfo = document.getElementById('details-info-textarea').value
 
@@ -287,9 +280,9 @@ document.getElementById('save-details-button').addEventListener('click', functio
   // update local storage entry
   updateEntryInLocalStorage(currentEntryElement.dataset.id, updatedTitle, updatedInfo)
   Character.updateJournalEntryCount()
-})
+  })
 
-document.getElementById('delete-entry-button').addEventListener('click', function () {
+  document.getElementById('delete-entry-button').addEventListener('click', function () {
   const result = confirm('Are you sure you want to delete this entry?')
   if (result) {
     entryDetailsView.classList.add('hidden')
@@ -302,11 +295,11 @@ document.getElementById('delete-entry-button').addEventListener('click', functio
   } else {
     console.log('Deletion cancelled.')
   }
-})
+  })
 
-document.getElementById('back-details-button').addEventListener('click', closeEntryDetails)
+  document.getElementById('back-details-button').addEventListener('click', closeEntryDetails)
 
-document.addEventListener('keydown', function (event) {
+  document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
     if (!dayNewEntryView.classList.contains('hidden')) {
       closeNewEntry()
@@ -314,13 +307,11 @@ document.addEventListener('keydown', function (event) {
       closeEntryDetails()
     }
   }
-})
+  })
 
-
-// Start observing the class list changes
-observeElementClasses(dayViewContainer)
-observeElementClasses(dayNewEntryView)
+  // Start observing the class list changes
+  observeElementClasses(dayViewContainer)
+  observeElementClasses(dayNewEntryView)
 }
-
 
 document.addEventListener('DOMContentLoaded', initializeDayViewScript)
