@@ -1,4 +1,6 @@
-// __tests__/calendar-script.test.js
+/**
+ * @jest-environment jsdom
+ */
 
 import {
   loadEntriesForDate,
