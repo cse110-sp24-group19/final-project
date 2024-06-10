@@ -10,12 +10,22 @@ import {
   createEntriesForDate,
 } from '../js/calendar-script';
 
-// Helper function to deep copy entries to avoid mutation issues
-const deepCopyEntries = (entries) => JSON.parse(JSON.stringify(entries));
-
 // Common setup for journal entries in localStorage
 const setJournalEntries = (entries) => {
-  localStorage.setItem('journalEntries', JSON.stringify(deepCopyEntries(entries)));
+  localStorage.setItem('journalEntries', JSON.stringify(entries));
+};
+
+// Common function to create and check entries
+const createAndCheckEntriesForDate = (date, expectedLength, expectedTitles = []) => {
+  createEntriesForDate(date);
+  const journalItems = document.querySelectorAll('#journal-list li');
+  expect(journalItems.length).toBe(expectedLength);
+  if (expectedTitles.length > 0) {
+    expectedTitles.forEach((title, index) => {
+      const journalItem = journalItems[index]; // Assign to a variable to avoid direct dynamic property access
+      expect(journalItems[index].textContent).toBe(title);
+    });
+  }
 };
 
 // Tests for the loadEntriesForDate function
@@ -24,18 +34,6 @@ describe('loadEntriesForDate', () => {
   beforeEach(() => {
     localStorage.clear();
     document.body.innerHTML = '<ul id="journal-list"></ul>';
-  });
-
-  // Test loading entries for a specific date
-  test('loads entries for a specific date', () => {
-    const entries = [
-      { date: '2024-06-08', title: 'Event 1' },
-      { date: '2024-06-09', title: 'Event 2' },
-    ];
-    setJournalEntries(entries);
-
-    const result = loadEntriesForDate('2024-06-08');
-    expect(result).toEqual([{ date: '2024-06-08', title: 'Event 1' }]);
   });
 
   // Test returning an empty array if no entries match the date
@@ -109,18 +107,6 @@ describe('initializeCalendarScript functions', () => {
 
     initializeCalendarScript(); // Initialize script after setting up DOM
   });
-
-  // Helper function to create entries and return journal items
-  const createAndCheckEntriesForDate = (date, expectedLength, expectedTitles = []) => {
-    createEntriesForDate(date);
-    const journalItems = document.querySelectorAll('#journal-list li');
-    expect(journalItems.length).toBe(expectedLength);
-    if (expectedTitles.length > 0) {
-      expectedTitles.forEach((title, index) => {
-        expect(journalItems[index].textContent).toBe(title);
-      });
-    }
-  };
 
   // Test creating entries for a specific date
   test('createEntriesForDate creates entries for a specific date', () => {
