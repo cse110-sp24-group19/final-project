@@ -23,7 +23,7 @@ const createAndCheckEntriesForDate = (date, expectedLength, expectedTitles = [])
   if (expectedTitles.length > 0) {
     expectedTitles.forEach((title, index) => {
       const journalItem = journalItems[index]; // Assign to a variable to avoid direct dynamic property access
-      expect(journalItems[index].textContent).toBe(title);
+      expect(journalItem.textContent).toBe(title);
     });
   }
 };
