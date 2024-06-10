@@ -231,9 +231,11 @@ function initializeDayViewScript () {
   })
 
   function closeEntryDetails () {
-    if (document.getElementById('details-title-input').classList.contains('hidden') &&
-    document.getElementById('details-info-textarea').classList.contains('hidden') &&
-    document.getElementById('save-details-button').classList.contains('hidden')) {
+    if (
+      document.getElementById('details-title-input').classList.contains('hidden') &&
+      document.getElementById('details-info-textarea').classList.contains('hidden') &&
+      document.getElementById('save-details-button').classList.contains('hidden')
+    ) {
       entryDetailsView.classList.add('hidden')
       dayViewContainer.classList.remove('hidden')
     } else {

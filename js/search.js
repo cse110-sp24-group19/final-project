@@ -1,6 +1,4 @@
 window.addEventListener('DOMContentLoaded', function () {
-  const dayView = document.getElementById('day-view')
-  const resultView = document.getElementById('search-results-page')
   const backButton = document.getElementById('search-back-button')
 
   // Add an event listener to the form with ID 'search-bar' that triggers on form submission
@@ -37,7 +35,7 @@ function loadAllEntries () {
  *
  * @param {Array} results - The array of filtered journal entries
  */
-function displaySearchResults(results) {
+function displaySearchResults (results) {
   results.sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date
   const searchResultsList = document.getElementById('search-results-list')
   searchResultsList.innerHTML = ''
