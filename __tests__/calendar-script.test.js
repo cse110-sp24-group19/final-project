@@ -7,7 +7,6 @@ import {
   searchEntries,
   formatDateForJournalEntries,
   initializeCalendarScript,
-  createEntriesForDate,
 } from '../js/calendar-script';
 
 // Common setup for journal entries in localStorage
@@ -112,4 +111,3 @@ describe('initializeCalendarScript functions', () => {
     expect(calendarDates[0].querySelector('.title').textContent).toBe('Event 1');
   });
 });
- 
