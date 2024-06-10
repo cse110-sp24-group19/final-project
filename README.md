@@ -22,7 +22,7 @@ Welcome to The Cool Gen Z Work Journal! This innovative web app is designed to h
     - [Installation](#installation)
   - [🚀 Usage](#-usage)
   - [🤝 Contributing](#-contributing)
-  - [👥 Team Members](#-team-members)
+  - [👥 Project Team](#-project-team)
     - [Team Leads](#team-leads)
     - [Developers](#developers)
     - [TA](#ta)
@@ -122,7 +122,7 @@ Contributions are what make the open-source community such an amazing place to l
 
 For detailed information, refer to our [Developer Guide](/developer-guide.md).
 
-## 👥 Team Members
+## 👥 Project Team
 
 ### Team Leads
 
