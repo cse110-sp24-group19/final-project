@@ -10,6 +10,11 @@ import {
   createEntriesForDate,
 } from '../js/calendar-script';
 
+// Common setup for journal entries in localStorage
+const setJournalEntries = (entries) => {
+  localStorage.setItem('journalEntries', JSON.stringify(entries));
+};
+
 // Tests for the loadEntriesForDate function
 describe('loadEntriesForDate', () => {
   // Clear localStorage and set up the DOM before each test
@@ -24,7 +29,7 @@ describe('loadEntriesForDate', () => {
       { date: '2024-06-08', title: 'Event 1' },
       { date: '2024-06-09', title: 'Event 2' },
     ];
-    localStorage.setItem('journalEntries', JSON.stringify(entries));
+    setJournalEntries(entries);
 
     const result = loadEntriesForDate('2024-06-08');
     expect(result).toEqual([{ date: '2024-06-08', title: 'Event 1' }]);
@@ -36,7 +41,7 @@ describe('loadEntriesForDate', () => {
       { date: '2024-06-08', title: 'Event 1' },
       { date: '2024-06-09', title: 'Event 2' },
     ];
-    localStorage.setItem('journalEntries', JSON.stringify(entries));
+    setJournalEntries(entries);
 
     const result = loadEntriesForDate('2024-06-10');
     expect(result).toEqual([]);
@@ -102,20 +107,27 @@ describe('initializeCalendarScript functions', () => {
     initializeCalendarScript(); // Initialize script after setting up DOM
   });
 
+  // Helper function to create entries and return journal items
+  const createAndCheckEntriesForDate = (date, expectedLength, expectedTitles = []) => {
+    createEntriesForDate(date);
+    const journalItems = document.querySelectorAll('#journal-list li');
+    expect(journalItems.length).toBe(expectedLength);
+    if (expectedTitles.length > 0) {
+      expectedTitles.forEach((title, index) => {
+        expect(journalItems[index].textContent).toBe(title);
+      });
+    }
+  };
+
   // Test creating entries for a specific date
   test('createEntriesForDate creates entries for a specific date', () => {
     const entries = [
       { date: '2024-06-08', title: 'Event 1', info: 'Info 1', id: '1' },
       { date: '2024-06-08', title: 'Event 2', info: 'Info 2', id: '2' },
     ];
-    localStorage.setItem('journalEntries', JSON.stringify(entries));
+    setJournalEntries(entries);
 
-    createEntriesForDate('2024-06-08');
-
-    const journalItems = document.querySelectorAll('#journal-list li');
-    expect(journalItems.length).toBe(2);
-    expect(journalItems[0].textContent).toBe('Event 1');
-    expect(journalItems[1].textContent).toBe('Event 2');
+    createAndCheckEntriesForDate('2024-06-08', 2, ['Event 1', 'Event 2']);
   });
 
   // Test creating entries for a date with no matching entries
@@ -124,12 +136,9 @@ describe('initializeCalendarScript functions', () => {
       { date: '2024-06-07', title: 'Event 1', info: 'Info 1', id: '1' },
       { date: '2024-06-07', title: 'Event 2', info: 'Info 2', id: '2' },
     ];
-    localStorage.setItem('journalEntries', JSON.stringify(entries));
+    setJournalEntries(entries);
 
-    createEntriesForDate('2024-06-08');
-
-    const journalItems = document.querySelectorAll('#journal-list li');
-    expect(journalItems.length).toBe(0);
+    createAndCheckEntriesForDate('2024-06-08', 0);
   });
 
   // Test search bar form submission and displaying results
@@ -138,7 +147,7 @@ describe('initializeCalendarScript functions', () => {
       { date: '2024-06-08', title: 'Event 1', content: 'Info 1' },
       { date: '2024-06-09', title: 'Event 2', content: 'Info 2' },
     ];
-    localStorage.setItem('journalEntries', JSON.stringify(entries));
+    setJournalEntries(entries);
     document.querySelector('input[name="query"]').value = 'Event 1';
 
     const form = document.getElementById('search-bar');
@@ -149,6 +158,7 @@ describe('initializeCalendarScript functions', () => {
     expect(calendarDates[0].querySelector('.title').textContent).toBe('Event 1');
   });
 });
+
 
 
   

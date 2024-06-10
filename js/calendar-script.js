@@ -82,7 +82,7 @@ export function initializeCalendarScript () {
     })
   }
 
-// get current date information
+  // get current date information
   let date = new Date()
   let year = date.getFullYear()
   let month = date.getMonth()
@@ -329,5 +329,5 @@ export function initializeCalendarScript () {
   })
 }
 if (typeof document !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', initializeCalendarScript);
+  document.addEventListener('DOMContentLoaded', initializeCalendarScript)
 }
