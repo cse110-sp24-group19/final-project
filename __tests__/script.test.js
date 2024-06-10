@@ -2,8 +2,13 @@
  * @jest-environment jsdom
  */
 
-import { jest } from '@jest/globals'
-import { createStar } from '../js/script'
+import { 
+    jest 
+} from '@jest/globals'
+
+import { 
+    createStar 
+} from '../js/script'
 
 describe('script.js', () => {
   beforeAll(() => {
