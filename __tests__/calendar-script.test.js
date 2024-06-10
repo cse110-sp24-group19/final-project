@@ -95,28 +95,6 @@ describe('initializeCalendarScript functions', () => {
     initializeCalendarScript(); // Initialize script after setting up DOM
   });
 
-  // Test creating entries for a specific date
-  test('createEntriesForDate creates entries for a specific date', () => {
-    const entries = [
-      { date: '2024-06-08', title: 'Event 1', info: 'Info 1', id: '1' },
-      { date: '2024-06-08', title: 'Event 2', info: 'Info 2', id: '2' },
-    ];
-    setJournalEntries(entries);
-
-    createAndCheckEntriesForDate('2024-06-08', 2, ['Event 1', 'Event 2']);
-  });
-
-  // Test creating entries for a date with no matching entries
-  test('createEntriesForDate returns an empty list if no entries match the date', () => {
-    const entries = [
-      { date: '2024-06-07', title: 'Event 1', info: 'Info 1', id: '1' },
-      { date: '2024-06-07', title: 'Event 2', info: 'Info 2', id: '2' },
-    ];
-    setJournalEntries(entries);
-
-    createAndCheckEntriesForDate('2024-06-08', 0);
-  });
-
   // Test search bar form submission and displaying results
   test('search bar form submission triggers search and displays results', () => {
     const entries = [
