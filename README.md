@@ -43,3 +43,6 @@
 - GitHub integration
 - Labels to categorize journal entries, such as work, school, personal
 - Search by date range
+
+## For Developers
+[Developer Guide](/developer-guide.md)
