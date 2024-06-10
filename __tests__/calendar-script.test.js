@@ -12,7 +12,14 @@ import {
 
 // Common setup for journal entries in localStorage
 const setJournalEntries = (entries) => {
-  localStorage.setItem('journalEntries', JSON.stringify(entries));
+  const sanitizedEntries = entries.map(entry => ({
+    id: entry.id ? String(entry.id).replace(/[^a-z0-9-]/gi, '') : null,
+    date: entry.date ? String(entry.date).replace(/[^0-9-]/gi, '') : null,
+    title: entry.title ? String(entry.title).replace(/[^a-z0-9- ]/gi, '') : null,
+    info: entry.info ? String(entry.info).replace(/[^a-z0-9- ]/gi, '') : null,
+    content: entry.content ? String(entry.content).replace(/[^a-z0-9- ]/gi, '') : null,
+  }));
+  localStorage.setItem('journalEntries', JSON.stringify(sanitizedEntries));
 };
 
 // Tests for the loadEntriesForDate function
@@ -158,6 +165,7 @@ describe('initializeCalendarScript functions', () => {
     expect(calendarDates[0].querySelector('.title').textContent).toBe('Event 1');
   });
 });
+
 
 
 

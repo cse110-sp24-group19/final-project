@@ -5,7 +5,6 @@
 import { 
     jest 
 } from '@jest/globals'
-
 import { 
     createStar 
 } from '../js/script'
