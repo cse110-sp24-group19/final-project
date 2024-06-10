@@ -15,21 +15,6 @@ const setJournalEntries = (entries) => {
   localStorage.setItem('journalEntries', JSON.stringify(entries));
 };
 
-// Common function to create and check entries
-const createAndCheckEntriesForDate = (date, expectedLength, expectedTitles = []) => {
-  createEntriesForDate(date);
-  const journalItems = document.querySelectorAll('#journal-list li');
-  expect(journalItems.length).toBe(expectedLength);
-  if (expectedTitles.length > 0) {
-    expectedTitles.forEach((title, index) => {
-      if(index < journalItems.length){
-        const journalItem = journalItems[index]; // Assign to a variable to avoid direct dynamic property access
-        expect(journalItem.textContent).toBe(title);
-      }
-    });
-  }
-};
-
 // Tests for the loadEntriesForDate function
 describe('loadEntriesForDate', () => {
   // Clear localStorage and set up the DOM before each test
