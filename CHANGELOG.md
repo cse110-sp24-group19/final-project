@@ -1,6 +1,4 @@
-#### 2024-06-11
-
-##### Other Changes
+# Change Log: Coding Monkeys Work Journal
 
 * //github.com/cse110-sp24-group19/final-project into unit-testing (d67a87ac)
 * //github.com/cse110-sp24-group19/final-project into unit-testing (b50f3375)
