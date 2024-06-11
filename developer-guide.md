@@ -5,9 +5,11 @@
 - [Codacy Code Coverage](https://app.codacy.com/organizations/gh/cse110-sp24-group19/dashboard)
 
 ## Languages and Tools Used
+
 - HTML
 - CSS
 - JavaScript
+
 
 ## Repo Information
 ![Diagram of folders and notable files in the repository.](/assets/diagrams/file_architecture.png "Architectural Documentation")
