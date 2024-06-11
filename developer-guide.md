@@ -10,10 +10,8 @@
 - CSS
 - JavaScript
 
-
 ## Repo Information
 ![Diagram of folders and notable files in the repository.](/assets/diagrams/file_architecture.png "Architectural Documentation")
-
 
 ## CI/CD Pipeline and Testing
 ![Diagram of steps of the CI/CD Pipeline.](/assets/diagrams/pipeline.png "Diagram of Build Pipeline")
