@@ -10,7 +10,7 @@
 - CSS
 - JavaScript
 
-## Repo Information
+## Repository Information
 
 ![Diagram of folders and notable files in the repository.](/assets/diagrams/file_architecture.png "Architectural Documentation")
 
