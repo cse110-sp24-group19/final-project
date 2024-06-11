@@ -68,11 +68,11 @@ To get a local copy up and running, follow these simple steps:
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) and npm installed on your machine.
+- [Node.js](https://nodejs.org/) and NPM installed on your machine.
 
 ### Installation
 
-1. **Clone the repo**
+1. **Clone the repository**
     ```sh
     git clone https://github.com/cse110-sp24-group19/final-project.git
     ```
