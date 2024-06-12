@@ -7,6 +7,8 @@
 
 Welcome to The Cool Gen Z Work Journal! This innovative web app is a fun way for users to manage daily tasks, set and achieve goals, and enjoy creative activities, all while earning rewards. Watch your adorable reward character start from an egg and grow up based on your activity in the app!
 
+Videos:  [Private](https://www.youtube.com/watch?v=4n0bQLkkg7I&t=634s), [Public](https://www.youtube.com/watch?v=Ugd16H0Ffso&t=2s)
+
 ## Table of Contents
 
 - [🐵 Coding Monkeys present... The Cool Gen Z Work Journal 📝](#-coding-monkeys-present-the-cool-gen-z-work-journal-)
