@@ -7,9 +7,7 @@
 
 Welcome to The Cool Gen Z Work Journal! This innovative web app is a fun way for users to manage daily tasks, set and achieve goals, and enjoy creative activities, all while earning rewards. Watch your adorable reward character start from an egg and grow up based on your activity in the app!
 
-Videos:
-[![Public]([https://img.shields.io/badge/Project-View_Here-blue)](https://cse110-sp24-group19.github.io/final-project/](https://www.youtube.com/watch?v=Ugd16H0Ffso))
-[![Private][(https://img.shields.io/badge/Project-View_Here-blue)](https://cse110-sp24-group19.github.io/final-project/)](https://www.youtube.com/watch?v=4n0bQLkkg7I&t=634s)
+Videos:  [Private](https://www.youtube.com/watch?v=4n0bQLkkg7I&t=634s), [Private](https://www.youtube.com/watch?v=Ugd16H0Ffso&t=2s)
 
 ## Table of Contents
 
