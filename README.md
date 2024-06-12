@@ -1,46 +1,154 @@
-# Coding Monkeys presents... The Cool Gen Z Work Journal
+# 🐵 Coding Monkeys present... The Cool Gen Z Work Journal 📝
 
-- [View our project here](https://cse110-sp24-group19.github.io/final-project/)
-- [Internal Docs](https://cse110-sp24-group19.github.io/final-project/docs)
-- [Codacy Code Coverage](https://app.codacy.com/organizations/gh/cse110-sp24-group19/dashboard)
+[![Project](https://img.shields.io/badge/Project-View_Here-blue)](https://cse110-sp24-group19.github.io/final-project/)
 
-## Features
+[![Docs](https://img.shields.io/badge/Docs-Internal_Docs-brightgreen)](https://cse110-sp24-group19.github.io/final-project/docs)
+[![Codacy](https://img.shields.io/badge/Codacy-Code_Coverage-ff69b4)](https://app.codacy.com/organizations/gh/cse110-sp24-group19/dashboard)
 
-### Home Page
+Welcome to The Cool Gen Z Work Journal! This innovative web app is a fun way for users to manage daily tasks, set and achieve goals, and enjoy creative activities, all while earning rewards. Watch your adorable reward character start from an egg and grow up based on your activity in the app!
 
-- Links to each of the three modes: journal, goal setting, creative play
-- User's character appears on home page
+## Table of Contents
 
-### Journal
+- [🐵 Coding Monkeys present... The Cool Gen Z Work Journal 📝](#-coding-monkeys-present-the-cool-gen-z-work-journal-)
+  - [✨ Features](#-features)
+    - [🚀 Main Page](#-main-page)
+    - [🗓 Calendar Journal](#-calendar-journal)
+    - [🎯 Goal Setting](#-goal-setting)
+    - [🏆 Rewards](#-rewards)
+    - [🎨 Creative Play](#-creative-play)
+  - [🌟 Future Features](#-future-features)
+  - [🛠 Setup](#-setup)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [🚀 Usage](#-usage)
+  - [🤝 Contributing](#-contributing)
+  - [👥 Project Team](#-project-team)
+    - [Team Leads](#team-leads)
+    - [Developers](#developers)
+    - [TA](#ta)
+  - [📧 Contact](#-contact)
 
-- Calendar View integrated with work journal view
-- Two views: Journal Entry View and Calendar/Work Journal View
-- Search feature
-  - search between entries in work journal view
-- Label creation + tagging
-  - labels: personal, work, free-write
+## ✨ Features
 
-### Goal Setting
+### 🚀 Main Page
 
-- Notification system as reminders
-  - frequency can be based on category
-- three categories: daily, weekly, long-term
+- **Navigation**: Easy access to Creative Play, Goal Setting, Rewards, and Calendar/Journal sections.
 
-### Character Level Up
+### 🗓 Calendar Journal
 
-- 3 possible characters max
-  - Monkey, dragon
-- Possible progression: egg -> cracked egg -> baby -> teenager -> adult
-- User earns 1 point for each day they log on, and for each task they complete
-  - Points for goal completion TBD
-- First character level-up occurs when 10 pts have been accumulated, each successive level-up increments cost by 5 pts
-  - Progressions happen automatically when enough points have been accumulated
+- **Views**:
+  - **Calendar View**: Monthly overview with previews of journal entries.
+  - **Journal Entry View**: Detailed view for managing daily entries.
+- **Search**: Quickly find entries by title using the search bar in Calendar View.
 
-### Creative Play
+### 🎯 Goal Setting
 
-- Whiteboard feature where user can add text, drawings, etc
-- Built with p5.js
+- **Categories**: Daily, Weekly, Long-term goals.
+- **Functionality**: Create, mark as complete, edit, and delete goals with a simple checklist.
 
-## Future Features
+### 🏆 Rewards
 
-- Possible GitHub integration
+- **Character Status**: Track your character's progression from egg to adult (Monkey or Dragon).
+- **Points System**: Earn points by logging in daily and completing tasks. First level-up at 10 points, then every 5 points.
+- **Progressions**: Automatic character evolution as points accumulate.
+
+### 🎨 Creative Play
+
+- **Whiteboard**: Add text, drawings, and more with p5.js for a creative break.
+
+## 🌟 Future Features
+
+- **GitHub Integration**: Track commits and integrate work logs with journal entries.
+- **Labels for Journal Entries**: Categorize entries with labels such as Work, School, Personal.
+- **Advanced Search**: Search entries by date range.
+
+## 🛠 Setup
+
+To get a local copy up and running, follow these simple steps:
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) and npm installed on your machine.
+
+### Installation
+
+1. **Clone the repository**
+    ```sh
+    git clone https://github.com/cse110-sp24-group19/final-project.git
+    ```
+
+2. **Install npm packages**
+    ```sh
+    npm install
+    ```
+
+## 🚀 Usage
+
+1. **Main Page**:
+    - Navigate to different sections: Creative Play, Goal Setting, Rewards, and Calendar/Journal.
+
+2. **Calendar/Journal**:
+    - Switch between Calendar View and Journal Entry View to manage your entries.
+    - Use the search bar in Calendar View to find specific entries by title.
+
+3. **Goal Setting**:
+    - Add new goals, mark them as complete, edit, or delete them.
+
+4. **Rewards**:
+    - Track your character's progress and evolution.
+    - Earn points by logging in daily and completing tasks.
+
+5. **Creative Play**:
+    - Use the whiteboard to draw, write, and create freely.
+
+## 🤝 Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. **Fork the Project**
+2. **Create your Feature Branch**
+    ```sh
+    git checkout -b feature/AmazingFeature
+    ```
+3. **Commit your Changes**
+    ```sh
+    git commit -m 'Add some AmazingFeature'
+    ```
+4. **Push to the Branch**
+    ```sh
+    git push origin feature/AmazingFeature
+    ```
+5. **Open a Pull Request**
+
+For detailed information, refer to our [Developer Guide](/developer-guide.md).
+
+## 👥 Project Team
+
+### Team Leads
+
+- Riana Ali
+- Milana Gorobchenko
+
+### Developers
+
+- Julie Hong
+- Allison Lane
+- Wenzhe Xu
+- Brandon Panuco
+- Charlie Trinh
+- David De-santiago
+- Julio Rivas Midence
+- Ginger Smith
+- Nikolas Yanek-Chrones
+
+### TA
+
+- Kashish Jain
+
+## 📧 Contact
+
+For more information, contact [riali@ucsd.edu](mailto:riali@ucsd.edu) or [mgorobchenko@ucsd.edu](mailto:mgorobchenko@ucsd.edu).
+
+---
+
+Thank you for checking out The Cool Gen Z Work Journal! We hope you find it as fun and useful as we do.
